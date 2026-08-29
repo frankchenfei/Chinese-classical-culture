@@ -367,6 +367,128 @@ textarea.forum-form-input{resize:vertical}
 
 
 
+/* ===== 页面横幅 ===== */
+.page-banner{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 4px 18px rgba(44,24,16,.14);margin:0 0 1.2rem}
+.page-banner img{display:block;width:100%;height:190px;object-fit:cover}
+.banner-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(90deg,rgba(26,16,8,.55),rgba(26,16,8,.12) 55%,rgba(26,16,8,.4));color:#f5f0e8}
+.banner-title{font-size:1.9rem;letter-spacing:.35em;text-indent:.35em;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.35);margin-bottom:.3rem}
+.banner-sub{font-size:.85rem;letter-spacing:.12em;opacity:.92;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+
+/* ===== 时间轴 ===== */
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;max-width:800px;margin:0 auto 1.6rem}
+.stat-item{background:#fffefb;border:1px solid #e0d5c8;border-radius:10px;text-align:center;padding:.7rem .4rem;box-shadow:0 2px 8px rgba(44,24,16,.05)}
+.stat-item b{display:block;font-size:1.5rem;color:#8B0000;font-weight:700;line-height:1.2}
+.stat-item span{font-size:.75rem;color:#7a6a5a;letter-spacing:.1em}
+.tl-era{display:flex;align-items:center;gap:.7rem;margin:1.2rem 0 .6rem;color:#8B0000;font-weight:700;font-size:.9rem;letter-spacing:.2em}
+.tl-era::before,.tl-era::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,#c9a84c)}
+.tl-era::after{background:linear-gradient(90deg,#c9a84c,transparent)}
+.timeline-page .tl-dot{display:none}
+.timeline-page .tl-item{padding-left:68px}
+.timeline-page .tl-seal{position:absolute;left:4px;top:0;width:44px;height:44px;border-radius:8px;background:#8B0000;color:#f5f0e8;display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:700;box-shadow:0 2px 8px rgba(139,0,0,.32);z-index:2;font-family:"Noto Serif SC","STKaiti","KaiTi","SimSun",serif}
+.timeline-page .tl-card{background:#fffefb;border:1px solid #e6dbc9;border-radius:12px;padding:.85rem 1rem;transition:box-shadow .25s,border-color .25s}
+.timeline-page .tl-item:hover .tl-card,.timeline-page .tl-item.active .tl-card{border-color:#c9a84c;box-shadow:0 6px 18px rgba(44,24,16,.1)}
+.timeline-page .tl-head{margin-bottom:.35rem}
+.timeline-page .tl-year{font-size:.75rem;color:#8B0000;font-weight:600;letter-spacing:.06em}
+.timeline-page .tl-name{font-size:1.3rem;font-weight:700;color:#2c1810;margin:.05rem 0;letter-spacing:.1em}
+.timeline-page .tl-sub{font-size:.8rem;color:#8a7466;letter-spacing:.05em}
+.timeline-page .tl-preview{font-size:.85rem;color:#5c4a38;line-height:1.7;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.timeline-page .tl-body{display:none;margin-top:.6rem;padding-top:.6rem;border-top:1px dashed #d4c9b8;animation:fadeIn .3s ease}
+.timeline-page .tl-item.active .tl-body{display:block}
+.timeline-page .tl-block{margin-bottom:.7rem}
+.timeline-page .tl-block h4{font-size:.8rem;color:#8B0000;letter-spacing:.15em;margin-bottom:.35rem}
+.timeline-page .tl-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.timeline-page .tag{background:#f0e6d6;border:1px solid #e0d5c8;color:#5c4a38;border-radius:999px;padding:.12rem .55rem;font-size:.75rem}
+.timeline-page .tl-classics{display:flex;flex-direction:column;gap:.35rem}
+.timeline-page .tl-classic{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap;font-size:.8rem;line-height:1.5}
+.timeline-page .tl-classic b{color:#2c1810;white-space:nowrap}
+.timeline-page .tl-classic span{color:#7a6a5a;flex:1;min-width:150px}
+.timeline-page .tl-classic em{font-style:normal;font-size:.7rem;color:#8B0000;border:1px solid #c9a84c;border-radius:4px;padding:0 .3rem}
+.timeline-page .tl-arrow{position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#c9a84c;font-size:1rem;transition:transform .25s}
+.timeline-page .tl-item.active .tl-arrow{transform:translateY(-50%) rotate(180deg)}
+
+/* ===== 论坛 ===== */
+.forum-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;gap:.5rem;flex-wrap:wrap}
+.forum-count{font-size:.85rem;color:#7a6a5a}
+.forum-count b{color:#8B0000}
+.forum-post{display:flex;gap:.8rem;background:#fffefb;border:1px solid #e0d5c8;border-radius:12px;padding:.8rem 1rem;cursor:pointer;transition:all .2s}
+.forum-post:hover{border-color:#c9a84c;box-shadow:0 6px 18px rgba(44,24,16,.09);transform:translateY(-1px)}
+.forum-avatar{width:44px;height:44px;border-radius:50%;color:#f5f0e8;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;flex-shrink:0;box-shadow:inset 0 -3px 6px rgba(0,0,0,.18);font-family:"Noto Serif SC","STKaiti","KaiTi","SimSun",serif}
+.forum-post-main{flex:1;min-width:0}
+.forum-post-title{font-size:1rem;font-weight:700;color:#2c1810;margin-bottom:.25rem;line-height:1.4}
+.forum-tags{display:flex;gap:.3rem;margin-bottom:.3rem}
+.forum-cat{font-size:.68rem;color:#8B0000;background:#f7ead8;border:1px solid #e6cfae;border-radius:999px;padding:.05rem .5rem;letter-spacing:.05em;white-space:nowrap}
+.forum-post-excerpt{font-size:.82rem;color:#6b5a4a;line-height:1.6}
+.forum-post-footer{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;margin-top:.4rem;font-size:.72rem;color:#9a8774}
+.forum-post-footer .forum-post-last{margin-left:auto;color:#8B0000}
+
+@media(max-width:768px){
+.page-banner img{height:150px}
+.banner-title{font-size:1.4rem}
+.banner-sub{font-size:.75rem}
+.stats-strip{gap:.4rem}
+.stat-item b{font-size:1.2rem}
+.timeline-page .tl-item{padding-left:58px}
+.timeline-page .tl-seal{left:0;width:38px;height:38px;font-size:1.05rem;border-radius:7px}
+.timeline-page .tl-name{font-size:1.15rem}
+.tl-era{font-size:.82rem}
+.forum-avatar{width:38px;height:38px;font-size:.95rem}
+.forum-post{padding:.7rem .75rem;gap:.6rem}
+}
+
+@media(max-width:480px){
+.page-banner img{height:120px}
+.banner-title{font-size:1.15rem;letter-spacing:.2em;text-indent:.2em}
+.banner-sub{font-size:.68rem}
+.stats-strip{grid-template-columns:repeat(2,1fr)}
+.timeline-page .tl-classic span{min-width:100px}
+.forum-post-title{font-size:.92rem}
+.forum-post-footer .forum-post-last{margin-left:0}
+}
+
+/* ===== 首页 ===== */
+.hero{background:linear-gradient(180deg,rgba(20,12,6,.72),rgba(44,24,16,.45) 45%,rgba(20,12,6,.88)),url("images/home-banner.png") center/cover no-repeat}
+.home-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;max-width:1200px;margin:0 auto;padding:2.2rem 1.5rem 0}
+.hm-card{background:#fffefb;border:1px solid #e0d5c8;border-radius:12px;padding:1.2rem .8rem;text-align:center;cursor:pointer;transition:all .25s;box-shadow:0 2px 8px rgba(44,24,16,.05)}
+.hm-card:hover{border-color:#c9a84c;transform:translateY(-3px);box-shadow:0 8px 20px rgba(44,24,16,.1)}
+.hm-icon{font-size:1.9rem;display:block;margin-bottom:.4rem}
+.hm-card h4{font-size:1rem;color:#2c1810;margin-bottom:.2rem;letter-spacing:.1em}
+.hm-card p{font-size:.75rem;color:#8a7466}
+.home-section{max-width:1200px;margin:0 auto;padding:2.4rem 1.5rem 0}
+.hs-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;border-bottom:1px solid #e0d5c8;padding-bottom:.6rem}
+.hs-head h3{font-size:1.15rem;color:#2c1810;letter-spacing:.15em;font-weight:700}
+.hs-more{background:none;border:none;color:#8B0000;font-size:.8rem;cursor:pointer;font-family:inherit}
+.home-books{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.home-book{background:#fffefb;border:1px solid #e0d5c8;border-radius:12px;padding:1rem;cursor:pointer;transition:all .2s;position:relative}
+.home-book:hover{border-color:#c9a84c;box-shadow:0 6px 16px rgba(44,24,16,.09)}
+.hb-rank{position:absolute;top:.7rem;right:.9rem;color:#c9a84c;font-weight:700;font-size:1.2rem;font-family:serif}
+.home-book h4{font-size:1rem;color:#8B0000;margin-bottom:.15rem}
+.hb-author{font-size:.75rem;color:#7a6a5a;margin-bottom:.4rem}
+.home-book p{font-size:.78rem;color:#6b5a4a;line-height:1.55}
+.home-posts{display:flex;flex-direction:column;gap:.5rem}
+.home-post{display:flex;gap:.7rem;align-items:flex-start;background:#fffefb;border:1px solid #e0d5c8;border-radius:10px;padding:.7rem .9rem;cursor:pointer;transition:all .2s}
+.home-post:hover{border-color:#c9a84c;box-shadow:0 4px 12px rgba(44,24,16,.08)}
+.hp-dot{width:8px;height:8px;border-radius:50%;background:#8B0000;margin-top:.45rem;flex-shrink:0}
+.hp-title{font-size:.9rem;color:#2c1810;font-weight:600;margin-bottom:.15rem}
+.hp-meta{font-size:.72rem;color:#9a8774}
+@media(max-width:768px){
+.home-modules{grid-template-columns:repeat(2,1fr);padding:1.5rem .8rem 0}
+.home-section{padding:1.8rem .8rem 0}
+.home-books{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.home-modules{gap:.5rem}
+.hm-card{padding:.9rem .4rem}
+.hero{min-height:46vh}
+}
+
+
+/* ===== 论坛分页 ===== */
+.forum-pager{display:flex;gap:.35rem;justify-content:center;align-items:center;margin-top:1.2rem;flex-wrap:wrap}
+.pg-btn{min-width:38px;height:38px;padding:0 .6rem;border:1px solid #d4c9b8;background:#fffefb;color:#5c4a38;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.85rem;transition:all .2s}
+.pg-btn:hover:not(:disabled){border-color:#c9a84c;color:#8B0000}
+.pg-btn.active{background:#8B0000;color:#f5f0e8;border-color:#8B0000}
+.pg-btn:disabled{opacity:.45;cursor:not-allowed}
+
 /* ===== 移动端适配优化 ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{-webkit-tap-highlight-color:transparent}
@@ -429,13 +551,30 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 </head>
 <body>
 <div class="top-bar"><div class="top-bar-inner"><div class="lang-switch" id="langSwitch"></div><div class="top-bar-user" id="topBarUser"></div></div></div>
-<nav class="sticky-nav"><div class="nav-inner"><span class="nav-brand" onclick="navTo('home')">☯ 华夏文脉</span><div id="mainNav"></div></div></nav>
-<div class="page active" id="home-page"><header class="hero"><div class="hero-content"><div class="hero-icon">☯</div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button></div></div></div>
+<nav class="sticky-nav"><div class="nav-inner"><span class="nav-brand" onclick="navTo('home')">☯ <span data-t="siteTitle"></span></span><div id="mainNav"></div></div></nav>
+<div class="page active" id="home-page">
+<header class="hero"><div class="hero-content"><div class="hero-icon">☯</div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button></div></header>
+<div class="home-modules">
+<div class="hm-card" onclick="navTo('timeline')"><span class="hm-icon">🏯</span><h4 data-t="hmTimeline"></h4><p data-t="hmTimelineSub"></p></div>
+<div class="hm-card" onclick="navTo('classics')"><span class="hm-icon">📚</span><h4 data-t="hmClassics"></h4><p data-t="hmClassicsSub"></p></div>
+<div class="hm-card" onclick="navTo('surname')"><span class="hm-icon">👪</span><h4 data-t="hmSurname"></h4><p data-t="hmSurnameSub"></p></div>
+<div class="hm-card" onclick="navTo('shop')"><span class="hm-icon">🏺</span><h4 data-t="hmShop"></h4><p data-t="hmShopSub"></p></div>
+</div>
+<section class="home-section"><div class="hs-head"><h3 data-t="homeFeatured"></h3><button class="hs-more" onclick="navTo('classics')" data-t="viewAll"></button></div><div class="home-books" id="homeBooks"></div></section>
+<section class="home-section"><div class="hs-head"><h3 data-t="homeLatest"></h3><button class="hs-more" onclick="navTo('forum')" data-t="goForum"></button></div><div class="home-posts" id="homeForum"></div></section>
+</div>
 <div class="page" id="classics-page"><div id="classicsFilter"></div><div><input id="classicsSearch" placeholder="Search" oninput="filterClassics()"></div><div class="book-grid" id="classicsGrid"></div></div>
-<div class="page" id="forum-page"><div id="forum-page-content"></div></div>
+<div class="page" id="forum-page">
+<div class="page-banner"><img src="images/forum-banner.png" alt=""><div class="banner-overlay"><h2 class="banner-title" data-t="foBannerTitle"></h2><p class="banner-sub" data-t="foBannerSub"></p></div></div>
+<div id="forum-page-content"></div>
+</div>
 <div class="page" id="surname-page"><div id="surname-page-content"></div></div>
 <div class="page" id="shop-page"><div class="shop-grid" id="shopGrid"></div></div>
-<div class="page" id="timeline-page"><div class="timeline" id="timelineContainer"></div></div>
+<div class="page" id="timeline-page">
+<div class="page-banner"><img src="images/timeline-banner.png" alt=""><div class="banner-overlay"><h2 class="banner-title" data-t="tlBannerTitle"></h2><p class="banner-sub" data-t="tlBannerSub"></p></div></div>
+<div class="stats-strip" id="timelineStats"></div>
+<div class="timeline" id="timelineContainer"></div>
+</div>
 <div class="page" id="account-page"><div id="account-page-content"></div></div>
 <div class="page" id="reader-page"><div id="reader-page-content"></div></div>
 <footer><p>华夏文脉 · Huaxia Wenmai</p></footer>
@@ -443,6 +582,46 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 // i18n.js — all UI translation strings
 const I18N = { ui: {
 siteTitle:{'zh-CN':'华夏文脉','zh-TW':'華夏文脈','en':'Chinese Cultural Heritage','es':'Herencia Cultural China','pt':'Herança Cultural Chinesa'},
+hmTimeline:{'zh-CN':'时间轴','zh-TW':'時間軸','en':'Timeline','es':'Cronología','pt':'Linha do Tempo'},
+hmTimelineSub:{'zh-CN':'五千年朝代长河','zh-TW':'五千年朝代長河','en':'5,000 Years of Dynasties','es':'5,000 Años de Dinastías','pt':'5.000 Anos de Dinastias'},
+hmClassics:{'zh-CN':'典籍库','zh-TW':'典籍庫','en':'Classics Library','es':'Biblioteca de Clásicos','pt':'Biblioteca de Clássicos'},
+hmClassicsSub:{'zh-CN':'250+ 部经典智慧','zh-TW':'250+ 部經典智慧','en':'250+ Classic Works','es':'Más de 250 Clásicos','pt':'Mais de 250 Clássicos'},
+hmSurname:{'zh-CN':'姓氏溯源','zh-TW':'姓氏溯源','en':'Surname Origins','es':'Origen de Apellidos','pt':'Origens dos Sobrenomes'},
+hmSurnameSub:{'zh-CN':'寻根问祖百家姓','zh-TW':'尋根問祖百家姓','en':'Trace Your Family Roots','es':'Rastrea tus Raíces Familiares','pt':'Rastreie suas Raízes Familiares'},
+hmShop:{'zh-CN':'国学雅集','zh-TW':'國學雅集','en':'Cultural Shop','es':'Tienda Cultural','pt':'Loja Cultural'},
+hmShopSub:{'zh-CN':'文房四宝与雅物','zh-TW':'文房四寶與雅物','en':'Scholar Items & Artifacts','es':'Artículos de Erudito y Artefactos','pt':'Artigos do Erudito e Artefatos'},
+homeFeatured:{'zh-CN':'推荐典籍','zh-TW':'推薦典籍','en':'Featured Classics','es':'Clásicos Destacados','pt':'Clássicos em Destaque'},
+homeLatest:{'zh-CN':'最新讨论','zh-TW':'最新討論','en':'Latest Discussions','es':'Últimos Debates','pt':'Últimas Discussões'},
+viewAll:{'zh-CN':'查看全部 →','zh-TW':'查看全部 →','en':'View All →','es':'Ver Todo →','pt':'Ver Tudo →'},
+goForum:{'zh-CN':'去论坛 →','zh-TW':'去論壇 →','en':'Go to Forum →','es':'Ir al Foro →','pt':'Ir ao Fórum →'},
+tlBannerTitle:{'zh-CN':'五千年文明长河','zh-TW':'五千年文明長河','en':'Five Thousand Years of Civilization','es':'Cinco Mil Años de Civilización','pt':'Cinco Mil Anos de Civilização'},
+tlBannerSub:{'zh-CN':'从上古传说到现代中国 · 二十四朝代一眼千年','zh-TW':'從上古傳說到現代中國 · 二十四朝代一眼千年','en':'From Ancient Legends to Modern China · 24 Dynasties at a Glance','es':'De Leyendas Antiguas a la China Moderna · 24 Dinastías de un Vistazo','pt':'Das Lendas Antigas à China Moderna · 24 Dinastias num Olhar'},
+statDynasty:{'zh-CN':'朝代','zh-TW':'朝代','en':'Dynasties','es':'Dinastías','pt':'Dinastias'},
+statFigures:{'zh-CN':'历史人物','zh-TW':'歷史人物','en':'Figures','es':'Figuras','pt':'Figuras'},
+statClassics:{'zh-CN':'代表典籍','zh-TW':'代表典籍','en':'Classics','es':'Clásicos','pt':'Clássicos'},
+statYears:{'zh-CN':'年文明','zh-TW':'年文明','en':'Years','es':'Años','pt':'Anos'},
+era1:{'zh-CN':'上古 · 先秦','zh-TW':'上古 · 先秦','en':'Antiquity · Pre-Qin','es':'Antigüedad · Pre-Qin','pt':'Antiguidade · Pré-Qin'},
+era2:{'zh-CN':'秦汉','zh-TW':'秦漢','en':'Qin & Han','es':'Qin y Han','pt':'Qin e Han'},
+era3:{'zh-CN':'三国两晋南北朝','zh-TW':'三國兩晉南北朝','en':'Three Kingdoms to Southern Dynasties','es':'Tres Reinos a las Dinastías del Sur','pt':'Três Reinos às Dinastias do Sul'},
+era4:{'zh-CN':'隋唐五代','zh-TW':'隋唐五代','en':'Sui, Tang & Five Dynasties','es':'Sui, Tang y Cinco Dinastías','pt':'Sui, Tang e Cinco Dinastias'},
+era5:{'zh-CN':'宋元','zh-TW':'宋元','en':'Song & Yuan','es':'Song y Yuan','pt':'Song e Yuan'},
+era6:{'zh-CN':'明清','zh-TW':'明清','en':'Ming & Qing','es':'Ming y Qing','pt':'Ming e Qing'},
+era7:{'zh-CN':'近现代','zh-TW':'近現代','en':'Modern Era','es':'Era Moderna','pt':'Era Moderna'},
+tlFigures:{'zh-CN':'历史人物','zh-TW':'歷史人物','en':'Key Figures','es':'Figuras Clave','pt':'Figuras Chave'},
+tlClassics:{'zh-CN':'代表典籍','zh-TW':'代表典籍','en':'Classic Works','es':'Obras Clásicas','pt':'Obras Clássicas'},
+foBannerTitle:{'zh-CN':'谈天说地 · 以文会友','zh-TW':'談天說地 · 以文會友','en':'Forum · Friends Through Culture','es':'Foro · Amigos a Través de la Cultura','pt':'Fórum · Amigos Através da Cultura'},
+foBannerSub:{'zh-CN':'交流国学经典心得 · 自 2026 年 1 月上线','zh-TW':'交流國學經典心得 · 自 2026 年 1 月上線','en':'Share insights on Chinese classics · Online since Jan 2026','es':'Comparte ideas sobre los clásicos chinos · En línea desde ene 2026','pt':'Compartilhe ideias sobre os clássicos chineses · Online desde jan 2026'},
+forumTopics:{'zh-CN':'共 {n} 个话题','zh-TW':'共 {n} 個話題','en':'{n} topics','es':'{n} temas','pt':'{n} tópicos'},
+forumReplies:{'zh-CN':'回复','zh-TW':'回覆','en':'replies','es':'respuestas','pt':'respostas'},
+forumLastReply:{'zh-CN':'最后回复','zh-TW':'最後回覆','en':'Last reply','es':'Última respuesta','pt':'Última resposta'},
+fcClassics:{'zh-CN':'经典研读','zh-TW':'經典研讀','en':'Classics Study','es':'Estudio de Clásicos','pt':'Estudo de Clássicos'},
+fcPoetry:{'zh-CN':'诗词书画','zh-TW':'詩詞書畫','en':'Poetry & Art','es':'Poesía y Arte','pt':'Poesia e Arte'},
+fcHistory:{'zh-CN':'史海钩沉','zh-TW':'史海鉤沉','en':'History','es':'Historia','pt':'História'},
+fcMedicine:{'zh-CN':'中医养生','zh-TW':'中醫養生','en':'TCM & Wellness','es':'MTC y Bienestar','pt':'MTC e Bem-estar'},
+fcGovernance:{'zh-CN':'经世致用','zh-TW':'經世致用','en':'Practical Wisdom','es':'Sabiduría Práctica','pt':'Sabedoria Prática'},
+fcChat:{'zh-CN':'闲谈雅集','zh-TW':'閒談雅集','en':'Casual Talk','es':'Charla Casual','pt':'Conversa Casual'},
+pagerPrev:{'zh-CN':'上一页','zh-TW':'上一頁','en':'Prev','es':'Anterior','pt':'Anterior'},
+pagerNext:{'zh-CN':'下一页','zh-TW':'下一頁','en':'Next','es':'Siguiente','pt':'Próxima'},
 siteSub:{'zh-CN':'中华国学典籍网','zh-TW':'中華國學典籍網','en':'Portal of Chinese Classics','es':'Portal de Clásicos Chinos','pt':'Portal de Clássicos Chineses'},
 siteDesc:{'zh-CN':'从山海经的上古传说，到历朝历代的经史子集，以朝代时间轴为线索，带您走进中华五千年文化的浩瀚星河。','zh-TW':'從山海經的上古傳說，到歷朝歷代的經史子集，以朝代時間軸為線索，帶您走進中華五千年文化的浩瀚星河。','en':'From the myths of the Classic of Mountains and Seas to the classics and histories of every dynasty, follow our dynastic timeline into the vast galaxy of five thousand years of Chinese culture.','es':'Desde los mitos del Clásico de las Montañas y los Mares hasta los clásicos de cada dinastía, siga nuestra línea de tiempo dinástica hacia la vasta galaxia de cinco mil años de cultura china.','pt':'Dos mitos do Clássico das Montanhas e Mares aos clássicos e histórias de cada dinastia, siga nossa linha do tempo dinástica na vasta galáxia de cinco mil anos de cultura chinesa.'},
 exploreTimeline:{'zh-CN':'探索时间轴','zh-TW':'探索時間軸','en':'Explore Timeline','es':'Explorar la Línea de Tiempo','pt':'Explorar a Linha do Tempo'},
@@ -1374,8 +1553,27 @@ document.addEventListener("DOMContentLoaded",init);
 
 
 // ===== TIMELINE =====
-function renderTimeline(){var c=document.getElementById("timelineContainer");if(!c||typeof DYNASTIES==="undefined")return;c.innerHTML=DYNASTIES.map(function(d,i){return'<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-year">'+d.year+'</div><div class="tl-name">'+d.name+'</div><div class="tl-sub">'+(d.subtitle||"")+'</div><div class="tl-preview">'+(d.summary||"")+'</div></div>';}).join("");}
+function renderTimeline(){var c=document.getElementById("timelineContainer");if(!c||typeof DYNASTIES==="undefined")return;
+var SEALS={shanggu:"古",xia:"夏",shang:"商",xizhou:"周",dongzhou:"春",zhanguo:"战",qin:"秦",xihan:"汉",xin:"新",donghan:"汉",sanguo:"三",xijin:"晋",dongjin:"晋",nanbeichao:"朝",sui:"隋",tang:"唐",wudai:"五",beisong:"宋",nanxun:"宋",yuan:"元",ming:"明",qing:"清",minguo:"民",zhonghua:"华"};
+var ERAS=[[0,6,"era1"],[7,9,"era2"],[10,13,"era3"],[14,16,"era4"],[17,19,"era5"],[20,21,"era6"],[22,23,"era7"]];
+var figSet={};var clCnt=0;
+for(var qi=0;qi<DYNASTIES.length;qi++){var qd=DYNASTIES[qi];(qd.figures||[]).forEach(function(f){figSet[f]=1;});clCnt+=(qd.classics||[]).length;}
+var ss=document.getElementById("timelineStats");
+if(ss)ss.innerHTML='<div class="stat-item"><b>'+DYNASTIES.length+'</b><span>'+t("statDynasty")+'</span></div><div class="stat-item"><b>'+Object.keys(figSet).length+'</b><span>'+t("statFigures")+'</span></div><div class="stat-item"><b>'+clCnt+'</b><span>'+t("statClassics")+'</span></div><div class="stat-item"><b>5000</b><span>'+t("statYears")+'</span></div>';
+var html="";
+for(var ei=0;ei<ERAS.length;ei++){var e=ERAS[ei];html+='<div class="tl-era"><span>'+t(e[2])+'</span></div>';
+for(var i=e[0];i<=e[1];i++){var d=DYNASTIES[i];if(!d)continue;
+html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-seal">'+(SEALS[d.id]||d.name.charAt(0))+'</div><div class="tl-card"><div class="tl-head"><div class="tl-year">'+d.year+'</div><h3 class="tl-name">'+d.name+'</h3><div class="tl-sub">'+(d.subtitle||"")+'</div></div><p class="tl-preview">'+(d.summary||"")+'</p><div class="tl-body">'+
+((d.figures&&d.figures.length)?'<div class="tl-block"><h4>'+t("tlFigures")+'</h4><div class="tl-tags">'+d.figures.map(function(f){return'<span class="tag">'+f+'</span>';}).join("")+'</div></div>':"")+
+((d.classics&&d.classics.length)?'<div class="tl-block"><h4>'+t("tlClassics")+'</h4><div class="tl-classics">'+d.classics.map(function(b){return'<div class="tl-classic"><b>'+b.name+'</b><span>'+b.desc+'</span><em>'+b.type+'</em></div>';}).join("")+'</div></div>':"")+
+'</div><div class="tl-arrow">▾</div></div></div>';
+}}
+c.innerHTML=html;}
+
 function toggleTimeline(i){document.querySelectorAll(".tl-item").forEach(function(el,j){el.classList.toggle("active",j===i);});}
+function renderHome(){var hb=document.getElementById("homeBooks");if(hb&&typeof BOOKS_DATA!=="undefined"){var ids=["daodejing","lunyu","yijing","shiji","sunzibingfa","hongloumeng"];var picks=ids.map(function(id){return BOOKS_DATA.find(function(b){return b.id===id;});}).filter(Boolean);if(picks.length<6)picks=BOOKS_DATA.slice(0,6);hb.innerHTML=picks.map(function(b,i){var n=b.name[_lang]||b.name["zh-CN"]||"";var a=b.author[_lang]||b.author["zh-CN"]||"";var intro=(b.intro&&(b.intro[_lang]||b.intro["zh-CN"]))||"";return'<div class="home-book" onclick="navTo(\'classics\')"><div class="hb-rank">'+(i+1)+'</div><h4>'+n+'</h4><div class="hb-author">'+a+'</div><p>'+intro.substring(0,56)+'…</p></div>';}).join("");}
+var lf=document.getElementById("homeForum");if(lf&&typeof getForumData==="function"){var posts=getForumData().slice().sort(function(a,b){return b.d-a.d;}).slice(0,3);lf.innerHTML=posts.map(function(p){return'<div class="home-post" onclick="navTo(\'forum\')"><span class="hp-dot"></span><div class="hp-main"><div class="hp-title">'+esc(p.t)+'</div><div class="hp-meta">'+esc(p.a)+' · '+(p.r?p.r.length:0)+' 回复</div></div></div>';}).join("");}}
+
 function renderStats(){var e1=document.getElementById("statDynasties");if(e1&&typeof DYNASTIES!=="undefined")e1.textContent=DYNASTIES.length;var e2=document.getElementById("statFigures");if(e2&&typeof DYNASTIES!=="undefined")e2.textContent=new Set(DYNASTIES.flatMap(function(d){return d.figures})).size;var e3=document.getElementById("statClassics");if(e3&&typeof DYNASTIES!=="undefined")e3.textContent=DYNASTIES.reduce(function(s,d){return s+(d.classics?d.classics.length:0);},0);var e4=document.getElementById("statYears");if(e4)e4.textContent="\u7ea65000";}
 
 // ===== READER =====
@@ -1740,7 +1938,7 @@ function setClassicsFilter(t){_classicsFilter=t;document.querySelectorAll("#clas
 function filterClassics(){var inp=document.getElementById("classicsSearch");_classicsSearch=inp?inp.value:"";renderClassics();}
 // ===== FORUM =====
 var _forumView="list",_forumData=null;
-function getForumData(){try{_forumData=JSON.parse(localStorage.getItem("ch_forum")||"[]")}catch(e){_forumData=[]};if(!_forumData||_forumData.length<20&&typeof autoSeedForum==="function"){try{autoSeedForum();_forumData=JSON.parse(localStorage.getItem("ch_forum")||"[]")}catch(e){}};return _forumData}function setForumData(){localStorage.setItem("ch_forum",JSON.stringify(_forumData))}
+function getForumData(){try{_forumData=JSON.parse(localStorage.getItem("ch_forum")||"[]")}catch(e){_forumData=[]};var stale=false;if(_forumData&&_forumData.length){var newest=0;for(var fi=0;fi<_forumData.length;fi++){if(_forumData[fi].d>newest)newest=_forumData[fi].d;}stale=(Date.now()-newest)>3*864e5;}if((!_forumData||_forumData.length<20||stale)&&typeof autoSeedForum==="function"){try{autoSeedForum();_forumData=JSON.parse(localStorage.getItem("ch_forum")||"[]")}catch(e){}};return _forumData}function setForumData(){localStorage.setItem("ch_forum",JSON.stringify(_forumData))}
 function renderNav(){var n=document.getElementById("mainNav");if(!n)return;
 var p=["home","timeline","classics","forum","surname","shop"];
 var k=["navHome","navTimeline","navClassics","navRushiDao","navSurname","navShop"];
@@ -1750,19 +1948,33 @@ n.innerHTML=p.map(function(p,i){return '<button class="nav-link" data-page="'+p+
 function renderPage(p){document.querySelectorAll(".page").forEach(function(e){e.classList.remove("active");});
 var tg=document.getElementById(p+"-page");if(tg)tg.classList.add("active");
 document.querySelectorAll(".nav-link").forEach(function(n){n.classList.toggle("active",n.dataset.page===p);});
-if(p==="timeline")renderTimeline();
+if(p==="home")renderHome();if(p==="timeline")renderTimeline();
 if(p==="classics")renderClassics();if(p==="shop")renderShop();if(p==="account")renderAccount();
 if(p==="reader"&&_currentBook)renderReader();if(p==="forum")renderForum();if(p==="surname")renderSurname();}
 function renderForum(){var s=document.getElementById("forum-page-content");if(!s)return;
 if(_forumView==="new"){renderNewPost(s);return;}
 if(_forumView&&_forumView.indexOf("p-")===0){renderOnePost(s,_forumView.slice(2));return;}
 renderForumList(s);}
+var _forumPage=1;var FORUM_PAGE_SIZE=12;
 function renderForumList(s){var d=getForumData();
-var h='<div style="text-align:right;margin-bottom:1rem"><button class="btn-primary" onclick="toForum(\'new\')">'+t("newPost")+'</button></div>';
+var total=Math.max(1,Math.ceil(d.length/FORUM_PAGE_SIZE));
+if(_forumPage>total)_forumPage=total;if(_forumPage<1)_forumPage=1;
+var h='<div class="forum-toolbar"><div class="forum-count">'+t("forumTopics").replace("{n}",d.length)+'</div><button class="btn-primary" onclick="toForum(\'new\')">'+t("newPost")+'</button></div>';
 if(!d.length)h+='<div style="text-align:center;padding:3rem 1rem;color:#7a6a5a">'+t("noPosts")+'</div>';
-else{h+='<div class="forum-list">';d.sort(function(a,b){return b.d-a.d;}).forEach(function(p){
-h+='<div class="forum-post" onclick="toForum(\'p-'+p.id+'\')"><div class="forum-post-title">'+esc(p.t)+'</div><div class="forum-post-meta">'+p.a+" · "+fmt(p.d)+" · "+(p.r?p.r.length:0)+" \u56DE\u590D</div><div class=\"forum-post-excerpt\">"+esc((p.c||"").substring(0,120))+"</div>"+(p.r&&p.r.length?'<div class="forum-post-last">\u6700\u540E\u56DE\u590D: '+fmt(p.r[p.r.length-1].d)+"</div>":"")+"</div>";
-});h+="</div>";}s.innerHTML=h;}
+else{h+='<div class="forum-list">';var sorted=d.slice().sort(function(a,b){return b.d-a.d;});
+var pageItems=sorted.slice((_forumPage-1)*FORUM_PAGE_SIZE,_forumPage*FORUM_PAGE_SIZE);
+pageItems.forEach(function(p){var catk=forumCat(p.t);var av=p.a?p.a.charAt(0):"友";var hue=(p.a?(p.a.charCodeAt(0)*7)%360:60);
+h+='<div class="forum-post" onclick="toForum(\'p-'+p.id+'\')"><div class="forum-avatar" style="background:hsl('+hue+',45%,46%)">'+esc(av)+'</div><div class="forum-post-main"><div class="forum-post-title">'+esc(p.t)+'</div><div class="forum-tags"><span class="forum-cat">'+t(catk)+'</span></div><div class="forum-post-excerpt">'+esc((p.c||"").substring(0,110))+'</div><div class="forum-post-footer"><span>'+esc(p.a)+'</span><span>·</span><span>'+fmt(p.d)+'</span><span>·</span><span>'+(p.r?p.r.length:0)+' '+t("forumReplies")+'</span>'+(p.r&&p.r.length?'<span class="forum-post-last">'+t("forumLastReply")+' '+fmt(p.r[p.r.length-1].d)+'</span>':"")+'</div></div></div>';});
+h+="</div>";
+h+='<div class="forum-pager">';
+h+='<button class="pg-btn" onclick="gotoForumPage('+(_forumPage-1)+')"'+(_forumPage<=1?' disabled':'')+'>‹ '+t("pagerPrev")+'</button>';
+for(var pi=1;pi<=total;pi++){h+='<button class="pg-btn'+(pi===_forumPage?' active':'')+'" onclick="gotoForumPage('+pi+')">'+pi+'</button>';}
+h+='<button class="pg-btn" onclick="gotoForumPage('+(_forumPage+1)+')"'+(_forumPage>=total?' disabled':'')+'>'+t("pagerNext")+' ›</button>';
+h+='</div>';}
+s.innerHTML=h;}
+function gotoForumPage(p){_forumPage=p;var s=document.getElementById("forum-page-content");if(s)renderForumList(s);}
+function forumCat(t){t=t||"";if(/中医|药|养生/.test(t))return "fcMedicine";if(/书法|画|诗|词|琴/.test(t))return "fcPoetry";if(/商|兵|企业|谋略/.test(t))return "fcGovernance";if(/史|古|传|代/.test(t))return "fcHistory";if(/论语|老|道|儒|佛|经|典|哲/.test(t))return "fcClassics";return "fcChat";}
+
 function renderNewPost(s){s.innerHTML='<div style="margin-bottom:1rem"><button class="btn-secondary btn-sm" onclick="toForum(\'list\')">\u2190 \u8FD4\u56DE</button></div><div class="forum-form"><h3>'+t("newPost")+'</h3><div class="form-group"><label>'+t("postTitle")+'</label><input type="text" id="fTitle" class="forum-form-input" placeholder="'+t("enterTitle")+'"></div><div class="form-group"><label>'+t("postContent")+'</label><textarea id="fContent" class="forum-form-input" rows="5" placeholder="'+t("enterContent")+'"></textarea></div><div class="form-group"><label>'+t("addImage")+'</label><input type="text" id="fImg" class="forum-form-input" placeholder="'+t("imagePlaceholder")+'"><div style="margin-top:.3rem"><input type="file" accept="image/*" onchange="upImg(this)" style="font-size:.82rem"> <span style="color:#7a6a5a;font-size:.75rem">'+t("uploadImageLabel")+'</span></div><div id="fImgs" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.3rem"></div></div><div class="form-group"><label>'+t("addVideo")+'</label><input type="text" id="fVid" class="forum-form-input" placeholder="'+t("videoPlaceholder")+'"></div><button class="btn-primary" onclick="savePost()">'+t("submitPost")+'</button></div>';}
 function renderOnePost(s,id){var d=getForumData();var p=d.find(function(x){return x.id===id;});if(!p){s.innerHTML='<div style="text-align:center;padding:2rem">\u5E16\u5B50\u4E0D\u5B58\u5728</div>';return;}
 var h='<div style="margin-bottom:1rem"><button class="btn-secondary btn-sm" onclick="toForum(\'list\')">\u2190 '+t("navForum")+'</button></div><div class="forum-post-detail"><h3>'+esc(p.t)+'</h3><div class="forum-post-meta">'+p.a+" \u00B7 "+fmt(p.d)+"</div><div class=\"forum-post-content\">"+esc(p.c).replace(/\n/g,"<br>")+"</div>";
@@ -1799,7 +2011,7 @@ function autoSeedForum(){var n=Date.now(),h=36e5,m=6e4;
 var us=['清风明月','墨香居士','古道西风','南华真人','北冥有鱼','东篱采菊','西山红叶','竹林隐士','松间明月','石上清泉','闲云野鹤','流水高山','春风化雨','秋水长天','梅花三弄','兰亭序客','赤壁怀古','桃花源主','岳阳楼记','滕王阁序'];
 var rp=['读书人甲','读书人乙','国学爱好者','古文学徒','经史子集','诗词达人','历史迷','易学新手','儒释道信徒','中医养生'];
 var ts=['「道德经」「道可道非常道」大家怎么理解？','「红楼梦」中最打动你的人物是谁？','王阳明心学对现代人的启示','周易到底该怎么学？','你心中排名第一的唐诗是？','孔子说的「仁」到底是什么？','中医到底有没有科学依据？','「孙子兵法」在现代商业中的应用','禅宗「明心见性」是什么意思？','书法入门从哪种字体开始？','「山海经」是神话还是历史？','曾国藩家书中的处世智慧','诸子百家你最喜欢哪一家？','如何理解「心经」的「色即是空」？','中国古典音乐和西方音乐的根本差异','风水是科学还是迷信？','「资治通鉴」值得通读吗？','孔子和老子思想的最大分歧','大家来分享喜欢的对联','古籍阅读从哪些入门比较好？'];
-var ct=['最近重读道德经，第一章「道可道非常道」让我反复琢磨。老子开篇就说可以说的道就不是永恒的道，那到底什么是道？是通过静坐体悟还是在日常生活中体验？各位同修有何高见？','最近三刷红楼梦，每次都有不同的感受。以前最喜欢林黛玉的才华与真性情，现在反而更理解薛宝钗的处世智慧。大家最喜欢红楼梦中的哪个人物？','最近读了传习录，王阳明的「知行合一」思想太契合当代了。我们读了很多书懂了很多道理却常常做不到。先生说的「知而不行只是未知」一语惊醒梦中人。','想学周易很久了，但翻开书就蒙了——卦象爻辞错综复杂。求问各位前辈学易有什么好的入门方法？要不要先背八卦？再学五行生克？','唐诗浩如烟海，每个人心中都有自己的诗王。我第一个想到的是张若虚的春江花月夜——孤篇压全唐不是吹的。各位来分享你的最爱！','论语中「仁」出现了109次，孔子对每个弟子的回答都不同。对颜回说「克己复礼为仁」，对仲弓说「己所不欲勿施于人」。到底什么是仁的本质？','一直对中医很感兴趣但也经常听到质疑的声音。有人说是玄学有人说千年实践就是最好的证明。大家怎么看中医的科学性？','都说商场如战场。最近重读孙子兵法发现很多思想用在商业竞争中非常实用。「知己知彼百战不殆」简直就是市场调研的圣经。大家有实践心得吗？','读六祖坛经，慧能大师说「菩提本无树明镜亦非台本来无一物何处惹尘埃」。这个「本来无一物」的境界怎么理解？在日常生活中如何修行？','零基础想学书法但不知道从何入手。楷书四大家该学谁的？还是从隶书开始比较好？求前辈指导入门路径！','最近看山海经里面那些奇形怪状的异兽荒诞离奇的地理，到底是古人的想象还是失落的文明记忆？有些学者认为山海经记载的是全球地理是真的吗？','读曾国藩家书感受到他不仅是一代名臣更是一个慈祥的父亲。他教导子弟「读书变化气质戒傲戒惰」。这些家训放在今天依然振聋发聩。','春秋战国百家争鸣是人类思想史上最璀璨的时代。儒家道家法家墨家兵家纵横家每家的思想都有独到之处。大家来聊聊自己最喜欢哪一家。','心经说「色即是空空即是色」，初看觉得很矛盾。明明眼前的山河大地都是实实在在的怎么说它是空呢？这个「空」是不是就是什么都没有的意思？','最近听了一些古琴曲发现和西方古典音乐完全是两个审美体系。西乐讲究和声对位宏大叙事，中乐追求意境留白弦外之音。两者的根本差异在哪里？','最近家里装修朋友建议我找风水师看看布局。我半信半疑——说它迷信吧有些讲究确实有道理，说它科学吧又很玄。大家怎么看待风水？','294卷的资治通鉴让人望而生畏。但司马光耗尽19年编成的这部巨著据说毛主席读了17遍。大家觉得普通人值得通读吗？有什么好的读法？','孔子和老子是同时代人据说孔子还问礼于老子，但他们的思想路径截然不同。一个入世一个出世一个讲仁义一个讲道德。这两种思想有什么根本分歧？','最近学对联发现汉字真的神奇——平平仄仄之间对仗工整之妙。我先来一个：杭州岳王庙「青山有幸埋忠骨白铁无辜铸佞臣」。大家来分享喜欢的对联！','每次去书店看到国学区那么多书就头晕。从三字经千字文开始会不会太简单？直接读四书五经又怕啃不动。大家推荐一下古籍阅读的循序渐进的路径。'];
+var ct=['最近重读道德经，第一章「道可道非常道」让我反复琢磨。老子开篇就说可以说的道就不是永恒的道，那到底什么是道？是通过静坐体悟还是在日常生活中体验？各位同修有何高见？','最近三刷红楼梦，每次都有不同的感受。以前最喜欢林黛玉的才华与真性情，现在反而更理解薛宝钗的处世智慧。大家最喜欢红楼梦中的哪个人物？','最近读了传习录，王阳明的「知行合一」思想太契合当代了。我们读了很多书懂了很多道理却常常做不到。先生说的「知而不行只是未知」一语惊醒梦中人。','想学周易很久了，但翻开书就蒙了——卦象爻辞错综复杂。求问各位前辈学易有什么好的入门方法？要不要先背八卦？再学五行生克？','唐诗浩如烟海，每个人心中都有自己的诗王。我第一个想到的是张若虚的春江花月夜——孤篇压全唐不是吹的。各位来分享你的最爱！','论语中「仁」出现了109次，孔子对每个弟子的回答都不同。对颜回说「克己复礼为仁」，对仲弓说「己所不欲勿施于人」。到底什么是仁的本质？','一直对中医很感兴趣但也经常听到质疑的声音。有人说是玄学有人说千年实践就是最好的证明。大家怎么看中医的科学性？','都说商场如战场。最近重读孙子兵法发现很多思想用在商业竞争中非常实用。「知己知彼百战不殆」简直就是市场调研的圣经。大家有实践心得吗？','读六祖坛经，慧能大师说「菩提本无树明镜亦非台本来无一物何处惹尘埃」。这个「本来无一物」的境界怎么理解？在日常生活中如何修行？','零基础想学书法但不知道从何入手。楷书四大家该学谁的？还是从隶书开始比较好？求前辈指导入门路径！','最近看山海经里面那些奇形怪状的异兽荒诞离奇的地理，到底是古人的想象还是失落的文明记忆？有些学者认为山海经记载的是全球地理是真的吗？','读曾国藩家书感受到他不仅是一代名臣更是一个慈祥的父亲。他教导子弟「读书变化气质戒傲戒惰」。这些家训放在今天依然振聋发聩。','春秋战国百家争鸣是人类思想史上最璀璨的时代。儒家道家法家墨家兵家纵横家每家的思想都有独到之处。大家来聊聊自己最喜欢哪一家。','心经说「色即是空空即是色」，初看觉得很矛盾。明明眼前的山河大地都是实实在在的怎么说它是空呢？这个「空」是不是就是什么都没有的意思？','最近听了一些古琴曲发现和西方古典音乐完全是两个审美体系。西乐讲究和声对位宏大叙事，中乐追求意境留白弦外之音。两者的根本差异在哪里？','最近家里装修朋友建议我找风水师看看布局。我半信半疑——说它迷信吧有些讲究确实有道理，说它科学吧又很玄。大家怎么看待风水？','294卷的资治通鉴让人望而生畏。但司马光耗尽19年编成的这部巨著据说毛主席读了17遍。大家觉得普通人值得通读吗？有什么好的读法？','孔子和老子是同时代人据说孔子还问礼于老子，但他们的思想路径截然不同。一个入世一个出世一个讲仁义一个讲道德。这两种思想有什么根本分歧？','最近学对联发现汉字真的神奇——平平仄仄之间对仗工整之妙。我先来一个：杭州岳王庙「青山有幸埋忠骨白铁无辜铸佞臣」。大家来分享喜欢的对联！','每次去书店看到国学区那么多书就头晕。从三字经千字文开始会不会太简单？直接读四书五经又怕啃不动。大家推荐一下古籍阅读的循序渐进的路径。','大学开头就说「大学之道，在明明德，在亲民，在止于至善」。这个「明明德」是儒家修身的起点，但历代注家说法不一。朱熹说是「复其本性之明」，王阳明说是「致良知」。大家怎么理解？','同是儒家，孟子说人性本善只要扩而充之，荀子却说人性本恶需要礼法矫正。一个向内求一个向外立，两千年来争论不休。你更认同哪一边？','很多人把中庸理解成和稀泥，其实《中庸》讲的是「喜怒哀乐之未发谓之中，发而皆中节谓之和」。它追求的是恰到好处的平衡，而非无原则的折中。你觉得呢？','鲲鹏展翅九万里，列子御风而行，庄子却说这些都「犹有所待」。真正的逍遥是「无所待」的精神自由，是齐物我、忘生死。这种自由在现代社会还能实现吗？','老子说「上善若水，水善利万物而不争」。不争不是躺平，而是处下、柔韧、顺势而为。在职场上怎么理解这种「不争」的智慧？大家有体会吗？','六祖慧能就是听到这一句而开悟的。心不执着于任何相，却又生机盎然地活着——不粘不滞又积极有为。这个境界在日常生活里怎么落实？','儒家讲静坐省察，道家讲守静笃致虚极，佛家讲止观双运。虽然都是静坐，入手处和归宿却各有千秋。想入门的话从哪家开始比较好？','中国文化的奇妙之处在于儒释道既能各成体系又能圆融互摄。苏轼「羽化而登仙」有道家超脱，「一蓑烟雨任平生」有佛家旷达，而骨子里始终是儒家的担当。你怎么看三教的关系？'];
 var rcs=['说得好！很有启发。','受教了，感谢分享！','这个观点很新颖，值得深入思考。','我也有同感，最近也在研究这个。','推荐一本相关的书：《》，写得很透彻。','完全同意！这也是我一直以来的想法。','不太认同这个观点，我觉得应该从另一个角度看...','有意思，我之前没想过这个问题。','学习了，回去好好研究一下。','这个问题确实值得讨论，大家继续交流。','好问题！我也一直在思考。','深度好文，收藏了！'];
 var posts=[];ts.forEach(function(t,i){var pt=n-(19-i)*h*4;var po={id:String(pt),t:t,c:ct[i],a:us[i%us.length],d:pt,i:[],v:[],r:[]};
 var rc=Math.floor(3+Math.random()*4);for(var j=0;j<rc;j++){po.r.push({id:String(pt+j*m),a:rp[(i+j)%rp.length],d:pt+(j+1)*m,c:rcs[Math.floor(Math.random()*rcs.length)],i:[]});}
@@ -1821,7 +2033,9 @@ localStorage.setItem("ch_forum",JSON.stringify(posts));return posts;}
 // ===== FORUM DATA HELPERS =====
 function getForumData(){
   try{_forumData=JSON.parse(localStorage.getItem("ch_forum")||"[]");}catch(e){_forumData=[];}
-  if(!_forumData||_forumData.length<20)_forumData=autoSeedForum();
+  var stale=false;
+  if(_forumData&&_forumData.length){var newest=0;for(var fi=0;fi<_forumData.length;fi++){if(_forumData[fi].d>newest)newest=_forumData[fi].d;}stale=(Date.now()-newest)>3*864e5;}
+  if((!_forumData||_forumData.length<20||stale)&&typeof autoSeedForum==="function")autoSeedForum();
   return _forumData;
 }
 function setForumData(){
@@ -1890,7 +2104,7 @@ function generateAndSave(us,rp,ts,cs,rcs){var n=Date.now(),h=36e5,m=6e4;var post
 
 </script>
 <script>
-function autoSeedForum(){var n=Date.now(),h=36e5,m=6e4;var us=['清风明月','墨香居士','古道西风','南华真人','北冥有鱼','东篱采菊','西山红叶','竹林隐士','松间明月','石上清泉','闲云野鹤','流水高山','春风化雨','秋水长天','梅花三弄','兰亭序客','赤壁怀古','桃花源主','岳阳楼记','滕王阁序'];var rp=['读书人甲','读书人乙','国学爱好者','古文学徒','经史子集','诗词达人','历史迷','易学新手','儒释道信徒','中医养生'];var ts=['「道德经」「道可道非常道」大家怎么理解？','「红楼梦」中最打动你的人物是谁？','王阳明心学对现代人的启示','周易到底该怎么学？','你心中排名第一的唐诗是？','孔子说的「仁」到底是什么？','中医到底有没有科学依据？','「孙子兵法」在现代商业中的应用','禅宗「明心见性」是什么意思？','书法入门从哪种字体开始？','「山海经」是神话还是历史？','曾国藩家书中的处世智慧','诸子百家你最喜欢哪一家？','如何理解「心经」的「色即是空」？','中国古典音乐和西方音乐的根本差异','风水是科学还是迷信？','「资治通鉴」值得通读吗？','孔子和老子思想的最大分歧','大家来分享喜欢的对联','古籍阅读从哪些入门比较好？'];var ct=['最近重读道德经...','红楼梦让我反复琢磨...','知行合一的智慧...','周易卦象错综复杂...','春江花月夜孤篇压全唐...','仁的本质是什么？','中医千年实践的证明...','商场如战场...','明心见性的境界...','零基础学书法...','山海经是神话还是历史？','曾国藩家书的智慧...','最喜欢哪一家诸子百家？','色即是空的理解...','中乐与西乐的根本差异...','风水的科学性讨论...','资治通鉴的通读价值...','孔子与老子的分歧...','对联的平仄之美...','古籍阅读的入门路径...'];var rcs=['说得好！很有启发。','受教了，感谢分享！','这个观点很新颖。','我也有同感，学习了！','完全同意！深度好文！'];generateAndSave(us,rp,ts,ct,rcs);}function generateAndSave(us,rp,ts,cs,rcs){var n=Date.now(),h=36e5,m=6e4;var posts=[];ts.forEach(function(t,i){var pt=n-(19-i)*h*4;var po={id:String(pt),t:t,c:cs[i%cs.length]||'',a:us[i%us.length],d:pt,i:[],v:[],r:[]};var rc=Math.floor(3+Math.random()*4);for(var j=0;j<rc;j++){po.r.push({id:String(pt+j*m),a:rp[(i+j)%rp.length],d:pt+(j+1)*m,c:rcs[Math.floor(Math.random()*rcs.length)],i:[]})}posts.push(po)});_forumData=posts;localStorage.setItem("ch_forum",JSON.stringify(posts))}
+function autoSeedForum(){var n=Date.now(),h=36e5,m=6e4;var us=['清风明月','墨香居士','古道西风','南华真人','北冥有鱼','东篱采菊','西山红叶','竹林隐士','松间明月','石上清泉','闲云野鹤','流水高山','春风化雨','秋水长天','梅花三弄','兰亭序客','赤壁怀古','桃花源主','岳阳楼记','滕王阁序'];var rp=['读书人甲','读书人乙','国学爱好者','古文学徒','经史子集','诗词达人','历史迷','易学新手','儒释道信徒','中医养生'];var ts=['「千字文」开篇「天地玄黄，宇宙洪荒」藏着什么故事？','中国姓氏发展最好的有哪些？从「百家姓」到今日大姓','「道德经」「道可道非常道」大家怎么理解？','「红楼梦」中最打动你的人物是谁？','王阳明心学对现代人的启示','周易到底该怎么学？','你心中排名第一的唐诗是？','孔子说的「仁」到底是什么？','中医到底有没有科学依据？','「孙子兵法」在现代商业中的应用','禅宗「明心见性」是什么意思？','书法入门从哪种字体开始？','「山海经」是神话还是历史？','曾国藩家书中的处世智慧','诸子百家你最喜欢哪一家？','如何理解「心经」的「色即是空」？','中国古典音乐和西方音乐的根本差异','风水是科学还是迷信？','「资治通鉴」值得通读吗？','孔子和老子思想的最大分歧','大家来分享喜欢的对联','古籍阅读从哪些入门比较好？','「大学」开篇「明明德」到底该怎么理解？','孟子「性善论」和荀子「性恶论」你支持谁？','「中庸」真的是平庸和折中吗？','庄子「逍遥游」追求的是一种什么自由？','「上善若水」在现代职场里怎么用？','金刚经「应无所住而生其心」如何体会？','打坐冥想入门：儒释道的方法有什么不同？','为什么说「儒释道三教合一」？','「三字经」人人会背，它的教育理念今天还适用吗？','「百家姓」为什么「赵钱孙李」排最前？','「弟子规」讲「首孝悌」，现代家庭如何践行？','「增广贤文」里最扎心的一句是什么？','「史记」里的那些小人物，哪个最让你动容？','「汉书」与「史记」相比差在哪里？','「三国志」和「三国演义」哪个更接近历史？','「战国策」里的纵横家智慧','「左传」里的外交辞令有多精彩？','「黄帝内经」的养生智慧靠谱吗？','「本草纲目」里的冷知识','「世说新语」里最风流的名士是谁？','「菜根谭」的处世哲学','「颜氏家训」给后人的启示','「楚辞」里的香草美人到底指什么？','唐诗宋词，你更喜欢哪个朝代的韵脚？','「水浒传」的忠义该如何理解？','「西游记」里的修行隐喻','「聊斋志异」的狐仙世界','「三国演义」中你最喜欢的计谋？','「千字文」中「寒来暑往，秋收冬藏」的自然智慧','中国的「礼」文化在现代社交中还重要吗？','「六韬」「三略」等兵书的现代价值','「鬼谷子」的纵横捭阖之术','「墨子」的兼爱非攻今天怎么看？','「韩非子」的法术势思想','「荀子」的劝学篇为什么值得一读再读？','「论语」里你最受用的一句话','「大学」八条目：格物致知诚意正心修身齐家治国平天下','读书打卡：网站上线以来你读完了哪本典籍？'];var ct=['千字文由南朝周兴嗣一夜编成，把一千个互不重复的汉字串成韵文。开篇从天地宇宙讲起，涵盖自然、历史、修身、处世，是中国古代最经典的识字启蒙书之一。','百家姓里「赵钱孙李」因宋朝皇帝姓赵而排最前。如今李、王、张、刘、陈稳居前五，人口近亿甚至过亿。姓氏的发展与人口迁徙、改姓合流、历史机遇都密切相关。','老子开篇就说可以言说的道不是永恒的道。道既在天地运行中，也在日常起居里。是通过静坐体悟，还是在生活中体验？各位同修有何高见？','三刷红楼每次感受都不同。以前喜欢林黛玉的才情，现在更理解薛宝钗的圆融。一部红楼梦写尽人情冷暖，你最爱谁？','「知行合一」四字直指当代人「懂很多道理却过不好生活」的困境。先生言「知而不行只是未知」，行动才是真知的试金石。','翻开周易就晕——卦象爻辞错综复杂。入门路径建议：先背八卦，再学五行生克，理解六十四卦卦序逻辑，最后结合史例研读。前辈们有什么好方法？','唐诗浩如烟海。张若虚「春江花月夜」孤篇压全唐，李白「将进酒」豪气干云，杜甫「登高」沉郁顿挫。你心中的诗王是哪一首？','论语中「仁」出现109次，孔子因材施教回答各异：对颜回说克己复礼，对仲弓说己所不欲勿施于人。仁的本质到底是什么？','中医常被质疑也常被推崇。阴阳五行、经络气血自成体系，千年临床实践不容忽视。中医的科学性之争，你怎么看？','「知己知彼百战不殆」堪称市场调研的圣经，「出其不意攻其无备」是差异化竞争的策略。商场如战场，你有实践心得吗？','六祖慧能说「菩提本无树明镜亦非台」，直指人心见性成佛。明心见性不是文字功夫，而是放下执念后的本来面目。如何体会？','楷书四大家欧颜柳赵各有风格，也有人建议从隶书入手更易上手。零基础想学书法，你推荐哪条路径？','山海经里奇兽异境荒诞离奇，有学者认为是古人的想象，也有人提出它记载了全球地理。神话与历史的边界在哪里？','「读书变化气质，戒傲戒惰」八字家训振聋发聩。曾国藩一介书生练兵平乱，靠的是勤、恒、敬。家书里的智慧放到今天依然受用。','春秋战国百家争鸣是人类思想史上的璀璨星河。儒家的仁义、道家的自然、法家的制度、墨家的兼爱，各有所长。你最喜欢哪一家？','「色即是空空即是色」看似矛盾：山河大地明明实在，为何说空？此空非虚无，而是万法因缘和合、本无自性。这个「空」怎么体会？','西乐讲究和声对位与宏大叙事，中乐追求意境留白与弦外之音。一曲古琴高山流水，与一首交响乐，是两种审美世界。','风水讲藏风聚气、坐北朝南，暗合采光、通风、避寒等环境学原理；但把吉凶祸福全系于布局，又难免迷信。你怎么看？','294卷通鉴让人望而生畏，司马光耗时19年编纂，据说毛泽东读了17遍。普通人如何读通鉴？从纪事本末体或精选本入手或许更可行。','孔子问礼于老子，思想路径却迥异：一个入世讲仁义，一个出世讲道德；一个「知其不可而为之」，一个「无为而无不为」。根本分歧在哪里？','汉字对仗平仄之妙，尽在对联。杭州岳王庙「青山有幸埋忠骨，白铁无辜铸佞臣」一联道尽忠奸。你有哪些钟爱的对联？','从三字经千字文打底，再读论语大学等四书，配合史记选读练古文，循序渐进比硬啃大部头更有效。你的入门路径是什么？','「大学之道，在明明德，在亲民，在止于至善」。朱熹解为复其本明，王阳明解为致良知。明明德是修身的起点，你怎么看？','同是儒家，孟子主性善需扩而充之，荀子主性恶需礼法矫之。一个向内求，一个向外立，争论两千年。你更认同哪一方？','中庸不是和稀泥，而是「喜怒哀乐之未发谓之中，发而皆中节谓之和」，追求恰到好处的平衡。把中庸当平庸，是最大的误解。','鲲鹏九万里、列子御风，庄子却说犹有所待。真正的逍遥是「无所待」的精神自由。这种自由在现代社会如何安放？','「水善利万物而不争」——不争不是躺平，而是处下、柔韧、顺势而为。在职场上如何把水的智慧用出来？','六祖闻此句而开悟。心不执着于相，却生机盎然；不粘不滞，又积极有为。这个境界在日常中如何落实？','儒家静坐省察，道家守静笃致虚极，佛家止观双运。入手处与归宿各有千秋，你从哪家入门？','儒释道各成体系又圆融互摄。苏轼「羽化而登仙」见道家超脱，「一蓑烟雨任平生」见佛家旷达，骨子里仍是儒者的担当。三教关系你怎么看？','「人之初性本善，性相近习相远」，三字经把识字、历史、道德熔于一炉。六百年的蒙学经典，对今天的早教仍有启发吗？','百家姓成书于北宋，「赵」为皇姓居首，「钱」为吴越国王姓，「孙」为后妃姓，「李」为南唐皇姓。姓氏排序里藏着历史密码。','弟子规开篇「首孝悌次谨信」，把孝道放在做人首位。现代家庭关系变化，孝的践行方式也该与时俱进。你怎么做？','「路遥知马力，日久见人心」「画虎画皮难画骨，知人知面不知心」。增广贤文句句世故，哪句最戳中你？','史记不只有帝王将相，还有刺客、游侠、货殖、滑稽列传。荆轲刺秦、信陵君窃符救赵，小人物身上的大义最动人。','史记通古今之变，汉书断代为史。班固文风严谨，却少了几分司马迁的激情与悲悯。史家笔法之争，你站哪边？','三国志是正史，演义是七实三虚的小说。诸葛亮的空城计、借东风多是演义虚构。读史与读小说，是两种乐趣。','苏秦张仪合纵连横，一言可兴邦。战国策里的说辞艺术与揣摩人心，放在今天的人际沟通中依然锋利。','「国之大事，在祀与戎」，左传里的外交辞令温婉含蓄又暗藏机锋，烛之武退秦师一段堪称说服艺术的典范。','上古天真论讲「法于阴阳，和于术数，食饮有节，起居有常」，与现代健康理念高度契合。内经的养生观你实践过吗？','李时珍著本草纲目历时27年，收药1892种。书里既有水银砒霜入药，也有「以形补形」的朴素观念。哪些靠谱哪些存疑？','魏晋风流尽在世说新语：王子猷雪夜访戴「乘兴而行兴尽而返」，嵇康临刑弹广陵散。你最欣赏哪一位名士？','「宠辱不惊，看庭前花开花落；去留无意，望天上云卷云舒」。菜根谭的淡泊与圆融，是当代人最好的心灵解药。','颜之推历仕四朝，以家训告诫子孙「积财千万，不如薄技在身」。家训里的务实精神，至今仍有价值。','屈原以香草喻高洁，以美人喻君王。离骚开创的香草美人传统，是比兴寄托的文学范式。你读懂了多少？','唐诗气象万千，宋词婉约豪放。李白杜甫是唐诗的巅峰，苏轼辛弃疾是宋词的脊梁。两种美，你偏爱哪种？','水浒好汉替天行道，却也滥杀无辜。忠义二字是招牌也是枷锁。宋江招安是愚忠还是远见？值得深思。','取经路就是修心路：悟空是心猿，八戒是欲望，沙僧是本能。九九八十一难，降服的是内心的妖怪。你读出几重隐喻？','蒲松龄「写鬼写妖高人一等，刺贪刺虐入骨三分」。狐仙鬼魅背后，是世态人情与科场失意的寄托。','草船借箭、空城计、连环计……三国是谋略的盛宴。你最喜欢哪一计？历史上哪些计谋真实存在？','千字文短短四字一句，却把天文地理、四时农事、修身齐家讲得清清楚楚。「寒来暑往」的循环观，是中国人最朴素的世界观。','礼记讲「礼者，天地之序也」。现代社交虽简化了繁文缛节，但「礼」背后的尊重与分寸感，依然不可或缺。','六韬三略讲治国用兵之道，文伐武伐并举。姜太公的谋略，放在组织管理和人生规划中同样适用。','鬼谷子弟子苏秦张仪搅动战国风云。捭阖、揣摩、权谋之术在现代沟通谈判中如何正用，值得探讨。','兼爱是爱无差等，非攻是反对不义之战。墨家的侠义与科学精神（小孔成像、力学）在先秦独树一帜。兼爱在今天可行吗？','韩非集法家大成，主张以法为教、以吏为师。法（制度）、术（权术）、势（权威）三者结合，对现代管理有何启示？','「不积跬步无以至千里，不积小流无以成江海」「青出于蓝而胜于蓝」。劝学篇的比喻与论证，是古文的典范。','「己所不欲勿施于人」「学而不思则罔，思而不学则殆」「三人行必有我师」。论语句句可入生活，哪句最受用？','格物→致知→诚意→正心→修身→齐家→治国→平天下，层层递进又环环相扣。修身是枢纽，你如何理解这条进阶之路？','网站上线以来，和大家一起读了不少经典。今年你完整读完了哪本典籍？收获最大的是什么？来打个卡吧！'];var rcs=['说得好！很有启发。','受教了，感谢分享！','这个观点很新颖，值得深入思考。','我也有同感，最近也在研究这个。','推荐一本相关的书：《》，写得很透彻。','完全同意！这也是我一直以来的想法。','不太认同这个观点，我觉得应该从另一个角度看...','有意思，我之前没想过这个问题。','学习了，回去好好研究一下。','这个问题确实值得讨论，大家继续交流。','好问题！我也一直在思考。','深度好文，收藏了！'];generateAndSave(us,rp,ts,ct,rcs);}function generateAndSave(us,rp,ts,cs,rcs){var n=Date.now(),h=36e5,m=6e4;var spanMs=n-new Date(2026,0,1).getTime();var stepMs=Math.max(864e5,Math.floor(spanMs/(ts.length-1)));var posts=[];ts.forEach(function(t,i){var pt=n-(ts.length-1-i)*stepMs-Math.floor(Math.random()*stepMs*0.4);var po={id:String(pt),t:t,c:cs[i%cs.length]||'',a:us[i%us.length],d:pt,i:[],v:[],r:[]};var rc=Math.floor(3+Math.random()*4);for(var j=0;j<rc;j++){po.r.push({id:String(pt+j*m),a:rp[(i+j)%rp.length],d:pt+(j+1)*m,c:rcs[Math.floor(Math.random()*rcs.length)],i:[]})}posts.push(po)});_forumData=posts;localStorage.setItem("ch_forum",JSON.stringify(posts))}
 </script>
 <script>
 var SCHOOL_RU = ["论语","孟子","大学","中庸","荀子","孔子家语","盐铁论","说苑","新序","法言","申鉴","中说","传习录","近思录","朱子语类","大学衍义","大学衍义补","日知录","明夷待访录","思问录","张子正蒙","二程遗书","象山全集","阳明全书","恒言录","潜书","焚书","藏书","明儒学案","宋元学案","孝经"];
