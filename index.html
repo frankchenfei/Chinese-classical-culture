@@ -512,6 +512,17 @@ textarea.forum-form-input{resize:vertical}
 .auth-toggle{text-align:center;margin-top:.9rem;font-size:.82rem;color:#7a6a5a}
 .auth-toggle a{color:#8B0000;cursor:pointer;font-weight:600}
 #authMsg{color:#8B0000;font-size:.78rem;text-align:center;margin-bottom:.5rem;min-height:1em}
+/* ===== 动态太极图 ===== */
+.taiji{position:relative;width:4.2rem;height:4.2rem;border-radius:50%;background:linear-gradient(90deg,#2c1810 50%,#f5f0e8 50%);animation:tjSpin 18s linear infinite;box-shadow:0 6px 24px rgba(0,0,0,.35);margin:0 auto}
+.taiji::before,.taiji::after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:50%;height:50%;border-radius:50%}
+.taiji::before{top:0;background:#2c1810}
+.taiji::after{bottom:0;background:#f5f0e8}
+.taiji i{position:absolute;left:50%;transform:translateX(-50%);width:15%;height:15%;border-radius:50%;z-index:2}
+.taiji .tj-dot-a{top:17.5%;background:#f5f0e8;box-shadow:0 0 6px rgba(0,0,0,.2)}
+.taiji .tj-dot-b{bottom:17.5%;background:#2c1810}
+@keyframes tjSpin{to{transform:rotate(360deg)}}
+@media(max-width:768px){.taiji{width:3.1rem;height:3.1rem}}
+@media(max-width:480px){.taiji{width:2.5rem;height:2.5rem}}
 /* ===== 移动端适配优化 ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{-webkit-tap-highlight-color:transparent}
@@ -576,7 +587,7 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 <div class="top-bar"><div class="top-bar-inner"><div class="lang-switch" id="langSwitch"></div><div class="top-bar-user" id="topBarUser"></div></div></div>
 <nav class="sticky-nav"><div class="nav-inner"><span class="nav-brand" onclick="navTo('home')">☯ <span data-t="siteTitle"></span></span><div id="mainNav"></div></div></nav>
 <div class="page active" id="home-page">
-<header class="hero"><div class="hero-content"><div class="hero-icon">☯</div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button></div></header>
+<header class="hero"><div class="hero-content"><div class="hero-icon"><div class="taiji"><i class="tj-dot tj-dot-a"></i><i class="tj-dot tj-dot-b"></i></div></div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button></div></header>
 <div class="home-modules">
 <div class="hm-card" onclick="navTo('timeline')"><span class="hm-icon">🏯</span><h4 data-t="hmTimeline"></h4><p data-t="hmTimelineSub"></p></div>
 <div class="hm-card" onclick="navTo('classics')"><span class="hm-icon">📚</span><h4 data-t="hmClassics"></h4><p data-t="hmClassicsSub"></p></div>
