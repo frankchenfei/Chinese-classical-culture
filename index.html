@@ -523,6 +523,84 @@ textarea.forum-form-input{resize:vertical}
 @keyframes tjSpin{to{transform:rotate(360deg)}}
 @media(max-width:768px){.taiji{width:3.1rem;height:3.1rem}}
 @media(max-width:480px){.taiji{width:2.5rem;height:2.5rem}}
+/* ===== 购物车 ===== */
+.cart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;border-bottom:1px solid #e0d5c8;padding-bottom:.6rem}
+.cart-head h3{font-size:1.2rem;color:#2c1810;letter-spacing:.1em}
+.cart-head span{font-size:.8rem;color:#7a6a5a}
+.cart-empty{text-align:center;padding:3rem 1rem;color:#7a6a5a;display:flex;flex-direction:column;gap:1rem;align-items:center}
+.cart-list{display:flex;flex-direction:column;gap:.6rem}
+.cart-item{display:flex;gap:.8rem;background:#fffefb;border:1px solid #e0d5c8;border-radius:10px;padding:.7rem .9rem}
+.ci-img{font-size:1.8rem;display:flex;align-items:center}
+.ci-body{flex:1;min-width:0}
+.ci-name{font-weight:600;color:#2c1810;font-size:.92rem}
+.ci-price{font-size:.78rem;color:#8B0000;margin-top:.15rem}
+.ci-ops{display:flex;align-items:center;gap:.4rem;margin-top:.4rem}
+.btn-mini{width:26px;height:26px;border:1px solid #d4c9b8;background:#fffefb;color:#5c4a38;border-radius:6px;cursor:pointer;font-size:.9rem;line-height:1}
+.btn-mini:hover{border-color:#c9a84c;color:#8B0000}
+.btn-del{color:#8B0000;border-color:#e0c8b8;width:auto;padding:0 .45rem}
+.ci-qty{min-width:1.4rem;text-align:center;font-size:.85rem;color:#2c1810}
+.cart-total{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;background:#fff8e0;border:1px solid #c9a84c;border-radius:10px;padding:.8rem 1rem;flex-wrap:wrap;gap:.6rem}
+.cart-total span{font-size:.85rem;color:#7a6a5a}
+.cart-total b{font-size:1.05rem;color:#8B0000}
+/* ===== 支付 ===== */
+.checkout-sum{text-align:center;font-size:.95rem;color:#2c1810;margin-bottom:.6rem}
+.pay-balance{text-align:center;font-size:.8rem;color:#7a6a5a;margin-bottom:.9rem}
+.pay-methods{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+.pay-method{display:flex;align-items:center;gap:.5rem;border:1px solid #d4c9b8;border-radius:8px;padding:.55rem .8rem;cursor:pointer;font-size:.88rem;color:#5c4a38;background:#fffefb;transition:all .2s}
+.pay-method.active{border-color:#8B0000;background:#f7ead8;color:#8B0000;font-weight:600}
+.pay-method input{accent-color:#8B0000}
+.pay-msg{color:#8B0000;font-size:.8rem;text-align:center;margin:.4rem 0;min-height:1em}
+.pay-success{text-align:center;font-size:.9rem;color:#5c4a38;line-height:2;margin-bottom:1rem}
+/* ===== 订单 ===== */
+.orders-title{font-size:1.05rem;color:#2c1810;letter-spacing:.12em;margin:1.6rem 0 .7rem;border-bottom:1px solid #e0d5c8;padding-bottom:.5rem}
+.order-list{display:flex;flex-direction:column;gap:.5rem}
+.order-item{background:#fffefb;border:1px solid #e0d5c8;border-radius:10px;padding:.7rem .9rem}
+.oi-head{display:flex;justify-content:space-between;font-size:.75rem;color:#7a6a5a;margin-bottom:.3rem}
+.oi-body{font-size:.82rem;color:#2c1810;margin-bottom:.3rem;display:flex;flex-wrap:wrap;gap:.4rem}
+.oi-foot{font-size:.75rem;color:#8B0000}
+.no-orders{text-align:center;padding:2rem;color:#7a6a5a;font-size:.85rem}
+@media(max-width:480px){.cart-item{gap:.5rem}.ci-img{font-size:1.4rem}.cart-total{flex-direction:column;align-items:stretch}.cart-total .btn-primary{width:100%}}
+/* ===== 小游戏 ===== */
+.game-box{max-width:560px;margin:0 auto;background:#fffefb;border:1px solid #e0d5c8;border-radius:14px;padding:1.6rem;box-shadow:0 4px 16px rgba(44,24,16,.08)}
+.game-head{display:flex;justify-content:space-between;font-size:.78rem;color:#7a6a5a;margin-bottom:1rem;flex-wrap:wrap;gap:.4rem}
+.game-q{font-size:1.05rem;color:#2c1810;line-height:1.7;margin-bottom:1rem;font-weight:600}
+.game-opts{display:flex;flex-direction:column;gap:.5rem}
+.game-opt{padding:.7rem .9rem;border:1px solid #d4c9b8;background:#fffefb;color:#5c4a38;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.9rem;text-align:left;transition:all .2s}
+.game-opt:hover:not(:disabled){border-color:#c9a84c;color:#8B0000;background:#fff8e0}
+.game-opt:disabled{opacity:.75;cursor:default}
+#gameMsg{text-align:center;margin-top:.8rem;font-size:.9rem;min-height:1.4em}
+.game-correct{color:#2c7a3b;font-weight:700}
+.game-wrong{color:#8B0000}
+.game-score-big{font-size:2.4rem;color:#8B0000;text-align:center;font-weight:700;margin:.6rem 0}
+.game-title{text-align:center;font-size:1.1rem;color:#2c1810;margin-bottom:1rem;letter-spacing:.1em}
+@media(max-width:480px){.game-box{padding:1.1rem}.game-q{font-size:.95rem}}
+.sc-rank{display:inline-block;font-size:.68rem;color:#fff;background:#8B0000;border-radius:999px;padding:.05rem .5rem;margin-bottom:.3rem;letter-spacing:.03em}
+.sc-line{font-size:.8rem;color:#5c4a38;margin-bottom:.2rem;line-height:1.5}
+.sc-line b{color:#8B0000;font-weight:600;margin-right:.3rem}
+.game-hub-sub{text-align:center;color:#7a6a5a;font-size:.82rem;margin-bottom:1rem}
+.game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.game-card{background:#fffefb;border:1px solid #e0d5c8;border-radius:12px;padding:1.1rem .6rem;text-align:center;cursor:pointer;transition:all .2s}
+.game-card:hover{border-color:#c9a84c;transform:translateY(-2px);box-shadow:0 6px 14px rgba(44,24,16,.08)}
+.gc-icon{font-size:1.8rem;display:block;margin-bottom:.35rem}
+.game-card b{font-size:.88rem;color:#2c1810;letter-spacing:.05em}
+.game-input{width:100%;max-width:360px;padding:.6rem .9rem;border:1px solid #d4c9b8;border-radius:8px;font-size:.95rem;font-family:inherit;margin:.5rem 0;background:#fffefb;color:#2c1810}
+.game-input:focus{outline:none;border-color:#c9a84c}
+.fh-key{font-size:1.2rem;color:#2c1810;text-align:center;margin:.4rem 0}
+.fh-key b{color:#8B0000;font-size:2rem;margin-left:.3rem}
+.fh-tip,.cg-tip,.ll-tip,.jg-tip{font-size:.8rem;color:#7a6a5a;text-align:center;margin:.3rem 0}
+.fh-examples{font-size:.75rem;color:#9a8774;margin-top:.7rem;line-height:1.6;text-align:center}
+.cg-cur{font-size:1.05rem;text-align:center;color:#2c1810;margin:.4rem 0}
+.cg-cur b{color:#8B0000;font-size:1.3rem;margin-left:.3rem}
+.ll-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.6rem 0}
+.ll-col{display:flex;flex-direction:column;gap:.4rem}
+.ll-card{padding:.55rem .6rem;border:1px solid #d4c9b8;border-radius:8px;text-align:center;cursor:pointer;font-size:.88rem;background:#fffefb;color:#2c1810;transition:all .15s}
+.ll-card:hover{border-color:#c9a84c}
+.ll-card.sel{border-color:#8B0000;background:#f7ead8;color:#8B0000;font-weight:700}
+.ll-card.done{opacity:.4;pointer-events:none;background:#e8ddd0;text-decoration:line-through}
+.tk-blank{color:#8B0000;font-weight:700;letter-spacing:.1em}
+.jg-glyph{font-size:3.2rem;text-align:center;margin:.4rem 0}
+#fhMsg,#cgMsg,#llMsg{text-align:center;margin:.5rem 0;font-size:.88rem;min-height:1.3em}
+@media(max-width:480px){.game-grid{grid-template-columns:repeat(2,1fr)}.ll-grid{grid-template-columns:1fr}}
 /* ===== 移动端适配优化 ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{-webkit-tap-highlight-color:transparent}
@@ -610,6 +688,8 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 </div>
 <div class="shop-grid" id="shopGrid"></div>
 </div>
+<div class="page" id="cart-page"><div id="cart-page-content"></div></div>
+<div class="page" id="game-page"><div id="game-page-content"></div></div>
 <div class="page" id="timeline-page">
 <div class="page-banner"><img src="timeline-banner.png" alt=""><div class="banner-overlay"><h2 class="banner-title" data-t="tlBannerTitle"></h2><p class="banner-sub" data-t="tlBannerSub"></p></div></div>
 <div class="stats-strip" id="timelineStats"></div>
@@ -671,6 +751,73 @@ checkinOk:{'zh-CN':'签到成功，获得积分','zh-TW':'簽到成功，獲得�
 shopSearchPh:{'zh-CN':'搜索商品…','zh-TW':'搜索商品…','en':'Search products…','es':'Buscar productos…','pt':'Buscar produtos…'},
 noAccount:{'zh-CN':'还没有账号？','zh-TW':'還沒有帳號？','en':"Don't have an account?",'es':'¿No tienes cuenta?','pt':'Não tem conta?'},
 hasAccount:{'zh-CN':'已有账号？','zh-TW':'已有帳號？','en':'Already have an account?','es':'¿Ya tienes cuenta?','pt':'Já tem conta?'},
+navCart:{'zh-CN':'购物车','zh-TW':'購物車','en':'Cart','es':'Carrito','pt':'Carrinho'},
+cartItems:{'zh-CN':'件商品','zh-TW':'件商品','en':'items','es':'artículos','pt':'itens'},
+cartEmpty:{'zh-CN':'购物车还是空的','zh-TW':'購物車還是空的','en':'Your cart is empty','es':'Tu carrito está vacío','pt':'Seu carrinho está vazio'},
+goShop:{'zh-CN':'去逛逛','zh-TW':'去逛逛','en':'Go Shopping','es':'Ir de Compras','pt':'Ir às Compras'},
+cartTotal:{'zh-CN':'合计','zh-TW':'合計','en':'Total','es':'Total','pt':'Total'},
+checkoutTitle:{'zh-CN':'确认订单','zh-TW':'確認訂單','en':'Confirm Order','es':'Confirmar Pedido','pt':'Confirmar Pedido'},
+payWechat:{'zh-CN':'微信支付','zh-TW':'微信支付','en':'WeChat Pay','es':'WeChat Pay','pt':'WeChat Pay'},
+payAlipay:{'zh-CN':'支付宝','zh-TW':'支付寶','en':'Alipay','es':'Alipay','pt':'Alipay'},
+payCard:{'zh-CN':'银行卡','zh-TW':'銀行卡','en':'Bank Card','es':'Tarjeta','pt':'Cartão'},
+payBalance:{'zh-CN':'账户积分','zh-TW':'帳戶積分','en':'Your credits','es':'Tus créditos','pt':'Seus créditos'},
+payConfirm:{'zh-CN':'确认支付','zh-TW':'確認支付','en':'Pay Now','es':'Pagar Ahora','pt':'Pagar Agora'},
+payCancel:{'zh-CN':'取消','zh-TW':'取消','en':'Cancel','es':'Cancelar','pt':'Cancelar'},
+payNeedLogin:{'zh-CN':'请先登录后再支付','zh-TW':'請先登錄後再支付','en':'Please log in to pay','es':'Inicia sesión para pagar','pt':'Faça login para pagar'},
+payNoCredits:{'zh-CN':'积分不足，请先签到或购买积分','zh-TW':'積分不足，請先簽到或購買積分','en':'Not enough credits. Check in or buy credits first','es':'Créditos insuficientes. Registra o compra créditos','pt':'Créditos insuficientes. Faça check-in ou compre créditos'},
+paySuccess:{'zh-CN':'支付成功','zh-TW':'支付成功','en':'Payment Successful','es':'Pago Exitoso','pt':'Pagamento Bem-sucedido'},
+orderNo:{'zh-CN':'订单号','zh-TW':'訂單號','en':'Order No.','es':'N.º de Pedido','pt':'N.º do Pedido'},
+payAmount:{'zh-CN':'支付金额','zh-TW':'支付金額','en':'Amount','es':'Monto','pt':'Valor'},
+viewOrders:{'zh-CN':'查看我的订单','zh-TW':'查看我的訂單','en':'View My Orders','es':'Ver Mis Pedidos','pt':'Ver Meus Pedidos'},
+noOrders:{'zh-CN':'还没有订单','zh-TW':'還沒有訂單','en':'No orders yet','es':'Aún no hay pedidos','pt':'Ainda sem pedidos'},
+myOrders:{'zh-CN':'我的订单','zh-TW':'我的訂單','en':'My Orders','es':'Mis Pedidos','pt':'Meus Pedidos'},
+ttsUnsupported:{'zh-CN':'当前浏览器不支持朗读','zh-TW':'當前瀏覽器不支持朗讀','en':'TTS not supported in this browser','es':'TTS no soportado en este navegador','pt':'TTS não suportado neste navegador'},
+shopWenwan:{'zh-CN':'文玩饰品','zh-TW':'文玩飾品','en':'Wenwan & Accessories','es':'Artesanía y Accesorios','pt':'Artesanato e Acessórios'},
+navGame:{'zh-CN':'小游戏','zh-TW':'小遊戲','en':'Quiz','es':'Quiz','pt':'Quiz'},
+gameHub:{'zh-CN':'国学小游戏','zh-TW':'國學小遊戲','en':'Guoxue Games','es':'Juegos Guoxue','pt':'Jogos Guoxue'},
+gameHubSub:{'zh-CN':'寓教于乐 · 边玩边学','zh-TW':'寓教於樂 · 邊玩邊學','en':'Learn while you play','es':'Aprende jugando','pt':'Aprenda jogando'},
+gameBack:{'zh-CN':'返回大厅','zh-TW':'返回大廳','en':'Back to Hub','es':'Volver al Menú','pt':'Voltar ao Menu'},
+gameFeihua:{'zh-CN':'飞花令','zh-TW':'飛花令','en':'Poetry Flower','es':'Flor de Poesía','pt':'Flor de Poesia'},
+gameChengyu:{'zh-CN':'成语接龙','zh-TW':'成語接龍','en':'Idiom Chain','es':'Cadena de Modismos','pt':'Corrente de Idiomas'},
+gameLianlian:{'zh-CN':'典籍连连看','zh-TW':'典籍連連看','en':'Classics Match','es':'Parear Clásicos','pt':'Combinar Clássicos'},
+gameTiankong:{'zh-CN':'诗词填空','zh-TW':'詩詞填空','en':'Poetry Fill-in','es':'Completar Poesía','pt':'Completar Poesia'},
+gameJiaguwen:{'zh-CN':'甲骨文猜字','zh-TW':'甲骨文猜字','en':'Oracle Guess','es':'Adivinar Oracle','pt':'Adivinhar Oracle'},
+gameRound:{'zh-CN':'第 {a}/{b} 轮','zh-TW':'第 {a}/{b} 輪','en':'Round {a}/{b}','es':'Ronda {a}/{b}','pt':'Rodada {a}/{b}'},
+fhKeyword:{'zh-CN':'本回合关键字','zh-TW':'本回合關鍵字','en':'Keyword','es':'Palabra clave','pt':'Palavra-chave'},
+fhTip:{'zh-CN':'说出含有该字的诗词句（至少 4 字）','zh-TW':'說出含有該字的詩詞句（至少 4 字）','en':'Say a poem line containing this character (4+ chars)','es':'Di una línea de poesía con este carácter','pt':'Diga uma linha de poesia com este caractere'},
+fhPlace:{'zh-CN':'输入含关键字的诗句…','zh-TW':'輸入含關鍵字的詩句…','en':'Type a line containing the keyword…','es':'Escribe una línea con la palabra…','pt':'Digite uma linha com a palavra…'},
+fhSubmit:{'zh-CN':'提交','zh-TW':'提交','en':'Submit','es':'Enviar','pt':'Enviar'},
+fhExamples:{'zh-CN':'示例','zh-TW':'示例','en':'Examples','es':'Ejemplos','pt':'Exemplos'},
+fhWrong:{'zh-CN':'这句里没有','zh-TW':'這句裡沒有','en':'This line has no','es':'Esta línea no tiene','pt':'Esta linha não tem'},
+cgCurrent:{'zh-CN':'当前成语','zh-TW':'當前成語','en':'Current idiom','es':'Modismo actual','pt':'Idioma atual'},
+cgTip:{'zh-CN':'用上一个成语的最后一个字开头，接一个 4 字成语','zh-TW':'用上一個成語的最後一個字開頭，接一個 4 字成語','en':'Start a 4-char idiom with the last character of the current one','es':'Continúa con un modismo de 4 caracteres usando la última letra','pt':'Continue com um idioma de 4 caracteres usando a última letra'},
+cgPlace:{'zh-CN':'输入以「末字」开头的成语…','zh-TW':'輸入以「末字」開頭的成語…','en':'Type an idiom starting with the last character…','es':'Escribe un modismo que empiece con la última letra…','pt':'Digite um idioma começando com a última letra…'},
+cgSubmit:{'zh-CN':'接龙','zh-TW':'接龍','en':'Chain','es':'Continuar','pt':'Continuar'},
+cgWrong:{'zh-CN':'接不上','zh-TW':'接不上','en':'Invalid chain','es':'Cadena inválida','pt':'Corrente inválida'},
+cgNeedStart:{'zh-CN':'需以','zh-TW':'需以','en':'must start with','es':'debe empezar con','pt':'deve começar com'},
+cgNeed4:{'zh-CN':'且需为 4 字成语','zh-TW':'且需為 4 字成語','en':'and be 4 characters','es':'y tener 4 caracteres','pt':'e ter 4 caracteres'},
+llTip:{'zh-CN':'点击典籍，再点对应的作者/朝代，配对消除','zh-TW':'點擊典籍，再點對應的作者/朝代，配對消除','en':'Click a classic, then its author to match','es':'Haz clic en un clásico y luego en su autor','pt':'Clique em um clássico e depois no autor'},
+llProgress:{'zh-CN':'已配对','zh-TW':'已配對','en':'Matched','es':'Pareados','pt':'Combinados'},
+llAttempts:{'zh-CN':'尝试次数','zh-TW':'嘗試次數','en':'Attempts','es':'Intentos','pt':'Tentativas'},
+llWrong:{'zh-CN':'不匹配，再试试','zh-TW':'不匹配，再試試','en':'No match, try again','es':'No coincide, intenta de nuevo','pt':'Não combina, tente de novo'},
+jgTip:{'zh-CN':'这是甲骨文/象形字，猜猜它对应哪个现代汉字','zh-TW':'這是甲骨文/象形字，猜猜它對應哪個現代漢字','en':'This pictograph is an ancient character — guess the modern one','es':'Este pictograma es un carácter antiguo — adivina el moderno','pt':'Este pictograma é um caractere antigo — adivinhe o moderno'},
+jgRank:{'zh-CN':'称号：','zh-TW':'稱號：','en':'Rank: ','es':'Rango: ','pt':'Rank: '},
+gameTitle:{'zh-CN':'国学问答','zh-TW':'國學問答','en':'Guoxue Quiz','es':'Quiz de Guoxue','pt':'Quiz Guoxue'},
+gameResult:{'zh-CN':'答题完成！','zh-TW':'答題完成！','en':'Quiz Complete!','es':'¡Quiz Completado!','pt':'Quiz Concluído!'},
+gameRestart:{'zh-CN':'再来一局','zh-TW':'再來一局','en':'Play Again','es':'Jugar de Nuevo','pt':'Jogar Novamente'},
+gameProgress:{'zh-CN':'第 {a}/{b} 题','zh-TW':'第 {a}/{b} 題','en':'Q {a}/{b}','es':'P {a}/{b}','pt':'Q {a}/{b}'},
+gameScore:{'zh-CN':'得分','zh-TW':'得分','en':'Score','es':'Puntos','pt':'Pontos'},
+gameCorrect:{'zh-CN':'回答正确！','zh-TW':'回答正確！','en':'Correct!','es':'¡Correcto!','pt':'Correto!'},
+gameWrong:{'zh-CN':'回答错误','zh-TW':'回答錯誤','en':'Wrong','es':'Incorrecto','pt':'Errado'},
+gameAnswer:{'zh-CN':'正确答案','zh-TW':'正確答案','en':'Correct answer','es':'Respuesta correcta','pt':'Resposta correta'},
+gameRank0:{'zh-CN':'初涉国学，继续加油','zh-TW':'初涉國學，繼續加油','en':'Just starting, keep going','es':'Recién empiezas, sigue','pt':'Começando agora, continue'},
+gameRank1:{'zh-CN':'国学学徒','zh-TW':'國學學徒','en':'Guoxue Apprentice','es':'Aprendiz de Guoxue','pt':'Aprendiz de Guoxue'},
+gameRank2:{'zh-CN':'国学秀才','zh-TW':'國學秀才','en':'Guoxue Scholar','es':'Erudito Guoxue','pt':'Estudioso Guoxue'},
+gameRank3:{'zh-CN':'国学进士','zh-TW':'國學進士','en':'Guoxue Jinshi','es':'Jinshi Guoxue','pt':'Jinshi Guoxue'},
+gameRank4:{'zh-CN':'国学大儒','zh-TW':'國學大儒','en':'Guoxue Master','es':'Maestro Guoxue','pt':'Mestre Guoxue'},
+surnameJunwang:{'zh-CN':'郡望','zh-TW':'郡望','en':'Junwang (Clan Seat)','es':'Junwang (Sede del Clan)','pt':'Junwang (Sede do Clã)'},
+surnameTang:{'zh-CN':'堂号','zh-TW':'堂號','en':'Hall Name','es':'Nombre del Salón','pt':'Nome do Salão'},
+surnameArea:{'zh-CN':'主要分布','zh-TW':'主要分佈','en':'Main Regions','es':'Regiones Principales','pt':'Regiões Principais'},
 siteSub:{'zh-CN':'中华国学典籍网','zh-TW':'中華國學典籍網','en':'Portal of Chinese Classics','es':'Portal de Clásicos Chinos','pt':'Portal de Clássicos Chineses'},
 siteDesc:{'zh-CN':'从山海经的上古传说，到历朝历代的经史子集，以朝代时间轴为线索，带您走进中华五千年文化的浩瀚星河。','zh-TW':'從山海經的上古傳說，到歷朝歷代的經史子集，以朝代時間軸為線索，帶您走進中華五千年文化的浩瀚星河。','en':'From the myths of the Classic of Mountains and Seas to the classics and histories of every dynasty, follow our dynastic timeline into the vast galaxy of five thousand years of Chinese culture.','es':'Desde los mitos del Clásico de las Montañas y los Mares hasta los clásicos de cada dinastía, siga nuestra línea de tiempo dinástica hacia la vasta galaxia de cinco mil años de cultura china.','pt':'Dos mitos do Clássico das Montanhas e Mares aos clássicos e histórias de cada dinastia, siga nossa linha do tempo dinástica na vasta galáxia de cinco mil anos de cultura chinesa.'},
 exploreTimeline:{'zh-CN':'探索时间轴','zh-TW':'探索時間軸','en':'Explore Timeline','es':'Explorar la Línea de Tiempo','pt':'Explorar a Linha do Tempo'},
@@ -1084,12 +1231,23 @@ const SHOP_PRODUCTS = [
   {id:'9',cat:'yijing',name:{'zh-CN':'易经六十四卦铜钱','en':'I-Ching 64 Hexagram Coins','es':'Monedas de I Ching 64 Hexagramas','pt':'Moedas do I Ching 64 Hexagramas'},desc:{'zh-CN':'精铸仿古铜钱一套三枚，正宗占卜用币，含详细占卜指南手册。','en':'Set of 3 antique-style brass coins for I-Ching divination, includes detailed guide.','es':'Juego de 3 monedas de latón de estilo antiguo para adivinación de I Ching, incluye guía detallada.','pt':'Conjunto de 3 moedas de latão estilo antigo para adivinhação do I Ching, inclui guia detalhada.'},price:24,img:'🪙'},
   {id:'10',cat:'yijing',name:{'zh-CN':'罗盘（风水指南针）','en':'Feng Shui Luopan Compass','es':'Brújula Luopan de Feng Shui','pt':'Bússola Luopan de Feng Shui'},desc:{'zh-CN':'传统风水罗盘，含八卦二十四山层位，实木底座。','en':'Traditional Feng Shui compass with Bagua 24-mountain system, solid wood base.','es':'Brújula Feng Shui tradicional con sistema Bagua de 24 montañas, base de madera maciza.','pt':'Bússola Feng Shui tradicional com sistema Bagua de 24 montanhas, base de madeira maciça.'},price:36,img:'🧭'},
   {id:'13',cat:'stationery',name:{'zh-CN':'文房四宝礼盒','en':'Four Treasures of the Study Set','es':'Juego de los Cuatro Tesoros del Estudio','pt':'Conjunto dos Quatro Tesouros do Estudo'},desc:{'zh-CN':'湖笔、徽墨、宣纸、端砚，精装礼盒。','en':'Huzhou brush, Huizhou ink, Xuan paper, Duan inkstone — deluxe gift set.','es':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, piedra de tinta Duan — juego de regalo de lujo.','pt':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, pedra de tinta Duan — conjunto de presente de luxo.'},price:60,img:'✍️'},
-  {id:'14',cat:'stationery',name:{'zh-CN':'檀木书签（刻字）','en':'Sandalwood Bookmark (Engraved)','es':'Marcapáginas de Sándalo (Grabado)','pt':'Marca-página de Sândalo (Gravado)'},desc:{'zh-CN':'印度老山檀香木，手工打磨，可定制刻字。','en':'Indian sandalwood, hand-polished, customizable engraving.','es':'Sándalo indio, pulido a mano, grabado personalizable.','pt':'Sândalo indiano, polido à mão, gravação personalizável.'},price:10,img:'📑'}
+  {id:'14',cat:'stationery',name:{'zh-CN':'檀木书签（刻字）','en':'Sandalwood Bookmark (Engraved)','es':'Marcapáginas de Sándalo (Grabado)','pt':'Marca-página de Sândalo (Gravado)'},desc:{'zh-CN':'印度老山檀香木，手工打磨，可定制刻字。','en':'Indian sandalwood, hand-polished, customizable engraving.','es':'Sándalo indio, pulido a mano, grabado personalizable.','pt':'Sândalo indiano, polido à mão, gravação personalizável.'},price:10,img:'📑'},
+// 文玩饰品
+  {id:'601',cat:'wenwan',name:{'zh-CN':'奇楠沉香手串','en':'Agarwood (Qi-nan) Bracelet'},desc:{'zh-CN':'海南奇楠沉香，油脂丰润，香气清雅持久，温养身心。','en':'Hainan Qi-nan agarwood, rich resin, elegant lasting fragrance.'},price:88,img:'🪵'},
+  {id:'602',cat:'wenwan',name:{'zh-CN':'朱砂平安扣','en':'Cinnabar Peace Pendant'},desc:{'zh-CN':'天然朱砂原矿打磨，色泽红润，寓意辟邪纳福、出入平安。','en':'Natural cinnabar, glossy red, blessing and safety.'},price:36,img:'🔴'},
+  {id:'603',cat:'wenwan',name:{'zh-CN':'星月菩提手串','en':'Star-Moon Bodhi Bracelet'},desc:{'zh-CN':'精选顺白星月菩提，盘玩日久渐生玉化包浆，禅意悠然。','en':'Selected star-moon bodhi, develops jade-like patina.'},price:48,img:'📿'},
+  {id:'604',cat:'wenwan',name:{'zh-CN':'小叶紫檀佛珠（108颗）','en':'Red Sandalwood Beads (108)'},desc:{'zh-CN':'印度小叶紫檀老料，油性好密度高，108颗念珠持诵静心。','en':'Indian red sandalwood, dense and oily, 108-bead mala.'},price:128,img:'🟤'},
+  {id:'605',cat:'wenwan',name:{'zh-CN':'蜜蜡吊坠','en':'Amber Pendant'},desc:{'zh-CN':'天然波罗的海蜜蜡，温润如蜜，佩戴养心。','en':'Natural Baltic amber, warm like honey.'},price:168,img:'🟡'},
+  {id:'606',cat:'wenwan',name:{'zh-CN':'和田玉平安牌','en':'Hetian Jade Peace Plaque'},desc:{'zh-CN':'和田白玉素牌，温润细腻，寓意平安吉祥。','en':'Hetian white jade plaque, smooth and refined.'},price:198,img:'🟢'},
+  {id:'607',cat:'wenwan',name:{'zh-CN':'玛瑙貔貅把件','en':'Agate Pixiu Charm'},desc:{'zh-CN':'天然玛瑙雕貔貅，招财纳福，掌中盘玩。','en':'Natural agate pixiu, prosperity charm.'},price:66,img:'🐉'},
+  {id:'608',cat:'wenwan',name:{'zh-CN':'绿檀木梳','en':'Green Sandalwood Comb'},desc:{'zh-CN':'阿根廷绿檀，遇光生香，梳头养发。','en':'Argentine green sandalwood, fragrant when warm.'},price:28,img:'🪮'},
+  {id:'609',cat:'wenwan',name:{'zh-CN':'金刚菩提持珠','en':'Rudraksha Beads'},desc:{'zh-CN':'尼泊尔金刚菩提，纹路深峻，盘玩日久红润透亮。','en':'Nepal rudraksha, deep ridges, glossy red with use.'},price:42,img:'🌰'},
+  {id:'610',cat:'wenwan',name:{'zh-CN':'黑檀葫芦把件','en':'Ebony Gourd Charm'},desc:{'zh-CN':'东非黑檀雕葫芦，谐音「福禄」，掌中把玩生趣。','en':'East African ebony gourd, "fortune" in Chinese.'},price:32,img:'🎋'}
 ];
 const CREDIT_PACKAGES = [ {credits:10,price:'$1.99',id:'cp1'}, {credits:50,price:'$8.99',id:'cp2',recommended:true}, {credits:200,price:'$29.99',id:'cp3'}, {credits:500,price:'$59.99',id:'cp4'} ];
 const UNLOCK_CREDITS = { book:30, langVersion:20 };
 const MEMBER_FREE_CHAPTERS = 10;
-const REGISTER_BONUS_CREDITS = 10;
+const REGISTER_BONUS_CREDITS = 20;
 
 </script>
 <script>
@@ -1581,7 +1739,7 @@ function updateCartCount(){var b=document.getElementById("cartBadge");if(b){b.te
 function showAuth(mode){document.getElementById("authOverlay").classList.add("active");var f=document.getElementById("authForm");if(!f)return;f.innerHTML='<h3>'+(mode==="login"?t("loginTitle"):t("regTitle"))+'</h3><div id="authMsg"></div>'+(mode==="register"?('<div class="form-group"><label>'+t("nameLabel")+'</label><input type="text" id="authName"></div>'):"")+'<div class="form-group"><label>'+t("emailLabel")+'</label><input type="email" id="authEmail"></div><div class="form-group"><label>'+t("pwdLabel")+'</label><input type="password" id="authPwd"></div><button class="btn-primary" onclick="'+(mode==="login"?"doLogin()":"doRegister()")+'">'+(mode==="login"?t("loginBtn"):t("regBtn"))+'</button>';}
 function closeAuth(){document.getElementById("authOverlay").classList.remove("active");}
 function doLogin(){var e=document.getElementById("authEmail")?.value;var p=document.getElementById("authPwd")?.value;var u=JSON.parse(localStorage.getItem("ch_users")||"{}");if(!u[e]||u[e].pwd!==p){alert("Invalid credentials");return}_user=u[e];localStorage.setItem("ch_user",JSON.stringify(_user));closeAuth();renderTopBar();renderNav();}
-function doRegister(){var n=document.getElementById("authName")?.value;var e=document.getElementById("authEmail")?.value;var p=document.getElementById("authPwd")?.value;if(!n||!e||!p)return;var u=JSON.parse(localStorage.getItem("ch_users")||"{}");if(u[e]){alert("Email exists");return}u[e]={name:n,email:e,pwd:p,credits:10,ownedBooks:[]};localStorage.setItem("ch_users",JSON.stringify(u));_user=u[e];localStorage.setItem("ch_user",JSON.stringify(_user));closeAuth();renderTopBar();renderNav();}
+function doRegister(){var n=document.getElementById("authName")?.value;var e=document.getElementById("authEmail")?.value;var p=document.getElementById("authPwd")?.value;if(!n||!e||!p)return;var u=JSON.parse(localStorage.getItem("ch_users")||"{}");if(u[e]){alert("Email exists");return}u[e]={name:n,email:e,pwd:p,credits:20,ownedBooks:[]};localStorage.setItem("ch_users",JSON.stringify(u));_user=u[e];localStorage.setItem("ch_user",JSON.stringify(_user));closeAuth();renderTopBar();renderNav();}
 function logout(){_user=null;localStorage.removeItem("ch_user");renderTopBar();renderNav();navTo("home");}
 function renderPage(p){document.querySelectorAll(".page").forEach(function(el){el.classList.remove("active");});var tg=document.getElementById(p+"-page");if(tg)tg.classList.add("active");document.querySelectorAll(".nav-link").forEach(function(n){n.classList.toggle("active",n.dataset.page===p);});if(p==="classics"&&typeof renderClassics==="function")renderClassics();if(p==="shop"&&typeof renderShop==="function")renderShop();if(p==="account"&&typeof renderAccount==="function")renderAccount();if(p==="reader"&&_currentBook&&typeof renderReader==="function")renderReader();if(p==="forum"&&typeof renderForum==="function")renderForum();if(p==="surname"&&typeof renderSurname==="function")renderSurname();}
 function renderNav(){var n=document.getElementById("mainNav");if(!n)return;var pages=["home","timeline","classics","forum","surname","shop"];var keys=["navHome","navTimeline","navClassics","navRushiDao","navSurname","navShop"];n.innerHTML=pages.map(function(pi,i){return'<button class="nav-link" data-page="'+pi+'" onclick="navTo(\''+pi+'\')">'+t(keys[i])+"</button>";}).join("")+'<span class="nav-spacer"></span>'+(_user?'<button class="nav-link" data-page="account" onclick="navTo(\'account\')">'+t("navAccount")+'<span class="cart-count" id="cartBadge" style="display:none">0</span></button>':'<button class="nav-link" onclick="showAuth(\'login\')">'+t("navLogin")+"/"+t("navRegister")+"</button>");updateCartCount();}
@@ -2256,6 +2414,141 @@ window.renderForumList=function(s){_origForumList(s);var tb=document.querySelect
 // ===== 登录/注册弹窗 (auth modal) =====
 window.showAuth=function(mode){var ov=document.getElementById("authOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("authForm");if(!f)return;var toggle=mode==="login"?('<div class="auth-toggle">'+t("noAccount")+' <a onclick="window.showAuth(\'register\')">'+t("navRegister")+'</a></div>'):('<div class="auth-toggle">'+t("hasAccount")+' <a onclick="window.showAuth(\'login\')">'+t("navLogin")+'</a></div>');f.innerHTML='<h3>'+(mode==="login"?t("loginTitle"):t("regTitle"))+'</h3><div id="authMsg"></div>'+(mode==="register"?('<div class="form-group"><label>'+t("nameLabel")+'</label><input type="text" id="authName"></div>'):"")+'<div class="form-group"><label>'+t("emailLabel")+'</label><input type="email" id="authEmail"></div><div class="form-group"><label>'+t("pwdLabel")+'</label><input type="password" id="authPwd"></div><button class="btn-primary" onclick="'+(mode==="login"?"doLogin()":"doRegister()")+'">'+(mode==="login"?t("loginBtn"):t("regBtn"))+'</button>'+toggle;};
 window.closeAuth=function(){var ov=document.getElementById("authOverlay");if(ov)ov.classList.remove("active");};
+</script>
+
+<script>
+// ===== 朗读修复 + 购物车/支付系统 (2026-08-29) =====
+var _zhVoice=null;
+function pickZhVoice(){try{var vs=window.speechSynthesis?window.speechSynthesis.getVoices():[];var prefs=["zh-CN","zh-Hans-CN","zh_CN","zh-TW","zh-HK","zh"];for(var i=0;i<prefs.length;i++){for(var j=0;j<vs.length;j++){if((vs[j].lang||"").toLowerCase().indexOf(prefs[i].toLowerCase())===0)return vs[j];}}for(var k=0;k<vs.length;k++){if((vs[k].lang||"").indexOf("zh")===0)return vs[k];}return null;}catch(e){return null;}}
+window.speakText=function(text,lang){var s=null;try{s=window.speechSynthesis}catch(e){}if(!s){var st=document.getElementById("ttsStatus");if(st)st.textContent=t("ttsUnsupported");return;}s.cancel();var u=new SpeechSynthesisUtterance(text);var v=pickZhVoice();if(v){u.voice=v;u.lang=v.lang;}else{u.lang=(lang==="zh-CN"||lang==="zh-TW")?"zh-CN":lang;}u.rate=0.9;u.pitch=1;u.onstart=function(){var st=document.getElementById("ttsStatus");if(st)st.textContent="🔊 "+t("audioPlaying");};u.onend=function(){var st=document.getElementById("ttsStatus");if(st)st.textContent="";};try{s.speak(u);}catch(e){var st2=document.getElementById("ttsStatus");if(st2)st2.textContent=t("ttsUnsupported");}};
+window.stopRecitation=function(){try{window.speechSynthesis&&window.speechSynthesis.cancel()}catch(e){}};
+(function(){try{if(window.speechSynthesis&&window.speechSynthesis.onvoiceschanged!==undefined){window.speechSynthesis.onvoiceschanged=function(){pickZhVoice();};}pickZhVoice();}catch(e){}})();
+window.renderNav=function(){var nav=document.getElementById("mainNav");if(!nav)return;var pgs=["home","timeline","classics","forum","surname","shop","cart","game"];var ks=["navHome","navTimeline","navClassics","navRushiDao","navSurname","navShop","navCart","navGame"];nav.innerHTML=pgs.map(function(p,i){return "<button class=\"nav-link\" data-page=\""+p+"\" onclick=\"navTo('"+p+"')\">"+t(ks[i])+(p==="cart"?"<span class=\"cart-count\" id=\"cartBadge\" style=\"display:none\">0</span>":"")+"</button>";}).join("")+"<span class=\"nav-spacer\"></span>"+(_user?"<button class=\"nav-link\" data-page=\"account\" onclick=\"navTo('account')\">"+t("navAccount")+"</button>":"<button class=\"nav-link\" onclick=\"showAuth('login')\">"+t("navLogin")+"/"+t("navRegister")+"</button>");updateCartCount();};
+window.renderPage=function(p){document.querySelectorAll(".page").forEach(function(e){e.classList.remove("active");});var tg=document.getElementById(p+"-page");if(tg)tg.classList.add("active");document.querySelectorAll(".nav-link").forEach(function(n){n.classList.toggle("active",n.dataset.page===p);});if(p==="home")renderHome();if(p==="timeline")renderTimeline();if(p==="classics")renderClassics();if(p==="shop")renderShop();if(p==="account")renderAccount();if(p==="cart")renderCart();if(p==="game")renderGame();if(p==="reader"&&_currentBook)renderReader();if(p==="forum")renderForum();if(p==="surname")renderSurname();};
+window.updateCartCount=function(){var b=document.getElementById("cartBadge");if(b){b.textContent=_cart.length;b.style.display=_cart.length?"inline-flex":"none";}};
+function findProd(id){for(var i=0;i<SHOP_PRODUCTS.length;i++){if(SHOP_PRODUCTS[i].id===id)return SHOP_PRODUCTS[i];}return null;}
+function cartCounts(){var c={};_cart.forEach(function(id){c[id]=(c[id]||0)+1;});return c;}
+function renderCart(){var sec=document.getElementById("cart-page-content");if(!sec)return;var cc=cartCounts();var ids=Object.keys(cc);var h="<div class=\"cart-head\"><h3>"+t("navCart")+"</h3><span>"+ids.length+" "+t("cartItems")+"</span></div>";if(!ids.length){h+="<div class=\"cart-empty\">"+t("cartEmpty")+" <button class=\"btn-primary\" onclick=\"navTo('shop')\">"+t("goShop")+"</button></div>";}else{h+="<div class=\"cart-list\">";var tot=0;ids.forEach(function(id){var p=findProd(id);if(!p)return;var q=cc[id];var n=p.name[_lang]||p.name["zh-CN"];tot+=p.price*q;h+="<div class=\"cart-item\"><div class=\"ci-img\">"+p.img+"</div><div class=\"ci-body\"><div class=\"ci-name\">"+n+"</div><div class=\"ci-price\">"+p.price+" "+t("credits")+" · ¥"+p.price+"</div><div class=\"ci-ops\"><button class=\"btn-mini\" onclick=\"cartQty('"+p.id+"',-1)\">−</button><span class=\"ci-qty\">"+q+"</span><button class=\"btn-mini\" onclick=\"cartQty('"+p.id+"',1)\">+</button><button class=\"btn-mini btn-del\" onclick=\"cartQty('"+p.id+"',-99)\">✕</button></div></div></div>";});h+="</div>";h+="<div class=\"cart-total\"><div><span>"+t("cartTotal")+":</span><b>"+tot+" "+t("credits")+" · ¥"+tot+"</b></div><button class=\"btn-primary\" onclick=\"openCheckout()\">"+t("checkout")+"</button></div>";}sec.innerHTML=h;}
+function cartQty(id,d){var cc=cartCounts();var c=cc[id]||0;c+=d;if(c<=0){_cart=_cart.filter(function(x){return x!==id;});}else{var diff=c-(cc[id]||0);for(var i=0;i<Math.abs(diff);i++){if(diff>0)_cart.push(id);else{var idx=_cart.indexOf(id);if(idx>=0)_cart.splice(idx,1);}}}try{localStorage.setItem("ch_cart",JSON.stringify(_cart))}catch(e){}updateCartCount();renderCart();}
+function openCheckout(){var cc=cartCounts();var ids=Object.keys(cc);if(!ids.length){showToast(t("cartEmpty"));return;}var tot=0;ids.forEach(function(id){var p=findProd(id);if(p)tot+=p.price*(cc[id]||1);});var ov=document.getElementById("authOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("authForm");if(!f)return;var payHtml="<div class=\"pay-methods\">"+["wechat","alipay","card"].map(function(m,i){return "<label class=\"pay-method"+(i===0?" active":"")+"\" onclick=\"selPay("+i+")\"><input type=\"radio\" name=\"paym\" value=\""+m+"\""+(i===0?" checked":"")+"><span>"+t("pay"+m.charAt(0).toUpperCase()+m.slice(1))+"</span></label>";}).join("")+"</div>";f.innerHTML="<h3>"+t("checkoutTitle")+"</h3><div class=\"checkout-sum\">"+t("cartTotal")+": <b>"+tot+" "+t("credits")+" · ¥"+tot+"</b></div><div class=\"pay-balance\">"+t("payBalance")+": "+(_user?(_user.credits||0):0)+" "+t("credits")+"</div>"+payHtml+"<div id=\"payMsg\" class=\"pay-msg\"></div><button class=\"btn-primary\" onclick=\"confirmPay()\">"+t("payConfirm")+"</button><div class=\"auth-toggle\"><a onclick=\"closeAuth()\">"+t("payCancel")+"</a></div>";}
+window.selPay=function(i){var labels=document.querySelectorAll(".pay-method");for(var k=0;k<labels.length;k++){labels[k].classList.toggle("active",k===i);}var radios=document.querySelectorAll("input[name=paym]");if(radios[i])radios[i].checked=true;};
+function confirmPay(){var cc=cartCounts();var ids=Object.keys(cc);var tot=0;ids.forEach(function(id){var p=findProd(id);if(p)tot+=p.price*(cc[id]||1);});var msg=document.getElementById("payMsg");if(!_user){if(msg)msg.textContent=t("payNeedLogin");return;}if(_user.credits<tot){if(msg)msg.textContent=t("payNoCredits");return;}var method="wechat";var radios=document.querySelectorAll("input[name=paym]");for(var i=0;i<radios.length;i++){if(radios[i].checked)method=radios[i].value;}var orderNo="HX"+Date.now();_user.credits-=tot;try{localStorage.setItem("ch_user",JSON.stringify(_user))}catch(e){}try{var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}var orders=[];try{orders=JSON.parse(localStorage.getItem("ch_orders")||"[]")}catch(e){}orders.unshift({no:orderNo,date:Date.now(),method:method,total:tot,items:ids.map(function(id){return {id:id,qty:cc[id]};})});try{localStorage.setItem("ch_orders",JSON.stringify(orders))}catch(e){}_cart=[];try{localStorage.setItem("ch_cart",JSON.stringify(_cart))}catch(e){}updateCartCount();var f=document.getElementById("authForm");if(f)f.innerHTML="<h3>✅ "+t("paySuccess")+"</h3><div class=\"pay-success\">"+t("orderNo")+": "+orderNo+"<br>"+t("payAmount")+": "+tot+" "+t("credits")+" · ¥"+tot+"</div><button class=\"btn-primary\" onclick=\"closeAuth();navTo('account')\">"+t("viewOrders")+"</button>";renderTopBar();}
+window.renderAccount=function(){var sec=document.getElementById("account-page-content");if(!sec)return;if(!_user){sec.innerHTML="<div style=\"text-align:center;padding:3rem\"><h3>"+t("navLogin")+"</h3><p>"+t("needLogin")+"</p><button onclick=\"showAuth('login')\">"+t("navLogin")+"</button></div>";return;}var orders=[];try{orders=JSON.parse(localStorage.getItem("ch_orders")||"[]")}catch(e){}var oh=orders.length?"<div class=\"order-list\">"+orders.slice(0,10).map(function(o){return "<div class=\"order-item\"><div class=\"oi-head\"><b>"+t("orderNo")+": "+o.no+"</b><span>"+fmt(o.date)+"</span></div><div class=\"oi-body\">"+(o.items||[]).map(function(it){var p=findProd(it.id);return "<span>"+(p?p.img:"")+" "+((p&&(p.name[_lang]||p.name["zh-CN"]))||it.id)+" ×"+it.qty+"</span>";}).join(" ")+"</div><div class=\"oi-foot\">"+t("payAmount")+": "+o.total+" "+t("credits")+" · ¥"+o.total+" · "+t("pay"+o.method.charAt(0).toUpperCase()+o.method.slice(1))+"</div></div>";}).join("")+"</div>":"<div class=\"no-orders\">"+t("noOrders")+"</div>";sec.innerHTML="<div class=\"credit-balance\"><div class=\"cb-num\">"+_user.credits+"</div><div class=\"cb-label\">"+t("creditsBalance")+"</div></div><h3 class=\"orders-title\">"+t("myOrders")+"</h3>"+oh;};
+</script>
+<script>
+// ===== 商城价格(1:1) + 国学小游戏 (2026-08-29) =====
+window.renderShopGrid=function(prods){var g=document.getElementById("shopGrid");if(!g)return;var ck={music:"shopMusic",chess:"shopChess",calligraphy:"shopCalligraphy",painting:"shopPainting",surname:"shopSurname",tea:"shopTea",ceramic:"shopCeramic",yijing:"shopYijing",stationery:"shopStationery",digital:"shopDigital",heritage:"shopHeritage",wenwan:"shopWenwan"};var list=prods||SHOP_PRODUCTS;var q=((window._shopSearch||"").trim().toLowerCase());if(q)list=list.filter(function(p){return((p.name[_lang]||p.name["zh-CN"]||"").toLowerCase().indexOf(q)>=0)||((p.desc[_lang]||p.desc["zh-CN"]||"").toLowerCase().indexOf(q)>=0);});g.innerHTML=list.map(function(p){var n=p.name[_lang]||p.name["zh-CN"],d=p.desc[_lang]||p.desc["zh-CN"];return "<div class=\"shop-card\"><div class=\"sc-img\">"+p.img+"</div><div class=\"sc-body\"><h4>"+n+"</h4><div class=\"sc-cat\">"+t(ck[p.cat]||p.cat)+"</div><div class=\"sc-desc\">"+d+"</div><div class=\"sc-price\">"+p.price+" "+t("credits")+" · ¥"+p.price+"</div><button class=\"shop-btn\" onclick=\"addCart('"+p.id+"')\">"+t("addToCart")+"</button></div></div>";}).join("");};
+window.renderShop=function(){var g=document.getElementById("shopGrid");if(!g)return;if(!window._shopCat)window._shopCat="all";var cats=[];var seen={};SHOP_PRODUCTS.forEach(function(p){if(!seen[p.cat]){seen[p.cat]=1;cats.push(p.cat);}});var ck={music:"shopMusic",chess:"shopChess",calligraphy:"shopCalligraphy",painting:"shopPainting",surname:"shopSurname",tea:"shopTea",ceramic:"shopCeramic",yijing:"shopYijing",stationery:"shopStationery",digital:"shopDigital",heritage:"shopHeritage",wenwan:"shopWenwan"};var fb=document.getElementById("shopFilter");if(fb)fb.innerHTML="<button class=\"active\" onclick=\"filShop('all',this)\">"+t("shopAll")+"</button>"+cats.map(function(c){return "<button onclick=\"filShop('"+c+"',this)\">"+t(ck[c]||c)+"</button>";}).join("");var si=document.getElementById("shopSearch");if(si&&!si.getAttribute("data-init")){si.setAttribute("data-init","1");si.placeholder=t("shopSearchPh");si.value=window._shopSearch||"";si.addEventListener("input",function(){window.searchShop();});si.addEventListener("keyup",function(){window.searchShop();});si.addEventListener("change",function(){window.searchShop();});}window.renderShopGrid(SHOP_PRODUCTS);};
+// ---------- 国学小游戏：知识问答 ----------
+var GAME_QUESTIONS=[
+{q:"《道德经》一共有多少章？",opts:["72章","81章","99章","64章"],a:1},
+{q:"《论语》主要记录谁及其弟子的言行？",opts:["老子","孟子","孔子","荀子"],a:2},
+{q:"四书指的是？",opts:["《大学》《中庸》《论语》《孟子》","《诗经》《尚书》《礼记》《周易》","《道德经》《庄子》《列子》《文子》","《史记》《汉书》《后汉书》《三国志》"],a:0},
+{q:"《史记》的作者是谁？",opts:["班固","司马光","司马迁","陈寿"],a:2},
+{q:"「床前明月光，疑是地上霜」出自谁？",opts:["杜甫","李白","王维","白居易"],a:1},
+{q:"《红楼梦》的作者是？",opts:["曹雪芹","吴承恩","施耐庵","罗贯中"],a:0},
+{q:"《百家姓》为什么「赵」姓排第一？",opts:["赵姓人口最多","成书于宋代，赵为皇姓","赵姓起源最早","随意排列"],a:1},
+{q:"「己所不欲，勿施于人」出自哪部典籍？",opts:["《道德经》","《论语》","《庄子》","《孟子》"],a:1},
+{q:"中国最早的诗歌总集是？",opts:["《楚辞》","《乐府诗集》","《诗经》","《全唐诗》"],a:2},
+{q:"科举制度始于哪个朝代？",opts:["汉朝","隋朝","唐朝","宋朝"],a:1},
+{q:"「唐宋八大家」中宋代有几位？",opts:["四位","五位","六位","八位"],a:2},
+{q:"《孙子兵法》的作者是？",opts:["孙膑","孙武","吴起","韩信"],a:1},
+{q:"五行的顺序「木火土金水」中，木对应的方位是？",opts:["南","西","东","北"],a:2},
+{q:"《西游记》中唐僧的原型是？",opts:["鉴真","玄奘","鸠摩罗什","法显"],a:1},
+{q:"「高山流水」的故事主人公是？",opts:["伯牙与子期","钟子期与俞伯牙","师旷与琴高","嵇康与阮籍"],a:0},
+{q:"中国的四大发明不包括以下哪项？",opts:["造纸术","印刷术","地动仪","火药"],a:2},
+{q:"《黄帝内经》主要属于哪一类典籍？",opts:["医书","兵书","史书","诗集"],a:0},
+{q:"「学而时习之，不亦说乎」出自？",opts:["《大学》","《论语》","《中庸》","《孟子》"],a:1},
+{q:"西周「制礼作乐」的周公是谁？",opts:["周文王","周武王","周公旦","姜子牙"],a:2},
+{q:"《离骚》的作者是？",opts:["宋玉","屈原","贾谊","司马相如"],a:1}
+];
+var _gameIdx=0,_gameScore=0,_gameOver=false;
+function renderGame(){var sec=document.getElementById("game-page-content");if(!sec)return;if(_gameOver){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameResult")+"</h3><div class=\"game-score-big\">"+_gameScore+" / "+GAME_QUESTIONS.length+"</div><div class=\"game-title\">"+gameTitle(_gameScore)+"</div><button class=\"btn-primary\" onclick=\"_gameOver=false;_gameIdx=0;_gameScore=0;renderGame()\">"+t("gameRestart")+"</button></div>";return;}var q=GAME_QUESTIONS[_gameIdx];sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameTitle")+"</span><span>"+t("gameProgress").replace("{a}",_gameIdx+1).replace("{b}",GAME_QUESTIONS.length)+"</span><span>"+t("gameScore")+": "+_gameScore+"</span></div><div class=\"game-q\">"+q.q+"</div><div class=\"game-opts\">"+q.opts.map(function(o,i){return "<button class=\"game-opt\" onclick=\"answerGame("+i+")\">"+String.fromCharCode(65+i)+". "+o+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div></div>";}
+window.answerGame=function(i){var q=GAME_QUESTIONS[_gameIdx];var msg=document.getElementById("gameMsg");var opts=document.querySelectorAll(".game-opt");if(!msg||!opts.length)return;for(var k=0;k<opts.length;k++)opts[k].disabled=true;if(i===q.a){_gameScore++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("gameWrong")+" · "+t("gameAnswer")+": "+q.opts[q.a]+"</span>";}setTimeout(function(){_gameIdx++;if(_gameIdx>=GAME_QUESTIONS.length){_gameOver=true;}renderGame();},1100);};
+function gameTitle(s){var p=s/GAME_QUESTIONS.length;if(p>=0.9)return t("gameRank4");if(p>=0.7)return t("gameRank3");if(p>=0.5)return t("gameRank2");if(p>=0.3)return t("gameRank1");return t("gameRank0");}
+</script>
+
+<script>
+// ===== 姓氏内容丰富 (2026-08-29) =====
+const SURNAME_DETAILS={
+"李":{junwang:"陇西、赵郡",tang:"陇西堂",area:"河南、四川、山东、河北",rank:1,pop:"约 1.01 亿"},
+"王":{junwang:"太原、琅琊",tang:"太原堂",area:"河南、山东、河北",rank:2,pop:"约 9500 万"},
+"张":{junwang:"清河",tang:"清河堂、百忍堂",area:"河南、山东、河北",rank:3,pop:"约 9000 万"},
+"刘":{junwang:"彭城",tang:"彭城堂",area:"河南、山东、四川",rank:4,pop:"约 7000 万"},
+"陈":{junwang:"颍川",tang:"颍川堂",area:"广东、福建、浙江",rank:5,pop:"约 6500 万"},
+"杨":{junwang:"弘农",tang:"弘农堂",area:"河南、四川、湖南",rank:6,pop:"约 4600 万"},
+"赵":{junwang:"天水",tang:"天水堂",area:"河南、河北、山东",rank:7,pop:"约 2800 万"},
+"黄":{junwang:"江夏",tang:"江夏堂",area:"广东、广西、福建",rank:8,pop:"约 2800 万"},
+"周":{junwang:"汝南",tang:"汝南堂",area:"湖南、四川、湖北",rank:9,pop:"约 2600 万"},
+"吴":{junwang:"延陵",tang:"延陵堂",area:"江苏、浙江、福建",rank:10,pop:"约 2500 万"},
+"徐":{junwang:"东海",tang:"东海堂",area:"江苏、浙江、广东",rank:11,pop:"约 2000 万"},
+"孙":{junwang:"乐安",tang:"乐安堂",area:"山东、河南、河北",rank:12,pop:"约 1900 万"},
+"马":{junwang:"扶风",tang:"扶风堂",area:"河南、河北、陕西",rank:13,pop:"约 1800 万"},
+"朱":{junwang:"沛国",tang:"沛国堂",area:"江苏、浙江、安徽",rank:14,pop:"约 1700 万"},
+"胡":{junwang:"安定",tang:"安定堂",area:"湖南、湖北、四川",rank:15,pop:"约 1650 万"},
+"郭":{junwang:"太原",tang:"太原堂",area:"山西、河南、河北",rank:16,pop:"约 1600 万"},
+"何":{junwang:"庐江",tang:"庐江堂",area:"四川、湖南、广东",rank:17,pop:"约 1500 万"},
+"高":{junwang:"渤海",tang:"渤海堂",area:"山东、河北、江苏",rank:18,pop:"约 1400 万"},
+"林":{junwang:"西河",tang:"西河堂",area:"福建、广东、台湾",rank:19,pop:"约 1400 万"},
+"罗":{junwang:"豫章",tang:"豫章堂",area:"四川、湖南、广东",rank:20,pop:"约 1300 万"},
+"郑":{junwang:"荥阳",tang:"荥阳堂",area:"河南、福建",rank:21},
+"梁":{junwang:"安定",tang:"安定堂",area:"广东、广西",rank:22},
+"谢":{junwang:"陈留",tang:"陈留堂",area:"浙江、福建",rank:23},
+"唐":{junwang:"晋昌",tang:"晋昌堂",area:"四川、湖南",rank:24},
+"韩":{junwang:"颍川",tang:"颍川堂",area:"河南、河北",rank:25},
+"冯":{junwang:"始平",tang:"始平堂",area:"广东、河南",rank:26},
+"于":{junwang:"河南",tang:"河南堂",area:"山东、河北",rank:27},
+"董":{junwang:"陇西",tang:"陇西堂",area:"河北、河南",rank:28},
+"萧":{junwang:"兰陵",tang:"兰陵堂",area:"湖南、江西",rank:29},
+"程":{junwang:"安定",tang:"安定堂",area:"河南、安徽",rank:30},
+"曹":{junwang:"谯国",tang:"谯国堂",area:"河南、江苏",rank:31},
+"袁":{junwang:"汝南",tang:"汝南堂",area:"河南、江西",rank:32},
+"邓":{junwang:"南阳",tang:"南阳堂",area:"湖南、四川",rank:33},
+"许":{junwang:"高阳",tang:"高阳堂",area:"河南、福建",rank:34},
+"傅":{junwang:"清河",tang:"清河堂",area:"湖南、福建",rank:35},
+"沈":{junwang:"吴兴",tang:"吴兴堂",area:"浙江、江苏",rank:36},
+"曾":{junwang:"鲁国",tang:"鲁国堂",area:"广东、湖南",rank:37},
+"彭":{junwang:"陇西",tang:"陇西堂",area:"湖南、四川",rank:38},
+"吕":{junwang:"河东",tang:"河东堂",area:"河南、山东",rank:39},
+"苏":{junwang:"武功",tang:"武功堂",area:"广东、福建",rank:40},
+"卢":{junwang:"范阳",tang:"范阳堂",area:"河北、山东",rank:41},
+"蒋":{junwang:"乐安",tang:"乐安堂",area:"江苏、浙江",rank:42},
+"蔡":{junwang:"济阳",tang:"济阳堂",area:"福建、广东",rank:43}
+};
+SURNAMES.forEach(function(s){var d=SURNAME_DETAILS[s.n];if(d){s.junwang=d.junwang;s.tang=d.tang;s.area=d.area;s.rank=d.rank;s.pop=d.pop;}});
+window.renderSurname=function(){var sec=document.getElementById("surname-page-content");if(!sec)return;var h="<div class=\"surname-search\"><input type=\"text\" id=\"surnameInput\" placeholder=\""+t("surnameSearch")+"...\" oninput=\"filterSurnames()\" autocomplete=\"off\"></div><div class=\"surname-list\" id=\"surnameList\">";SURNAMES.forEach(function(s){h+="<div class=\"surname-card\"><div class=\"sc-char\">"+s.n+"</div><div class=\"sc-body\">"+((s.rank||s.pop)?("<div class=\"sc-rank\">"+(s.rank?"#"+s.rank+" ":"")+(s.pop||"")+"</div>"):"")+((s.junwang)?("<div class=\"sc-line\"><b>"+t("surnameJunwang")+"</b>"+s.junwang+"</div>"):"")+((s.tang)?("<div class=\"sc-line\"><b>"+t("surnameTang")+"</b>"+s.tang+"</div>"):"")+((s.area)?("<div class=\"sc-line\"><b>"+t("surnameArea")+"</b>"+s.area+"</div>"):"")+"<div class=\"sc-origin\">"+s.origin+"</div><div class=\"sc-famous\"><small>"+t("surnameFamous")+": "+s.famous.join("、")+"</small></div></div></div>";});h+="</div>";sec.innerHTML=h;};
+</script>
+
+<script>
+// ===== 游戏大厅 + 5 个小游戏 (2026-08-29) =====
+var _game=null,_g={};
+window.renderGame=function(){var sec=document.getElementById("game-page-content");if(!sec)return;if(_game==="quiz"){renderQuiz(sec);return;}if(_game==="feihua"){renderFeihua(sec);return;}if(_game==="chengyu"){renderChengyu(sec);return;}if(_game==="lianlian"){renderLianlian(sec);return;}if(_game==="tiankong"){renderTiankong(sec);return;}if(_game==="jiaguwen"){renderJiaguwen(sec);return;}renderGameHub(sec);};
+function gameHubHTML(){return "<div class=\"game-box game-hub\"><h3>"+t("gameHub")+"</h3><p class=\"game-hub-sub\">"+t("gameHubSub")+"</p><div class=\"game-grid\">"+[["quiz","🧠","gameTitle"],["feihua","🌸","gameFeihua"],["chengyu","🐉","gameChengyu"],["lianlian","📖","gameLianlian"],["tiankong","✍️","gameTiankong"],["jiaguwen","🐚","gameJiaguwen"]].map(function(g){return "<div class=\"game-card\" onclick=\"startGame('"+g[0]+"')\"><span class=\"gc-icon\">"+g[1]+"</span><b>"+t(g[2])+"</b></div>";}).join("")+"</div></div>";}
+function renderGameHub(sec){sec.innerHTML=gameHubHTML();}
+window.startGame=function(g){_game=g;_g={};if(g==="quiz"){_gameIdx=0;_gameScore=0;_gameOver=false;}if(g==="feihua"){_g.round=0;_g.score=0;_g.keys=["月","花","春","风","雪","山","水","酒","云","夜"];_g.key=_g.keys[Math.floor(Math.random()*_g.keys.length)];}if(g==="chengyu"){_g.score=0;_g.cur=CHENGYU[Math.floor(Math.random()*CHENGYU.length)];_g.used={};_g.used[_g.cur]=1;}if(g==="lianlian"){_g.pairs=LL_PAIRS.slice();_g.left=_g.pairs.map(function(p){return {k:p.l,v:p.l};});_g.right=_g.pairs.map(function(p){return {k:p.r,v:p.r};});_g.done={};_g.attempts=0;_g.selL=null;_g.selR=null;llShuffle();}if(g==="tiankong"){_g.idx=0;_g.score=0;_g.qs=TK_QS.slice().sort(function(){return Math.random()-0.5;});}if(g==="jiaguwen"){_g.idx=0;_g.score=0;_g.qs=JG_QS.slice().sort(function(){return Math.random()-0.5;});}renderGame();};
+function renderQuiz(sec){if(_gameOver){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameResult")+"</h3><div class=\"game-score-big\">"+_gameScore+" / "+GAME_QUESTIONS.length+"</div><div class=\"game-title\">"+gameTitle(_gameScore)+"</div><button class=\"btn-primary\" onclick=\"_gameOver=false;_gameIdx=0;_gameScore=0;renderGame()\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}var q=GAME_QUESTIONS[_gameIdx];sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameTitle")+"</span><span>"+t("gameProgress").replace("{a}",_gameIdx+1).replace("{b}",GAME_QUESTIONS.length)+"</span><span>"+t("gameScore")+": "+_gameScore+"</span></div><div class=\"game-q\">"+q.q+"</div><div class=\"game-opts\">"+q.opts.map(function(o,i){return "<button class=\"game-opt\" onclick=\"answerGame("+i+")\">"+String.fromCharCode(65+i)+". "+o+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";}
+// ---------- 1. 飞花令 ----------
+var FEIHUA_LINES={"月":["床前明月光，疑是地上霜","举头望明月，低头思故乡","海上生明月，天涯共此时","月落乌啼霜满天，江枫渔火对愁眠","明月几时有？把酒问青天","月上柳梢头，人约黄昏后","秦时明月汉时关，万里长征人未还","露从今夜白，月是故乡明","野旷天低树，江清月近人","春江潮水连海平，海上明月共潮生"],"花":["夜来风雨声，花落知多少","感时花溅泪，恨别鸟惊心","花间一壶酒，独酌无相亲","不是花中偏爱菊，此花开尽更无花","黄四娘家花满蹊，千朵万朵压枝低","人面不知何处去，桃花依旧笑春风","落红不是无情物，化作春泥更护花","待到山花烂漫时，她在丛中笑"],"春":["春眠不觉晓，处处闻啼鸟","春风又绿江南岸，明月何时照我还","春色满园关不住，一枝红杏出墙来","不知细叶谁裁出，二月春风似剪刀","春潮带雨晚来急，野渡无人舟自横","好雨知时节，当春乃发生","等闲识得东风面，万紫千红总是春"],"风":["羌笛何须怨杨柳，春风不度玉门关","随风潜入夜，润物细无声","忽如一夜春风来，千树万树梨花开","野火烧不尽，春风吹又生","大风起兮云飞扬，威加海内兮归故乡","昨夜星辰昨夜风，画楼西畔桂堂东"],"雪":["窗含西岭千秋雪，门泊东吴万里船","孤舟蓑笠翁，独钓寒江雪","北风卷地白草折，胡天八月即飞雪","欲渡黄河冰塞川，将登太行雪满山","千里黄云白日曛，北风吹雁雪纷纷"],"山":["会当凌绝顶，一览众山小","国破山河在，城春草木深","山重水复疑无路，柳暗花明又一村","两岸青山相对出，孤帆一片日边来","远上寒山石径斜，白云生处有人家","空山新雨后，天气晚来秋","千山鸟飞绝，万径人踪灭"],"水":["桃花潭水深千尺，不及汪伦送我情","黄河之水天上来，奔流到海不复回","问君能有几多愁？恰似一江春水向东流","水光潋滟晴方好，山色空蒙雨亦奇","飞流直下三千尺，疑是银河落九天","抽刀断水水更流，举杯消愁愁更愁"],"酒":["葡萄美酒夜光杯，欲饮琵琶马上催","金樽清酒斗十千，玉盘珍羞直万钱","借问酒家何处有？牧童遥指杏花村","劝君更尽一杯酒，西出阳关无故人","花间一壶酒，独酌无相亲","白日放歌须纵酒，青春作伴好还乡"],"云":["黄河远上白云间，一片孤城万仞山","众鸟高飞尽，孤云独去闲","只在此山中，云深不知处","云想衣裳花想容，春风拂槛露华浓","朝辞白帝彩云间，千里江陵一日还","黑云翻墨未遮山，白雨跳珠乱入船"],"夜":["随风潜入夜，润物细无声","夜来风雨声，花落知多少","今夜月明人尽望，不知秋思落谁家","姑苏城外寒山寺，夜半钟声到客船","东风夜放花千树，更吹落、星如雨","春宵一刻值千金，花有清香月有阴"]};
+function renderFeihua(sec){var total=5;if(_g.round>=total){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameFeihua")+" · "+t("gameResult")+"</h3><div class=\"game-score-big\">"+_g.score+" / "+total+"</div><button class=\"btn-primary\" onclick=\"startGame('feihua')\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}var key=_g.key;var ex=(FEIHUA_LINES[key]||[]).slice(0,2).join("；");sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameFeihua")+"</span><span>"+t("gameRound").replace("{a}",_g.round+1).replace("{b}",total)+"</span><span>"+t("gameScore")+": "+_g.score+"</span></div><div class=\"fh-key\">"+t("fhKeyword")+"：<b>"+key+"</b></div><p class=\"fh-tip\">"+t("fhTip")+"</p><input id=\"fhInput\" class=\"game-input\" placeholder=\""+t("fhPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"fhSubmit()\">"+t("fhSubmit")+"</button><div id=\"fhMsg\"></div><div class=\"fh-examples\">"+t("fhExamples")+"："+ex+"</div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";var inp=document.getElementById("fhInput");if(inp)inp.focus();}
+window.fhSubmit=function(){var v=(document.getElementById("fhInput")||{}).value||"";var msg=document.getElementById("fhMsg");if(v.indexOf(_g.key)>=0&&v.length>=4){_g.score++;_g.round++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("fhWrong")+"「"+_g.key+"」</span>";_g.round++;}setTimeout(function(){renderFeihua(document.getElementById("game-page-content"));},700);};
+// ---------- 2. 成语接龙 ----------
+var CHENGYU=["一心一意","意气风发","发扬光大","大公无私","私心杂念","念念不忘","忘恩负义","义不容辞","辞旧迎新","新年快乐","乐不思蜀","蜀犬吠日","日新月异","异想天开","开天辟地","地大物博","博古通今","今非昔比","比比皆是","是非曲直","直言不讳","讳莫如深","深谋远虑","虑周藻密","密不透风","风平浪静","静观其变","变化多端","端本正源","源远流长","长驱直入","入木三分","分秒必争","争先恐后","后来居上","上行下效","效仿先贤","贤良方正","正大光明","明察秋毫","毫发无伤","伤天害理","理所当然","然荻读书","书声琅琅","琅琅上口","口若悬河","河清海晏","晏然自若","若无其事"];
+function renderChengyu(sec){sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameChengyu")+"</span><span>"+t("gameScore")+": "+_g.score+"</span></div><p class=\"cg-cur\">"+t("cgCurrent")+"：<b>"+_g.cur+"</b></p><p class=\"cg-tip\">"+t("cgTip")+"</p><input id=\"cgInput\" class=\"game-input\" placeholder=\""+t("cgPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"cgSubmit()\">"+t("cgSubmit")+"</button><div id=\"cgMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";var inp=document.getElementById("cgInput");if(inp)inp.focus();}
+window.cgSubmit=function(){var v=((document.getElementById("cgInput")||{}).value||"").trim();var msg=document.getElementById("cgMsg");var last=_g.cur.charAt(_g.cur.length-1);if(v.length===4&&v.charAt(0)===last){_g.score++;var old=_g.cur;_g.cur=v;msg.innerHTML="<span class=\"game-correct\">✓ "+old+" → <b>"+v+"</b></span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("cgWrong")+"（"+(v?("“"+v+"”"):"")+t("cgNeedStart")+"「"+last+"」"+(v.length!==4?t("cgNeed4"):"")+"）</span>";}setTimeout(function(){renderChengyu(document.getElementById("game-page-content"));},900);};
+// ---------- 3. 典籍连连看 ----------
+var LL_PAIRS=[{l:"道德经",r:"老子"},{l:"论语",r:"孔子"},{l:"史记",r:"司马迁"},{l:"资治通鉴",r:"司马光"},{l:"红楼梦",r:"曹雪芹"},{l:"三国演义",r:"罗贯中"},{l:"西游记",r:"吴承恩"},{l:"离骚",r:"屈原"}];
+function llShuffle(){var a=_g.left.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}_g.left=a;var b=_g.right.slice();for(var k=b.length-1;k>0;k--){var m=Math.floor(Math.random()*(k+1));var t2=b[k];b[k]=b[m];b[m]=t2;}_g.right=b;}
+function renderLianlian(sec){var done=Object.keys(_g.done).length;if(done===_g.pairs.length){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameLianlian")+" · "+t("gameResult")+"</h3><div class=\"game-score-big\">✓ "+done+" / "+_g.pairs.length+"</div><div class=\"game-title\">"+t("llAttempts")+": "+_g.attempts+"</div><button class=\"btn-primary\" onclick=\"startGame('lianlian')\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameLianlian")+"</span><span>"+t("llProgress")+": "+done+" / "+_g.pairs.length+"</span><span>"+t("llAttempts")+": "+_g.attempts+"</span></div><p class=\"ll-tip\">"+t("llTip")+"</p><div class=\"ll-grid\"><div class=\"ll-col\">"+_g.left.map(function(p){return "<div class=\"ll-card ll-left"+(p.v===_g.selL?" sel":"")+( _g.done[p.v]?" done":"")+"\" onclick=\"llPickL('"+p.v+"')\">"+p.v+"</div>";}).join("")+"</div><div class=\"ll-col\">"+_g.right.map(function(p){return "<div class=\"ll-card ll-right"+(p.v===_g.selR?" sel":"")+( _g.done[p.v]?" done":"")+"\" onclick=\"llPickR('"+p.v+"')\">"+p.v+"</div>";}).join("")+"</div></div><div id=\"llMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";}
+window.llPickL=function(v){if(_g.done[v])return;_g.selL=v;renderLianlian(document.getElementById("game-page-content"));};
+window.llPickR=function(v){if(_g.done[v])return;_g.selR=v;var msg=document.getElementById("llMsg");if(_g.selL){_g.attempts++;var pair=null;for(var i=0;i<_g.pairs.length;i++){if(_g.pairs[i].l===_g.selL){pair=_g.pairs[i];break;}}if(pair&&pair.r===v){_g.done[_g.selL]=1;_g.done[v]=1;msg.innerHTML="<span class=\"game-correct\">✓ "+_g.selL+" ↔ "+v+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("llWrong")+"</span>";}_g.selL=null;_g.selR=null;}setTimeout(function(){renderLianlian(document.getElementById("game-page-content"));},500);};
+// ---------- 4. 诗词填空 ----------
+var TK_QS=[{q:"床前明月__，疑是地上霜",a:"光",o:["光","风","水","山"]},{q:"春眠不觉晓，处处闻啼__",a:"鸟",o:["鸟","花","虫","雨"]},{q:"白日依山__，黄河入海流",a:"尽",o:["尽","近","静","净"]},{q:"举头望明月，低头思故__",a:"乡",o:["乡","土","园","亲"]},{q:"停车坐爱枫林晚，霜叶红于二月__",a:"花",o:["花","春","天","雪"]},{q:"欲穷千里目，更上一__楼",a:"层",o:["层","重","高","城"]},{q:"两个黄鹂鸣翠柳，一行白鹭上青__",a:"天",o:["天","山","云","空"]},{q:"不识庐山真面目，只缘身在此__中",a:"山",o:["山","林","谷","间"]},{q:"劝君更尽一杯酒，西出阳关无故__",a:"人",o:["人","亲","友","乡"]},{q:"千山鸟飞绝，万径人踪__",a:"灭",o:["灭","绝","无","尽"]},{q:"野火烧不尽，春风吹又__",a:"生",o:["生","长","来","起"]},{q:"海内存知己，天涯若比__",a:"邻",o:["邻","亲","友","朋"]},{q:"但愿人长久，千里共婵__",a:"娟",o:["娟","圆","明","仙"]},{q:"春风又绿江南岸，明月何时照我__",a:"还",o:["还","归","乡","回"]},{q:"接天莲叶无穷碧，映日荷花别样__",a:"红",o:["红","美","艳","香"]}];
+function renderTiankong(sec){if(_g.idx>=_g.qs.length){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameTiankong")+" · "+t("gameResult")+"</h3><div class=\"game-score-big\">"+_g.score+" / "+_g.qs.length+"</div><button class=\"btn-primary\" onclick=\"startGame('tiankong')\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}var q=_g.qs[_g.idx];sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameTiankong")+"</span><span>"+t("gameProgress").replace("{a}",_g.idx+1).replace("{b}",_g.qs.length)+"</span><span>"+t("gameScore")+": "+_g.score+"</span></div><div class=\"game-q tk-q\">"+q.q.replace("__","<span class=\"tk-blank\">____</span>")+"</div><div class=\"game-opts\">"+q.o.map(function(o,i){return "<button class=\"game-opt\" onclick=\"tkAnswer("+i+")\">"+o+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";}
+window.tkAnswer=function(i){var q=_g.qs[_g.idx];var msg=document.getElementById("gameMsg");var opts=document.querySelectorAll(".game-opt");for(var k=0;k<opts.length;k++)opts[k].disabled=true;if(q.o[i]===q.a){_g.score++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("gameWrong")+" · "+t("gameAnswer")+": "+q.a+"</span>";}_g.idx++;setTimeout(function(){renderTiankong(document.getElementById("game-page-content"));},900);};
+// ---------- 5. 甲骨文猜字 ----------
+var JG_QS=[{p:"☀",a:"日",o:["日","月","星","明"]},{p:"☽",a:"月",o:["月","日","弓","舟"]},{p:"⛰",a:"山",o:["山","峰","丘","岩"]},{p:"💧",a:"水",o:["水","川","河","雨"]},{p:"🌳",a:"木",o:["木","林","树","森"]},{p:"🔥",a:"火",o:["火","山","夕","灭"]},{p:"🐴",a:"马",o:["马","牛","羊","犬"]},{p:"🐟",a:"鱼",o:["鱼","龟","虾","蟹"]},{p:"🐦",a:"鸟",o:["鸟","雀","雁","鸦"]},{p:"🌧",a:"雨",o:["雨","雪","霜","露"]},{p:"🌾",a:"田",o:["田","苗","禾","稻"]},{p:"👁",a:"目",o:["目","耳","口","手"]},{p:"🐂",a:"牛",o:["牛","马","羊","猪"]},{p:"🐑",a:"羊",o:["羊","牛","犬","豕"]}];
+function renderJiaguwen(sec){if(_g.idx>=_g.qs.length){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameJiaguwen")+" · "+t("gameResult")+"</h3><div class=\"game-score-big\">"+_g.score+" / "+_g.qs.length+"</div><div class=\"game-title\">"+t("jgRank")+(_g.score>=10?t("gameRank4"):_g.score>=7?t("gameRank3"):_g.score>=4?t("gameRank2"):t("gameRank1"))+"</div><button class=\"btn-primary\" onclick=\"startGame('jiaguwen')\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}var q=_g.qs[_g.idx];sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameJiaguwen")+"</span><span>"+t("gameProgress").replace("{a}",_g.idx+1).replace("{b}",_g.qs.length)+"</span><span>"+t("gameScore")+": "+_g.score+"</span></div><div class=\"jg-glyph\">"+q.p+"</div><p class=\"jg-tip\">"+t("jgTip")+"</p><div class=\"game-opts\">"+q.o.map(function(o,i){return "<button class=\"game-opt\" onclick=\"jgAnswer("+i+")\">"+o+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";}
+window.jgAnswer=function(i){var q=_g.qs[_g.idx];var msg=document.getElementById("gameMsg");var opts=document.querySelectorAll(".game-opt");for(var k=0;k<opts.length;k++)opts[k].disabled=true;if(q.o[i]===q.a){_g.score++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("gameWrong")+" · "+t("gameAnswer")+": "+q.a+"</span>";}_g.idx++;setTimeout(function(){renderJiaguwen(document.getElementById("game-page-content"));},900);};
 </script>
 </body>
 </html>
