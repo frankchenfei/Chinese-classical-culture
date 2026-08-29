@@ -489,6 +489,29 @@ textarea.forum-form-input{resize:vertical}
 .pg-btn.active{background:#8B0000;color:#f5f0e8;border-color:#8B0000}
 .pg-btn:disabled{opacity:.45;cursor:not-allowed}
 
+/* ===== 阅读进度 ===== */
+.bc-progress{display:flex;align-items:center;gap:.4rem;margin-top:.4rem}
+.bc-progress-bar{flex:1;height:5px;background:#e8ddd0;border-radius:3px;overflow:hidden}
+.bc-progress-fill{height:100%;background:linear-gradient(90deg,#c9a84c,#8B0000);border-radius:3px;transition:width .3s}
+.bc-progress-label{font-size:.7rem;color:#8B0000;white-space:nowrap}
+.reader-progress{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.reader-progress-bar{flex:1;height:7px;background:#e8ddd0;border-radius:4px;overflow:hidden}
+.reader-progress-fill{height:100%;background:linear-gradient(90deg,#c9a84c,#8B0000);border-radius:4px;transition:width .3s}
+.reader-progress-label{font-size:.78rem;color:#8B0000;white-space:nowrap;font-weight:600}
+.reader-header .reader-total{font-size:.75rem;color:#7a6a5a;white-space:nowrap}
+.reader-chapter.read .ch-title{color:#2c7a3b}
+.reader-chapter .ch-num.readmark::after{content:'✓';color:#2c7a3b;margin-left:.2rem}
+.chapter-title{color:#8B0000;font-size:1.05rem;margin-bottom:.6rem;text-align:center}
+/* ===== 商城搜索 ===== */
+.shop-toolbar{margin-bottom:1rem;display:flex;flex-direction:column;gap:.6rem}
+.shop-search input{width:100%;max-width:420px;padding:.55rem 1rem;border:1px solid #d4c9b8;border-radius:8px;font-size:.9rem;font-family:inherit;background:#fffefb;color:#2c1810}
+.shop-search input:focus{outline:none;border-color:#c9a84c}
+/* ===== 签到 ===== */
+#checkinBtn{margin-left:auto;white-space:nowrap}
+#checkinBtn.done{background:#e8ddd0;color:#5c4a38;border-color:#d4c9b8;cursor:default;opacity:.85}
+.auth-toggle{text-align:center;margin-top:.9rem;font-size:.82rem;color:#7a6a5a}
+.auth-toggle a{color:#8B0000;cursor:pointer;font-weight:600}
+#authMsg{color:#8B0000;font-size:.78rem;text-align:center;margin-bottom:.5rem;min-height:1em}
 /* ===== 移动端适配优化 ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{-webkit-tap-highlight-color:transparent}
@@ -569,7 +592,13 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 <div id="forum-page-content"></div>
 </div>
 <div class="page" id="surname-page"><div id="surname-page-content"></div></div>
-<div class="page" id="shop-page"><div class="shop-grid" id="shopGrid"></div></div>
+<div class="page" id="shop-page">
+<div class="shop-toolbar">
+<div class="shop-filter" id="shopFilter"></div>
+<div class="shop-search"><input id="shopSearch" oninput="window.searchShop()"></div>
+</div>
+<div class="shop-grid" id="shopGrid"></div>
+</div>
 <div class="page" id="timeline-page">
 <div class="page-banner"><img src="timeline-banner.png" alt=""><div class="banner-overlay"><h2 class="banner-title" data-t="tlBannerTitle"></h2><p class="banner-sub" data-t="tlBannerSub"></p></div></div>
 <div class="stats-strip" id="timelineStats"></div>
@@ -622,6 +651,15 @@ fcGovernance:{'zh-CN':'经世致用','zh-TW':'經世致用','en':'Practical Wisd
 fcChat:{'zh-CN':'闲谈雅集','zh-TW':'閒談雅集','en':'Casual Talk','es':'Charla Casual','pt':'Conversa Casual'},
 pagerPrev:{'zh-CN':'上一页','zh-TW':'上一頁','en':'Prev','es':'Anterior','pt':'Anterior'},
 pagerNext:{'zh-CN':'下一页','zh-TW':'下一頁','en':'Next','es':'Siguiente','pt':'Próxima'},
+progressDone:{'zh-CN':'已完成 {p}%','zh-TW':'已完成 {p}%','en':'{p}% read','es':'{p}% leído','pt':'{p}% lido'},
+progressChapters:{'zh-CN':'已读 {a}/{b} 章','zh-TW':'已讀 {a}/{b} 章','en':'{a}/{b} chapters','es':'{a}/{b} capítulos','pt':'{a}/{b} capítulos'},
+checkin:{'zh-CN':'每日签到','zh-TW':'每日簽到','en':'Daily Check-in','es':'Registro Diario','pt':'Check-in Diário'},
+checkedIn:{'zh-CN':'已签到','zh-TW':'已簽到','en':'Checked in','es':'Registrado','pt':'Feito'},
+checkedInToday:{'zh-CN':'今日已签到，明天再来吧','zh-TW':'今日已簽到，明天再來吧','en':'Already checked in today, come back tomorrow','es':'Ya registrado hoy, vuelve mañana','pt':'Check-in de hoje feito, volte amanhã'},
+checkinOk:{'zh-CN':'签到成功，获得积分','zh-TW':'簽到成功，獲得積分','en':'Check-in success, +1 credit','es':'Registro exitoso, +1 crédito','pt':'Check-in feito, +1 crédito'},
+shopSearchPh:{'zh-CN':'搜索商品…','zh-TW':'搜索商品…','en':'Search products…','es':'Buscar productos…','pt':'Buscar produtos…'},
+noAccount:{'zh-CN':'还没有账号？','zh-TW':'還沒有帳號？','en':"Don't have an account?",'es':'¿No tienes cuenta?','pt':'Não tem conta?'},
+hasAccount:{'zh-CN':'已有账号？','zh-TW':'已有帳號？','en':'Already have an account?','es':'¿Ya tienes cuenta?','pt':'Já tem conta?'},
 siteSub:{'zh-CN':'中华国学典籍网','zh-TW':'中華國學典籍網','en':'Portal of Chinese Classics','es':'Portal de Clásicos Chinos','pt':'Portal de Clássicos Chineses'},
 siteDesc:{'zh-CN':'从山海经的上古传说，到历朝历代的经史子集，以朝代时间轴为线索，带您走进中华五千年文化的浩瀚星河。','zh-TW':'從山海經的上古傳說，到歷朝歷代的經史子集，以朝代時間軸為線索，帶您走進中華五千年文化的浩瀚星河。','en':'From the myths of the Classic of Mountains and Seas to the classics and histories of every dynasty, follow our dynastic timeline into the vast galaxy of five thousand years of Chinese culture.','es':'Desde los mitos del Clásico de las Montañas y los Mares hasta los clásicos de cada dinastía, siga nuestra línea de tiempo dinástica hacia la vasta galaxia de cinco mil años de cultura china.','pt':'Dos mitos do Clássico das Montanhas e Mares aos clássicos e histórias de cada dinastia, siga nossa linha do tempo dinástica na vasta galáxia de cinco mil anos de cultura chinesa.'},
 exploreTimeline:{'zh-CN':'探索时间轴','zh-TW':'探索時間軸','en':'Explore Timeline','es':'Explorar la Línea de Tiempo','pt':'Explorar a Linha do Tempo'},
@@ -992,50 +1030,50 @@ const SHOP_PRODUCTS = [
   // 琴
   {id:'101',cat:'music',name:{'zh-CN':'古琴（仲尼式）','en':'Guqin (Confucian Style)','es':'Guqin (Estilo Confucio)','pt':'Guqin (Estilo Confúcio)'},
     desc:{'zh-CN':'仿唐仲尼式古琴，桐木面板，梓木底板，音色松透古朴，适合文人雅集。','en':'Tang-style Confucian guqin, paulownia top, catalpa bottom, resonant and antique tone for scholar gatherings.','es':'Guqin estilo Confucio de la dinastía Tang, tapa de paulownia, fondo de catalpa, tono resonante y antiguo para reuniones de eruditos.','pt':'Guqin estilo Confúcio da dinastia Tang, tampo de paulownia, fundo de catalpa, tom resonante e antigo para reuniões de estudiosos.'},
-    price:50,img:'🎵'},
+    price:100,img:'🎵'},
   {id:'102',cat:'music',name:{'zh-CN':'竹笛（F调）','en':'Bamboo Flute (Key F)','es':'Flauta de Bambú (Tono F)','pt':'Flauta de Bambu (Tom F)'},
     desc:{'zh-CN':'精选多年紫竹，手工校音，音色清亮悠远，适合演奏传统曲目。','en':'Selected aged purple bamboo, hand-tuned, clear and melodious tone for traditional pieces.','es':'Bambú púrpura seleccionado, afinado a mano, tono claro y melodioso para piezas tradicionales.','pt':'Bambu roxo selecionado, afinado à mão, tom claro e melodioso para peças tradicionais.'},
-    price:8,img:'🎶'},
+    price:16,img:'🎶'},
   // 棋
   {id:'201',cat:'chess',name:{'zh-CN':'云子围棋套装','en':'Yunzi Weiqi (Go) Set','es':'Juego de Weiqi Yunzi','pt':'Conjunto de Weiqi Yunzi'},
     desc:{'zh-CN':'云南特产云子，黑白各180枚，配草编棋罐，榧木棋盘，棋友必备。','en':'Yunnan Yunzi stones, 180 black & white each, with straw baskets, torreya board, essential for Go enthusiasts.','es':'Piedras Yunzi de Yunnan, 180 negras y blancas cada una, con cestas de paja, tablero de torreya, esencial para entusiastas del Go.','pt':'Pedras Yunzi de Yunnan, 180 pretas e brancas cada, com cestos de palha, tabuleiro de torreya, essencial para entusiastas do Go.'},
-    price:25,img:'⚫'},
+    price:50,img:'⚫'},
   {id:'202',cat:'chess',name:{'zh-CN':'中国象棋（红木）','en':'Chinese Chess (Rosewood)','es':'Ajedrez Chino (Palo de Rosa)','pt':'Xadrez Chinês (Pau-rosa)'},
     desc:{'zh-CN':'红木雕刻象棋，手工刻字，皮质棋盘，收纳方便，经典雅致。','en':'Rosewood carved pieces, hand-engraved, leather board, classic and elegant.','es':'Piezas talladas en palo de rosa, grabadas a mano, tablero de cuero, clásico y elegante.','pt':'Peças esculpidas em pau-rosa, gravadas à mão, tabuleiro de couro, clássico e elegante.'},
-    price:15,img:'♟️'},
+    price:30,img:'♟️'},
   // 书 (Calligraphy)
   {id:'301',cat:'calligraphy',name:{'zh-CN':'湖笔套装（羊毫）','en':'Huzhou Brush Set (Goat Hair)','es':'Juego de Pinceles Huzhou (Pelo de Cabra)','pt':'Conjunto de Pincéis Huzhou (Pêlo de Cabra)'},
     desc:{'zh-CN':'浙江湖州精选羊毫笔，含大中小三支，锋颖圆润，适合楷书行书。','en':'Selected goat hair brushes from Huzhou, large/medium/small, suitable for regular and running script.','es':'Pinceles seleccionados de pelo de cabra de Huzhou, grandes/medianos/pequeños, adecuados para escritura regular y cursiva.','pt':'Pincéis selecionados de pêlo de cabra de Huzhou, grandes/médios/pequenos, adequados para escrita regular e cursiva.'},
-    price:12,img:'🖌️'},
+    price:24,img:'🖌️'},
   {id:'302',cat:'calligraphy',name:{'zh-CN':'徽墨（松烟墨条）','en':'Huizhou Ink Stick (Pine Soot)','es':'Barra de Tinta Huizhou (Hollín de Pino)','pt':'Barra de Tinta Huizhou (Fuligem de Pinho)'},
     desc:{'zh-CN':'安徽徽州松烟墨，细腻黝黑，千年不褪，研磨书写香气清雅。','en':'Huizhou pine soot ink stick, fine and deep black, millennium-lasting, fragrant when ground.','es':'Barra de tinta de hollín de pino de Huizhou, fina y negra profunda, que dura milenios, fragante al moler.','pt':'Barra de tinta de fuligem de pinho de Huizhou, fina e preta profunda, que dura milênios, fragante ao moer.'},
-    price:8,img:'🖊️'},
+    price:16,img:'🖊️'},
   {id:'303',cat:'calligraphy',name:{'zh-CN':'宣纸（四尺特净）','en':'Xuan Paper (Four Chi Premium)','es':'Papel Xuan (Premium Cuatro Chi)','pt':'Papel Xuan (Premium Quatro Chi)'},
     desc:{'zh-CN':'安徽泾县红星宣纸，特净皮料，润墨效果好，书画皆宜，一刀100张。','en':'Hongxing Xuan paper from Jingxian, premium skin material, excellent ink absorption, 100 sheets.','es':'Papel Xuan Hongxing de Jingxian, material de piel premium, excelente absorción de tinta, 100 hojas.','pt':'Papel Xuan Hongxing de Jingxian, material de pele premium, excelente absorção de tinta, 100 folhas.'},
-    price:20,img:'📄'},
+    price:40,img:'📄'},
   // 画 (Painting)
   {id:'401',cat:'painting',name:{'zh-CN':'国画颜料套装','en':'Chinese Painting Pigment Set','es':'Juego de Pigmentos de Pintura China','pt':'Conjunto de Pigmentos de Pintura Chinesa'},
     desc:{'zh-CN':'矿物与植物颜料，含花青、藤黄、赭石、朱砂等12色，色彩古雅持久。','en':'Mineral and plant pigments, 12 colors including indigo, gamboge, ochre, cinnabar, antique and lasting colors.','es':'Pigmentos minerales y vegetales, 12 colores incluyendo índigo, gomaguta, ocre, cinabrio, colores antiguos y duraderos.','pt':'Pigmentos minerais e vegetais, 12 cores incluindo índigo, gomaguta, ocre, cinábrio, cores antigas e duradouras.'},
-    price:18,img:'🎨'},
+    price:36,img:'🎨'},
   {id:'402',cat:'painting',name:{'zh-CN':'工笔白描画谱','en':'Fine Line Drawing Manual','es':'Manual de Dibujo de Línea Fina','pt':'Manual de Desenho de Linha Fina'},
     desc:{'zh-CN':'传统工笔画谱，含花鸟、人物、山水等题材，初学者临摹佳品。','en':'Traditional fine-line painting manual, flowers, figures, landscapes, ideal for beginners.','es':'Manual de pintura de línea fina tradicional, flores, figuras, paisajes, ideal para principiantes.','pt':'Manual de pintura de linha fina tradicional, flores, figuras, paisagens, ideal para iniciantes.'},
-    price:10,img:'🖼️'},
+    price:20,img:'🖼️'},
   // 姓氏研究
   {id:'501',cat:'surname',name:{'zh-CN':'百家姓姓氏起源图鉴','en':'Hundred Surnames Origin Guide','es':'Guía de Origen de los Cien Apellidos','pt':'Guia de Origem dos Cem Sobrenomes'},
     desc:{'zh-CN':'详细收录中华500大姓氏之起源、迁徙、郡望、历史名人，附世系简图。','en':'Detailed origins, migrations, and famous figures of 500 Chinese surnames with lineage charts.','es':'Orígenes detallados, migraciones y personajes famosos de 500 apellidos chinos con gráficos de linaje.','pt':'Origens detalhadas, migrações e figuras famosas de 500 sobrenomes chineses com gráficos de linhagem.'},
-    price:15,img:'📚'},
+    price:30,img:'📚'},
   {id:'502',cat:'surname',name:{'zh-CN':'家族族谱定制服务','en':'Custom Family Tree Service','es':'Servicio Personalizado de Árbol Genealógico','pt':'Serviço Personalizado de Árvore Genealógica'},
     desc:{'zh-CN':'提供家族族谱编修服务，含世系考证、排版设计、宣纸印刷、线装成册。','en':'Family tree compilation service including lineage research, layout design, Xuan paper printing, thread binding.','es':'Servicio de compilación de árbol genealógico que incluye investigación de linaje, diseño de diseño, impresión en papel Xuan, encuadernación con hilo.','pt':'Serviço de compilação de árvore genealógica incluindo pesquisa de linhagem, design de layout, impressão em papel Xuan, encadernação com fio.'},
-    price:100,img:'📜'},
+    price:200,img:'📜'},
   // 原有商品
-  {id:'1',cat:'tea',name:{'zh-CN':'明前龙井','en':'Pre-Qingming Longjing','es':'Té Longjing Pre-Qingming','pt':'Chá Longjing Pré-Qingming'},desc:{'zh-CN':'产自西湖龙井村，明前采摘，形如雀舌，色泽翠绿，回味甘醇。','en':'Harvested before Qingming from West Lake Longjing Village, sparrow-tongue shaped, emerald green, with sweet aftertaste.','es':'Cosechado antes de Qingming en la Aldea Longjing del Lago Oeste, en forma de lengua de gorrión, verde esmeralda, con regusto dulce.','pt':'Colhido antes do Qingming na Vila Longjing do Lago Oeste, formato de língua de pardal, verde esmeralda, com sabor adocicado.'},price:5,img:'🍵'},
-  {id:'2',cat:'tea',name:{'zh-CN':'武夷大红袍','en':'Wuyi Da Hong Pao','es':'Wuyi Da Hong Pao','pt':'Wuyi Da Hong Pao'},desc:{'zh-CN':'武夷岩茶之王，产自武夷山九龙窠，岩韵悠长，香气馥郁。','en':'King of Wuyi rock teas, from Jiulong Nest, Wuyi Mountain, with lasting rock charm and rich aroma.','es':'El rey de los tés de roca Wuyi, del Nido Jiulong, Monte Wuyi, con encanto rocoso perdurable y aroma rico.','pt':'O rei dos chás de rocha Wuyi, do Ninho Jiulong, Monte Wuyi, com charme rochoso duradouro e aroma rico.'},price:8,img:'🫖'},
-  {id:'6',cat:'ceramic',name:{'zh-CN':'景德镇青花瓷茶杯','en':'Jingdezhen Blue-and-White Teacup','es':'Taza de Porcelana Azul y Blanca de Jingdezhen','pt':'Xícara de Porcelana Azul e Branca de Jingdezhen'},desc:{'zh-CN':'手工绘制青花图案，景德镇高岭土烧制，胎薄质坚，白如玉。','en':'Hand-painted blue patterns, fired from Jingdezhen kaolin, thin and jade-white.','es':'Patrones azules pintados a mano, cocidos con caolín de Jingdezhen, finos y blancos como jade.','pt':'Padrões azuis pintados à mão, queimados com caulim de Jingdezhen, finos e brancos como jade.'},price:15,img:'🏺'},
-  {id:'7',cat:'ceramic',name:{'zh-CN':'宜兴紫砂壶','en':'Yixing Zisha Teapot','es':'Tetera Yixing Zisha','pt':'Bule Yixing Zisha'},desc:{'zh-CN':'宜兴原矿紫砂，手工精制，透气性好，越用越润，茶香留存。','en':'Yixing original purple clay, handmade, excellent breathability, improves with use, retains tea aroma.','es':'Arcilla púrpura original de Yixing, hecha a mano, excelente transpirabilidad, mejora con el uso, retiene el aroma del té.','pt':'Argila roxa original de Yixing, feita à mão, excelente transpirabilidade, melhora com o uso, retém o aroma do chá.'},price:20,img:'🫖'},
-  {id:'9',cat:'yijing',name:{'zh-CN':'易经六十四卦铜钱','en':'I-Ching 64 Hexagram Coins','es':'Monedas de I Ching 64 Hexagramas','pt':'Moedas do I Ching 64 Hexagramas'},desc:{'zh-CN':'精铸仿古铜钱一套三枚，正宗占卜用币，含详细占卜指南手册。','en':'Set of 3 antique-style brass coins for I-Ching divination, includes detailed guide.','es':'Juego de 3 monedas de latón de estilo antiguo para adivinación de I Ching, incluye guía detallada.','pt':'Conjunto de 3 moedas de latão estilo antigo para adivinhação do I Ching, inclui guia detalhada.'},price:12,img:'🪙'},
-  {id:'10',cat:'yijing',name:{'zh-CN':'罗盘（风水指南针）','en':'Feng Shui Luopan Compass','es':'Brújula Luopan de Feng Shui','pt':'Bússola Luopan de Feng Shui'},desc:{'zh-CN':'传统风水罗盘，含八卦二十四山层位，实木底座。','en':'Traditional Feng Shui compass with Bagua 24-mountain system, solid wood base.','es':'Brújula Feng Shui tradicional con sistema Bagua de 24 montañas, base de madera maciza.','pt':'Bússola Feng Shui tradicional com sistema Bagua de 24 montanhas, base de madeira maciça.'},price:18,img:'🧭'},
-  {id:'13',cat:'stationery',name:{'zh-CN':'文房四宝礼盒','en':'Four Treasures of the Study Set','es':'Juego de los Cuatro Tesoros del Estudio','pt':'Conjunto dos Quatro Tesouros do Estudo'},desc:{'zh-CN':'湖笔、徽墨、宣纸、端砚，精装礼盒。','en':'Huzhou brush, Huizhou ink, Xuan paper, Duan inkstone — deluxe gift set.','es':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, piedra de tinta Duan — juego de regalo de lujo.','pt':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, pedra de tinta Duan — conjunto de presente de luxo.'},price:30,img:'✍️'},
-  {id:'14',cat:'stationery',name:{'zh-CN':'檀木书签（刻字）','en':'Sandalwood Bookmark (Engraved)','es':'Marcapáginas de Sándalo (Grabado)','pt':'Marca-página de Sândalo (Gravado)'},desc:{'zh-CN':'印度老山檀香木，手工打磨，可定制刻字。','en':'Indian sandalwood, hand-polished, customizable engraving.','es':'Sándalo indio, pulido a mano, grabado personalizable.','pt':'Sândalo indiano, polido à mão, gravação personalizável.'},price:5,img:'📑'}
+  {id:'1',cat:'tea',name:{'zh-CN':'明前龙井','en':'Pre-Qingming Longjing','es':'Té Longjing Pre-Qingming','pt':'Chá Longjing Pré-Qingming'},desc:{'zh-CN':'产自西湖龙井村，明前采摘，形如雀舌，色泽翠绿，回味甘醇。','en':'Harvested before Qingming from West Lake Longjing Village, sparrow-tongue shaped, emerald green, with sweet aftertaste.','es':'Cosechado antes de Qingming en la Aldea Longjing del Lago Oeste, en forma de lengua de gorrión, verde esmeralda, con regusto dulce.','pt':'Colhido antes do Qingming na Vila Longjing do Lago Oeste, formato de língua de pardal, verde esmeralda, com sabor adocicado.'},price:10,img:'🍵'},
+  {id:'2',cat:'tea',name:{'zh-CN':'武夷大红袍','en':'Wuyi Da Hong Pao','es':'Wuyi Da Hong Pao','pt':'Wuyi Da Hong Pao'},desc:{'zh-CN':'武夷岩茶之王，产自武夷山九龙窠，岩韵悠长，香气馥郁。','en':'King of Wuyi rock teas, from Jiulong Nest, Wuyi Mountain, with lasting rock charm and rich aroma.','es':'El rey de los tés de roca Wuyi, del Nido Jiulong, Monte Wuyi, con encanto rocoso perdurable y aroma rico.','pt':'O rei dos chás de rocha Wuyi, do Ninho Jiulong, Monte Wuyi, com charme rochoso duradouro e aroma rico.'},price:16,img:'🫖'},
+  {id:'6',cat:'ceramic',name:{'zh-CN':'景德镇青花瓷茶杯','en':'Jingdezhen Blue-and-White Teacup','es':'Taza de Porcelana Azul y Blanca de Jingdezhen','pt':'Xícara de Porcelana Azul e Branca de Jingdezhen'},desc:{'zh-CN':'手工绘制青花图案，景德镇高岭土烧制，胎薄质坚，白如玉。','en':'Hand-painted blue patterns, fired from Jingdezhen kaolin, thin and jade-white.','es':'Patrones azules pintados a mano, cocidos con caolín de Jingdezhen, finos y blancos como jade.','pt':'Padrões azuis pintados à mão, queimados com caulim de Jingdezhen, finos e brancos como jade.'},price:30,img:'🏺'},
+  {id:'7',cat:'ceramic',name:{'zh-CN':'宜兴紫砂壶','en':'Yixing Zisha Teapot','es':'Tetera Yixing Zisha','pt':'Bule Yixing Zisha'},desc:{'zh-CN':'宜兴原矿紫砂，手工精制，透气性好，越用越润，茶香留存。','en':'Yixing original purple clay, handmade, excellent breathability, improves with use, retains tea aroma.','es':'Arcilla púrpura original de Yixing, hecha a mano, excelente transpirabilidad, mejora con el uso, retiene el aroma del té.','pt':'Argila roxa original de Yixing, feita à mão, excelente transpirabilidade, melhora com o uso, retém o aroma do chá.'},price:40,img:'🫖'},
+  {id:'9',cat:'yijing',name:{'zh-CN':'易经六十四卦铜钱','en':'I-Ching 64 Hexagram Coins','es':'Monedas de I Ching 64 Hexagramas','pt':'Moedas do I Ching 64 Hexagramas'},desc:{'zh-CN':'精铸仿古铜钱一套三枚，正宗占卜用币，含详细占卜指南手册。','en':'Set of 3 antique-style brass coins for I-Ching divination, includes detailed guide.','es':'Juego de 3 monedas de latón de estilo antiguo para adivinación de I Ching, incluye guía detallada.','pt':'Conjunto de 3 moedas de latão estilo antigo para adivinhação do I Ching, inclui guia detalhada.'},price:24,img:'🪙'},
+  {id:'10',cat:'yijing',name:{'zh-CN':'罗盘（风水指南针）','en':'Feng Shui Luopan Compass','es':'Brújula Luopan de Feng Shui','pt':'Bússola Luopan de Feng Shui'},desc:{'zh-CN':'传统风水罗盘，含八卦二十四山层位，实木底座。','en':'Traditional Feng Shui compass with Bagua 24-mountain system, solid wood base.','es':'Brújula Feng Shui tradicional con sistema Bagua de 24 montañas, base de madera maciza.','pt':'Bússola Feng Shui tradicional com sistema Bagua de 24 montanhas, base de madeira maciça.'},price:36,img:'🧭'},
+  {id:'13',cat:'stationery',name:{'zh-CN':'文房四宝礼盒','en':'Four Treasures of the Study Set','es':'Juego de los Cuatro Tesoros del Estudio','pt':'Conjunto dos Quatro Tesouros do Estudo'},desc:{'zh-CN':'湖笔、徽墨、宣纸、端砚，精装礼盒。','en':'Huzhou brush, Huizhou ink, Xuan paper, Duan inkstone — deluxe gift set.','es':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, piedra de tinta Duan — juego de regalo de lujo.','pt':'Pincel de Huzhou, tinta de Huizhou, papel Xuan, pedra de tinta Duan — conjunto de presente de luxo.'},price:60,img:'✍️'},
+  {id:'14',cat:'stationery',name:{'zh-CN':'檀木书签（刻字）','en':'Sandalwood Bookmark (Engraved)','es':'Marcapáginas de Sándalo (Grabado)','pt':'Marca-página de Sândalo (Gravado)'},desc:{'zh-CN':'印度老山檀香木，手工打磨，可定制刻字。','en':'Indian sandalwood, hand-polished, customizable engraving.','es':'Sándalo indio, pulido a mano, grabado personalizable.','pt':'Sândalo indiano, polido à mão, gravação personalizável.'},price:10,img:'📑'}
 ];
 const CREDIT_PACKAGES = [ {credits:10,price:'$1.99',id:'cp1'}, {credits:50,price:'$8.99',id:'cp2',recommended:true}, {credits:200,price:'$29.99',id:'cp3'}, {credits:500,price:'$59.99',id:'cp4'} ];
 const UNLOCK_CREDITS = { book:30, langVersion:20 };
@@ -1078,13 +1116,13 @@ BOOKS_DATA.push({id:"m"+(startId++),type:b.type||b.t,name:{"zh-CN":b.n,"zh-TW":b
 var VIP_PRODUCTS = [
   {id:'vip-chen',cat:'digital',name:{'zh-CN':'陈氏总谱（VIP下载）','en':'Chen Genealogy (VIP Download)','es':'Genealogía Chen (VIP)','pt':'Genealogia Chen (VIP)'},
     desc:{'zh-CN':'完整的陈氏家族总谱，涵盖陈氏源流、迁徙分布、历代名人、世系图谱等。限VIP会员下载。','en':'Complete Chen family genealogy covering origins, migration, notable figures, lineage charts. VIP only.','es':'Genealogía completa de la familia Chen. Solo VIP.','pt':'Genealogia completa da família Chen. Apenas VIP.'},
-    price:200,img:'📄'},
+    price:400,img:'📄'},
   {id:'vip-chen-zibei1',cat:'digital',name:{'zh-CN':'全国陈氏字辈（卷一）','en':'Chen Family Names Vol.1','es':'Nombres de Familia Chen Vol.1','pt':'Nomes de Família Chen Vol.1'},
     desc:{'zh-CN':'全国陈氏字辈汇编上册，收录各省陈氏字辈排行，寻根问祖必备。','en':'National Chen family generation names, Volume 1. Essential for ancestry research.','es':'Nombres generacionales de la familia Chen, Volumen 1.','pt':'Nomes geracionais da família Chen, Volume 1.'},
-    price:100,img:'📜'},
+    price:200,img:'📜'},
   {id:'vip-chen-zibei2',cat:'digital',name:{'zh-CN':'全国陈氏字辈（卷二）','en':'Chen Family Names Vol.2','es':'Nombres de Familia Chen Vol.2','pt':'Nomes de Família Chen Vol.2'},
     desc:{'zh-CN':'全国陈氏字辈汇编下册，续接卷一，更全面的字辈收录。','en':'National Chen family generation names, Volume 2. Complete set with Vol.1.','es':'Nombres generacionales de la familia Chen, Volumen 2.','pt':'Nomes geracionais da família Chen, Volume 2.'},
-    price:100,img:'📜'}
+    price:200,img:'📜'}
 ];
 // Add to SHOP_PRODUCTS
 VIP_PRODUCTS.forEach(function(p){SHOP_PRODUCTS.push(p);});
@@ -2132,7 +2170,7 @@ function makeBookCard(b){
   var owned = _user&&(_user.ownedBooks||[]).indexOf(b.id)>=0;
   var school = getSchool(b);
   var badge = school ? "<span class=\"school-badge\" style=\"position:absolute;bottom:4px;right:4px;background:#8B0000;color:#f5e8d0;font-size:10px;line-height:1.3;padding:1px 5px;border-radius:3px\">"+school+"</span>" : "";
-  return "<div class=\"book-card\" style=\"position:relative\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?"\u2705":"\ud83d\udd12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\"><span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div>"+badge+"</div>";
+  return "<div class=\"book-card\" style=\"position:relative\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?"\u2705":"\ud83d\udd12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\"><span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div>"+badge+progressBarHTML(b)+"</div>";
 }
 
 function renderClassics(){
@@ -2170,5 +2208,43 @@ function filterClassics(){_classicsSearch=(document.getElementById("classicsSear
 
 </script>
 <script>try{if(typeof init==="function")init();}catch(e){}</script>
+
+<script>
+// ===== 阅读进度系统 + 商城搜索 + 每日签到 (2026-08-29) =====
+function loadProgress(){var p=null;try{p=JSON.parse(localStorage.getItem("ch_progress")||"{}")}catch(e){p={}}if(!p||typeof p!=="object"||Array.isArray(p))p={};return p;}
+function saveProgress(){try{localStorage.setItem("ch_progress",JSON.stringify(loadProgress()))}catch(e){}}
+function bookChapters(book){if(!book||!book.chapters)return [];return book.chapters[_lang]||book.chapters["zh-CN"]||[];}
+function bookProgress(book){if(!book)return {pct:0,read:0,total:0};var chs=bookChapters(book);var total=chs.length||book.totalChapters||0;if(!total)return {pct:0,read:0,total:0};var p=loadProgress();var arr=(p[book.id]||[]).filter(function(n){return typeof n==="number"&&n>=1&&n<=total;});var read=[];arr.forEach(function(n){if(read.indexOf(n)<0)read.push(n);});return {pct:Math.round(read.length/total*100),read:read.length,total:total};}
+function markChapterRead(book,n){if(!book||!n)return;var chs=bookChapters(book);var total=chs.length||book.totalChapters||0;if(n<1||n>total)return;var p=loadProgress();var arr=p[book.id]||[];if(arr.indexOf(n)<0){arr.push(n);p[book.id]=arr;try{localStorage.setItem("ch_progress",JSON.stringify(p))}catch(e){}}refreshProgressUI(book);}
+function progressBarHTML(book){var pr=bookProgress(book);if(!pr.total)return "";return '<div class="bc-progress"><div class="bc-progress-bar"><div class="bc-progress-fill" style="width:'+pr.pct+'%"></div></div><span class="bc-progress-label">'+t("progressDone").replace("{p}",pr.pct)+'</span></div>';}
+function refreshProgressUI(book){if(!book)return;var fill=document.getElementById("readerProgressFill");if(fill){var pr=bookProgress(book);fill.style.width=pr.pct+"%";var lb=document.getElementById("readerProgressLabel");if(lb)lb.textContent=t("progressDone").replace("{p}",pr.pct);}var tot=document.getElementById("readerTotal");if(tot){var pr2=bookProgress(book);tot.textContent=t("progressChapters").replace("{a}",pr2.read).replace("{b}",pr2.total);}var grid=document.getElementById("classicsGrid");if(grid){var cards=grid.querySelectorAll(".book-card");for(var i=0;i<cards.length;i++){var card=cards[i];if(card.getAttribute("data-book")===book.id){var f=card.querySelector(".bc-progress-fill");var l2=card.querySelector(".bc-progress-label");if(f&&l2){var pr3=bookProgress(book);f.style.width=pr3.pct+"%";l2.textContent=t("progressDone").replace("{p}",pr3.pct);}}}}}
+window.openReader=function(id){_currentBook=(typeof BOOKS_DATA!=="undefined"?BOOKS_DATA.find(function(b){return b.id===id;}):null);_currentChapter=null;navTo("reader");};
+window.renderReader=function(){var sec=document.getElementById("reader-page");if(!sec||!_currentBook)return;var b=_currentBook;var chs=bookChapters(b);var pr=bookProgress(b);var readArr=loadProgress()[b.id]||[];
+var chList='<div class="reader-chapter-list" id="readerChapterList">'+chs.map(function(ch,i){var n=ch.n||(i+1);return '<div class="reader-chapter'+(readArr.indexOf(n)>=0?" read":"")+'" data-n="'+n+'" onclick="rdrOpen('+n+')"><span class="ch-num">'+n+'</span><span class="ch-title">'+ch.t+'</span></div>';}).join("")+'</div>';
+sec.innerHTML='<div class="reader-header"><button class="btn-secondary btn-sm" onclick="navTo(\'classics\')">&larr; '+t("navClassics")+'</button><h2>'+(b.name[_lang]||b.name["zh-CN"]||"")+'</h2><span class="reader-total" id="readerTotal">'+t("progressChapters").replace("{a}",pr.read).replace("{b}",pr.total)+'</span></div><div class="reader-content"><div class="reader-progress"><div class="reader-progress-bar"><div class="reader-progress-fill" id="readerProgressFill" style="width:'+pr.pct+'%"></div></div><span class="reader-progress-label" id="readerProgressLabel">'+t("progressDone").replace("{p}",pr.pct)+'</span></div><div id="readerChapterText"><h3 class="chapter-title">'+(b.name[_lang]||b.name["zh-CN"]||"")+'</h3><p>'+(b.intro[_lang]||b.intro["zh-CN"]||"")+'</p></div></div>'+chList;};
+window.rdrOpen=function(n){if(!_currentBook)return;var b=_currentBook;var chs=bookChapters(b);var ch=null;for(var i=0;i<chs.length;i++){if((chs[i].n||(i+1))===n){ch=chs[i];break;}}if(!ch)return;_currentChapter=n;markChapterRead(b,n);var box=document.getElementById("readerChapterText");if(box)box.innerHTML='<h3 class="chapter-title">'+ch.t+'</h3><div class="chapter-text">'+ch.c+'</div><div class="tts-bar"><button class="tts-btn" onclick="speakText(document.getElementById(\'readerChapterText\').querySelector(\'.chapter-text\').textContent,\''+_lang+'\')">🔊 '+t("playAudio")+'</button><button class="tts-btn" onclick="stopRecitation()">⏹ '+t("stopAudio")+'</button></div>';var list=document.getElementById("readerChapterList");if(list){var items=list.querySelectorAll(".reader-chapter");for(var k=0;k<items.length;k++){items[k].classList.toggle("active",parseInt(items[k].getAttribute("data-n"),10)===n);}}};
+window.renderShopGrid=function(prods){var g=document.getElementById("shopGrid");if(!g)return;var ck={music:"shopMusic",chess:"shopChess",calligraphy:"shopCalligraphy",painting:"shopPainting",surname:"shopSurname",tea:"shopTea",ceramic:"shopCeramic",yijing:"shopYijing",stationery:"shopStationery",digital:"shopDigital",heritage:"shopHeritage"};var list=prods||SHOP_PRODUCTS;var q=((window._shopSearch||"").trim().toLowerCase());if(q)list=list.filter(function(p){return((p.name[_lang]||p.name["zh-CN"]||"").toLowerCase().indexOf(q)>=0)||((p.desc[_lang]||p.desc["zh-CN"]||"").toLowerCase().indexOf(q)>=0);});g.innerHTML=list.map(function(p){var n=p.name[_lang]||p.name["zh-CN"],d=p.desc[_lang]||p.desc["zh-CN"];return '<div class="shop-card"><div class="sc-img">'+p.img+'</div><div class="sc-body"><h4>'+n+'</h4><div class="sc-cat">'+t(ck[p.cat]||p.cat)+'</div><div class="sc-desc">'+d+'</div><div class="sc-price">'+p.price+' '+t("credits")+'</div><button class="shop-btn" onclick="addCart(\''+p.id+'\')">'+t("addToCart")+'</button></div></div>';}).join("");};
+window.filShop=function(c,btn){window._shopCat=c||"all";var btns=document.querySelectorAll("#shopFilter button");for(var i=0;i<btns.length;i++){btns[i].classList.remove("active");}if(btn)btn.classList.add("active");window.renderShopGrid(window._shopCat==="all"?SHOP_PRODUCTS:SHOP_PRODUCTS.filter(function(p){return p.cat===window._shopCat;}));};
+window.searchShop=function(){window._shopSearch=document.getElementById("shopSearch")?document.getElementById("shopSearch").value:"";var cat=window._shopCat||"all";window.renderShopGrid(cat==="all"?SHOP_PRODUCTS:SHOP_PRODUCTS.filter(function(p){return p.cat===cat;}));};
+window.renderShop=function(){var g=document.getElementById("shopGrid");if(!g)return;if(!window._shopCat)window._shopCat="all";var cats=[];var seen={};SHOP_PRODUCTS.forEach(function(p){if(!seen[p.cat]){seen[p.cat]=1;cats.push(p.cat);}});var ck={music:"shopMusic",chess:"shopChess",calligraphy:"shopCalligraphy",painting:"shopPainting",surname:"shopSurname",tea:"shopTea",ceramic:"shopCeramic",yijing:"shopYijing",stationery:"shopStationery",digital:"shopDigital",heritage:"shopHeritage"};var fb=document.getElementById("shopFilter");if(fb)fb.innerHTML="<button class=\"active\" onclick=\"filShop('all',this)\">"+t("shopAll")+"</button>"+cats.map(function(c){return "<button onclick=\"filShop('"+c+"',this)\">"+t(ck[c]||c)+"</button>";}).join("");var si=document.getElementById("shopSearch");if(si&&!si.getAttribute("data-init")){si.setAttribute("data-init","1");si.placeholder=t("shopSearchPh");si.value=window._shopSearch||"";si.addEventListener("input",function(){window.searchShop();});si.addEventListener("keyup",function(){window.searchShop();});si.addEventListener("change",function(){window.searchShop();});}window.renderShopGrid(SHOP_PRODUCTS);};
+window.doCheckin=function(){if(!_user){showAuth("login");return;}var st={};try{st=JSON.parse(localStorage.getItem("ch_checkin")||"{}")}catch(e){st={}}var today=new Date();var ts=today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();if(st.last===ts){showToast(t("checkedInToday"));return;}st.last=ts;try{localStorage.setItem("ch_checkin",JSON.stringify(st))}catch(e){}_user.credits=(_user.credits||0)+1;try{localStorage.setItem("ch_user",JSON.stringify(_user))}catch(e){}try{var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}renderCheckinBtn();showToast(t("checkinOk")+" +1");renderTopBar();};
+function checkinState(){try{return JSON.parse(localStorage.getItem("ch_checkin")||"{}")}catch(e){return {}}}
+function renderCheckinBtn(){var el=document.getElementById("checkinBtn");if(!el)return;var d=new Date();var ts=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();var done=checkinState().last===ts;el.textContent=done?(t("checkedIn")+" ✓"):(t("checkin")+" +1");el.classList.toggle("done",done);el.disabled=done;}
+var _origForumList=window.renderForumList||function(){};
+window.renderForumList=function(s){_origForumList(s);var tb=document.querySelector(".forum-toolbar");if(tb&&!document.getElementById("checkinBtn")){var b=document.createElement("button");b.id="checkinBtn";b.className="btn-secondary";b.style.marginLeft="auto";b.onclick=function(){window.doCheckin();};tb.appendChild(b);}renderCheckinBtn();};
+</script>
+
+<div class="modal-overlay" id="authOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAuth()">×</button>
+    <div id="authForm"></div>
+  </div>
+</div>
+
+<script>
+// ===== 登录/注册弹窗 (auth modal) =====
+window.showAuth=function(mode){var ov=document.getElementById("authOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("authForm");if(!f)return;var toggle=mode==="login"?('<div class="auth-toggle">'+t("noAccount")+' <a onclick="window.showAuth(\'register\')">'+t("navRegister")+'</a></div>'):('<div class="auth-toggle">'+t("hasAccount")+' <a onclick="window.showAuth(\'login\')">'+t("navLogin")+'</a></div>');f.innerHTML='<h3>'+(mode==="login"?t("loginTitle"):t("regTitle"))+'</h3><div id="authMsg"></div>'+(mode==="register"?('<div class="form-group"><label>'+t("nameLabel")+'</label><input type="text" id="authName"></div>'):"")+'<div class="form-group"><label>'+t("emailLabel")+'</label><input type="email" id="authEmail"></div><div class="form-group"><label>'+t("pwdLabel")+'</label><input type="password" id="authPwd"></div><button class="btn-primary" onclick="'+(mode==="login"?"doLogin()":"doRegister()")+'">'+(mode==="login"?t("loginBtn"):t("regBtn"))+'</button>'+toggle;};
+window.closeAuth=function(){var ov=document.getElementById("authOverlay");if(ov)ov.classList.remove("active");};
+</script>
 </body>
 </html>
