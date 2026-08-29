@@ -57,6 +57,18 @@ a:hover{color:#c9a84c}
 .page-title h2::after{content:'';display:block;width:50px;height:2px;background:linear-gradient(90deg,#c9a84c,#8B0000);margin:.5rem auto 0}
 .page-title p{color:#7a6a5a;margin-top:.4rem;font-size:.9rem}
 /* ===== Timeline ===== */
+#timeline-page{position:relative;overflow:hidden}
+.tl-map{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.4}
+.tl-map svg{width:100%;height:100%;display:block}
+#timeline-page .page-banner,#timeline-page .stats-strip,#timeline-page .tl-toolbar,#timeline-page .timeline{position:relative;z-index:1}
+.tl-toolbar{max-width:800px;margin:.5rem auto 0;padding:0 1rem;display:flex;gap:.5rem;align-items:center}
+.tl-toolbar input{flex:1;padding:.55rem .95rem;border:1px solid #c9a84c;border-radius:10px;background:#f7f1e6;font-size:.92rem;color:#2c1810;font-family:inherit}
+.tl-toolbar input:focus{outline:none;border-color:#8B0000;box-shadow:0 0 0 2px rgba(139,0,0,.12)}
+.tl-toolbar .tl-count{font-size:.78rem;color:#7a6a5a;white-space:nowrap}
+.tl-capital{font-size:.78rem;color:#8B0000;font-weight:600;margin-top:.12rem}
+.tl-capital em{font-style:normal;color:#c9a84c;margin-right:.2rem}
+.tl-era{position:relative;z-index:1;max-width:800px;margin:.4rem auto;padding:.35rem 1rem;font-size:.82rem;letter-spacing:.25em;color:#8B0000;font-weight:700;background:rgba(247,241,230,.72);border-left:4px solid #8B0000;border-radius:6px}
+.tl-item.filtered{display:none}
 .timeline-page .timeline{position:relative;padding:1rem 0 2rem;max-width:800px;margin:0 auto}
 .timeline-page .timeline::before{content:'';position:absolute;left:28px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#c9a84c,#8B0000,#c9a84c)}
 .timeline-page .tl-item{position:relative;padding:0 0 2.5rem 68px;cursor:pointer;transition:opacity .3s}
@@ -667,6 +679,36 @@ textarea.forum-form-input{resize:vertical}
 .sj-ach-item.done{color:#2c7a3b;border-color:#2c7a3b;background:#eef7ee}
 .sj-score-big{font-size:2.2rem;color:#8B0000;text-align:center;font-weight:700;margin:.5rem 0}
 .sq-quote{font-size:1rem;color:#2c1810;line-height:1.9;text-align:center;margin:.6rem 0 1rem;font-weight:600}
+.sj-emoji{display:flex;justify-content:center;align-items:center;margin-bottom:.4rem}
+.sj-emoji svg{width:56px;height:56px;display:block}
+.sj-avatar svg{width:58px;height:58px}
+.sj-avatar-sm svg{width:32px;height:32px}
+.sj-daily-sage svg{width:20px;height:20px;vertical-align:middle}
+.sj-card{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:flex-start;min-height:132px;padding:1rem .5rem .7rem}
+.sj-card b{font-size:1.05rem;letter-spacing:.06em}
+.sj-title{font-size:.72rem;color:#8a7466;margin-top:.1rem}
+.sj-inti{font-size:.66rem;margin-top:.25rem}
+.sj-quick-row{display:flex;gap:.6rem;margin-bottom:.9rem}
+.sj-daily-sage-card{display:flex;align-items:center;gap:.5rem;flex:1.2;margin-bottom:0;text-align:left;padding:.55rem .8rem}
+.q-avatar svg{width:38px;height:38px;flex-shrink:0}
+.q-txt{flex:1;font-size:.85rem}
+.q-go{color:#ffd977;font-weight:700}
+.sj-quiz-btn{flex:1;margin-bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.5rem .8rem}
+.sj-quiz-btn small{display:block;font-size:.68rem;color:#9a8774;margin-top:.15rem}
+.sj-chat-head{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.sj-head-id{min-width:0}
+.sj-head-id b{font-size:1.2rem;letter-spacing:.1em;display:block}
+.sj-head-id .sj-title{font-size:.72rem;color:#8a7466}
+.sj-inti-bar{margin-left:auto;text-align:right;max-width:210px}
+@media(max-width:640px){.sj-quick-row{flex-direction:column}.sj-inti-bar{max-width:100%;text-align:left;margin-left:0}.sj-chat-head{flex-direction:column;align-items:flex-start}}
+.bg-wrap{max-width:560px;margin:0 auto}
+.bg-head{display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem;flex-wrap:wrap}
+.bg-head b{font-size:1.1rem;color:#2c1810;letter-spacing:.1em}
+.bg-diff{display:flex;gap:.25rem;align-items:center;margin-left:auto;font-size:.78rem;color:#7a6a5a}
+.bg-diff .pg-btn{min-width:30px;height:30px;padding:0 .35rem;font-size:.78rem}
+.bg-board canvas{max-width:100%;height:auto;border-radius:10px;display:block;margin:0 auto;box-shadow:0 4px 16px rgba(44,24,16,.15)}
+.bg-status{text-align:center;font-size:.92rem;color:#8B0000;margin:.6rem 0;min-height:1.3em;font-weight:600}
+.bg-ops{text-align:center;margin-top:.3rem}
 /* ===== 移动端适配优化 ===== */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 *{-webkit-tap-highlight-color:transparent}
@@ -757,11 +799,137 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 <div class="page" id="cart-page"><div id="cart-page-content"></div></div>
 <div class="page" id="shenjiao-page"><div class="sj-head" id="shenjiao-page-content"></div></div>
 <div class="page" id="game-page"><div id="game-page-content"></div></div>
-<div class="page" id="timeline-page">
+<div class="page timeline-page" id="timeline-page">
+<div class="tl-map" aria-hidden="true"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMidYMid slice">
+<rect x="20" y="20" width="1160" height="760" stroke="#8B6B4A" stroke-width="5" opacity=".55"/>
+<rect x="32" y="32" width="1136" height="736" stroke="#8B6B4A" stroke-width="1.5" opacity=".45"/>
+<rect x="40" y="40" width="1120" height="720" stroke="#C9A84C" stroke-width="1" opacity=".35"/>
+<g stroke="#8B6B4A" stroke-width="1.5" opacity=".6">
+<path d="M60,180 L115,80 L170,180"/><path d="M130,195 L190,90 L250,195"/><path d="M210,180 L270,75 L330,180"/><path d="M290,195 L350,92 L410,195"/><path d="M370,180 L430,80 L490,180"/><path d="M450,195 L510,95 L570,195"/><path d="M530,180 L590,80 L650,180"/><path d="M610,195 L670,95 L730,195"/><path d="M690,180 L750,80 L810,180"/><path d="M770,195 L830,95 L890,195"/><path d="M850,180 L910,80 L970,180"/><path d="M930,195 L990,95 L1050,195"/><path d="M1010,180 L1070,85 L1130,180"/>
+<path d="M70,430 L125,350 L180,430"/><path d="M100,450 L155,372 L210,450"/><path d="M1030,510 L1090,435 L1150,510"/><path d="M1060,530 L1120,458 L1180,530"/>
+<path d="M190,540 L245,475 L300,540"/><path d="M230,560 L285,495 L340,560"/>
+</g>
+<g stroke="#C9A84C" stroke-width="1.5" opacity=".55">
+<path d="M115,80 L131,98 L99,98 Z"/><path d="M270,75 L286,93 L254,93 Z"/><path d="M430,80 L446,98 L414,98 Z"/><path d="M590,80 L606,98 L574,98 Z"/><path d="M750,80 L766,98 L734,98 Z"/><path d="M910,80 L926,98 L894,98 Z"/><path d="M1070,85 L1086,103 L1054,103 Z"/>
+</g>
+<path d="M610,105 C570,210 660,300 620,420 C580,540 650,660 610,790" stroke="#7A9BB5" stroke-width="15" opacity=".35"/>
+<path d="M610,105 C570,210 660,300 620,420 C580,540 650,660 610,790" stroke="#8B6B4A" stroke-width="2" opacity=".5"/>
+<path d="M760,130 C740,260 810,380 780,520 C755,630 790,720 770,790" stroke="#7A9BB5" stroke-width="11" opacity=".3"/>
+<path d="M760,130 C740,260 810,380 780,520" stroke="#8B6B4A" stroke-width="1.5" opacity=".45"/>
+<path d="M420,200 C430,300 400,400 420,500" stroke="#7A9BB5" stroke-width="6" opacity=".3"/>
+<path d="M300,420 C310,500 290,580 310,660" stroke="#7A9BB5" stroke-width="5" opacity=".28"/>
+<g stroke="#7A9BB5" stroke-width="2" opacity=".55">
+<path d="M60,704 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0"/>
+<path d="M260,746 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0"/>
+<path d="M520,724 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0 q14,-11 28,0 q14,11 28,0"/>
+</g>
+<g stroke="#8B6B4A" stroke-width="1.8" opacity=".5">
+<path d="M110,130 a24,24 0 1,1 0,48 a24,24 0 1,1 0,-48"/><path d="M118,154 a12,12 0 1,1 0,24 a12,12 0 1,1 0,-24"/>
+<path d="M1020,120 a24,24 0 1,1 0,48 a24,24 0 1,1 0,-48"/><path d="M1028,144 a12,12 0 1,1 0,24 a12,12 0 1,1 0,-24"/>
+<path d="M200,610 a18,18 0 1,1 0,36 a18,18 0 1,1 0,-36"/>
+<path d="M1040,640 a18,18 0 1,1 0,36 a18,18 0 1,1 0,-36"/>
+<path d="M880,300 a16,16 0 1,1 0,32 a16,16 0 1,1 0,-32"/>
+<path d="M90,500 a16,16 0 1,1 0,32 a16,16 0 1,1 0,-32"/>
+</g>
+<g transform="translate(1060,205)" stroke="#8B6B4A" opacity=".65">
+<circle r="60" stroke-width="2.5"/><circle r="45" stroke-width="1"/><circle r="22" stroke-width="1" fill="#C9A84C" fill-opacity=".2"/>
+<line x1="0" y1="-60" x2="0" y2="60" stroke-width="1.2"/><line x1="-60" y1="0" x2="60" y2="0" stroke-width="1.2"/>
+<line x1="-42" y1="-42" x2="42" y2="42" stroke-width="1"/><line x1="42" y1="-42" x2="-42" y2="42" stroke-width="1"/>
+<g stroke-width="2.4"><line x1="-7" y1="-34" x2="7" y2="-34"/><line x1="-7" y1="-26" x2="7" y2="-26"/><line x1="-7" y1="-18" x2="7" y2="-18"/></g>
+<g stroke-width="2"><line x1="-7" y1="34" x2="7" y2="34"/><line x1="-7" y1="26" x2="7" y2="26"/><line x1="-7" y1="18" x2="7" y2="18"/></g>
+<g stroke-width="2"><line x1="-34" y1="-7" x2="-34" y2="7"/><line x1="-26" y1="-7" x2="-26" y2="7"/><line x1="-18" y1="-7" x2="-18" y2="7"/></g>
+<g stroke-width="2"><line x1="18" y1="-7" x2="18" y2="7"/><line x1="26" y1="-7" x2="26" y2="7"/><line x1="34" y1="-7" x2="34" y2="7"/></g>
+</g>
+<g fill="#8B6B4A" opacity=".85" font-family="KaiTi,STKaiti,serif" text-anchor="middle">
+<text x="500" y="68" font-size="22">昆仑</text>
+<text x="870" y="78" font-size="18">不周山</text>
+<text x="1120" y="330" font-size="17">东海</text>
+<text x="610" y="785" font-size="17">南海</text>
+<text x="70" y="360" font-size="17">西海</text>
+<text x="600" y="50" font-size="15">北海</text>
+<text x="210" y="680" font-size="17">大荒</text>
+<text x="600" y="400" font-size="26" font-weight="bold">九州</text>
+<text x="460" y="205" font-size="14">河</text>
+<text x="700" y="310" font-size="14">江</text>
+<text x="400" y="470" font-size="13">淮</text>
+<text x="285" y="560" font-size="13">济</text>
+<text x="880" y="250" font-size="14">流沙</text>
+<text x="1050" y="720" font-size="14">大泽</text>
+</g>
+<g fill="#8B6B4A" opacity=".8" font-family="KaiTi,STKaiti,serif" text-anchor="middle" font-size="14">
+<text x="340" y="120">东岳·泰山</text><text x="190" y="90">西岳·华山</text><text x="760" y="460">南岳·衡山</text><text x="1070" y="520">北岳·恒山</text><text x="590" y="145">中岳·嵩山</text>
+</g>
+<g stroke="#8B6B4A" stroke-width="2.4" fill="none" opacity=".6">
+<path d="M330,725 C358,675 388,705 418,658 C440,625 466,650 490,618 C512,590 540,610 560,585 C575,565 595,575 610,555"/>
+<circle cx="326" cy="727" r="9" fill="#8B6B4A"/><path d="M316,719 L323,704 L332,718" fill="#8B6B4A" stroke="none"/>
+<path d="M340,720 L336,742 L350,748" /><path d="M410,665 L406,687 L420,692"/><path d="M492,620 L490,640 L504,645"/>
+<path d="M326,727 L316,736 M326,727 L322,714" stroke-width="1.5"/>
+</g>
+<g stroke="#8B6B4A" stroke-width="2.2" fill="none" opacity=".6">
+<path d="M700,165 C720,135 742,148 762,113 C774,148 796,138 806,165 C780,180 726,180 700,165 Z"/>
+<path d="M762,113 L760,92 L770,102 M762,113 L754,102"/>
+<path d="M718,178 C718,210 724,235 728,270 M728,270 L722,246 M728,270 L734,246"/>
+</g>
+<g stroke="#8B6B4A" stroke-width="2" fill="none" opacity=".55">
+<path d="M270,475 L286,440 L302,475 L318,442 L334,475 L350,444 L366,475"/>
+<circle cx="268" cy="476" r="5" fill="#8B6B4A"/>
+</g>
+<g stroke="#8B6B4A" stroke-width="2" fill="none" opacity=".5">
+<path d="M150,235 C150,215 158,200 170,190 C182,200 190,215 190,235 C190,250 182,260 170,265 C158,260 150,250 150,235 Z"/>
+<circle cx="163" cy="230" r="2.5" fill="#8B6B4A"/><circle cx="177" cy="230" r="2.5" fill="#8B6B4A"/>
+<path d="M150,235 L138,218 M190,235 L202,218 M150,235 L142,250 M190,235 L198,250"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M330,388 C335,362 345,350 360,345 C370,340 382,345 388,355 C394,365 390,382 376,388 C354,397 334,399 330,388 Z"/>
+<path d="M388,355 C402,338 412,328 422,318 C416,336 428,344 438,340 C428,354 412,364 396,368"/>
+<path d="M344,383 L347,397 M366,386 L363,400 M378,381 L384,395"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M860,430 C865,408 882,396 898,396 C908,396 916,404 914,416 C912,430 896,440 880,440 C866,440 856,438 860,430 Z"/>
+<path d="M914,416 L936,410 M914,422 L932,422"/>
+<path d="M872,440 L872,458"/>
+<path d="M872,458 C865,463 879,463 872,458"/>
+<path d="M900,402 L906,384 M906,384 L900,378 M906,384 L913,379"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M118,298 C118,282 128,270 144,270 C154,270 162,278 162,292 C162,308 148,316 132,313 C122,311 118,306 118,298 Z"/>
+<circle cx="136" cy="284" r="2.6" fill="#5a3d24"/>
+<path d="M148,276 L153,264 L157,276"/>
+<path d="M130,280 L120,264"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M678,698 C688,668 708,648 734,643 C754,640 770,650 775,668 C780,686 770,704 750,708 C720,714 684,713 678,698 Z"/>
+<circle cx="708" cy="670" r="3" fill="#5a3d24"/>
+<path d="M775,668 C786,662 792,654 792,646"/>
+<path d="M698,708 L698,728 M718,710 L718,728 M738,708 L738,726"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M958,646 L970,636 L976,646 L988,636 L994,646 L1000,641"/>
+<path d="M964,646 L964,666 C958,674 952,676 946,674 M976,646 L976,668 M988,646 L988,670 M996,646 L996,668"/>
+<circle cx="946" cy="649" r="2.6" fill="#5a3d24"/><circle cx="976" cy="649" r="2.6" fill="#5a3d24"/><circle cx="996" cy="649" r="2.6" fill="#5a3d24"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M188,583 C182,562 192,546 208,541 C218,538 226,544 224,556 C222,568 210,577 196,577 C192,577 188,580 188,583 Z"/>
+<path d="M202,545 L208,531 L214,545"/>
+<path d="M208,541 L208,526"/>
+<circle cx="198" cy="552" r="2.6" fill="#5a3d24"/>
+</g>
+<g stroke="#5a3d24" stroke-width="2" fill="#c9a84c" fill-opacity=".16" opacity=".85">
+<path d="M448,296 C454,282 468,274 484,276 C494,278 500,286 498,296 C496,306 486,312 470,311 C458,310 446,304 448,296 Z"/>
+<circle cx="464" cy="285" r="3" fill="#5a3d24"/><circle cx="484" cy="285" r="3" fill="#5a3d24"/>
+<path d="M454,274 L446,260 M454,274 L462,260"/>
+<path d="M448,296 L436,290 M498,296 L512,290"/>
+<path d="M464,286 L470,292 L476,286 M470,292 L470,302"/>
+</g>
+<g fill="#8B0000" opacity=".92" font-family="KaiTi,STKaiti,serif" text-anchor="middle" font-size="16" font-weight="bold">
+<text x="400" y="420">应龙</text><text x="730" y="748">鲲鹏</text><text x="902" y="478">毕方</text><text x="140" y="340">白泽</text><text x="475" y="338">饕餮</text><text x="978" y="702">相柳</text><text x="210" y="610">獬豸</text>
+</g>
+</svg></div>
 <div class="page-banner"><img src="timeline-banner.png" alt=""><div class="banner-overlay"><h2 class="banner-title" data-t="tlBannerTitle"></h2><p class="banner-sub" data-t="tlBannerSub"></p></div></div>
 <div class="stats-strip" id="timelineStats"></div>
+<div class="tl-toolbar"><input id="tlSearch" type="search" placeholder="搜索朝代 / 人物 / 典籍 / 都城" oninput="filterTimeline()"><span class="tl-count" id="tlCount"></span></div>
 <div class="timeline" id="timelineContainer"></div>
-</div>
+</div></div>
 <div class="page" id="account-page"><div id="account-page-content"></div></div>
 <div class="page" id="reader-page"><div id="reader-page-content"></div></div>
 <footer><p>华夏文脉 · Huaxia Wenmai</p></footer>
@@ -796,7 +964,11 @@ era6:{'zh-CN':'明清','zh-TW':'明清','en':'Ming & Qing','es':'Ming y Qing','p
 era7:{'zh-CN':'近现代','zh-TW':'近現代','en':'Modern Era','es':'Era Moderna','pt':'Era Moderna'},
 tlFigures:{'zh-CN':'历史人物','zh-TW':'歷史人物','en':'Key Figures','es':'Figuras Clave','pt':'Figuras Chave'},
 tlClassics:{'zh-CN':'代表典籍','zh-TW':'代表典籍','en':'Classic Works','es':'Obras Clásicas','pt':'Obras Clássicas'},
-foBannerTitle:{'zh-CN':'谈天说地 · 以文会友','zh-TW':'談天說地 · 以文會友','en':'Forum · Friends Through Culture','es':'Foro · Amigos a Través de la Cultura','pt':'Fórum · Amigos Através da Cultura'},
+tlCapital:{'zh-CN':'都城','zh-TW':'都城','en':'Capital','es':'Capital','pt':'Capital'},
+tlTerritory:{'zh-CN':'疆域','zh-TW':'疆域','en':'Territory','es':'Territorio','pt':'Território'},
+tlEvents:{'zh-CN':'大事记','zh-TW':'大事記','en':'Key Events','es':'Eventos Clave','pt':'Eventos Chave'},
+tlEmperors:{'zh-CN':'帝王世系','zh-TW':'帝王世系','en':'Emperor Lineage','es':'Linaje Imperial','pt':'Linhagem Imperial'},
+foBannerTitle:{'zh-CN':'论道 · 以文会友','zh-TW':'論道 · 以文會友','en':'Forum · Friends Through Culture','es':'Foro · Amigos a Través de la Cultura','pt':'Fórum · Amigos Através da Cultura'},
 foBannerSub:{'zh-CN':'交流国学经典心得 · 自 2026 年 1 月上线','zh-TW':'交流國學經典心得 · 自 2026 年 1 月上線','en':'Share insights on Chinese classics · Online since Jan 2026','es':'Comparte ideas sobre los clásicos chinos · En línea desde ene 2026','pt':'Compartilhe ideias sobre os clássicos chineses · Online desde jan 2026'},
 forumTopics:{'zh-CN':'共 {n} 个话题','zh-TW':'共 {n} 個話題','en':'{n} topics','es':'{n} temas','pt':'{n} tópicos'},
 forumReplies:{'zh-CN':'回复','zh-TW':'回覆','en':'replies','es':'respuestas','pt':'respostas'},
@@ -914,6 +1086,23 @@ sjCollected:{'zh-CN':'已收藏','zh-TW':'已收藏','en':'Starred','es':'Guarda
 sjHasCollected:{'zh-CN':'这条语录已收藏过了','zh-TW':'這條語錄已收藏過了','en':'This quote is already starred','es':'Esta cita ya está guardada','pt':'Esta citação já foi salva'},
 sjCollectedOk:{'zh-CN':'已收藏到我的语录','zh-TW':'已收藏到我的語錄','en':'Saved to My Quotes','es':'Guardada en Mis Citas','pt':'Salva em Minhas Citações'},
 sjMyQuotes:{'zh-CN':'我的收藏语录','zh-TW':'我的收藏語錄','en':'My Starred Quotes','es':'Mis Citas Guardadas','pt':'Minhas Citações Salvas'},
+bgBoard:{'zh-CN':'棋盘游戏','zh-TW':'棋盤遊戲','en':'Board Games','es':'Juegos de Mesa','pt':'Jogos de Tabuleiro'},
+bgTitle:{'zh-CN':'棋盘游戏 · 人机对战','zh-TW':'棋盤遊戲 · 人機對戰','en':'Board Games · vs AI','es':'Juegos de Mesa · vs IA','pt':'Jogos de Tabuleiro · vs IA'},
+bgXiangqi:{'zh-CN':'象棋','zh-TW':'象棋','en':'Xiangqi','es':'Xiangqi','pt':'Xiangqi'},
+bgWeiqi:{'zh-CN':'围棋','zh-TW':'圍棋','en':'Go (Weiqi)','es':'Go','pt':'Go'},
+bgGomoku:{'zh-CN':'五子棋','zh-TW':'五子棋','en':'Gomoku','es':'Gomoku','pt':'Gomoku'},
+bgDouzhu:{'zh-CN':'斗兽棋','zh-TW':'鬥獸棋','en':'Jungle','es':'Jungla','pt':'Jungla'},
+bgJunqi:{'zh-CN':'军棋','zh-TW':'軍棋','en':'Junqi','es':'Junqi','pt':'Junqi'},
+bgBack:{'zh-CN':'返回棋盘','zh-TW':'返回棋盤','en':'Back','es':'Volver','pt':'Voltar'},
+bgDiff:{'zh-CN':'难度','zh-TW':'難度','en':'Level','es':'Nivel','pt':'Nível'},
+bgYou:{'zh-CN':'你','zh-TW':'你','en':'You','es':'Tú','pt':'Você'},
+bgAI:{'zh-CN':'电脑','zh-TW':'電腦','en':'AI','es':'IA','pt':'IA'},
+bgAIThink:{'zh-CN':'电脑思考中…','zh-TW':'電腦思考中…','en':'AI is thinking…','es':'La IA piensa…','pt':'IA pensando…'},
+bgYouWin:{'zh-CN':'🎉 你赢了！','zh-TW':'🎉 你贏了！','en':'🎉 You win!','es':'🎉 ¡Ganas!','pt':'🎉 Você venceu!'},
+bgAIWin:{'zh-CN':'电脑赢了，再来一局！','zh-TW':'電腦贏了，再來一局！','en':'AI wins. Try again!','es':'Gana la IA. ¡Intenta de nuevo!','pt':'A IA venceu. Tente de novo!'},
+bgDraw:{'zh-CN':'平局','zh-TW':'平局','en':"It's a draw",'es':'Empate','pt':'Empate'},
+wgScore:{'zh-CN':'终局得分','zh-TW':'終局得分','en':'Final score','es':'Puntaje final','pt':'Pontuação final'},
+bgSound:{'zh-CN':'音效','zh-TW':'音效','en':'Sound','es':'Sonido','pt':'Som'},
 sjDailyTitle:{'zh-CN':'今日箴言','zh-TW':'今日箴言','en':"Today's Wisdom",'es':'Sabiduría de Hoy','pt':'Sabedoria de Hoje'},
 sjSignBtn:{'zh-CN':'签到打卡 +1','zh-TW':'簽到打卡 +1','en':'Check-in +1','es':'Registro +1','pt':'Check-in +1'},
 sjSignedToday:{'zh-CN':'今日已签到','zh-TW':'今日已簽到','en':'Checked in today','es':'Registrado hoy','pt':'Feito hoje'},
@@ -954,7 +1143,7 @@ scrollDown:{'zh-CN':'向下探索','zh-TW':'向下探索','en':'Scroll to Explor
 navHome:{'zh-CN':'首页','zh-TW':'首頁','en':'Home','es':'Inicio','pt':'Início'},
 navTimeline:{'zh-CN':'时间轴','zh-TW':'時間軸','en':'Timeline','es':'Cronología','pt':'Linha do Tempo'},
 navClassics:{'zh-CN':'典籍','zh-TW':'典籍','en':'Classics','es':'Clásicos','pt':'Clássicos'},
-navRushiDao:{'zh-CN':'谈天说地','zh-TW':'談天說地','en':'Forum','es':'Foro','pt':'Fórum'},
+navRushiDao:{'zh-CN':'论道','zh-TW':'論道','en':'Forum','es':'Foro','pt':'Fórum'},
 navSurname:{'zh-CN':'姓氏','zh-TW':'姓氏','en':'Surnames','es':'Apellidos','pt':'Sobrenomes'},
 navShop:{'zh-CN':'商城','zh-TW':'商城','en':'Shop','es':'Tienda','pt':'Loja'},
 navAccount:{'zh-CN':'账户','zh-TW':'賬戶','en':'Account','es':'Cuenta','pt':'Conta'},
@@ -1047,7 +1236,7 @@ noBooksOwned:{'zh-CN':'还没有购买的典籍','zh-TW':'還沒有購買的典�
 emptyCart:{'zh-CN':'购物车为空','zh-TW':'購物車為空','en':'Cart is empty','es':'El carrito está vacío','pt':'O carrinho está vazio'},
 checkout:{'zh-CN':'结算','zh-TW':'結算','en':'Checkout','es':'Finalizar Compra','pt':'Finalizar Compra'},
 registerBonus:{'zh-CN':'注册送10积分','zh-TW':'註冊送10積分','en':'Get 10 free credits on registration','es':'Obtén 10 créditos gratis al registrarte','pt':'Ganhe 10 créditos grátis ao se registrar'},
-rsdTitle:{'zh-CN':'谈天说地','zh-TW':'談天說地','en':'Discussion Forum','es':'Foro de Discusión','pt':'Fórum de Discussão'},
+rsdTitle:{'zh-CN':'论道','zh-TW':'論道','en':'Discussion Forum','es':'Foro de Discusión','pt':'Fórum de Discussão'},
 rsdSub:{'zh-CN':'自由交流国学心得，分享经典感悟','zh-TW':'自由交流國學心得，分享經典感悟','en':'Share your thoughts on Chinese classics','es':'Comparte tus pensamientos sobre los clásicos chinos','pt':'Compartilhe seus pensamentos sobre os clássicos chineses'},
 rsdConfucius:{'zh-CN':'儒家','zh-TW':'儒家','en':'Confucianism','es':'Confucianismo','pt':'Confucionismo'},
 rsdBuddha:{'zh-CN':'佛家','zh-TW':'佛家','en':'Buddhism','es':'Budismo','pt':'Budismo'},
@@ -1888,6 +2077,35 @@ document.addEventListener("DOMContentLoaded",init);
 
 
 // ===== TIMELINE =====
+var CAPITALS={shanggu:'（无固定都城）三皇五帝 · 文明滥觞',xia:'阳城（今河南登封）',shang:'殷（今河南安阳，盘庚迁殷）',xizhou:'镐京（今陕西西安）',dongzhou:'洛邑（今河南洛阳）',zhanguo:'洛邑（周室）；七雄各都',qin:'咸阳（今陕西咸阳）',xihan:'长安（今陕西西安）',xin:'长安（今陕西西安）',donghan:'洛阳（今河南洛阳）',sanguo:'洛阳／成都／建业（魏蜀吴）',xijin:'洛阳（今河南洛阳）',dongjin:'建康（今江苏南京）',nanbeichao:'建康／平城（南北分立）',sui:'大兴城（今陕西西安）',tang:'长安（今陕西西安）',wudai:'开封／洛阳（政权更迭）',beisong:'汴京（今河南开封）',nanxun:'临安（今浙江杭州）',yuan:'大都（今北京）',ming:'应天府→顺天府（南京→北京）',qing:'北京（盛京为陪都）',minguo:'南京→重庆→台北',zhonghua:'北京'};
+var TERRITORY={shanggu:'九州初分，河洛之间',xia:'九州 · 中原',shang:'中原与黄河中下游',xizhou:'宗周与成周，分封天下',dongzhou:'周室衰微，诸侯裂土',zhanguo:'七雄并立',qin:'东至海，西至陇西，北至长城，南至岭南',xihan:'西域都护，丝绸之路',xin:'沿用西汉版图',donghan:'十三州部',sanguo:'魏蜀吴三分天下',xijin:'短暂一统',dongjin:'偏安江左',nanbeichao:'南北对峙',sui:'再统南北，开凿运河',tang:'东至海，西至安西，北至漠北，南至交趾',wudai:'中原五代，十国割据',beisong:'与辽、西夏并立',nanxun:'与金、西夏并立',yuan:'横跨欧亚，四大汗国',ming:'两京十三布政使司',qing:'奠定现代中国版图',minguo:'名义统一，军阀割据',zhonghua:'五十六个民族共同家园'};
+var EVENTS={shanggu:['盘古开天辟地','女娲炼石补天','黄帝战蚩尤于涿鹿','大禹治水，划九州'],xia:['大禹建夏，家天下始','启承禹位，世袭确立','少康中兴','夏桀失德而亡'],shang:['成汤灭夏建商','盘庚迁殷','武丁中兴','牧野之战，商亡'],xizhou:['武王伐纣','周公东征，制礼作乐','国人暴动，共和行政','平王东迁，西周结束'],dongzhou:['齐桓公首霸','管仲相齐','城濮之战','孔子周游列国'],zhanguo:['商鞅变法','桂陵马陵之战','长平之战','荆轲刺秦'],qin:['秦灭六国，一统天下','书同文、车同轨、行同伦','焚书坑儒','陈胜吴广大泽乡起义'],xihan:['文景之治','张骞通西域，丝路始开','汉武盛世，北击匈奴','王莽代汉'],xin:['王莽托古改制','绿林、赤眉起义','昆阳之战'],donghan:['光武中兴','蔡伦改进造纸术','黄巾起义','曹操挟天子以令诸侯'],sanguo:['官渡之战','赤壁之战','三国鼎立','司马氏代魏'],xijin:['晋武帝一统','八王之乱','永嘉之乱'],dongjin:['衣冠南渡','淝水之战','祖逖北伐'],nanbeichao:['北魏孝文帝汉化改革','侯景之乱','杨坚代周'],sui:['开皇之治','开凿大运河','创立科举制','隋末农民起义'],tang:['贞观之治','开元盛世','安史之乱','唐诗鼎盛，李白杜甫'],wudai:['五代十国割据','石敬瑭割燕云十六州','陈桥兵变'],beisong:['杯酒释兵权','王安石变法','澶渊之盟','靖康之变'],nanxun:['宋室南渡','岳飞抗金','朱熹集理学大成','崖山海战'],yuan:['成吉思汗统一蒙古','忽必烈建元','马可·波罗来华','元曲四大家'],ming:['永乐迁都北京','郑和七下西洋','戚继光抗倭','李自成攻入北京'],qing:['康乾盛世','鸦片战争','洋务运动','辛亥革命'],minguo:['辛亥革命','五四新文化运动','抗日战争','国共内战'],zhonghua:['开国大典','改革开放','港澳回归','中华文化伟大复兴']};
+var EMPERORS={
+shanggu:[{n:'黄帝',m:'统一华夏，人文初祖'},{n:'颛顼',m:'绝地天通'},{n:'帝喾',m:'仁德治国'},{n:'尧',m:'禅让，垂拱而治'},{n:'舜',m:'孝治天下，选贤任能'}],
+xia:[{n:'大禹',m:'治水，划定九州'},{n:'启',m:'家天下，世袭始'},{n:'少康',m:'少康中兴'},{n:'桀',m:'暴虐失国'}],
+shang:[{n:'成汤',m:'灭夏建商'},{n:'盘庚',m:'迁都于殷'},{n:'武丁',m:'武丁中兴'},{n:'帝辛（纣）',m:'牧野之战亡国'}],
+xizhou:[{n:'周武王',m:'伐纣灭商'},{n:'周公旦',m:'制礼作乐'},{n:'周穆王',m:'西巡昆仑'},{n:'周幽王',m:'烽火戏诸侯'}],
+dongzhou:[{n:'周平王',m:'东迁洛邑'},{n:'齐桓公',m:'九合诸侯，首霸'},{n:'晋文公',m:'城濮之战称霸'},{n:'楚庄王',m:'问鼎中原'}],
+zhanguo:[{n:'秦孝公',m:'用商鞅变法'},{n:'赵武灵王',m:'胡服骑射'},{n:'燕昭王',m:'黄金台招贤'},{n:'秦始皇',m:'灭六国，称始皇帝'}],
+qin:[{n:'秦始皇嬴政',m:'书同文，车同轨'},{n:'秦二世胡亥',m:'二世而亡'}],
+xihan:[{n:'汉高祖刘邦',m:'斩蛇起义建汉'},{n:'汉文帝',m:'文景之治'},{n:'汉武帝',m:'北击匈奴，开丝路'},{n:'汉宣帝',m:'孝宣中兴'}],
+xin:[{n:'王莽',m:'托古改制，新朝而亡'}],
+donghan:[{n:'光武帝刘秀',m:'光武中兴'},{n:'汉明帝',m:'永平求法，佛教东传'},{n:'汉章帝',m:'章草定名'},{n:'汉献帝',m:'汉室倾颓'}],
+sanguo:[{n:'魏武帝曹操',m:'挟天子以令诸侯'},{n:'蜀汉昭烈帝刘备',m:'三顾茅庐'},{n:'吴大帝孙权',m:'坐断东南'},{n:'晋宣帝司马懿',m:'高平陵之变'}],
+xijin:[{n:'晋武帝司马炎',m:'三分归一统'},{n:'晋惠帝',m:'八王之乱'}],
+dongjin:[{n:'晋元帝',m:'衣冠南渡'},{n:'晋孝武帝',m:'淝水之战'}],
+nanbeichao:[{n:'北魏孝文帝',m:'汉化改革'},{n:'梁武帝',m:'崇佛兴文'},{n:'陈武帝',m:'代梁建陈'}],
+sui:[{n:'隋文帝杨坚',m:'开皇之治'},{n:'隋炀帝',m:'开凿大运河'}],
+tang:[{n:'唐太宗李世民',m:'贞观之治'},{n:'武则天',m:'唯一女皇帝'},{n:'唐玄宗李隆基',m:'开元盛世'},{n:'唐肃宗',m:'平定安史之乱'}],
+wudai:[{n:'后梁太祖朱温',m:'代唐称帝'},{n:'后唐庄宗',m:'三矢遗训'},{n:'后周世宗柴荣',m:'改革图强'}],
+beisong:[{n:'宋太祖赵匡胤',m:'黄袍加身，杯酒释兵权'},{n:'宋仁宗',m:'仁宗盛治'},{n:'宋神宗',m:'王安石变法'},{n:'宋徽宗',m:'靖康之变'}],
+nanxun:[{n:'宋高宗赵构',m:'南渡临安'},{n:'宋孝宗',m:'乾淳之治'},{n:'宋理宗',m:'理学立为官学'}],
+yuan:[{n:'成吉思汗',m:'统一蒙古'},{n:'元世祖忽必烈',m:'定都大都'},{n:'元顺帝',m:'北遁漠北'}],
+ming:[{n:'明太祖朱元璋',m:'驱元建明'},{n:'明成祖朱棣',m:'永乐盛世，迁都北京'},{n:'明仁宗',m:'仁宣之治'},{n:'明神宗万历帝',m:'张居正改革'}],
+qing:[{n:'康熙帝',m:'平定三藩，统一台湾'},{n:'雍正帝',m:'整顿吏治'},{n:'乾隆帝',m:'康乾盛世'},{n:'光绪帝',m:'戊戌变法'}],
+minguo:[{n:'孙中山',m:'辛亥革命，创立民国'},{n:'蒋介石',m:'北伐统一'}],
+zhonghua:[{n:'毛泽东',m:'开国大典'},{n:'邓小平',m:'改革开放'},{n:'习近平',m:'中华民族伟大复兴'}]
+};
 function renderTimeline(){var c=document.getElementById("timelineContainer");if(!c||typeof DYNASTIES==="undefined")return;
 var SEALS={shanggu:"古",xia:"夏",shang:"商",xizhou:"周",dongzhou:"春",zhanguo:"战",qin:"秦",xihan:"汉",xin:"新",donghan:"汉",sanguo:"三",xijin:"晋",dongjin:"晋",nanbeichao:"朝",sui:"隋",tang:"唐",wudai:"五",beisong:"宋",nanxun:"宋",yuan:"元",ming:"明",qing:"清",minguo:"民",zhonghua:"华"};
 var ERAS=[[0,6,"era1"],[7,9,"era2"],[10,13,"era3"],[14,16,"era4"],[17,19,"era5"],[20,21,"era6"],[22,23,"era7"]];
@@ -1898,7 +2116,7 @@ if(ss)ss.innerHTML='<div class="stat-item"><b>'+DYNASTIES.length+'</b><span>'+t(
 var html="";
 for(var ei=0;ei<ERAS.length;ei++){var e=ERAS[ei];html+='<div class="tl-era"><span>'+t(e[2])+'</span></div>';
 for(var i=e[0];i<=e[1];i++){var d=DYNASTIES[i];if(!d)continue;
-html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-seal">'+(SEALS[d.id]||d.name.charAt(0))+'</div><div class="tl-card"><div class="tl-head"><div class="tl-year">'+d.year+'</div><h3 class="tl-name">'+d.name+'</h3><div class="tl-sub">'+(d.subtitle||"")+'</div></div><p class="tl-preview">'+(d.summary||"")+'</p><div class="tl-body">'+
+html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-seal">'+(SEALS[d.id]||d.name.charAt(0))+'</div><div class="tl-card"><div class="tl-head"><div class="tl-year">'+d.year+'</div><h3 class="tl-name">'+d.name+'</h3><div class="tl-sub">'+(d.subtitle||"")+'</div><div class="tl-capital"><em>'+t("tlCapital")+'</em>'+(CAPITALS[d.id]||'')+'</div></div><p class="tl-preview">'+(d.summary||"")+'</p><div class="tl-body"><div class="tl-block"><h4>'+t("tlTerritory")+'</h4><p>'+(TERRITORY[d.id]||'')+'</p></div>'+((EMPERORS[d.id]&&EMPERORS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEmperors")+'</h4><ul>'+EMPERORS[d.id].map(function(e){return'<li><b>'+e.n+'</b> · '+e.m+'</li>';}).join("")+'</ul></div>':"")+((EVENTS[d.id]&&EVENTS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEvents")+'</h4><ul>'+EVENTS[d.id].map(function(e){return'<li>'+e+'</li>';}).join("")+'</ul></div>':"")+
 ((d.figures&&d.figures.length)?'<div class="tl-block"><h4>'+t("tlFigures")+'</h4><div class="tl-tags">'+d.figures.map(function(f){return'<span class="tag">'+f+'</span>';}).join("")+'</div></div>':"")+
 ((d.classics&&d.classics.length)?'<div class="tl-block"><h4>'+t("tlClassics")+'</h4><div class="tl-classics">'+d.classics.map(function(b){return'<div class="tl-classic"><b>'+b.name+'</b><span>'+b.desc+'</span><em>'+b.type+'</em></div>';}).join("")+'</div></div>':"")+
 '</div><div class="tl-arrow">▾</div></div></div>';
@@ -1906,6 +2124,8 @@ html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot">
 c.innerHTML=html;}
 
 function toggleTimeline(i){document.querySelectorAll(".tl-item").forEach(function(el,j){el.classList.toggle("active",j===i);});}
+function filterTimeline(){var q=(document.getElementById('tlSearch').value||'').trim().toLowerCase();var items=document.querySelectorAll('.tl-item');var shown=0;for(var i=0;i<items.length;i++){var el=items[i];var txt=(el.textContent||'').toLowerCase();var hit=!q||txt.indexOf(q)!==-1;el.classList.toggle('filtered',!hit);if(hit)shown++;}var c=document.getElementById('tlCount');if(c)c.textContent=q?('匹配 '+shown+' 个朝代'):'';}
+function clearTimelineSearch(){var i=document.getElementById('tlSearch');if(i){i.value='';}filterTimeline();}
 function renderHome(){var hb=document.getElementById("homeBooks");if(hb&&typeof BOOKS_DATA!=="undefined"){var ids=["daodejing","lunyu","yijing","shiji","sunzibingfa","hongloumeng"];var picks=ids.map(function(id){return BOOKS_DATA.find(function(b){return b.id===id;});}).filter(Boolean);if(picks.length<6)picks=BOOKS_DATA.slice(0,6);hb.innerHTML=picks.map(function(b,i){var n=b.name[_lang]||b.name["zh-CN"]||"";var a=b.author[_lang]||b.author["zh-CN"]||"";var intro=(b.intro&&(b.intro[_lang]||b.intro["zh-CN"]))||"";return'<div class="home-book" onclick="navTo(\'classics\')"><div class="hb-rank">'+(i+1)+'</div><h4>'+n+'</h4><div class="hb-author">'+a+'</div><p>'+intro.substring(0,56)+'…</p></div>';}).join("");}
 var lf=document.getElementById("homeForum");if(lf&&typeof getForumData==="function"){var posts=getForumData().slice().sort(function(a,b){return b.d-a.d;}).slice(0,3);lf.innerHTML=posts.map(function(p){return'<div class="home-post" onclick="navTo(\'forum\')"><span class="hp-dot"></span><div class="hp-main"><div class="hp-title">'+esc(p.t)+'</div><div class="hp-meta">'+esc(p.a)+' · '+(p.r?p.r.length:0)+' 回复</div></div></div>';}).join("");}}
 
@@ -2677,9 +2897,9 @@ window.renderSurname=function(){var sec=document.getElementById("surname-page-co
 // ===== 游戏大厅 + 5 个小游戏 (2026-08-29) =====
 var _game=null,_g={};
 window.renderGame=function(){var sec=document.getElementById("game-page-content");if(!sec)return;if(_game==="daily"){renderDaily(sec);return;}if(_game==="quiz"){renderQuiz(sec);return;}if(_game==="feihua"){renderFeihua(sec);return;}if(_game==="chengyu"){renderChengyu(sec);return;}if(_game==="lianlian"){renderLianlian(sec);return;}if(_game==="tiankong"){renderTiankong(sec);return;}if(_game==="jiaguwen"){renderJiaguwen(sec);return;}renderGameHub(sec);};
-function gameHubHTML(){var bs=function(g){var b=bestOf(g);return b!==null?"<span class=\"gc-best\">"+t("bestScore")+": "+b+"</span>":"";};var dSt=dailyState();var today=dateSeed();var dailyTxt="";if(dSt.date===today&&dSt.done){dailyTxt="<span class=\"gc-best\">"+t("dailyDone")+" "+dSt.score+"</span>";}return "<div class=\"game-box game-hub\"><h3>"+t("gameHub")+"</h3><p class=\"game-hub-sub\">"+t("gameHubSub")+"</p><div class=\"game-grid\">"+[["daily","📅","dailyTitle"],["quiz","🧠","gameTitle"],["feihua","🌸","gameFeihua"],["chengyu","🐉","gameChengyu"],["lianlian","📖","gameLianlian"],["tiankong","✍️","gameTiankong"],["jiaguwen","🐚","gameJiaguwen"]].map(function(g){return "<div class=\"game-card\" onclick=\"startGame('"+g[0]+"')\"><span class=\"gc-icon\">"+g[1]+"</span><b>"+t(g[2])+"</b>"+(g[0]==="daily"?dailyTxt:bs(g[0]))+"</div>";}).join("")+"</div></div>";}
+function gameHubHTML(){var bs=function(g){var b=bestOf(g);return b!==null?"<span class=\"gc-best\">"+t("bestScore")+": "+b+"</span>":"";};var dSt=dailyState();var today=dateSeed();var dailyTxt="";if(dSt.date===today&&dSt.done){dailyTxt="<span class=\"gc-best\">"+t("dailyDone")+" "+dSt.score+"</span>";}return "<div class=\"game-box game-hub\"><h3>"+t("gameHub")+"</h3><p class=\"game-hub-sub\">"+t("gameHubSub")+"</p><div class=\"game-grid\">"+[["daily","📅","dailyTitle"],["board","♟","bgBoard"],["quiz","🧠","gameTitle"],["feihua","🌸","gameFeihua"],["chengyu","🐉","gameChengyu"],["lianlian","📖","gameLianlian"],["tiankong","✍️","gameTiankong"],["jiaguwen","🐚","gameJiaguwen"]].map(function(g){return "<div class=\"game-card\" onclick=\"startGame('"+g[0]+"')\"><span class=\"gc-icon\">"+g[1]+"</span><b>"+t(g[2])+"</b>"+(g[0]==="daily"?dailyTxt:bs(g[0]))+"</div>";}).join("")+"</div></div>";}
 function renderGameHub(sec){sec.innerHTML=gameHubHTML();}
-window.startGame=function(g){_game=g;_g={};if(g==="daily"){startDaily();return;}if(g==="quiz"){_gameIdx=0;_gameScore=0;_gameOver=false;}if(g==="feihua"){_g.round=0;_g.score=0;_g.keys=["月","花","春","风","雪","山","水","酒","云","夜"];_g.key=_g.keys[Math.floor(Math.random()*_g.keys.length)];}if(g==="chengyu"){_g.score=0;_g.cur=CHENGYU[Math.floor(Math.random()*CHENGYU.length)];_g.used={};_g.used[_g.cur]=1;}if(g==="lianlian"){_g.pairs=LL_PAIRS.slice();_g.left=_g.pairs.map(function(p){return {k:p.l,v:p.l};});_g.right=_g.pairs.map(function(p){return {k:p.r,v:p.r};});_g.done={};_g.attempts=0;_g.selL=null;_g.selR=null;llShuffle();}if(g==="tiankong"){_g.idx=0;_g.score=0;_g.qs=TK_QS.slice().sort(function(){return Math.random()-0.5;});}if(g==="jiaguwen"){_g.idx=0;_g.score=0;_g.qs=JG_QS.slice().sort(function(){return Math.random()-0.5;});}renderGame();};
+window.startGame=function(g){_game=g;_g={};if(g==="board"){openBoardHub();return;}if(g==="daily"){startDaily();return;}if(g==="quiz"){_gameIdx=0;_gameScore=0;_gameOver=false;}if(g==="feihua"){_g.round=0;_g.score=0;_g.keys=["月","花","春","风","雪","山","水","酒","云","夜"];_g.key=_g.keys[Math.floor(Math.random()*_g.keys.length)];}if(g==="chengyu"){_g.score=0;_g.cur=CHENGYU[Math.floor(Math.random()*CHENGYU.length)];_g.used={};_g.used[_g.cur]=1;}if(g==="lianlian"){_g.pairs=LL_PAIRS.slice();_g.left=_g.pairs.map(function(p){return {k:p.l,v:p.l};});_g.right=_g.pairs.map(function(p){return {k:p.r,v:p.r};});_g.done={};_g.attempts=0;_g.selL=null;_g.selR=null;llShuffle();}if(g==="tiankong"){_g.idx=0;_g.score=0;_g.qs=TK_QS.slice().sort(function(){return Math.random()-0.5;});}if(g==="jiaguwen"){_g.idx=0;_g.score=0;_g.qs=JG_QS.slice().sort(function(){return Math.random()-0.5;});}renderGame();};
 function renderQuiz(sec){if(_gameOver){sec.innerHTML="<div class=\"game-box\"><h3>"+t("gameResult")+"</h3><div class=\"game-score-big\">"+_gameScore+" / "+GAME_QUESTIONS.length+"</div><div class=\"game-title\">"+gameTitle(_gameScore)+"</div><button class=\"btn-primary\" onclick=\"_gameOver=false;_gameIdx=0;_gameScore=0;renderGame()\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_game=null;renderGame()\">"+t("gameBack")+"</button></div>";return;}var q=GAME_QUESTIONS[_gameIdx];sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("gameTitle")+"</span><span>"+t("gameProgress").replace("{a}",_gameIdx+1).replace("{b}",GAME_QUESTIONS.length)+"</span><span>"+t("gameScore")+": "+_gameScore+"</span></div><div class=\"game-q\">"+q.q+"</div><div class=\"game-opts\">"+q.opts.map(function(o,i){return "<button class=\"game-opt\" onclick=\"answerGame("+i+")\">"+String.fromCharCode(65+i)+". "+o+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div>";}
 // ---------- 1. 飞花令 ----------
 var FEIHUA_LINES={"月":["床前明月光，疑是地上霜","举头望明月，低头思故乡","海上生明月，天涯共此时","月落乌啼霜满天，江枫渔火对愁眠","明月几时有？把酒问青天","月上柳梢头，人约黄昏后","秦时明月汉时关，万里长征人未还","露从今夜白，月是故乡明","野旷天低树，江清月近人","春江潮水连海平，海上明月共潮生"],"花":["夜来风雨声，花落知多少","感时花溅泪，恨别鸟惊心","花间一壶酒，独酌无相亲","不是花中偏爱菊，此花开尽更无花","黄四娘家花满蹊，千朵万朵压枝低","人面不知何处去，桃花依旧笑春风","落红不是无情物，化作春泥更护花","待到山花烂漫时，她在丛中笑"],"春":["春眠不觉晓，处处闻啼鸟","春风又绿江南岸，明月何时照我还","春色满园关不住，一枝红杏出墙来","不知细叶谁裁出，二月春风似剪刀","春潮带雨晚来急，野渡无人舟自横","好雨知时节，当春乃发生","等闲识得东风面，万紫千红总是春"],"风":["羌笛何须怨杨柳，春风不度玉门关","随风潜入夜，润物细无声","忽如一夜春风来，千树万树梨花开","野火烧不尽，春风吹又生","大风起兮云飞扬，威加海内兮归故乡","昨夜星辰昨夜风，画楼西畔桂堂东"],"雪":["窗含西岭千秋雪，门泊东吴万里船","孤舟蓑笠翁，独钓寒江雪","北风卷地白草折，胡天八月即飞雪","欲渡黄河冰塞川，将登太行雪满山","千里黄云白日曛，北风吹雁雪纷纷"],"山":["会当凌绝顶，一览众山小","国破山河在，城春草木深","山重水复疑无路，柳暗花明又一村","两岸青山相对出，孤帆一片日边来","远上寒山石径斜，白云生处有人家","空山新雨后，天气晚来秋","千山鸟飞绝，万径人踪灭"],"水":["桃花潭水深千尺，不及汪伦送我情","黄河之水天上来，奔流到海不复回","问君能有几多愁？恰似一江春水向东流","水光潋滟晴方好，山色空蒙雨亦奇","飞流直下三千尺，疑是银河落九天","抽刀断水水更流，举杯消愁愁更愁"],"酒":["葡萄美酒夜光杯，欲饮琵琶马上催","金樽清酒斗十千，玉盘珍羞直万钱","借问酒家何处有？牧童遥指杏花村","劝君更尽一杯酒，西出阳关无故人","花间一壶酒，独酌无相亲","白日放歌须纵酒，青春作伴好还乡"],"云":["黄河远上白云间，一片孤城万仞山","众鸟高飞尽，孤云独去闲","只在此山中，云深不知处","云想衣裳花想容，春风拂槛露华浓","朝辞白帝彩云间，千里江陵一日还","黑云翻墨未遮山，白雨跳珠乱入船"],"夜":["随风潜入夜，润物细无声","夜来风雨声，花落知多少","今夜月明人尽望，不知秋思落谁家","姑苏城外寒山寺，夜半钟声到客船","东风夜放花千树，更吹落、星如雨","春宵一刻值千金，花有清香月有阴"]};
@@ -2820,13 +3040,13 @@ window.sjQuiz=function(){_sq={idx:0,score:0,qs:sjBuildQuiz()};var sec=document.g
 function renderSq(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(_sq.idx>=_sq.qs.length){sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-intro\">"+t("sjQuizTitle")+" · "+t("gameResult")+"</div><div class=\"sj-score-big\">"+_sq.score+" / "+_sq.qs.length+"</div><button class=\"btn-primary\" onclick=\"sjQuiz()\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_sjChar=null;renderShenjiao()\">"+t("gameBack")+"</button></div>";return;}var q=_sq.qs[_sq.idx];sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-intro\">"+t("sjQuizTitle")+" · "+t("gameProgress").replace("{a}",_sq.idx+1).replace("{b}",_sq.qs.length)+" · "+t("gameScore")+": "+_sq.score+"</div><div class=\"sq-quote\">“"+q.q.slice(0,80)+(q.q.length>80?"…":"")+"”</div><div class=\"game-opts\">"+q.opts.map(function(o,i){return "<button class=\"game-opt\" onclick=\"sqAnswer("+i+")\">"+o.name+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div></div>";}
 window.sqAnswer=function(i){var q=_sq.qs[_sq.idx];var msg=document.getElementById("gameMsg");var opts=document.querySelectorAll(".game-opt");for(var k=0;k<opts.length;k++)opts[k].disabled=true;if(q.opts[i]===q.sage){_sq.score++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("gameAnswer")+": "+q.sage.name+"</span>";}_sq.idx++;setTimeout(function(){renderSq();},900);};
 window.renderShenjiao=function(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var d=sjDailyData();var ds=sjSignState();var dsg=sjDailySage();var ach=sjAch();var h="<div class=\"sj-intro\">"+t("shenjiaoSub")+"</div>";
-h+="<div class=\"sj-daily\"><div class=\"sj-daily-head\"><b>📜 "+t("sjDailyTitle")+"</b><button class=\"btn-primary btn-sm\" onclick=\"sjSign()\">"+(ds.last===sjToday()?t("sjSignedToday")+" ✓":t("sjSignBtn"))+"</button></div><div class=\"sj-daily-quote\">“"+d.quote.slice(0,70)+(d.quote.length>70?"…":"")+"”<span class=\"sj-daily-sage\">—— "+d.sage.emoji+" "+d.sage.name+"</span></div><div class=\"sj-daily-streak\">"+t("sjStreak")+": "+(ds.streak||0)+" 天 · "+t("sjBest")+": "+(ds.best||0)+"</div></div>";
-h+="<div class=\"sj-daily-sage-card\" onclick=\"openSage('"+dsg.id+"')\">🔮 "+t("sjDailySage")+"：<b>"+dsg.emoji+" "+dsg.name+"</b> →</div>";
+h+="<div class=\"sj-daily\"><div class=\"sj-daily-head\"><b>📜 "+t("sjDailyTitle")+"</b><button class=\"btn-primary btn-sm\" onclick=\"sjSign()\">"+(ds.last===sjToday()?t("sjSignedToday")+" ✓":t("sjSignBtn"))+"</button></div><div class=\"sj-daily-quote\">“"+d.quote.slice(0,70)+(d.quote.length>70?"…":"")+"”<span class=\"sj-daily-sage\">—— "+sjAvatar(d.sage.id)+" "+d.sage.name+"</span></div><div class=\"sj-daily-streak\">"+t("sjStreak")+": "+(ds.streak||0)+" 天 · "+t("sjBest")+": "+(ds.best||0)+"</div></div>";
+h+="<div class=\"sj-daily-sage-card\" onclick=\"openSage('"+dsg.id+"')\">🔮 "+t("sjDailySage")+"：<b>"+sjAvatar(dsg.id)+" "+dsg.name+"</b> →</div>";
 h+="<div class=\"sj-quiz-btn\" onclick=\"sjQuiz()\">🧠 "+t("sjQuizTitle")+"："+t("sjQuizSub")+"</div>";
-h+="<div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){var im=sjIntimacy(c.id);return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+c.emoji+"</span><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span><span class=\"sj-inti\">"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span></div>";}).join("")+"</div>";
+h+="<div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){var im=sjIntimacy(c.id);return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+sjAvatar(c.id)+"</span><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span><span class=\"sj-inti\">"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span></div>";}).join("")+"</div>";
 h+="<div class=\"sj-ach\"><div class=\"sj-fav-title\">🏅 "+t("sjAchTitle")+" ("+ach.length+"/"+ACH_DEFS.length+")</div><div class=\"sj-ach-grid\">"+ACH_DEFS.map(function(d){return "<div class=\"sj-ach-item"+(sjHasAch(d.id)?" done":"")+"\">"+(sjHasAch(d.id)?"✅":"🔒")+" "+t(d.n)+"</div>";}).join("")+"</div></div>";
 h+="<div class=\"sj-fav\" id=\"sjFav\"></div>";sec.innerHTML=h;renderFav();return;}
-var c=_sjChar;var im=sjIntimacy(c.id);var lvlNext=sjLvlNext(im.p);sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+c.emoji+"</span><div><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div><div class=\"sj-inti-bar\"><span>"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span>"+(lvlNext>0?"<div class=\"sj-inti-track\"><div class=\"sj-inti-fill\" style=\"width:"+Math.min(100,Math.round(im.p/lvlNext*100))+"%\"></div></div><small>"+t("sjNextLvl")+": "+sjLvlName(lvlNext)+" ("+lvlNext+")</small>":"")+"</div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",c.name),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();};
+var c=_sjChar;var im=sjIntimacy(c.id);var lvlNext=sjLvlNext(im.p);sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+sjAvatar(c.id)+"</span><div><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div><div class=\"sj-inti-bar\"><span>"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span>"+(lvlNext>0?"<div class=\"sj-inti-track\"><div class=\"sj-inti-fill\" style=\"width:"+Math.min(100,Math.round(im.p/lvlNext*100))+"%\"></div></div><small>"+t("sjNextLvl")+": "+sjLvlName(lvlNext)+" ("+lvlNext+")</small>":"")+"</div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",c.name),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();};
 window.openSage=function(id){for(var i=0;i<SHENJIAO_CHARS.length;i++){if(SHENJIAO_CHARS[i].id===id){_sjChar=SHENJIAO_CHARS[i];break;}}sjNoteMeet(id);renderShenjiao();};
 function refreshIntiBar(){var el=document.querySelector(".sj-inti-bar");if(!el||!_sjChar)return;var im=sjIntimacy(_sjChar.id);var lvlNext=sjLvlNext(im.p);el.innerHTML="<span>"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span>"+(lvlNext>0?"<div class=\"sj-inti-track\"><div class=\"sj-inti-fill\" style=\"width:"+Math.min(100,Math.round(im.p/lvlNext*100))+"%\"></div></div><small>"+t("sjNextLvl")+": "+sjLvlName(lvlNext)+" ("+lvlNext+")</small>":"");}
 window.sjAsk=function(){var inp=document.getElementById("sjInput");var v=inp?inp.value.trim():"";if(!v)return;sjUser(v);sjSay(sjAnswer(v),_sjChar.emoji);if(inp)inp.value="";sjNoteAsk(_sjChar.id);refreshIntiBar();};
@@ -2848,5 +3068,233 @@ for(var i=0;i<c.responses.length;i++){var r=c.responses[i];var score=0;for(var j
 if(best)return best.a;
 return c.fallback[Math.floor(Math.random()*c.fallback.length)];};
 </script>
+
+<script>
+// ===== 圣贤卡通头像 + 性格扩展语料 (2026-08-29) =====
+function sjFace(skin){return '<circle cx="50" cy="55" r="26" fill="'+skin+'"/><circle cx="41" cy="47" r="2.8" fill="#2c1810"/><circle cx="59" cy="47" r="2.8" fill="#2c1810"/><path d="M44 63 Q50 68 56 63" stroke="#7a3b2e" stroke-width="2" fill="none" stroke-linecap="round"/>';}
+function sjAvatar(id){var A={laozi:{bg:"#4a6741",skin:"#f0c8a0",top:'<ellipse cx="50" cy="34" rx="21" ry="11" fill="#ececec"/><circle cx="50" cy="23" r="6" fill="#ececec"/>',beard:'<path d="M36 60 Q50 82 64 60 Q50 72 36 60 Z" fill="#ececec"/>',acc:'<path d="M74 40 L86 52 L82 56 L70 44 Z" fill="#c9a84c"/>'},
+kongzi:{bg:"#8B5A2B",skin:"#f0c8a0",top:'<path d="M30 30 L70 30 L64 40 L36 40 Z" fill="#2c1810"/><rect x="38" y="40" width="24" height="4" fill="#2c1810"/>',beard:'<path d="M40 60 Q50 75 60 60 Q50 68 40 60 Z" fill="#2c1810"/>'},
+zhuangzi:{bg:"#5B7B9A",skin:"#f0c8a0",top:'<path d="M40 22 Q50 32 60 22 Q54 36 50 36 Q46 36 40 22 Z" fill="#3a4a5e"/>',acc:'<path d="M80 22 Q88 18 86 26 Q82 28 80 22 Z" fill="#c9a84c"/><path d="M80 22 Q74 16 72 24 Q76 28 80 22 Z" fill="#e0b060"/>'},
+mozi:{bg:"#6B5B3E",skin:"#e8c8a0",top:'<path d="M34 32 L66 32 L62 42 L38 42 Z" fill="#3a3025"/>',beard:'<path d="M42 62 Q50 72 58 62 Q50 68 42 62 Z" fill="#3a3025"/>',acc:'<rect x="74" y="66" width="16" height="4" rx="1" fill="#d4a017" transform="rotate(30 82 68)"/>'},
+buddha:{bg:"#D4A017",skin:"#f0c8a0",top:'<ellipse cx="50" cy="33" rx="21" ry="9" fill="#7a5230"/><circle cx="41" cy="25" r="3.6" fill="#7a5230"/><circle cx="59" cy="25" r="3.6" fill="#7a5230"/><circle cx="50" cy="21" r="3.6" fill="#7a5230"/>',acc:'<path d="M78 28 Q82 34 78 40 Q74 34 78 28 Z" fill="#f5e8d0"/><path d="M84 30 Q88 36 84 42 Q80 36 84 30 Z" fill="#e8c8d0"/>'},
+huineng:{bg:"#8A6D3B",skin:"#e8b890",acc:'<circle cx="80" cy="26" r="7" fill="none" stroke="#f5e8d0" stroke-width="2.2"/>'},
+wukong:{bg:"#D4A017",skin:"#d8a060",top:'<path d="M33 36 Q50 16 67 36 Q50 26 33 36 Z" fill="#a67c3a"/><rect x="36" y="30" width="28" height="5" rx="2" fill="#e0b060"/>',acc:'<rect x="77" y="42" width="4" height="26" rx="2" fill="#8B6914"/>'},
+simaqian:{bg:"#7B8C5C",skin:"#f0c8a0",top:'<path d="M32 34 L68 34 L64 44 L36 44 Z" fill="#2c1810"/><rect x="42" y="44" width="16" height="4" fill="#2c1810"/>',beard:'<path d="M38 60 Q50 76 62 60 Q50 70 38 60 Z" fill="#2c1810"/>',acc:'<rect x="72" y="60" width="15" height="11" rx="1" fill="#c9a84c"/>'},
+caocao:{bg:"#7A2E2E",skin:"#f0c8a0",top:'<path d="M30 32 L70 32 L66 42 L34 42 Z" fill="#1a1a1a"/>',beard:'<path d="M36 58 Q50 82 64 58 Q50 74 36 58 Z" fill="#1a1a1a"/>',brow:'<path d="M37 42 Q42 39 46 42" stroke="#1a1a1a" stroke-width="3.2" fill="none"/><path d="M54 42 Q58 39 63 42" stroke="#1a1a1a" stroke-width="3.2" fill="none"/>'},
+liubang:{bg:"#B8860B",skin:"#f0c8a0",top:'<rect x="33" y="20" width="34" height="14" rx="3" fill="#8B0000"/><rect x="33" y="34" width="34" height="4" fill="#8B0000"/><circle cx="37" cy="26" r="2" fill="#ffd700"/><circle cx="63" cy="26" r="2" fill="#ffd700"/>',beard:'<path d="M44 60 Q50 68 56 60 Q50 64 44 60 Z" fill="#2c1810"/>'},
+xiangyu:{bg:"#8B0000",skin:"#f0c8a0",top:'<path d="M34 34 Q50 14 66 34 Q50 24 34 34 Z" fill="#2c1810"/>',brow:'<path d="M37 41 Q42 37 46 41" stroke="#1a1a1a" stroke-width="3.4" fill="none"/><path d="M54 41 Q58 37 63 41" stroke="#1a1a1a" stroke-width="3.4" fill="none"/>'},
+mao:{bg:"#C0392B",skin:"#f0c8a0",top:'<path d="M34 38 Q50 14 66 38 Q58 33 50 35 Q42 33 34 38 Z" fill="#2c1810"/>',acc:'<path d="M43 70 L50 78 L57 70 Z" fill="#3a3a3a"/>'},
+hanwu:{bg:"#A0522D",skin:"#f0c8a0",top:'<rect x="33" y="18" width="34" height="13" rx="2" fill="#8B0000"/><line x1="36" y1="31" x2="36" y2="42" stroke="#ffd700" stroke-width="1.6"/><line x1="64" y1="31" x2="64" y2="42" stroke="#ffd700" stroke-width="1.6"/><circle cx="36" cy="43" r="1.8" fill="#ffd700"/><circle cx="64" cy="43" r="1.8" fill="#ffd700"/>',beard:'<path d="M40 60 Q50 74 60 60 Q50 68 40 60 Z" fill="#2c1810"/>'},
+qinshi:{bg:"#2C3E50",skin:"#f0c8a0",top:'<rect x="31" y="16" width="38" height="15" rx="2" fill="#1a1a1a"/><rect x="40" y="12" width="20" height="6" rx="2" fill="#ffd700"/><line x1="35" y1="31" x2="35" y2="44" stroke="#ffd700" stroke-width="1.6"/><line x1="65" y1="31" x2="65" y2="44" stroke="#ffd700" stroke-width="1.6"/><circle cx="35" cy="45" r="1.8" fill="#ffd700"/><circle cx="65" cy="45" r="1.8" fill="#ffd700"/>',beard:'<path d="M34 58 Q50 82 66 58 Q50 72 34 58 Z" fill="#2c1810"/>'},
+wangyangming:{bg:"#3E5C76",skin:"#f0c8a0",top:'<path d="M40 18 L60 18 L58 32 L42 32 Z" fill="#2c1810"/><path d="M32 32 L68 32 L66 44 L34 44 Z" fill="#2c1810"/>',beard:'<path d="M42 62 Q50 72 58 62 Q50 68 42 62 Z" fill="#2c1810"/>',acc:'<rect x="74" y="62" width="14" height="10" rx="1" fill="#f5e8d0" stroke="#8B0000" stroke-width="1"/>'},
+libai:{bg:"#8B6914",skin:"#f0c8a0",top:'<path d="M30 32 L70 32 L66 42 L34 42 Z" fill="#1a1a1a"/>',beard:'<path d="M36 58 Q50 80 64 58 Q50 72 36 58 Z" fill="#1a1a1a"/>',acc:'<ellipse cx="79" cy="40" rx="6" ry="8" fill="#7a4a2b"/><rect x="77" y="31" width="4" height="4" fill="#5c3a20"/>'},
+mazu:{bg:"#D2691E",skin:"#f0c8a0",top:'<path d="M36 30 Q50 14 64 30 L60 42 L40 42 Z" fill="#8B0000"/><circle cx="50" cy="22" r="3" fill="#ffd700"/>',acc:'<path d="M30 74 Q50 82 70 74" stroke="#c9a84c" stroke-width="3.2" fill="none" stroke-linecap="round"/>'},
+zhugeliang:{bg:"#4A6B8A",skin:"#f0c8a0",top:'<path d="M32 34 L68 34 Q60 18 50 18 Q40 18 32 34 Z" fill="#2c4a6a"/>',beard:'<path d="M38 60 Q50 74 62 60 Q50 68 38 60 Z" fill="#2c1810"/>',acc:'<path d="M76 56 Q84 44 91 56 Q84 66 76 56 Z" fill="#e8e0d0"/>'},
+sushi:{bg:"#7A8450",skin:"#f0c8a0",top:'<path d="M34 26 L66 26 L66 44 L34 44 Z" fill="#3a4a3a"/><rect x="29" y="22" width="42" height="5" rx="2" fill="#3a4a3a"/>',beard:'<path d="M36 58 Q50 78 64 58 Q50 72 36 58 Z" fill="#2c1810"/>',acc:'<path d="M74 62 L84 62 L82 72 L76 72 Z" fill="#c9a84c"/>'}
+};var cfg=A[id]||{bg:"#8B6B4A",skin:"#f0c8a0"};var h='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="'+cfg.bg+'"/>'+sjFace(cfg.skin)+(cfg.top||"")+(cfg.brow||"")+(cfg.beard||"")+(cfg.acc||"")+'</svg>';return h;}
+var SJ_EXTRA={
+laozi:[{k:["名","利","虚名"],a:"名与身孰亲？身与货孰多？得与亡孰病？去名去利，守中抱一。"},{k:["生死","自然","寿命"],a:"人法地，地法天，天法道，道法自然。生死顺其自然，何必强求。"},{k:["治国","天下","安民"],a:"治大国若烹小鲜。不扰民、不折腾，清净无为，天下自正。"}],
+kongzi:[{k:["孝","父母","家"],a:"今之孝者，是谓能养。至于犬马，皆能有养；不敬，何以别乎？孝贵在敬。"},{k:["富贵","穷","贫"],a:"富与贵，是人之所欲也；不以其道得之，不处也。君子固穷，小人穷斯滥矣。"},{k:["天命","命","信仰"],a:"君子有三畏：畏天命，畏大人，畏圣人之言。五十而知天命。"}],
+zhuangzi:[{k:["得失","成败"],a:"得而不喜，失而不忧。知穷之有命，知通之有时，临大难而不惧者，圣人之勇也。"},{k:["朋友","情","相处"],a:"君子之交淡若水，小人之交甘若醴。淡而亲，甘而绝。"},{k:["养生","身心"],a:"缘督以为经，可以保身，可以全生，可以养亲，可以尽年。养生在顺。"}],
+mozi:[{k:["平等","贵贱"],a:"官无常贵，而民无终贱。有能则举之，无能则下之。"},{k:["浪费","奢","简"],a:"去无用之费，行之有道，足以成天下之利。俭节则昌，淫佚则亡。"},{k:["和平","反战"],a:"今至大为攻国，则弗知非，从而誉之，谓之义。此可谓知义与不义之别乎？"}],
+buddha:[{k:["烦恼","焦虑","累"],a:"烦恼即菩提。心本无染，妄念所生。观照呼吸，妄念自息。"},{k:["因果","善恶","报"],a:"欲知前世因，今生受者是；欲知来世果，今生作者是。种善因得善果。"},{k:["当下","活在","现在"],a:"过去已逝，未来未至，唯今现在，如实观照。活在当下，即是修行。"}],
+huineng:[{k:["烦恼","清净","心"],a:"菩提自性，本来清净；但用此心，直了成佛。烦恼本空，何须扫除？"},{k:["打坐","静坐","修"],a:"道由心悟，岂在坐也？坐卧行住，一切时中，常行直心，即是禅。"},{k:["善恶","对错"],a:"不思善，不思恶，正与么时，那个是明上座本来面目？心无善恶，自性湛然。"}],
+wukong:[{k:["紧箍","束缚","限制"],a:"师父念紧箍咒，俺老孙头疼；但没了紧箍，俺这心猿也收不住。规矩是修行。"},{k:["师徒","情","师傅"],a:"俺老孙当年大闹天宫，如今保师父西行。一日为师，终身为父。"},{k:["打架","强弱","本事"],a:"俺老孙七十二变，一个筋斗十万八千里，可最厉害的是——收得住这颗心！"}],
+simaqian:[{k:["励志","奋斗","逆境"],a:"文王拘而演《周易》；仲尼厄而作《春秋》；屈原放逐，乃赋《离骚》。困厄可以成就大业。"},{k:["财富","利","钱"],a:"天下熙熙，皆为利来；天下攘攘，皆为利往。君子爱财，取之有道。"},{k:["评价","功过","史评"],a:"不虚美，不隐恶，谓之实录。功过是非，留与后人评说。"}],
+caocao:[{k:["对手","敌人","刘备"],a:"刘备，吾俦也，但得计少晚。天下英雄，唯使君与操耳！"},{k:["诗歌","文学","建安"],a:"对酒当歌，人生几何！建安风骨，尽在吾与曹植父子笔下。"},{k:["失败","挫折","狼狈"],a:"败军之际，吾亦有窘态。然成大事者，不计小辱。赤壁一败，何足道哉！"}],
+liubang:[{k:["对手","项羽","楚"],a:"项羽有范增而不能用，此其所以为我擒也。会用人才，便是本事。"},{k:["布衣","出身","穷"],a:"吾以布衣提三尺剑取天下。出身寒微，不是耻辱；能屈能伸，方是大丈夫。"},{k:["天下","江山","治理"],a:"与天下同利者，天下归之。我所得天下，是分给功臣的天下。"}],
+xiangyu:[{k:["后悔","认输","服"],a:"吾宁斗智，不斗力！今卒困于此，此天之亡我，非战之罪也。"},{k:["虞姬","深情","爱"],a:"虞兮虞兮奈若何！霸王别姬，千载之下，犹令人扼腕。"},{k:["勇气","胆识"],a:"破釜沉舟，百二秦关终属楚！男儿一诺，九死无悔。"}],
+mao:[{k:["战略","谋略","打仗"],a:"战略上藐视敌人，战术上重视敌人。存人失地，人地皆存；存地失人，人地皆失。"},{k:["青年","未来","希望"],a:"世界是你们的，也是我们的，但是归根结底是你们的。你们青年人朝气蓬勃。"},{k:["矛盾","问题","处理"],a:"矛盾是普遍的。抓住主要矛盾，一切问题就迎刃而解了。"}],
+hanwu:[{k:["贤才","人才","士"],a:"盖有非常之功，必待非常之人。广开求贤之路，不拘一格降人才。"},{k:["节俭","奢","国用"],a:"朕深愍农夫之劳，务崇俭约，以奉宗庙。轻徭薄赋，与民休息。"},{k:["封禅","泰山","功业"],a:"封禅泰山，告成于天。大汉之盛，当告慰先祖，昭示后世。"}],
+qinshi:[{k:["暴政","苛政","罪"],a:"功过是非，史家自有公论。然不立郡县、不统文字，何以成万世之基？"},{k:["求贤","人才","博士"],a:"朕开博士之官，聚天下方士贤能。贤才之用，在于一统之业。"},{k:["威严","帝王","权"],a:"朕为始皇帝，后世以计数。天下一统，唯朕之命。威严者，治之柄也。"}],
+wangyangming:[{k:["烦恼","焦虑","静"],a:"心外无物，心外无事。你之所以烦恼，是因为心被外物牵着走。收摄此心，烦恼自消。"},{k:["功夫","磨炼","实践"],a:"人须在事上磨，方立得住。静时养心，动时练心。"},{k:["志向","立志","目标"],a:"志不立，天下无可成之事。立志如种树，根深则叶茂。"}],
+libai:[{k:["朋友","别离","送"],a:"桃花潭水深千尺，不及汪伦送我情。我李白交友，全在一个真字。"},{k:["功名","仕途","官"],a:"安能摧眉折腰事权贵，使我不得开心颜！富贵于我如浮云。"},{k:["山水","游","远方"],a:"五岳寻仙不辞远，一生好入名山游。天地即吾师。"}],
+mazu:[{k:["求签","许愿","愿"],a:"心诚则灵。许愿不在香火多少，在于一片赤诚。善愿必达。"},{k:["出海","远航","船"],a:"出海之人，吾当护佑。顺风顺水，平安归来，是吾心愿。"},{k:["行善","积德"],a:"日行一善，福泽自至。慈悲喜舍，便是修行。"}],
+zhugeliang:[{k:["计谋","策略","智慧"],a:"夫用兵之道，攻心为上，攻城为下；心战为上，兵战为下。"},{k:["淡泊","名利","隐"],a:"臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。淡泊方能致远。"},{k:["托孤","忠","责任"],a:"先帝托孤，臣敢不竭股肱之力，效忠贞之节，继之以死！"}],
+sushi:[{k:["吃","美食","东坡肉"],a:"黄州好猪肉，价贱如泥土。慢著火，少著水，火候足时它自美。一日三餐，是人生大事。"},{k:["贬","官","政"],a:"问汝平生功业，黄州惠州儋州。贬到哪里，我就在哪里把日子过成诗。"},{k:["朋友","酒","月"],a:"明月几时有？把酒问青天。人生得一知己，足矣；得一壶好酒，更佳。"}]
+};
+var _sjBaseAns=window.sjAnswer||function(i){return"";};
+window.sjAnswer=function(input){var c=_sjChar;if(!c)return"";var q=(input||"").trim().toLowerCase();if(!q)return c.fallback[Math.floor(Math.random()*c.fallback.length)];
+if(q.indexOf("你")>=0&&(q.indexOf("谁")>=0||q.indexOf("名字")>=0||q.indexOf("姓名")>=0))return t("sjWho").replace("{n}",c.name).replace("{t}",c.title);
+if(q.indexOf("你好")>=0||q.indexOf("您好")>=0||q.indexOf("hi")===0||q.indexOf("hello")===0)return t("sjGreet").replace("{n}",c.name);
+var pool=(c.responses||[]).concat(SJ_EXTRA[c.id]||[]);var best=null,bestScore=0;
+for(var i=0;i<pool.length;i++){var r=pool[i];var score=0;for(var j=0;j<r.k.length;j++){var kw=(r.k[j]||"").toLowerCase();if(q.indexOf(kw)>=0){score+=kw.length*2;if(q.length<=kw.length+8)score+=3;}}if(score>bestScore){bestScore=score;best=r;}}
+if(best)return best.a;return c.fallback[Math.floor(Math.random()*c.fallback.length)];};
+window.sjSay=function(txt,emoji){var log=document.getElementById("sjLog");if(!log)return;var d=new Date();var hm=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");var av=_sjChar?sjAvatar(_sjChar.id):"🧙";log.innerHTML+="<div class=\"sj-msg sj-sage\"><span class=\"sj-avatar-sm\">"+av+"</span><div class=\"sj-bubble\">"+txt+"<span class=\"sj-time\">"+hm+"</span><span class=\"sj-collect\" onclick=\"collectQuote(this)\">☆ "+t("sjCollect")+"</span></div></div>";log.scrollTop=log.scrollHeight;};
+</script>
+
+<script>
+// ===== 圣贤尊称 + 排版优化 (2026-08-29) =====
+var SJ_HONOR={laozi:"道祖",kongzi:"至圣先师",zhuangzi:"南华真人",mozi:"墨家巨子",buddha:"佛陀",huineng:"六祖",wukong:"斗战胜佛",simaqian:"太史公",caocao:"魏武帝",liubang:"汉高祖",xiangyu:"西楚霸王",mao:"毛主席",hanwu:"汉武大帝",qinshi:"千古一帝",wangyangming:"阳明先生",libai:"诗仙",mazu:"天后娘娘",zhugeliang:"卧龙先生",sushi:"东坡居士"};
+function sjHonor(id){if(SJ_HONOR[id])return SJ_HONOR[id];for(var i=0;i<SHENJIAO_CHARS.length;i++){if(SHENJIAO_CHARS[i].id===id){var c=SHENJIAO_CHARS[i];if(c.title){var p=c.title.split("·");if(p.length>1)return p[0].trim();}return c.name;}}return "";}
+function sjEra(c){if(!c||!c.title)return "";var p=c.title.split("·");return p.length>1?p[1].trim():c.title.trim();}
+window.renderShenjiao=function(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var d=sjDailyData();var ds=sjSignState();var dsg=sjDailySage();var ach=sjAch();var h="<div class=\"sj-intro\">"+t("shenjiaoSub")+"</div>";
+h+="<div class=\"sj-daily\"><div class=\"sj-daily-head\"><b>📜 "+t("sjDailyTitle")+"</b><button class=\"btn-primary btn-sm\" onclick=\"sjSign()\">"+(ds.last===sjToday()?t("sjSignedToday")+" ✓":t("sjSignBtn"))+"</button></div><div class=\"sj-daily-quote\">“"+d.quote.slice(0,70)+(d.quote.length>70?"…":"")+"”<span class=\"sj-daily-sage\">—— "+sjAvatar(d.sage.id)+" "+sjHonor(d.sage.id)+"</span></div><div class=\"sj-daily-streak\">"+t("sjStreak")+": "+(ds.streak||0)+" 天 · "+t("sjBest")+": "+(ds.best||0)+"</div></div>";
+h+="<div class=\"sj-quick-row\"><div class=\"sj-daily-sage-card\" onclick=\"openSage('"+dsg.id+"')\"><span class=\"q-avatar\">"+sjAvatar(dsg.id)+"</span><span class=\"q-txt\">🔮 "+t("sjDailySage")+"：<b>"+sjHonor(dsg.id)+"</b></span><span class=\"q-go\">→</span></div><div class=\"sj-quiz-btn\" onclick=\"sjQuiz()\">🧠 "+t("sjQuizTitle")+"<small>"+t("sjQuizSub")+"</small></div></div>";
+h+="<div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){var im=sjIntimacy(c.id);return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+sjAvatar(c.id)+"</span><b>"+sjHonor(c.id)+"</b><span class=\"sj-title\">"+c.name+" · "+sjEra(c)+"</span><span class=\"sj-inti\">"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span></div>";}).join("")+"</div>";
+h+="<div class=\"sj-ach\"><div class=\"sj-fav-title\">🏅 "+t("sjAchTitle")+" ("+ach.length+"/"+ACH_DEFS.length+")</div><div class=\"sj-ach-grid\">"+ACH_DEFS.map(function(d){return "<div class=\"sj-ach-item"+(sjHasAch(d.id)?" done":"")+"\">"+(sjHasAch(d.id)?"✅":"🔒")+" "+t(d.n)+"</div>";}).join("")+"</div></div>";
+h+="<div class=\"sj-fav\" id=\"sjFav\"></div>";sec.innerHTML=h;renderFav();return;}
+var c=_sjChar;var im=sjIntimacy(c.id);var lvlNext=sjLvlNext(im.p);sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+sjAvatar(c.id)+"</span><div class=\"sj-head-id\"><b>"+sjHonor(c.id)+"</b><span class=\"sj-title\">"+c.name+" · "+sjEra(c)+"</span></div><div class=\"sj-inti-bar\"><span>"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span>"+(lvlNext>0?"<div class=\"sj-inti-track\"><div class=\"sj-inti-fill\" style=\"width:"+Math.min(100,Math.round(im.p/lvlNext*100))+"%\"></div></div><small>"+t("sjNextLvl")+": "+sjLvlName(lvlNext)+" ("+lvlNext+")</small>":"")+"</div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",sjHonor(c.id)),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();};
+function renderSq2(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(_sq.idx>=_sq.qs.length){sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-intro\">"+t("sjQuizTitle")+" · "+t("gameResult")+"</div><div class=\"sj-score-big\">"+_sq.score+" / "+_sq.qs.length+"</div><button class=\"btn-primary\" onclick=\"sjQuiz()\">"+t("gameRestart")+"</button><button class=\"btn-secondary\" onclick=\"_sjChar=null;renderShenjiao()\">"+t("gameBack")+"</button></div>";return;}var q=_sq.qs[_sq.idx];sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-intro\">"+t("sjQuizTitle")+" · "+t("gameProgress").replace("{a}",_sq.idx+1).replace("{b}",_sq.qs.length)+" · "+t("gameScore")+": "+_sq.score+"</div><div class=\"sq-quote\">“"+q.q.slice(0,80)+(q.q.length>80?"…":"")+"”</div><div class=\"game-opts\">"+q.opts.map(function(o,i){return "<button class=\"game-opt\" onclick=\"sqAnswer("+i+")\">"+sjHonor(o.id)+"</button>";}).join("")+"</div><div id=\"gameMsg\"></div></div>";}
+window.renderSq=function(){renderSq2();};
+window.sqAnswer=function(i){var q=_sq.qs[_sq.idx];var msg=document.getElementById("gameMsg");var opts=document.querySelectorAll(".game-opt");for(var k=0;k<opts.length;k++)opts[k].disabled=true;if(q.opts[i]===q.sage){_sq.score++;msg.innerHTML="<span class=\"game-correct\">✓ "+t("gameCorrect")+"</span>";}else{msg.innerHTML="<span class=\"game-wrong\">✗ "+t("gameAnswer")+": "+sjHonor(q.sage.id)+"</span>";}_sq.idx++;setTimeout(function(){renderSq2();},900);};
+window.sjAnswer=function(input){var c=_sjChar;if(!c)return"";var q=(input||"").trim().toLowerCase();if(!q)return c.fallback[Math.floor(Math.random()*c.fallback.length)];
+if(q.indexOf("你")>=0&&(q.indexOf("谁")>=0||q.indexOf("名字")>=0||q.indexOf("姓名")>=0))return t("sjWho").replace("{t}",sjHonor(c.id)).replace("{n}",c.name);
+if(q.indexOf("你好")>=0||q.indexOf("您好")>=0||q.indexOf("hi")===0||q.indexOf("hello")===0)return t("sjGreet").replace("{n}",sjHonor(c.id));
+var pool=(c.responses||[]).concat(SJ_EXTRA[c.id]||[]);var best=null,bestScore=0;
+for(var i=0;i<pool.length;i++){var r=pool[i];var score=0;for(var j=0;j<r.k.length;j++){var kw=(r.k[j]||"").toLowerCase();if(q.indexOf(kw)>=0){score+=kw.length*2;if(q.length<=kw.length+8)score+=3;}}if(score>bestScore){bestScore=score;best=r;}}
+if(best)return best.a;return c.fallback[Math.floor(Math.random()*c.fallback.length)];};
+</script>
+
+
+
+
+
+<script>
+// ===== 棋盘游戏框架 + 五子棋 + 斗兽棋 (2026-08-29) v2 =====
+var _bg=null,_bgDiff=3;
+function bgInitBoard(rows,cols){var b=[];for(var i=0;i<rows;i++){b.push([]);for(var j=0;j<cols;j++)b[i].push(0);}return b;}
+// ---------- 五子棋 ----------
+var _gm={b:[],turn:1,over:false};
+function gmInit(){_gm.b=bgInitBoard(15,15);_gm.turn=1;_gm.over=false;bgRender();gmInfo(t("bgGomoku")+" · "+t("bgYou"));}
+function gmClick(cx,cy){if(_gm.over||_gm.turn!==1)return;var cv=document.getElementById("bgCanvas");var S=Math.floor(Math.min(cv.width,cv.height)/15);var c=Math.round((cx-S/2)/S),r=Math.round((cy-S/2)/S);if(r<0||r>=15||c<0||c>=15||_gm.b[r][c])return;_gm.b[r][c]=1;sfx("place");if(gmWin(_gm.b,1)){_gm.over=true;sfx("win");bgRender();gmInfo(t("bgYouWin"));return;}_gm.turn=2;bgRender();gmInfo(t("bgAIThink"));setTimeout(gmAi,300);}
+function gmAi(){var mv=gmBest(_gm.b,2,_bgDiff);if(mv){_gm.b[mv.r][mv.c]=2;sfx("place");if(gmWin(_gm.b,2)){_gm.over=true;sfx("win");bgRender();gmInfo(t("bgAIWin"));return;}_gm.turn=1;bgRender();gmInfo(t("bgGomoku")+" · "+t("bgYou"));}else{_gm.over=true;gmInfo(t("bgDraw"));}}
+function gmWin(b,pr){var d=[[0,1],[1,0],[1,1],[1,-1]];for(var r=0;r<15;r++)for(var c=0;c<15;c++){if(b[r][c]!==pr)continue;for(var q=0;q<4;q++){var ok=true;for(var k=1;k<5;k++){var nr=r+d[q][0]*k,nc=c+d[q][1]*k;if(nr<0||nr>=15||nc<0||nc>=15||b[nr][nc]!==pr){ok=false;break;}}if(ok)return true;}}return false;}
+function gmLine(b,r,c,dr,dc,col){var n=0;while(r>=0&&r<15&&c>=0&&c<15&&b[r][c]===col){n++;r+=dr;c+=dc;}return n;}
+function gmBest(b,ai,diff){var pr=ai,op=ai===1?2:1;var best=null;var d=[[0,1],[1,0],[1,1],[1,-1]];for(var r=0;r<15;r++)for(var c=0;c<15;c++){if(b[r][c]!==0)continue;var s=0;for(var q=0;q<4;q++){var a=gmLine(b,r-d[q][0],c-d[q][1],-d[q][0],-d[q][1],pr)+gmLine(b,r+d[q][0],c+d[q][1],d[q][0],d[q][1],pr)+1;var o=gmLine(b,r-d[q][0],c-d[q][1],-d[q][0],-d[q][1],op)+gmLine(b,r+d[q][0],c+d[q][1],d[q][0],d[q][1],op)+1;if(a>=5)s+=100000;else if(a===4)s+=10000;else if(a===3)s+=1000;else if(a===2)s+=100;s+=(o>=5?100000:o===4?8000:o===3?700:o===2?70:0)*1.1;}
+  if(diff>=4){var look=gmLook(b,r,c,pr,op);s+=look;}
+  if(!best||s>best.s)best={r:r,c:c,s:s};}
+  if(diff<=2){var pool=[];for(var rr=0;rr<15;rr++)for(var cc=0;cc<15;cc++){if(b[rr][cc]===0){var e=0;for(var qq=0;qq<4;qq++){var aa=gmLine(b,rr-d[qq][0],cc-d[qq][1],-d[qq][0],-d[qq][1],pr)+gmLine(b,rr+d[qq][0],cc+d[qq][1],d[qq][0],d[qq][1],pr)+1;var oo=gmLine(b,rr-d[qq][0],cc-d[qq][1],-d[qq][0],-d[qq][1],op)+gmLine(b,rr+d[qq][0],cc+d[qq][1],d[qq][0],d[qq][1],op)+1;if(aa>=4||oo>=4)e+=500;else if(aa===3||oo===3)e+=80;else if(aa===2||oo===2)e+=10;}if(e>40)pool.push({r:rr,c:cc});}}
+  if(pool.length&&Math.random()<(diff===1?0.6:0.3)){return pool[Math.floor(Math.random()*pool.length)];}}
+  return best;}
+function gmLook(b,r,c,pr,op){var d=[[0,1],[1,0],[1,1],[1,-1]];b[r][c]=pr;var w=gmWin(b,pr);b[r][c]=0;if(w)return 5000;var opWin=false;for(var q=0;q<4;q++){var rr=r+d[q][0],cc=c+d[q][1];if(rr>=0&&rr<15&&cc>=0&&cc<15&&b[rr][cc]===0){b[rr][cc]=op;if(gmWin(b,op))opWin=true;b[rr][cc]=0;}}return opWin?2000:0;}
+function gmRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var N=15,S=Math.floor(Math.min(cv.width,cv.height)/N);cv.width=cv.width;ctx.fillStyle="#f0e0c0";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#8a6b4a";for(var i=0;i<N;i++){ctx.beginPath();ctx.moveTo(S/2+i*S,S/2);ctx.lineTo(S/2+i*S,cv.height-S/2);ctx.stroke();ctx.beginPath();ctx.moveTo(S/2,S/2+i*S);ctx.lineTo(cv.width-S/2,S/2+i*S);ctx.stroke();}var stars=[[3,3],[11,3],[3,11],[11,11],[7,7]];for(var s=0;s<stars.length;s++){ctx.beginPath();ctx.arc(S/2+stars[s][1]*S,S/2+stars[s][0]*S,4,0,Math.PI*2);ctx.fillStyle="#8a6b4a";ctx.fill();}for(var r=0;r<N;r++)for(var c=0;c<N;c++){if(_gm.b[r][c]){ctx.beginPath();ctx.arc(S/2+c*S,S/2+r*S,S*0.42,0,Math.PI*2);ctx.fillStyle=_gm.b[r][c]===1?"#2c1810":"#c0392b";ctx.fill();}}}
+function gmInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
+// ---------- 斗兽棋 ----------
+var _dz={b:[],turn:1,over:false,sel:null};
+var DZ_NAMES={1:"鼠",2:"猫",3:"狗",4:"狼",5:"豹",6:"虎",7:"狮",8:"象"};
+function dzInit(){var b=bgInitBoard(9,7);var top=["狮","虎","豹","象","狼","狗","猫"];for(var c=0;c<7;c++){b[0][c]=10+DZKEY(top[c]);b[8][c]=20+DZKEY(top[c]);}b[1][0]=11;b[1][6]=11;b[7][0]=21;b[7][6]=21;_dz.b=b;_dz.turn=1;_dz.over=false;_dz.sel=null;bgRender();dzInfo(t("bgDouzhu")+" · "+t("bgYou"));}
+function DZKEY(n){for(var k in DZ_NAMES){if(DZ_NAMES[k]===n)return Number(k);}return 1;}
+function dzName(v){var r=v%10;return DZ_NAMES[r]||"";}
+function dzWater(r,c){return (r>=3&&r<=5)&&(c===1||c===2||c===5||c===6);}
+function dzTrap(r,c){return (r===0&&(c===2||c===4))||(r===8&&(c===2||c===4))||(r===1&&c===3)||(r===7&&c===3);}
+function dzLair(r,c){return (r===0&&c===3)||(r===8&&c===3);}
+function dzClick(cx,cy){if(_dz.over||_dz.turn!==1)return;var cv=document.getElementById("bgCanvas");var S=56,MX=44,MY=28;var c=Math.floor((cx-MX)/S),r=Math.floor((cy-MY)/S);if(c<0||c>=7||r<0||r>=9)return;if(!_dz.sel){if(_dz.b[r][c]>=10&&_dz.b[r][c]<20){_dz.sel={r:r,c:c};bgRender();}return;}var fr=_dz.sel.r,fc=_dz.sel.c;if(r===fr&&c===fc){_dz.sel=null;bgRender();return;}var v=_dz.b[fr][fc];var d=Math.abs(r-fr)+Math.abs(c-fc);var ok=false;if(d===1&&!dzWater(fr,fc)&&!dzWater(r,c))ok=true;if(dzWater(fr,fc)&&dzWater(r,c)&&dzName(v)==="鼠"&&d===1)ok=true;if(ok){dzMove(fr,fc,r,c,v);}_dz.sel=null;bgRender();}
+function dzMove(fr,fc,r,c,v){var t=_dz.b[r][c];if(t&&t>20){var tn=dzName(t);if(dzTrap(r,c)){dzCapture(fr,fc,r,c,v);return;}if(dzName(v)==="鼠"&&tn==="象"){dzCapture(fr,fc,r,c,v);return;}if(dzRank(dzName(v))>=dzRank(tn)){dzCapture(fr,fc,r,c,v);return;}dzRemove(fr,fc);dzAfter(_dz.turn===1?2:1);return;}if(t&&t>=10&&t<20){dzAfter(_dz.turn===1?2:1);return;}if(t&&t===0){_dz.b[r][c]=v;_dz.b[fr][fc]=0;sfx("place");if(dzLair(r,c)){dzEnd(1);return;}dzAfter(_dz.turn===1?2:1);}}
+function dzCapture(fr,fc,r,c,v){sfx("capture");_dz.b[r][c]=v;_dz.b[fr][fc]=0;if(dzLair(r,c)){dzEnd(1);return;}dzAfter(_dz.turn===1?2:1);}
+function dzRemove(fr,fc){_dz.b[fr][fc]=0;}
+function dzRank(n){return DZKEY(n);}
+function dzAfter(t){if(_dz.b[8][3]===11){dzEnd(1);return;}if(_dz.b[0][3]===21){dzEnd(2);return;}if(!dzAlive(1)){dzEnd(2);return;}if(!dzAlive(2)){dzEnd(1);return;}_dz.turn=t;bgRender();dzInfo(t("bgDouzhu")+" · "+(_dz.turn===1?t("bgYou"):t("bgAI")));if(_dz.turn===2)setTimeout(dzAi,300);}
+function dzAlive(p){var base=p===1?10:20;for(var r=0;r<9;r++)for(var c=0;c<7;c++){if(_dz.b[r][c]>base&&_dz.b[r][c]<base+10)return true;}return false;}
+function dzEnd(w){_dz.over=true;sfx("win");bgRender();dzInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
+function dzAi(){var cands=[];for(var r=0;r<9;r++)for(var c=0;c<7;c++){var v=_dz.b[r][c];if(v>20&&v<30){var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=9||nc<0||nc>=7)continue;if(dzWater(r,c)!==dzWater(nr,nc))continue;var t=_dz.b[nr][nc];var sc=0;if(t&&t>10&&t<20){var tn=dzName(t);if(dzTrap(nr,nc))sc=70;else if(dzName(v)==="鼠"&&tn==="象")sc=90;else if(dzRank(dzName(v))>=dzRank(tn))sc=50+dzRank(tn)*3;else sc=-60;}if(t===0)sc=8+(nr===0&&nc===3?200:0)+(dzTrap(nr,nc)?-10:0);cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}}
+if(!cands.length){dzAfter(1);return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}dzMove(best.fr,best.fc,best.r,best.c,_dz.b[best.fr][best.fc]);}
+function dzRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=56,MX=44,MY=28;cv.width=cv.width;ctx.fillStyle="#d9c9a8";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#8a6b4a";for(var r=0;r<=9;r++){ctx.beginPath();ctx.moveTo(MX,MY+r*S);ctx.lineTo(MX+7*S,MY+r*S);ctx.stroke();}for(var c=0;c<=7;c++){ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}for(var r2=0;r2<9;r2++)for(var c2=0;c2<7;c2++){if(dzWater(r2,c2)){ctx.fillStyle="#7fb3d5";ctx.fillRect(MX+c2*S+1,MY+r2*S+1,S-2,S-2);}if(dzTrap(r2,c2)){ctx.fillStyle="#e6b06a";ctx.fillRect(MX+c2*S+2,MY+r2*S+2,S-4,S-4);}if(dzLair(r2,c2)){ctx.fillStyle="#c9a84c";ctx.fillRect(MX+c2*S+3,MY+r2*S+3,S-6,S-6);}var v=_dz.b[r2][c2];if(v){var sel=_dz.sel&&_dz.sel.r===r2&&_dz.sel.c===c2;ctx.beginPath();ctx.arc(MX+c2*S+S/2,MY+r2*S+S/2,S*0.36,0,Math.PI*2);ctx.fillStyle=v>10&&v<20?"#c0392b":v>20?"#2c1810":"#777";ctx.fill();if(sel){ctx.strokeStyle="#ffd700";ctx.lineWidth=3;ctx.stroke();ctx.lineWidth=1;}ctx.fillStyle="#fff";ctx.font=S*0.4+"px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(dzName(v),MX+c2*S+S/2,MY+r2*S+S/2+1);}}}
+function dzInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
+</script>
+
+
+
+<script>
+// ===== 棋盘游戏 UI (2026-08-29) =====
+var BOARD_LIST=[["xiangqi","♞","bgXiangqi"],["weiqi","⚫","bgWeiqi"],["gomoku","⚪","bgGomoku"],["douzhu","🐅","bgDouzhu"],["junqi","🎖","bgJunqi"]];
+window.openBoardHub=function(){var sec=document.getElementById("game-page-content");if(!sec)return;sec.innerHTML="<div class=\"game-box\"><div class=\"game-head\"><span>"+t("bgTitle")+"</span><button class=\"btn-secondary btn-sm\" onclick=\"_game=null;renderGame()\">↩ "+t("gameBack")+"</button></div><div class=\"game-grid\">"+BOARD_LIST.map(function(g){return "<div class=\"game-card\" onclick=\"openBoardGame('"+g[0]+"')\"><span class=\"gc-icon\">"+g[1]+"</span><b>"+t(g[2])+"</b></div>";}).join("")+"</div></div>";};
+window.openBoardGame=function(id){_bg=id;var sec=document.getElementById("game-page-content");if(!sec)return;var title="bgXiangqi";for(var i=0;i<BOARD_LIST.length;i++){if(BOARD_LIST[i][0]===id)title=BOARD_LIST[i][2];}
+sec.innerHTML="<div class=\"bg-wrap\"><div class=\"bg-head\"><button class=\"btn-secondary btn-sm\" onclick=\"openBoardHub()\">↩ "+t("bgBack")+"</button><b>"+t(title)+"</b><button class=\"btn-secondary btn-sm\" id=\"sfxBtn\" onclick=\"sfxToggle()\">🔊 "+t("bgSound")+"</button><span class=\"bg-diff\"><span>"+t("bgDiff")+"</span>"+[1,2,3,4,5].map(function(d){return "<button class=\"pg-btn"+(d===_bgDiff?" active":"")+"\" onclick=\"bgSetDiff("+d+")\">"+d+"</button>";}).join("")+"</span></div><div class=\"bg-board\"><canvas id=\"bgCanvas\" width=\""+(id==="junqi"?"300":"480")+"\" height=\""+(id==="xiangqi"?"533":(id==="douzhu"?"560":(id==="junqi"?"600":"480")))+"\"></canvas></div><div class=\"bg-status\" id=\"bgStatus\"></div><div class=\"bg-ops\"><button class=\"btn-primary\" onclick=\"bgRestart()\">"+t("gameRestart")+"</button></div></div>";
+var cv=document.getElementById("bgCanvas");
+cv.onclick=function(e){var rect=cv.getBoundingClientRect();var x=(e.clientX-rect.left)*cv.width/rect.width;var y=(e.clientY-rect.top)*cv.height/rect.height;if(_bg==="gomoku")gmClick(x,y);else if(_bg==="douzhu")dzClick(x,y);else if(_bg==="junqi")jqClick(x,y);else if(_bg==="weiqi")wgClick(x,y);else if(_bg==="xiangqi")xqClick(x,y);};
+bgRestart();};
+window.bgSetDiff=function(d){_bgDiff=d;var btns=document.querySelectorAll(".bg-diff .pg-btn");for(var i=0;i<btns.length;i++){btns[i].classList.toggle("active",Number(btns[i].textContent)===d);}};
+window.bgRestart=function(){if(_bg==="gomoku")gmInit();else if(_bg==="douzhu")dzInit();else if(_bg==="junqi")jqInit();else if(_bg==="weiqi")wgInit();else if(_bg==="xiangqi")xqInit();};
+function bgRender(){if(_bg==="gomoku")gmRender();else if(_bg==="douzhu")dzRender();else if(_bg==="junqi")jqRender();else if(_bg==="weiqi")wgRender();else if(_bg==="xiangqi")xqRender();}
+</script>
+<script>
+// ===== 棋盘音效系统 (2026-08-29) =====
+var _muted=false;
+function sfx(type){if(_muted)return;try{var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;if(!window._actx)window._actx=new AC();var a=window._actx;var t=a.currentTime;
+if(type==="place"){var o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.setValueAtTime(620,t);g.gain.setValueAtTime(0.1,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.08);o.start(t);o.stop(t+0.09);}
+else if(type==="capture"){var o2=a.createOscillator(),g2=a.createGain();o2.connect(g2);g2.connect(a.destination);o2.frequency.setValueAtTime(330,t);o2.frequency.setValueAtTime(220,t+0.06);g2.gain.setValueAtTime(0.11,t);g2.gain.exponentialRampToValueAtTime(0.001,t+0.14);o2.start(t);o2.stop(t+0.15);}
+else if(type==="win"){[523,659,784,1047].forEach(function(f,i){var o3=a.createOscillator(),g3=a.createGain();o3.connect(g3);g3.connect(a.destination);o3.frequency.setValueAtTime(f,t+i*0.12);g3.gain.setValueAtTime(0.09,t+i*0.12);g3.gain.exponentialRampToValueAtTime(0.001,t+i*0.12+0.3);o3.start(t+i*0.12);o3.stop(t+i*0.12+0.31);});}
+else if(type==="error"){var o4=a.createOscillator(),g4=a.createGain();o4.connect(g4);g4.connect(a.destination);o4.frequency.setValueAtTime(180,t);g4.gain.setValueAtTime(0.05,t);g4.gain.exponentialRampToValueAtTime(0.001,t+0.1);o4.start(t);o4.stop(t+0.11);}
+}catch(e){}}
+window.sfxToggle=function(){_muted=!_muted;var b=document.getElementById("sfxBtn");if(b)b.textContent=(_muted?"🔇":"🔊")+" "+t("bgSound");return _muted;};
+</script>
 </body>
-</html>
+</html><script>
+// ===== 军棋 + 围棋 + 象棋 (2026-08-29 v2 棋盘重绘) =====
+// ---------- 军棋（陆战棋 · 5列×12行） ----------
+var _jq={b:[],turn:1,over:false,sel:null};
+function jqCode(n){var m={司:9,军:8,师:7,旅:6,团:5,营:4,连:3,排:2,工:1,地:0};return m[n]||0;}
+function jqName(v){if(v===101||v===201)return "旗";if(v===110||v===210)return "炸";var r=v%10;var map=["地","工","排","连","营","团","旅","师","军","司"];return map[r]||"";}
+function jqOwner(v){return (v>=10&&v<20)||v===101||v===110?1:2;}
+function jqIs(v,ch){return jqName(v)===ch;}
+function jqRank(v){if(jqIs(v,"炸"))return 99;if(jqIs(v,"旗"))return -1;return v%10;}
+function jqCamp(r,c){return (r===1&&(c===1||c===3))||(r===2&&c===2)||(r===3&&(c===1||c===3))||(r===8&&(c===1||c===3))||(r===9&&c===2)||(r===10&&(c===1||c===3));}
+function jqHQ(r,c){return (r===0&&(c===1||c===3))||(r===11&&(c===1||c===3));}
+function jqInit(){var b=bgInitBoard(12,5);
+b[11][0]=19;b[11][1]=101;b[11][2]=18;b[11][3]=17;b[11][4]=16;
+b[10][0]=15;b[10][2]=14;b[10][4]=13;
+b[9][0]=12;b[9][1]=11;b[9][3]=110;b[9][4]=10;
+b[8][0]=10;
+b[0][0]=29;b[0][1]=201;b[0][2]=28;b[0][3]=27;b[0][4]=26;
+b[1][0]=25;b[1][2]=24;b[1][4]=23;
+b[2][0]=22;b[2][1]=21;b[2][3]=210;b[2][4]=20;
+b[3][0]=20;
+_jq.b=b;_jq.turn=1;_jq.over=false;_jq.sel=null;bgRender();jqInfo(t("bgJunqi")+" · "+t("bgYou"));}
+function jqClick(cx,cy){if(_jq.over||_jq.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=50;var c=Math.round((cx-50)/S),r=Math.round((cy-25)/S);if(c<0||c>=5||r<0||r>=12)return;if(!_jq.sel){if(jqOwner(_jq.b[r][c])===1&&jqName(_jq.b[r][c])!=="地"&&jqName(_jq.b[r][c])!=="旗"){_jq.sel={r:r,c:c};bgRender();}return;}var fr=_jq.sel.r,fc=_jq.sel.c;if(r===fr&&c===fc){_jq.sel=null;bgRender();return;}if(Math.abs(r-fr)+Math.abs(c-fc)!==1){_jq.sel=null;bgRender();return;}jqMove(fr,fc,r,c);_jq.sel=null;}
+function jqMove(fr,fc,r,c){var v=_jq.b[fr][fc];var t=_jq.b[r][c];if(t&&jqOwner(t)===1)return;if(!t){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("place");jqAfter(_jq.turn===1?2:1);return;}var vn=jqName(v),tn=jqName(t);if(jqIs(t,"旗")){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqEnd(1);return;}if(jqIs(v,"炸")||jqIs(t,"炸")){_jq.b[r][c]=0;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(jqIs(v,"工")&&jqIs(t,"地")){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(jqIs(t,"地")){_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);return;}var vr=jqRank(v),tr=jqRank(t);if(vr>tr){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(vr===tr){_jq.b[r][c]=0;_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);return;}_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);}
+function jqAfter(tn){if(!jqAlive(1)){jqEnd(2);return;}if(!jqAlive(2)){jqEnd(1);return;}_jq.turn=tn;bgRender();jqInfo(t("bgJunqi")+" · "+(_jq.turn===1?t("bgYou"):t("bgAI")));if(_jq.turn===2)setTimeout(jqAi,300);}
+function jqAlive(p){for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq.b[r][c];if(jqOwner(v)===p&&jqName(v)!=="地"&&jqName(v)!=="旗")return true;}return false;}
+function jqEnd(w){_jq.over=true;sfx("win");bgRender();jqInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
+function jqAi(){var cands=[];for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq.b[r][c];if(jqOwner(v)!==2||jqName(v)==="地"||jqName(v)==="旗")continue;var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=12||nc<0||nc>=5)continue;var t=_jq.b[nr][nc];var sc=0;if(!t)sc=5;else if(jqOwner(t)===1){var tn=jqName(t);if(jqIs(t,"旗"))sc=400;else if(jqIs(v,"炸")&&!jqIs(t,"地"))sc=30;else if(jqIs(v,"工")&&jqIs(t,"地"))sc=60;else if(jqIs(t,"地"))sc=-50;else if(jqRank(v)>jqRank(t))sc=20+jqRank(t)*4;else if(jqRank(v)===jqRank(t))sc=5;else sc=-40;}cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}if(!cands.length){jqAfter(1);return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}jqMove(best.fr,best.fc,best.r,best.c);}
+function jqRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=50,MX=50,MY=25;cv.width=cv.width;ctx.fillStyle="#d8cfb8";ctx.fillRect(0,0,cv.width,cv.height);
+ctx.strokeStyle="#b59b78";ctx.lineWidth=1;for(var r=0;r<12;r++)for(var c=0;c<5;c++){var x=MX+c*S,y=MY+r*S;if(c<4){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+S,y);ctx.stroke();}if(r<11){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+S);ctx.stroke();}}
+ctx.strokeStyle="#5c4a38";ctx.lineWidth=3;for(var cc=0;cc<5;cc+=4){ctx.beginPath();ctx.moveTo(MX+cc*S,MY);ctx.lineTo(MX+cc*S,MY+11*S);ctx.stroke();}for(var rr=2;rr<=9;rr++){if(rr===5||rr===6)continue;ctx.beginPath();ctx.moveTo(MX,MY+rr*S);ctx.lineTo(MX+4*S,MY+rr*S);ctx.stroke();}
+ctx.beginPath();ctx.moveTo(MX,MY+S);ctx.lineTo(MX+S,MY+2*S);ctx.moveTo(MX+4*S,MY+S);ctx.lineTo(MX+3*S,MY+2*S);ctx.moveTo(MX,MY+10*S);ctx.lineTo(MX+S,MY+9*S);ctx.moveTo(MX+4*S,MY+10*S);ctx.lineTo(MX+3*S,MY+9*S);ctx.stroke();
+ctx.lineWidth=1;for(var r2=0;r2<12;r2++)for(var c2=0;c2<5;c2++){if(jqCamp(r2,c2)){ctx.beginPath();ctx.arc(MX+c2*S,MY+r2*S,S*0.3,0,Math.PI*2);ctx.fillStyle="#c8b78f";ctx.fill();ctx.strokeStyle="#5c4a38";ctx.lineWidth=1.5;ctx.stroke();}if(jqHQ(r2,c2)){ctx.strokeStyle="#7a4a1f";ctx.lineWidth=2;ctx.strokeRect(MX+c2*S-S*0.36,MY+r2*S-S*0.36,S*0.72,S*0.72);}}
+ctx.fillStyle="#e8ddc2";ctx.fillRect(MX-S*0.4,MY+5*S-S*0.32,4*S+S*0.8,S*0.64);ctx.fillStyle="#7a4a1f";ctx.font=S*0.42+"px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("山 界",MX+2*S,MY+5*S);
+for(var r4=0;r4<12;r4++)for(var c4=0;c4<5;c4++){var v=_jq.b[r4][c4];if(!v)continue;var x=MX+c4*S,y=MY+r4*S;var sel=_jq.sel&&_jq.sel.r===r4&&_jq.sel.c===c4;ctx.beginPath();ctx.arc(x,y,S*0.36,0,Math.PI*2);ctx.fillStyle=jqOwner(v)===1?"#b03a2e":"#2c3e50";ctx.fill();ctx.strokeStyle="#f5e8d0";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;if(sel){ctx.strokeStyle="#ffd700";ctx.lineWidth=3;ctx.stroke();ctx.lineWidth=1;}ctx.fillStyle="#fff";ctx.font=S*0.4+"px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(jqName(v),x,y+1);}}
+function jqInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
+
+// ---------- 围棋（标准 19×19）----------
+var _wg={b:[],turn:1,over:false,pass:0};
+function wgInit(){_wg.b=bgInitBoard(19,19);_wg.turn=1;_wg.pass=0;_wg.over=false;bgRender();wgInfo(t("bgWeiqi")+" · "+t("bgYou")+"（黑）");}
+function wgLib(b,r,c,seen){var key=r+","+c;if(seen[key])return 99;seen[key]=1;var col=b[r][c];var libs=0;var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=19||nc<0||nc>=19)continue;if(b[nr][nc]===0)libs++;else if(b[nr][nc]===col)libs+=wgLib(b,nr,nc,seen);}return libs;}
+function wgGroup(b,r,c){var col=b[r][c];var g=[],seen={},stack=[[r,c]];while(stack.length){var p=stack.pop();var k=p[0]+","+p[1];if(seen[k])continue;seen[k]=1;g.push(p);var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=p[0]+d[q][0],nc=p[1]+d[q][1];if(nr>=0&&nr<19&&nc>=0&&nc<19&&b[nr][nc]===col)stack.push([nr,nc]);}}return g;}
+function wgLibs(b,r,c){var g=wgGroup(b,r,c);var libs=0,seen={};for(var i=0;i<g.length;i++){var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=g[i][0]+d[q][0],nc=g[i][1]+d[q][1];var k=nr+","+nc;if(nr<0||nr>=19||nc<0||nc>=19)continue;if(b[nr][nc]===0&&!seen[k]){seen[k]=1;libs++;}}}return libs;}
+function wgRemoveDead(b,col){var removed=0;for(var r=0;r<19;r++)for(var c=0;c<19;c++){if(b[r][c]===col){if(wgLibs(b,r,c)<=0){var g=wgGroup(b,r,c);for(var i=0;i<g.length;i++){b[g[i][0]][g[i][1]]=0;removed+=g.length;}r=0;c=-1;}}}return removed;}
+function wgPlace(b,r,c,col){b[r][c]=col;wgRemoveDead(b,col===1?2:1);if(wgLibs(b,r,c)<=0){b[r][c]=0;return false;}wgRemoveDead(b,col);return true;}
+function wgClick(cx,cy){if(_wg.over||_wg.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=25,M=15;var c=Math.round((cx-M)/S),r=Math.round((cy-M)/S);if(r<0||r>=19||c<0||c>=19||_wg.b[r][c])return;if(!wgPlace(_wg.b,r,c,1))return;_wg.pass=0;sfx("place");bgRender();wgInfo(t("bgAIThink"));setTimeout(wgAi,300);}
+function wgAi(){var cands=[];for(var r=0;r<19;r++)for(var c=0;c<19;c++){if(_wg.b[r][c])continue;var b=[];for(var i=0;i<19;i++)b.push(_wg.b[i].slice());b[r][c]=2;var cap=wgRemoveDead(b,1);var libs=wgLibs(b,r,c);var sc=cap*30+libs*2;cands.push({r:r,c:c,sc:sc});}if(!cands.length){_wg.pass++;if(_wg.pass>=2){_wg.over=true;wgInfo(t("bgDraw"));return;}_wg.turn=1;bgRender();wgInfo(t("bgWeiqi")+" · "+t("bgYou"));return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}_wg.b[best.r][best.c]=2;wgRemoveDead(_wg.b,1);_wg.pass=0;sfx("place");_wg.turn=1;bgRender();wgInfo(t("bgWeiqi")+" · "+t("bgYou"));}
+function wgRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=25,M=15;cv.width=cv.width;ctx.fillStyle="#e3c78f";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#8a6b4a";ctx.lineWidth=1;for(var i=0;i<19;i++){ctx.beginPath();ctx.moveTo(M+i*S,M);ctx.lineTo(M+i*S,M+18*S);ctx.stroke();ctx.beginPath();ctx.moveTo(M,M+i*S);ctx.lineTo(M+18*S,M+i*S);ctx.stroke();}ctx.strokeStyle="#5c4a38";ctx.lineWidth=2;ctx.strokeRect(M-4,M-4,18*S+8,18*S+8);var stars=[[3,3],[3,9],[3,15],[9,3],[9,9],[9,15],[15,3],[15,9],[15,15]];ctx.fillStyle="#5c4a38";for(var s=0;s<stars.length;s++){ctx.beginPath();ctx.arc(M+stars[s][0]*S,M+stars[s][1]*S,4,0,Math.PI*2);ctx.fill();}for(var r=0;r<19;r++)for(var c=0;c<19;c++){if(_wg.b[r][c]){ctx.beginPath();ctx.arc(M+c*S,M+r*S,S*0.42,0,Math.PI*2);ctx.fillStyle=_wg.b[r][c]===1?"#111":"#eee";ctx.fill();ctx.strokeStyle="#666";ctx.lineWidth=1;ctx.stroke();}}}
+function wgInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
+
+// ---------- 象棋（9×10）----------
+var _xq={b:[],turn:1,over:false,sel:null};
+function xqCode(n){var m={帅:1,仕:2,相:3,马:4,车:5,炮:6,兵:7,将:1,士:2,象:3,马:4,车:5,炮:6,卒:7};return m[n]||0;}
+function xqName(v){var r=v%10;var m=["","帅","仕","相","马","车","炮","兵"];var o=v>10&&v<20?1:2;if(r===1)return o===1?"帅":"将";if(r===2)return o===1?"仕":"士";if(r===3)return o===1?"相":"象";if(r===7)return o===1?"兵":"卒";return m[r]||"";}
+function xqOwner(v){return v>10&&v<20?1:2;}
+function xqInPalace(r,c,o){var pc=o===1?[7,9]:[0,2];return r>=pc[0]&&r<=pc[1]&&c>=3&&c<=5;}
+function xqFindKing(b,o){for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=b[r][c];if(v&&xqOwner(v)===o&&(v%10)===1)return [r,c];}return null;}
+function xqMoves(b,r,c){var v=b[r][c];if(!v)return [];var o=xqOwner(v);var n=v%10;var mv=[];function add(nr,nc){if(nr<0||nr>=10||nc<0||nc>=9)return;var t=b[nr][nc];if(t&&xqOwner(t)===o)return;mv.push([nr,nc]);}if(n===1){var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(xqInPalace(nr,nc,o))add(nr,nc);}}else if(n===2){var d2=[[-1,-1],[-1,1],[1,-1],[1,1]];for(var q2=0;q2<4;q2++){var nr=r+d2[q2][0],nc=c+d2[q2][1];if(xqInPalace(nr,nc,o))add(nr,nc);}}else if(n===3){var d3=[[-2,-2],[-2,2],[2,-2],[2,2]];var mid=[[-1,-1],[-1,1],[1,-1],[1,1]];for(var q3=0;q3<4;q3++){var nr=r+d3[q3][0],nc=c+d3[q3][1];var mr=r+mid[q3][0],mc=c+mid[q3][1];if(nr>=0&&nr<10&&nc>=0&&nc<9&&!b[mr][mc]&&(o===1?nr>=5:nr<=4))add(nr,nc);}}else if(n===4){var d4=[[-2,-1],[-2,1],[2,-1],[2,1],[-1,-2],[-1,2],[1,-2],[1,2]];var leg=[[-1,0],[-1,0],[1,0],[1,0],[0,-1],[0,1],[0,-1],[0,1]];for(var q4=0;q4<8;q4++){var nr=r+d4[q4][0],nc=c+d4[q4][1];var lr=r+leg[q4][0],lc=c+leg[q4][1];if(nr>=0&&nr<10&&nc>=0&&nc<9&&!b[lr][lc])add(nr,nc);}}else if(n===5){var d5=[[-1,0],[1,0],[0,-1],[0,1]];for(var q5=0;q5<4;q5++){var rr=r+d5[q5][0],cc=c+d5[q5][1];while(rr>=0&&rr<10&&cc>=0&&cc<9&&!b[rr][cc]){add(rr,cc);rr+=d5[q5][0];cc+=d5[q5][1];}if(rr>=0&&rr<10&&cc>=0&&cc<9&&b[rr][cc])add(rr,cc);}}else if(n===6){var d6=[[-1,0],[1,0],[0,-1],[0,1]];for(var q6=0;q6<4;q6++){var rr2=r+d6[q6][0],cc2=c+d6[q6][1];var jumped=false;while(rr2>=0&&rr2<10&&cc2>=0&&cc2<9){if(!jumped){if(b[rr2][cc2])jumped=true;else add(rr2,cc2);}else{if(b[rr2][cc2]){add(rr2,cc2);break;}}rr2+=d6[q6][0];cc2+=d6[q6][1];}}}else if(n===7){add(r+(o===1?-1:1),c);if((o===1&&r<=4)||(o===2&&r>=5)){add(r,c-1);add(r,c+1);}}return mv;}
+function xqLegal(b,o){var k=xqFindKing(b,o);if(!k)return true;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=b[r][c];if(v&&xqOwner(v)===o)continue;if(v){var ms=xqMoves(b,r,c);for(var i=0;i<ms.length;i++){if(ms[i][0]===k[0]&&ms[i][1]===k[1])return false;}}}return true;}
+function xqTry(b,fr,fc,r,c){var nb=[];for(var i=0;i<10;i++)nb.push(b[i].slice());nb[r][c]=nb[fr][fc];nb[fr][fc]=0;return nb;}
+function xqInit(){var b=bgInitBoard(10,9);var redBack=["车","马","相","仕","帅","仕","相","马","车"];var blackBack=["车","马","象","士","将","士","象","马","车"];for(var c=0;c<9;c++){b[9][c]=10+xqCode(redBack[c]);b[0][c]=20+xqCode(blackBack[c]);}var p2=[0,"炮",0,0,0,0,0,"炮",0];for(var c2=0;c2<9;c2++){if(p2[c2]){b[7][c2]=10+xqCode(p2[c2]);b[2][c2]=20+xqCode(p2[c2]);}}for(var c3=0;c3<9;c3+=2){b[6][c3]=17;b[3][c3]=27;}_xq.b=b;_xq.turn=1;_xq.sel=null;_xq.over=false;bgRender();xqInfo(t("bgXiangqi")+" · "+t("bgYou"));}
+function xqClick(cx,cy){if(_xq.over||_xq.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=53,MX=28,MY=28;var c=Math.round((cx-MX)/S),r=Math.round((cy-MY)/S);if(c<0||c>=9||r<0||r>=10)return;if(!_xq.sel){if(_xq.b[r][c]&&xqOwner(_xq.b[r][c])===1){_xq.sel={r:r,c:c};bgRender();}return;}var fr=_xq.sel.r,fc=_xq.sel.c;if(r===fr&&c===fc){_xq.sel=null;bgRender();return;}var ok=false;var ms=xqMoves(_xq.b,fr,fc);for(var i=0;i<ms.length;i++){if(ms[i][0]===r&&ms[i][1]===c)ok=true;}if(ok){var nb=xqTry(_xq.b,fr,fc,r,c);if(xqLegal(nb,1)){sfx(_xq.b[r][c]?"capture":"place");_xq.b=nb;if((_xq.b[r][c]%10)===1&&xqOwner(_xq.b[r][c])===2){xqEnd(1);return;}xqAfter(2);}}_xq.sel=null;bgRender();}
+function xqAfter(tn){if(!xqAlive(2)){xqEnd(1);return;}_xq.turn=tn;bgRender();xqInfo(t("bgXiangqi")+" · "+(_xq.turn===1?t("bgYou"):t("bgAI")));if(_xq.turn===2)setTimeout(xqAi,300);}
+function xqAlive(o){return xqFindKing(_xq.b,o)!==null;}
+function xqEnd(w){_xq.over=true;sfx("win");bgRender();xqInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
+function xqVal(v){var n=v%10;var m=[0,1000,200,60,300,500,250,15];return m[n]||0;}
+function xqAi(){var best=null;var depth=_bgDiff>=4?2:1;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=_xq.b[r][c];if(!v||xqOwner(v)!==2)continue;var ms=xqMoves(_xq.b,r,c);for(var i=0;i<ms.length;i++){var nr=ms[i][0],nc=ms[i][1];var nb=xqTry(_xq.b,r,c,nr,nc);if(!xqLegal(nb,2))continue;var sc=xqVal(nb[nr][nc])-xqVal(v);if(depth===2){var sub=null;for(var r2=0;r2<10;r2++)for(var c2=0;c2<9;c2++){var v2=nb[r2][c2];if(!v2||xqOwner(v2)!==1)continue;var ms2=xqMoves(nb,r2,c2);for(var j=0;j<ms2.length;j++){var nb2=xqTry(nb,r2,c2,ms2[j][0],ms2[j][1]);if(xqLegal(nb2,1)){var sc2=xqVal(nb2[ms2[j][0]][ms2[j][1]])-xqVal(v2);if(sub===null||sc2>sub)sub=sc2;}}}sc-=sub||0;}if(_bgDiff<=2)sc+=Math.random()*2-1;if(!best||sc>best.sc)best={fr:r,fc:c,r:nr,c:nc,sc:sc}}}if(best){var nb2=xqTry(_xq.b,best.fr,best.fc,best.r,best.c);if(xqLegal(nb2,2)){_xq.b=nb2;if((_xq.b[best.r][best.c]%10)===1&&xqOwner(_xq.b[best.r][best.c])===1){xqEnd(2);return;}xqAfter(1);}}else{xqEnd(1);}}
+function xqRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=53,MX=28,MY=28;cv.width=cv.width;ctx.fillStyle="#e8d9a8";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#5c4a38";ctx.lineWidth=1;
+for(var r=0;r<10;r++){ctx.beginPath();ctx.moveTo(MX,MY+r*S);ctx.lineTo(MX+8*S,MY+r*S);ctx.stroke();}
+for(var c=0;c<9;c++){if(c===0||c===8){ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}else{ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+4*S);ctx.stroke();ctx.beginPath();ctx.moveTo(MX+c*S,MY+5*S);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}}
+ctx.lineWidth=3;ctx.strokeRect(MX-5,MY-5,8*S+10,9*S+10);ctx.lineWidth=1;
+ctx.beginPath();ctx.moveTo(MX+3*S,MY);ctx.lineTo(MX+5*S,MY+2*S);ctx.moveTo(MX+5*S,MY);ctx.lineTo(MX+3*S,MY+2*S);ctx.stroke();
+ctx.beginPath();ctx.moveTo(MX+3*S,MY+7*S);ctx.lineTo(MX+5*S,MY+9*S);ctx.moveTo(MX+5*S,MY+7*S);ctx.lineTo(MX+3*S,MY+9*S);ctx.stroke();
+var mark=[[1,2],[7,2],[1,7],[7,7]];for(var m=0;m<mark.length;m++){var mx=MX+mark[m][0]*S,my=MY+mark[m][1]*S;var g=4;ctx.beginPath();ctx.moveTo(mx-g,my-g);ctx.lineTo(mx-g,my-g+2);ctx.moveTo(mx-g,my-g);ctx.lineTo(mx-g+2,my-g);ctx.moveTo(mx+g,my-g);ctx.lineTo(mx+g-2,my-g);ctx.moveTo(mx+g,my-g);ctx.lineTo(mx+g,my-g+2);ctx.moveTo(mx-g,my+g);ctx.lineTo(mx-g,my+g-2);ctx.moveTo(mx-g,my+g);ctx.lineTo(mx-g+2,my+g);ctx.moveTo(mx+g,my+g);ctx.lineTo(mx+g-2,my+g);ctx.moveTo(mx+g,my+g);ctx.lineTo(mx+g,my+g-2);ctx.stroke();}
+ctx.fillStyle="#5c4a38";ctx.font=S*0.55+"px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("楚 河",MX+2*S,MY+4.5*S);ctx.fillText("汉 界",MX+6*S,MY+4.5*S);
+for(var r=0;r<10;r++)for(var cc=0;cc<9;cc++){var v=_xq.b[r][cc];if(v){var sel=_xq.sel&&_xq.sel.r===r&&_xq.sel.c===cc;ctx.beginPath();ctx.arc(MX+cc*S,MY+r*S,S*0.42,0,Math.PI*2);ctx.fillStyle=xqOwner(v)===1?"#f5e8d0":"#2c1810";ctx.fill();ctx.strokeStyle=xqOwner(v)===1?"#8B0000":"#c9a84c";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;if(sel){ctx.strokeStyle="#ffd700";ctx.lineWidth=3;ctx.stroke();ctx.lineWidth=1;}ctx.fillStyle=xqOwner(v)===1?"#8B0000":"#f5e8d0";ctx.font=S*0.34+"px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(xqName(v),MX+cc*S,MY+r*S+1);}}}
+function xqInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
+</script>
+
