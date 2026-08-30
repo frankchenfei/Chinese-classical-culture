@@ -147,6 +147,11 @@ a:hover{color:#c9a84c}
 #divinationBtn{display:inline-flex;align-items:center;gap:.35rem}
 .div-title{text-align:center;color:#8B0000;margin-bottom:1rem;letter-spacing:.1em}
 .div-tip{text-align:center;color:#7a6a5a;font-size:.75rem;margin-top:.6rem}
+.form-row{display:flex;gap:.5rem}
+.form-row .form-group{flex:1}
+.form-group select{width:100%;padding:.5rem .6rem;border:1px solid #d4c9b8;border-radius:8px;font-size:.9rem;font-family:inherit;background:#fffefb;color:#2c1810}
+.div-meta{text-align:center;color:#7a6a5a;font-size:.8rem;margin-bottom:.6rem}
+.div-detail{text-align:left;background:#fffefb;border:1px solid #e0d5c8;border-radius:8px;padding:.7rem .8rem;margin:.5rem 0;font-size:.82rem;color:#5c4a38;line-height:1.8}
 .sage-pbar{height:8px;background:#e8ddd0;border-radius:4px;overflow:hidden;margin-bottom:.8rem}
 .sage-pfill{height:100%;background:linear-gradient(90deg,#c9a84c,#8B0000);border-radius:4px;transition:width .3s}
 .sage-qnum{text-align:center;color:#7a6a5a;font-size:.78rem;margin-bottom:.5rem}
@@ -257,6 +262,19 @@ footer .footer-divider{width:36px;height:1px;background:#8B0000;margin:.5rem aut
 .rsd-cross-card{display:flex;align-items:center;gap:.4rem;background:#fff8e0;border:1px solid #c9a84c;border-radius:8px;padding:.5rem .8rem;font-size:.82rem}
 .rsd-cross-card .rcc-item{color:#5c4a38}
 .rsd-cross-card .rcc-arrow{color:#c9a84c;font-weight:700}
+.rsd-books{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:start}
+.rsd-books-col{border-left:3px solid #e0d5c8;padding-left:.7rem}
+.rsd-books-col h4{font-size:.86rem;color:#2c1810;margin-bottom:.5rem;letter-spacing:.08em}
+.rsd-books-ru{border-left-color:#8B0000}
+.rsd-books-ru h4{color:#8B0000}
+.rsd-books-shi{border-left-color:#b8860b}
+.rsd-books-shi h4{color:#b8860b}
+.rsd-books-dao{border-left-color:#2d6a4f}
+.rsd-books-dao h4{color:#2d6a4f}
+.rsd-books .book-card{padding:.6rem .7rem .9rem;margin-bottom:.4rem}
+.rsd-books .book-card h4{font-size:.85rem}
+.rsd-books .book-card p{font-size:.78rem}
+@media(max-width:900px){.rsd-books{grid-template-columns:1fr}}
 /* ===== TTS ===== */
 .tts-bar{display:flex;gap:.4rem;align-items:center;margin-bottom:.6rem;padding:.4rem .6rem;background:#f5f0e8;border-radius:6px;flex-wrap:wrap}
 .tts-btn{padding:.3rem .7rem;border:1px solid #8B0000;border-radius:4px;cursor:pointer;font-size:.78rem;background:#fffefb;color:#8B0000;transition:all .2s;font-family:inherit}
@@ -412,7 +430,10 @@ textarea.forum-form-input{resize:vertical}
 .forum-media-item{max-width:100%;max-height:300px;border-radius:6px;border:1px solid #e0d5c8}
 .forum-media-video{width:100%;max-width:560px;height:315px;border-radius:6px;border:1px solid #e0d5c8}
 
-.school-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:#8B0000;color:#f5e8d0;font-size:10px;font-weight:bold;border-radius:50%;line-height:1}
+.school-badge{display:inline-flex;align-items:center;justify-content:center;padding:.02rem .5rem;font-size:.68rem;font-weight:bold;border-radius:999px;color:#fff;margin:.1rem;line-height:1.6;letter-spacing:.05em}
+.school-ru{background:#8B0000}
+.school-dao{background:#2d6a4f}
+.school-fo{background:#b8860b}
 /* ===== Utility (replaces inline styles) ===== */
 .reader-page{max-width:800px;margin:0 auto;padding:1.5rem}
 .classics-search{margin-bottom:.5rem}
@@ -1047,6 +1068,9 @@ divinationTitle:{'zh-CN':'每日占卦','zh-TW':'每日占卦','en':'Daily Divin
 divName:{'zh-CN':'姓名','zh-TW':'姓名','en':'Name','es':'Nombre','pt':'Nome'},
 divNamePh:{'zh-CN':'请输入姓名','zh-TW':'請輸入姓名','en':'Enter your name','es':'Ingresa tu nombre','pt':'Digite seu nome'},
 divBirth:{'zh-CN':'出生年月日','zh-TW':'出生年月日','en':'Birthdate','es':'Fecha de nacimiento','pt':'Data de nascimento'},
+divBlood:{'zh-CN':'血型','zh-TW':'血型','en':'Blood Type','es':'Tipo de Sangre','pt':'Tipo Sanguíneo'},
+divZodiac:{'zh-CN':'星座','zh-TW':'星座','en':'Zodiac','es':'Zodiaco','pt':'Zodíaco'},
+divOpt:{'zh-CN':'请选择','zh-TW':'請選擇','en':'Select','es':'Elegir','pt':'Selecionar'},
 divGo:{'zh-CN':'开始占卦','zh-TW':'開始占卦','en':'Cast','es':'Echar','pt':'Lançar'},
 divTip:{'zh-CN':'占卦一次消耗 1 积分','zh-TW':'占卦一次消耗 1 積分','en':'Costs 1 credit per cast','es':'Cuesta 1 crédito','pt':'Custa 1 crédito'},
 divNoCredits:{'zh-CN':'积分不足，请先签到获取积分','zh-TW':'積分不足，請先簽到獲取積分','en':'Not enough credits, check in first','es':'Créditos insuficientes','pt':'Créditos insuficientes'},
@@ -1577,7 +1601,17 @@ const BOOKS_DATA = [
   dynasty:{'zh-CN':'战国','en':'Warring States'},
   intro:{'zh-CN':'《大学》原为《礼记》第四十二篇，宋代理学家朱熹将其与《中庸》《论语》《孟子》合为"四书"。提出"三纲领"（明明德、亲民、止于至善）与"八条目"（格物、致知、诚意、正心、修身、齐家、治国、平天下），是儒家修身治学的纲领。','en':'The Great Learning, originally a chapter of the Book of Rites, expounds the "three principles" and "eight steps" of Confucian self-cultivation.'},
   chapters:{'zh-CN':[
-    {n:1,t:'经一章',c:'大学之道，在明明德，在亲民，在止于至善。知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。物有本末，事有终始，知所先后，则近道矣。\n古之欲明明德于天下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；欲正其心者，先诚其意；欲诚其意者，先致其知；致知在格物。\n物格而后知至，知至而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。自天子以至于庶人，壹是皆以修身为本。'}
+    {n:1,t:'经一章',c:'大学之道，在明明德，在亲民，在止于至善。知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。物有本末，事有终始，知所先后，则近道矣。\n古之欲明明德于天下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；欲正其心者，先诚其意；欲诚其意者，先致其知；致知在格物。\n物格而后知至，知至而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。自天子以至于庶人，壹是皆以修身为本。其本乱而末治者否矣，其所厚者薄，而其所薄者厚，未之有也。'},
+    {n:2,t:'传第一章 · 释明明德',c:'《康诰》曰："克明德。"《大甲》曰："顾諟天之明命。"《帝典》曰："克明峻德。"皆自明也。'},
+    {n:3,t:'传第二章 · 释新民',c:'汤之《盘铭》曰："苟日新，日日新，又日新。"《康诰》曰："作新民。"《诗》曰："周虽旧邦，其命惟新。"是故君子无所不用其极。'},
+    {n:4,t:'传第三章 · 释止于至善',c:'《诗》云："邦畿千里，惟民所止。"《诗》云："缗蛮黄鸟，止于丘隅。"子曰："于止，知其所止，可以人而不如鸟乎！"《诗》云："穆穆文王，于缉熙敬止！"为人君，止于仁；为人臣，止于敬；为人子，止于孝；为人父，止于慈；与国人交，止于信。'},
+    {n:5,t:'传第四章 · 释本末',c:'子曰："听讼，吾犹人也。必也使无讼乎！"无情者不得尽其辞，大畏民志。此谓知本。'},
+    {n:6,t:'传第五章 · 释格物致知',c:'此谓知本，此谓知之至也。'},
+    {n:7,t:'传第六章 · 释诚意',c:'所谓诚其意者，毋自欺也。如恶恶臭，如好好色，此之谓自谦。故君子必慎其独也。小人闲居为不善，无所不至，见君子而后厌然，掩其不善，而著其善。人之视己，如见其肺肝然，则何益矣。此谓诚于中，形于外，故君子必慎其独也。曾子曰："十目所视，十手所指，其严乎！"富润屋，德润身，心广体胖，故君子必诚其意。'},
+    {n:8,t:'传第七章 · 释正心修身',c:'所谓修身在正其心者：身有所忿懥，则不得其正；有所恐惧，则不得其正；有所好乐，则不得其正；有所忧患，则不得其正。心不在焉，视而不见，听而不闻，食而不知其味。此谓修身在正其心。'},
+    {n:9,t:'传第八章 · 释修身齐家',c:'所谓齐其家在修其身者：人之其所亲爱而辟焉，之其所贱恶而辟焉，之其所畏敬而辟焉，之其所哀矜而辟焉，之其所敖惰而辟焉。故好而知其恶，恶而知其美者，天下鲜矣。故谚有之曰："人莫知其子之恶，莫知其苗之硕。"此谓身不修，不可以齐其家。'},
+    {n:10,t:'传第九章 · 释齐家治国',c:'所谓治国必先齐其家者，其家不可教而能教人者，无之。故君子不出家而成教于国。孝者，所以事君也；弟者，所以事长也；慈者，所以使众也。《康诰》曰："如保赤子。"心诚求之，虽不中，不远矣。未有学养子而后嫁者也。一家仁，一国兴仁；一家让，一国兴让；一人贪戾，一国作乱。其机如此。此谓一言偾事，一人定国。尧、舜帅天下以仁，而民从之；桀、纣帅天下以暴，而民从之。其所令反其所好，而民不从。是故君子有诸己而后求诸人，无诸己而后非诸人。所藏乎身不恕，而能喻诸人者，未之有也。故治国在齐其家。《诗》云："桃之夭夭，其叶蓁蓁。之子于归，宜其家人。"宜其家人，而后可以教国人。《诗》云："宜兄宜弟。"宜兄宜弟，而后可以教国人。《诗》云："其仪不忒，正是四国。"其为父子兄弟足法，而后民法之也。此谓治国在齐其家。'},
+    {n:11,t:'传第十章 · 释治国平天下',c:'所谓平天下在治其国者：上老老而民兴孝，上长长而民兴弟，上恤孤而民不倍，是以君子有絜矩之道也。所恶于上，毋以使下；所恶于下，毋以事上；所恶于前，毋以先后；所恶于后，毋以从前；所恶于右，毋以交于左；所恶于左，毋以交于右。此之谓絜矩之道。《诗》云："乐只君子，民之父母。"民之所好好之，民之所恶恶之，此之谓民之父母。《诗》云："节彼南山，维石岩岩。赫赫师尹，民具尔瞻。"有国者不可以不慎，辟则为天下僇矣。道得众则得国，失众则失国。是故君子先慎乎德。有德此有人，有人此有土，有土此有财，有财此有用。德者本也，财者末也。是故财聚则民散，财散则民聚。是故言悖而出者，亦悖而入；货悖而入者，亦悖而出。是故君子有大道，必忠信以得之，骄泰以失之。生财有大道：生之者众，食之者寡，为之者疾，用之者舒，则财恒足矣。仁者以财发身，不仁者以身发财。未有上好仁而下不好义者也，未有好义其事不终者也，未有府库财非其财者也。孟献子曰："畜马乘不察于鸡豚，伐冰之家不畜牛羊，百乘之家不畜聚敛之臣。与其有聚敛之臣，宁有盗臣。"此谓国不以利为利，以义为利也。长国家而务财用者，必自小人矣。彼为善之，小人之使为国家，菑害并至。虽有善者，亦无如之何矣！此谓国不以利为利，以义为利也。'}
   ]}
 },
 { id:'zhongyong', type:'儒家',
@@ -1587,7 +1621,14 @@ const BOOKS_DATA = [
   intro:{'zh-CN':'《中庸》相传为孔子之孙子思所作，朱熹列为"四书"之一。以"中""和"为核心，主张"致中和，天地位焉，万物育焉"，是儒家心性修养与天人合一思想的重要经典。','en':'The Doctrine of the Mean, attributed to Zisi, grandson of Confucius, centers on the concepts of "centrality" and "harmony".'},
   chapters:{'zh-CN':[
     {n:1,t:'第一章',c:'天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也，可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中；发而皆中节，谓之和。中也者，天下之大本也；和也者，天下之达道也。致中和，天地位焉，万物育焉。'},
-    {n:2,t:'第二十二章',c:'唯天下至诚，为能尽其性；能尽其性，则能尽人之性；能尽人之性，则能尽物之性；能尽物之性，则可以赞天地之化育；可以赞天地之化育，则可以与天地参矣。'}
+    {n:2,t:'第二章',c:'仲尼曰："君子中庸，小人反中庸。君子之中庸也，君子而时中；小人之中庸也，小人而无忌惮也。"'},
+    {n:3,t:'第三章',c:'子曰："中庸其至矣乎！民鲜能久矣。"'},
+    {n:4,t:'第十二章',c:'君子之道费而隐。夫妇之愚，可以与知焉；及其至也，虽圣人亦有所不知焉。夫妇之不肖，可以能行焉；及其至也，虽圣人亦有所不能焉。天地之大也，人犹有所憾。故君子语大，天下莫能载焉；语小，天下莫能破焉。《诗》云："鸢飞戾天，鱼跃于渊。"言其上下察也。君子之道，造端乎夫妇；及其至也，察乎天地。'},
+    {n:5,t:'第十三章',c:'子曰："道不远人。人之为道而远人，不可以为道也。《诗》云：「伐柯伐柯，其则不远。」执柯以伐柯，睨而视之，犹以为远。故君子以人治人，改而止。忠恕违道不远，施诸己而不愿，亦勿施于人。"'},
+    {n:6,t:'第二十章（节选）',c:'哀公问政。子曰："文武之政，布在方策。其人存，则其政举；其人亡，则其政息。"……"凡为天下国家有九经，曰：修身也，尊贤也，亲亲也，敬大臣也，体群臣也，子庶民也，来百工也，柔远人也，怀诸侯也。"……"博学之，审问之，慎思之，明辨之，笃行之。"'},
+    {n:7,t:'第二十一章',c:'自诚明，谓之性；自明诚，谓之教。诚则明矣，明则诚矣。'},
+    {n:8,t:'第二十二、二十三章',c:'唯天下至诚，为能尽其性；能尽其性，则能尽人之性；能尽人之性，则能尽物之性；能尽物之性，则可以赞天地之化育；可以赞天地之化育，则可以与天地参矣。\n其次致曲。曲能有诚，诚则形，形则著，著则明，明则动，动则变，变则化。唯天下至诚为能化。'}
+
   ]}
 },
 { id:'mengzi', type:'儒家',
@@ -1597,9 +1638,13 @@ const BOOKS_DATA = [
   intro:{'zh-CN':'《孟子》是儒家经典"四书"之一，记载孟子与诸侯、弟子的问答，主张性善论与仁政王道，提出"民为贵，社稷次之，君为轻"，是儒家思想的重要发展。','en':'Mencius is one of the Four Books, recording the dialogues of Mencius advocating the goodness of human nature and benevolent government.'},
   chapters:{'zh-CN':[
     {n:1,t:'梁惠王上（节选）',c:'孟子见梁惠王。王曰："叟不远千里而来，亦将有以利吾国乎？"孟子对曰："王何必曰利？亦有仁义而已矣。"'},
-    {n:2,t:'公孙丑上（节选）',c:'"我知言，我善养吾浩然之气。"\n（公孙丑问曰：）"敢问何谓浩然之气？"（孟子）曰："难言也。其为气也，至大至刚，以直养而无害，则塞于天地之间。"'},
-    {n:3,t:'告子上（节选）',c:'鱼，我所欲也；熊掌，亦我所欲也。二者不可得兼，舍鱼而取熊掌者也。生，亦我所欲也；义，亦我所欲也。二者不可得兼，舍生而取义者也。'},
-    {n:4,t:'尽心下（节选）',c:'民为贵，社稷次之，君为轻。是故得乎丘民而为天子，得乎天子为诸侯，得乎诸侯为大夫。'}
+    {n:2,t:'公孙丑上（节选）',c:'"我知言，我善养吾浩然之气。"……"其为气也，至大至刚，以直养而无害，则塞于天地之间。"'},
+    {n:3,t:'滕文公下（节选）',c:'"富贵不能淫，贫贱不能移，威武不能屈，此之谓大丈夫。"'},
+    {n:4,t:'离娄上（节选）',c:'离娄之明，公输子之巧，不以规矩，不能成方圆；师旷之聪，不以六律，不能正五音；尧舜之道，不以仁政，不能平治天下。'},
+    {n:5,t:'万章上（节选）',c:'"尽信《书》，则不如无《书》。"'},
+    {n:6,t:'告子上（节选）',c:'鱼，我所欲也；熊掌，亦我所欲也。二者不可得兼，舍鱼而取熊掌者也。生，亦我所欲也；义，亦我所欲也。二者不可得兼，舍生而取义者也。'},
+    {n:7,t:'尽心上（节选）',c:'"穷则独善其身，达则兼善天下。"\n"民为贵，社稷次之，君为轻。"'}
+
   ]}
 },
 { id:'sanzijing', type:'蒙学',
@@ -1608,8 +1653,10 @@ const BOOKS_DATA = [
   dynasty:{'zh-CN':'南宋','en':'Southern Song'},
   intro:{'zh-CN':'《三字经》是中国传统蒙学三大读物之一，三字一句、两句一韵，朗朗上口。内容涵盖教育、伦理、历史、天文、地理等，是流传最广的启蒙经典。','en':'The Three Character Classic is a traditional Chinese primer in three-character verses, covering ethics, history, astronomy and more.'},
   chapters:{'zh-CN':[
-    {n:1,t:'上篇（节选）',c:'人之初，性本善。性相近，习相远。\n苟不教，性乃迁。教之道，贵以专。\n昔孟母，择邻处。子不学，断机杼。\n窦燕山，有义方。教五子，名俱扬。\n养不教，父之过。教不严，师之惰。\n子不学，非所宜。幼不学，老何为。\n玉不琢，不成器。人不学，不知义。'},
-    {n:2,t:'中篇（节选）',c:'首孝悌，次见闻。知某数，识某文。\n一而十，十而百。百而千，千而万。\n三才者，天地人。三光者，日月星。\n三纲者，君臣义。父子亲，夫妇顺。\n曰春夏，曰秋冬。此四时，运不穷。\n曰水火，木金土。此五行，本乎数。\n曰仁义，礼智信。此五常，不容紊。'}
+    {n:1,t:'上篇 · 教育启蒙',c:'人之初，性本善。性相近，习相远。\n苟不教，性乃迁。教之道，贵以专。\n昔孟母，择邻处。子不学，断机杼。\n窦燕山，有义方。教五子，名俱扬。\n养不教，父之过。教不严，师之惰。\n子不学，非所宜。幼不学，老何为。\n玉不琢，不成器。人不学，不知义。\n为人子，方少时。亲师友，习礼仪。\n香九龄，能温席。孝于亲，所当执。\n融四岁，能让梨。弟于长，宜先知。\n首孝弟，次见闻。知某数，识某文。\n一而十，十而百。百而千，千而万。\n三才者，天地人。三光者，日月星。\n三纲者，君臣义。父子亲，夫妇顺。\n曰春夏，曰秋冬。此四时，运不穷。\n曰南北，曰西东。此四方，应乎中。\n曰水火，木金土。此五行，本乎数。\n曰仁义，礼智信。此五常，不容紊。\n稻粱菽，麦黍稷。此六谷，人所食。\n马牛羊，鸡犬豕。此六畜，人所饲。\n曰喜怒，曰哀惧。爱恶欲，七情具。\n匏土革，木石金。丝与竹，乃八音。'},
+    {n:2,t:'中篇 · 典籍纲要',c:'高曾祖，父而身。身而子，子而孙。\n自子孙，至玄曾。乃九族，人之伦。\n父子恩，夫妇从。兄则友，弟则恭。\n长幼序，友与朋。君则敬，臣则忠。此十义，人所同。\n凡训蒙，须讲究。详训诂，明句读。\n为学者，必有初。小学终，至四书。\n论语者，二十篇。群弟子，记善言。\n孟子者，七篇止。讲道德，说仁义。\n作中庸，子思笔。中不偏，庸不易。\n作大学，乃曾子。自修齐，至平治。\n孝经通，四书熟。如六经，始可读。\n诗书易，礼春秋。号六经，当讲求。\n有连山，有归藏。有周易，三易详。\n有典谟，有训诰。有誓命，书之奥。\n我周公，作周礼。著六官，存治体。\n大小戴，注礼记。述圣言，礼乐备。\n曰国风，曰雅颂。号四诗，当讽咏。\n诗既亡，春秋作。寓褒贬，别善恶。\n三传者，有公羊。有左氏，有谷梁。\n经既明，方读子。撮其要，记其事。\n五子者，有荀扬。文中子，及老庄。'},
+    {n:3,t:'下篇 · 历史与勤学',c:'经子通，读诸史。考世系，知终始。\n自羲农，至黄帝。号三皇，居上世。\n唐有虞，号二帝。相揖逊，称盛世。\n夏有禹，商有汤。周文武，称三王。\n夏传子，家天下。四百载，迁夏社。\n汤伐夏，国号商。六百载，至纣亡。\n周武王，始诛纣。八百载，最长久。\n周辙东，王纲坠。逞干戈，尚游说。\n始春秋，终战国。五霸强，七雄出。\n嬴秦氏，始兼并。传二世，楚汉争。\n高祖兴，汉业建。至孝平，王莽篡。\n光武兴，为东汉。四百年，终于献。\n魏蜀吴，争汉鼎。号三国，迄两晋。\n宋齐继，梁陈承。为南朝，都金陵。\n北元魏，分东西。宇文周，与高齐。\n迨至隋，一土宇。不再传，失统绪。\n唐高祖，起义师。除隋乱，创国基。\n二十传，三百载。梁灭之，国乃改。\n梁唐晋，及汉周。称五代，皆有由。\n炎宋兴，受周禅。十八传，南北混。\n辽与金，皆称帝。元灭金，绝宋世。\n舆图广，超前代。九十年，国祚废。\n太祖兴，国大明。号洪武，都金陵。\n迨成祖，迁燕京。十六世，至崇祯。\n权阉肆，寇如林。李闯出，神器焚。\n清世祖，膺景命。靖四方，克大定。\n由康雍，历乾嘉。民安富，治绩夸。\n道咸间，变乱起。始英法，扰都鄙。\n同光后，宣统弱。传九帝，满清殁。\n革命兴，废帝制。立宪法，建民国。\n古今史，全在兹。载治乱，知兴衰。\n史虽繁，读有次。史记一，汉书二。\n后汉三，国志四。兼证经，参通鉴。\n读史者，考实录。通古今，若亲目。\n口而诵，心而惟。朝于斯，夕于斯。\n昔仲尼，师项橐。古圣贤，尚勤学。\n赵中令，读鲁论。彼既仕，学且勤。\n披蒲编，削竹简。彼无书，且知勉。\n头悬梁，锥刺股。彼不教，自勤苦。\n如囊萤，如映雪。家虽贫，学不辍。\n如负薪，如挂角。身虽劳，犹苦卓。\n苏老泉，二十七。始发愤，读书籍。\n彼既老，犹悔迟。尔小生，宜早思。\n若梁灏，八十二。对大廷，魁多士。\n彼既成，众称异。尔小生，宜立志。\n莹八岁，能咏诗。泌七岁，能赋棋。\n彼颖悟，人称奇。尔幼学，当效之。\n蔡文姬，能辨琴。谢道韫，能咏吟。\n彼女子，且聪敏。尔男子，当自警。\n唐刘晏，方七岁。举神童，作正字。\n彼虽幼，身已仕。尔幼学，勉而致。有为者，亦若是。\n犬守夜，鸡司晨。苟不学，曷为人。\n蚕吐丝，蜂酿蜜。人不学，不如物。\n幼而学，壮而行。上致君，下泽民。\n扬名声，显父母。光于前，裕于后。\n人遗子，金满籝。我教子，惟一经。\n勤有功，戏无益。戒之哉，宜勉力。'}
+
   ]}
 },
 { id:'qianziwen', type:'蒙学',
@@ -1618,8 +1665,9 @@ const BOOKS_DATA = [
   dynasty:{'zh-CN':'南朝梁','en':'Liang Dynasty'},
   intro:{'zh-CN':'《千字文》由南朝梁周兴嗣编撰，用一千个不重复的汉字组成四言韵文，对仗工整、条理清晰，涵盖自然、历史、修身、治国，是古代蒙学经典。','en':'The Thousand Character Classic is a poem of exactly one thousand non-repeating characters, a classic primer of nature, history and self-cultivation.'},
   chapters:{'zh-CN':[
-    {n:1,t:'开篇（节选）',c:'天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。\n寒来暑往，秋收冬藏。闰余成岁，律吕调阳。\n云腾致雨，露结为霜。金生丽水，玉出昆冈。\n剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。\n海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。'},
-    {n:2,t:'修身治世（节选）',c:'始制文字，乃服衣裳。推位让国，有虞陶唐。\n吊民伐罪，周发殷汤。坐朝问道，垂拱平章。\n爱育黎首，臣伏戎羌。遐迩一体，率宾归王。\n鸣凤在竹，白驹食场。化被草木，赖及万方。'}
+    {n:1,t:'上篇 · 天地万物',c:'天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。\n寒来暑往，秋收冬藏。闰余成岁，律吕调阳。\n云腾致雨，露结为霜。金生丽水，玉出昆冈。\n剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。\n海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。\n始制文字，乃服衣裳。推位让国，有虞陶唐。\n吊民伐罪，周发殷汤。坐朝问道，垂拱平章。\n爱育黎首，臣伏戎羌。遐迩一体，率宾归王。\n鸣凤在竹，白驹食场。化被草木，赖及万方。\n盖此身发，四大五常。恭惟鞠养，岂敢毁伤。\n女慕贞洁，男效才良。知过必改，得能莫忘。\n罔谈彼短，靡恃己长。信使可覆，器欲难量。\n墨悲丝染，诗赞羔羊。景行维贤，克念作圣。\n德建名立，形端表正。空谷传声，虚堂习听。\n祸因恶积，福缘善庆。尺璧非宝，寸阴是竞。'},
+    {n:2,t:'下篇 · 修身治世',c:'资父事君，曰严与敬。孝当竭力，忠则尽命。\n临深履薄，夙兴温凊。似兰斯馨，如松之盛。\n川流不息，渊澄取映。容止若思，言辞安定。\n笃初诚美，慎终宜令。荣业所基，籍甚无竟。\n学优登仕，摄职从政。存以甘棠，去而益咏。\n乐殊贵贱，礼别尊卑。上和下睦，夫唱妇随。\n外受傅训，入奉母仪。诸姑伯叔，犹子比儿。\n孔怀兄弟，同气连枝。交友投分，切磨箴规。\n仁慈隐恻，造次弗离。节义廉退，颠沛匪亏。\n性静情逸，心动神疲。守真志满，逐物意移。\n坚持雅操，好爵自縻。都邑华夏，东西二京。\n背邙面洛，浮渭据泾。宫殿盘郁，楼观飞惊。\n图写禽兽，画彩仙灵。丙舍旁启，甲帐对楹。\n肆筵设席，鼓瑟吹笙。升阶纳陛，弁转疑星。\n右通广内，左达承明。既集坟典，亦聚群英。\n杜稿钟隶，漆书壁经。府罗将相，路侠槐卿。\n户封八县，家给千兵。高冠陪辇，驱毂振缨。\n世禄侈富，车驾肥轻。策功茂实，勒碑刻铭。\n磻溪伊尹，佐时阿衡。奄宅曲阜，微旦孰营。\n桓公匡合，济弱扶倾。绮回汉惠，说感武丁。\n俊乂密勿，多士寔宁。晋楚更霸，赵魏困横。\n假途灭虢，践土会盟。何遵约法，韩弊烦刑。\n起翦颇牧，用军最精。宣威沙漠，驰誉丹青。\n九州禹迹，百郡秦并。岳宗泰岱，禅主云亭。\n雁门紫塞，鸡田赤城。昆池碣石，巨野洞庭。\n旷远绵邈，岩岫杳冥。治本于农，务兹稼穑。\n俶载南亩，我艺黍稷。税熟贡新，劝赏黜陟。\n孟轲敦素，史鱼秉直。庶几中庸，劳谦谨敕。\n聆音察理，鉴貌辨色。贻厥嘉猷，勉其祗植。\n省躬讥诫，宠增抗极。殆辱近耻，林皋幸即。\n两疏见机，解组谁逼。索居闲处，沉默寂寥。\n求古寻论，散虑逍遥。欣奏累遣，戚谢欢招。\n渠荷的历，园莽抽条。枇杷晚翠，梧桐蚤凋。\n陈根委翳，落叶飘摇。游鹍独运，凌摩绛霄。\n耽读玩市，寓目囊箱。易輶攸畏，属耳垣墙。\n具膳餐饭，适口充肠。饱饫烹宰，饥厌糟糠。\n亲戚故旧，老少异粮。妾御绩纺，侍巾帷房。\n纨扇圆洁，银烛炜煌。昼眠夕寐，蓝笋象床。\n弦歌酒宴，接杯举觞。矫手顿足，悦豫且康。\n嫡后嗣续，祭祀烝尝。稽颡再拜，悚惧恐惶。\n笺牒简要，顾答审详。骸垢想浴，执热愿凉。\n驴骡犊特，骇跃超骧。诛斩贼盗，捕获叛亡。\n布射僚丸，嵇琴阮啸。恬笔伦纸，钧巧任钓。\n释纷利俗，并皆佳妙。毛施淑姿，工颦妍笑。\n年矢每催，曦晖朗曜。璇玑悬斡，晦魄环照。\n指薪修祜，永绥吉劭。矩步引领，俯仰廊庙。\n束带矜庄，徘徊瞻眺。孤陋寡闻，愚蒙等诮。\n谓语助者，焉哉乎也。'}
+
   ]}
 },
 { id:'baijiaxing', type:'蒙学',
@@ -1628,7 +1676,8 @@ const BOOKS_DATA = [
   dynasty:{'zh-CN':'北宋','en':'Northern Song'},
   intro:{'zh-CN':'《百家姓》是中国古代蒙学读物，按四字一句、押韵编排，收录约五百个常见姓氏。"赵钱孙李"居首，是因成书于北宋、赵为皇姓。','en':'The Hundred Family Surnames is a classic primer listing common Chinese surnames in rhymed four-character verses.'},
   chapters:{'zh-CN':[
-    {n:1,t:'百家姓（节选）',c:'赵钱孙李，周吴郑王。冯陈褚卫，蒋沈韩杨。\n朱秦尤许，何吕施张。孔曹严华，金魏陶姜。\n戚谢邹喻，柏水窦章。云苏潘葛，奚范彭郎。\n鲁韦昌马，苗凤花方。俞任袁柳，酆鲍史唐。\n费廉岑薛，雷贺倪汤。滕殷罗毕，郝邬安常。\n乐于时傅，皮卞齐康。伍余元卜，顾孟平黄。\n和穆萧尹，姚邵湛汪。祁毛禹狄，米贝明臧。\n计伏成戴，谈宋茅庞。熊纪舒屈，项祝董梁。'}
+    {n:1,t:'百家姓（全文）',c:'赵钱孙李，周吴郑王。冯陈褚卫，蒋沈韩杨。\n朱秦尤许，何吕施张。孔曹严华，金魏陶姜。\n戚谢邹喻，柏水窦章。云苏潘葛，奚范彭郎。\n鲁韦昌马，苗凤花方。俞任袁柳，酆鲍史唐。\n费廉岑薛，雷贺倪汤。滕殷罗毕，郝邬安常。\n乐于时傅，皮卞齐康。伍余元卜，顾孟平黄。\n和穆萧尹，姚邵湛汪。祁毛禹狄，米贝明臧。\n计伏成戴，谈宋茅庞。熊纪舒屈，项祝董梁。\n杜阮蓝闵，席季麻强。贾路娄危，江童颜郭。\n梅盛林刁，钟徐邱骆。高夏蔡田，樊胡凌霍。\n虞万支柯，昝管卢莫。经房裘缪，干解应宗。\n丁宣贲邓，郁单杭洪。包诸左石，崔吉钮龚。\n程嵇邢滑，裴陆荣翁。荀羊於惠，甄曲家封。\n芮羿储靳，汲邴糜松。井段富巫，乌焦巴弓。\n牧隗山谷，车侯宓蓬。全郗班仰，秋仲伊宫。\n宁仇栾暴，甘钭厉戎。祖武符刘，景詹束龙。\n叶幸司韶，郜黎蓟薄。印宿白怀，蒲邰从鄂。\n索咸籍赖，卓蔺屠蒙。池乔阴郁，胥能苍双。\n闻莘党翟，谭贡劳逄。姬申扶堵，冉宰郦雍。\n郤璩桑桂，濮牛寿通。边扈燕冀，郏浦尚农。\n温别庄晏，柴瞿阎充。慕连茹习，宦艾鱼容。\n向古易慎，戈廖庾终。暨居衡步，都耿满弘。\n匡国文寇，广禄阙东。欧殳沃利，蔚越夔隆。\n师巩厍聂，晁勾敖融。冷訾辛阚，那简饶空。\n曾毋沙乜，养鞠须丰。巢关蒯相，查后荆红。\n游竺权逯，盖益桓公。万俟司马，上官欧阳。\n夏侯诸葛，闻人东方。赫连皇甫，尉迟公羊。\n澹台公冶，宗政濮阳。淳于单于，太叔申屠。\n公孙仲孙，轩辕令狐。钟离宇文，长孙慕容。\n鲜于闾丘，司徒司空。亓官司寇，仉督子车。\n颛孙端木，巫马公西。漆雕乐正，壤驷公良。\n拓跋夹谷，宰父谷梁。晋楚闫法，汝鄢涂钦。\n段干百里，东郭南门。呼延归海，羊舌微生。\n岳帅缑亢，况郈有琴。梁丘左丘，东门西门。\n商牟佘佴，伯赏南宫。墨哈谯笪，年爱阳佟。\n第五言福，百家姓终。'}
+
   ]}
 },
 { id:'zhouyi', type:'哲学',
@@ -1639,7 +1688,13 @@ const BOOKS_DATA = [
   chapters:{'zh-CN':[
     {n:1,t:'乾卦',c:'乾：元，亨，利，贞。\n《象》曰：天行健，君子以自强不息。'},
     {n:2,t:'坤卦',c:'坤：元，亨，利牝马之贞。\n《象》曰：地势坤，君子以厚德载物。'},
-    {n:3,t:'系辞上传（节选）',c:'一阴一阳之谓道，继之者善也，成之者性也。\n易有太极，是生两仪，两仪生四象，四象生八卦。'}
+    {n:3,t:'屯卦',c:'屯：元，亨，利，贞。勿用有攸往，利建侯。'},
+    {n:4,t:'蒙卦',c:'蒙：亨。匪我求童蒙，童蒙求我。'},
+    {n:5,t:'泰卦',c:'泰：小往大来，吉，亨。\n《象》曰：天地交，泰。'},
+    {n:6,t:'谦卦',c:'谦：亨，君子有终。\n《象》曰：地中有山，谦。君子以裒多益寡，称物平施。'},
+    {n:7,t:'系辞上传（节选）',c:'一阴一阳之谓道，继之者善也，成之者性也。\n易有太极，是生两仪，两仪生四象，四象生八卦。'},
+    {n:8,t:'系辞下传（节选）',c:'天地之大德曰生，圣人之大宝曰位。\n易，穷则变，变则通，通则久。'}
+
   ]}
 },
 { id:'sanshiliuji', type:'军事',
@@ -1663,8 +1718,13 @@ const BOOKS_DATA = [
   intro:{'zh-CN':'《颜氏家训》是"古今家训之祖"，颜之推历仕四朝，以自身经历告诫子孙读书、修身、齐家之道，内容平实恳切，影响深远。','en':'The Family Instructions of Master Yan is the earliest family precept classic, offering plain and earnest guidance on learning and self-cultivation.'},
   chapters:{'zh-CN':[
     {n:1,t:'教子（节选）',c:'上智不教而成，下愚虽教无益，中庸之人，不教不知也。'},
-    {n:2,t:'勉学（节选）',c:'积财千万，不如薄技在身。\n夫所以读书学问，本欲开心明目，利于行耳。'},
-    {n:3,t:'慕贤（节选）',c:'与善人居，如入芝兰之室，久而自芳也；与恶人居，如入鲍鱼之肆，久而自臭也。'}
+    {n:2,t:'兄弟（节选）',c:'兄弟者，分形连气之人也。方其幼也，父母左提右挈，前襟后裾，食则同案，衣则传服，学则连业，游则共方。'},
+    {n:3,t:'治家（节选）',c:'夫风化者，自上而行于下者也，自先而施于后者也。是以父不慈则子不孝，兄不友则弟不恭，夫不义则妇不顺矣。'},
+    {n:4,t:'慕贤（节选）',c:'与善人居，如入芝兰之室，久而自芳也；与恶人居，如入鲍鱼之肆，久而自臭也。'},
+    {n:5,t:'勉学（节选）',c:'积财千万，不如薄技在身。\n夫所以读书学问，本欲开心明目，利于行耳。'},
+    {n:6,t:'文章（节选）',c:'文章当以理致为心肾，气调为筋骨，事义为皮肤，华丽为冠冕。'},
+    {n:7,t:'名实（节选）',c:'名之与实，犹形之与影也。德艺周厚，则名必善焉；容色姝丽，则影必美焉。'}
+
   ]}
 },
 { id:'daodejing-boshu', type:'哲学',
@@ -1674,7 +1734,12 @@ const BOOKS_DATA = [
   intro:{'zh-CN':'1973年长沙马王堆汉墓出土的帛书《老子》，分甲、乙两本，是现存最早的《道德经》抄本之一。与传世本最大的不同在于避汉文帝刘恒讳，"常"字作"恒"，句式亦略有差异，更接近原始文本。','en':'The silk manuscripts of Laozi unearthed at Mawangdui in 1973 are among the earliest extant copies, differing from the received text in wording.'},
   chapters:{'zh-CN':[
     {n:1,t:'道经·第一章（帛书甲本）',c:'道，可道也，非恒道也。名，可名也，非恒名也。无名，万物之始也；有名，万物之母也。故恒无欲也，以观其妙；恒有欲也，以观其所噭。两者同出，异名同谓。玄之又玄，众妙之门。'},
-    {n:2,t:'德经·开篇（帛书本）',c:'上德不德，是以有德；下德不失德，是以无德。上德无为而无以为也；上仁为之而无以为也；上义为之而有以为也。'}
+    {n:2,t:'道经·第二章（帛书本）',c:'天下皆知美之为美，恶已；皆知善，斯不善矣。有无之相生也，难易之相成也，长短之相刑也，高下之相盈也，音声之相和也，先后之相随，恒也。是以圣人居无为之事，行不言之教。'},
+    {n:3,t:'道经·第二十五章（帛书本）',c:'有物混成，先天地生。寂呵寥呵，独立而不改，可以为天地母。吾未知其名，字之曰道，吾强为之名曰大。大曰逝，逝曰远，远曰反。道大，天大，地大，王亦大。国中有四大，而王居一焉。人法地，地法天，天法道，道法自然。'},
+    {n:4,t:'道经·第四十章（帛书本）',c:'反也者，道之动也；弱也者，道之用也。天下之物生于有，有生于无。'},
+    {n:5,t:'道经·第四十二章（帛书本）',c:'道生一，一生二，二生三，三生万物。万物负阴而抱阳，中气以为和。'},
+    {n:6,t:'德经·开篇（帛书本）',c:'上德不德，是以有德；下德不失德，是以无德。上德无为而无以为也；上仁为之而无以为也；上义为之而有以为也。'}
+
   ]}
 }
 ,
@@ -2684,14 +2749,14 @@ function renderShopGrid(prods){var g=document.getElementById("shopGrid");if(!g)r
 var _classicsFilter='all',_classicsSearch='';
 function renderClassics(){var g=document.getElementById("classicsGrid");if(!g)return;
   var fb=document.getElementById("classicsFilter");
-  if(fb&&!fb.children.length){var types=["all"].concat([...new Set(BOOKS_DATA.map(function(b){return b.type;}))]);
+  if(fb&&!fb.children.length){var prio=["儒释道","儒家","道家","佛家","哲学","蒙学","家训","军事","史书","易学","医书","小说","文学","兵书","科技","艺术","笔记"];var types=["all"].concat([...new Set(BOOKS_DATA.map(function(b){return b.type;}))].sort(function(a,b){var ia=prio.indexOf(a),ib=prio.indexOf(b);if(ia===-1)ia=99;if(ib===-1)ib=99;return ia-ib;}));
     fb.innerHTML=types.map(function(t){return "<button"+(t===_classicsFilter?" class=\"active\"":"")+" onclick=\"setClassicsFilter('"+t+"')\">"+(t==="all"?"全部":t)+"</button>";}).join("");}
   var filtered=BOOKS_DATA.filter(function(b){
     if(_classicsFilter!=="all"&&b.type!==_classicsFilter)return false;
     if(_classicsSearch){var q=_classicsSearch.toLowerCase();var n=(b.name[_lang]||b.name["zh-CN"]).toLowerCase();var a=(b.author[_lang]||b.author["zh-CN"]).toLowerCase();if(n.indexOf(q)===-1&&a.indexOf(q)===-1)return false;}
     return true;
   });
-  g.innerHTML=filtered.map(function(b){var n=b.name[_lang]||b.name["zh-CN"];var a=b.author[_lang]||b.author["zh-CN"];var d=b.dynasty[_lang]||b.dynasty["zh-CN"];var it=(b.intro[_lang]||b.intro["zh-CN"]).substring(0,70)+"...";var owned=_user&&(_user.ownedBooks||[]).indexOf(b.id)!==-1;return "<div class=\"book-card\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?t("freeAccess"):"\uD83D\uDD12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\"><span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div></div>";}).join("");
+  g.innerHTML=filtered.map(function(b){var n=b.name[_lang]||b.name["zh-CN"];var a=b.author[_lang]||b.author["zh-CN"];var d=b.dynasty[_lang]||b.dynasty["zh-CN"];var it=(b.intro[_lang]||b.intro["zh-CN"]).substring(0,45)+"…";var owned=_user&&(_user.ownedBooks||[]).indexOf(b.id)!==-1;return "<div class=\"book-card\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?t("freeAccess"):"\uD83D\uDD12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\">"+badge+"<span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div></div>";}).join("");
 }
 function setClassicsFilter(t){_classicsFilter=t;document.querySelectorAll("#classicsFilter button").forEach(function(b){b.classList.toggle("active",b.textContent===t||(t==="all"&&b.textContent.indexOf("全部")!==-1));});renderClassics();}
 function filterClassics(){var inp=document.getElementById("classicsSearch");_classicsSearch=inp?inp.value:"";renderClassics();}
@@ -2959,43 +3024,34 @@ function makeBookCard(b){
   var n = b.name[_lang]||b.name["zh-CN"]||"";
   var a = b.author[_lang]||b.author["zh-CN"]||"";
   var d = b.dynasty[_lang]||b.dynasty["zh-CN"]||"";
-  var it = (b.intro[_lang]||b.intro["zh-CN"]||"").substring(0,70)+"...";
+  var it = (b.intro[_lang]||b.intro["zh-CN"]||"").substring(0,45)+"…";
   var owned = _user&&(_user.ownedBooks||[]).indexOf(b.id)>=0;
   var school = getSchool(b);
-  var badge = school ? "<span class=\"school-badge\" style=\"position:absolute;bottom:4px;right:4px;background:#8B0000;color:#f5e8d0;font-size:10px;line-height:1.3;padding:1px 5px;border-radius:3px\">"+school+"</span>" : "";
-  return "<div class=\"book-card\" style=\"position:relative\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?"\u2705":"\ud83d\udd12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\"><span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div>"+badge+progressBarHTML(b)+"</div>";
+  var schoolCls = school==="儒"?"school-ru":(school==="道"?"school-dao":(school==="佛"?"school-fo":""));
+  var badge = school ? '<span class="school-badge '+schoolCls+'">'+school+'</span>' : "";
+  return "<div class=\"book-card\" style=\"position:relative\" onclick=\"openReader('"+b.id+"')\"><div class=\"bc-lock "+(owned?"free":"")+"\">"+(owned?"\u2705":"\ud83d\udd12")+"</div><h4>"+n+"</h4><div class=\"bc-meta\"><span>"+t("bookAuthor")+": "+a+"</span><span>"+t("bookDynasty")+": "+d+"</span></div><p>"+it+"</p><div class=\"bc-tags\">"+badge+"<span class=\"tag\">"+b.type+"</span>"+(b.totalChapters>0?"<span class=\"tag\">"+b.totalChapters+" "+t("bookChapters")+"</span>":"<span class=\"tag\">"+t("introOnly")+"</span>")+"</div>"+progressBarHTML(b)+"</div>";
 }
 
 function renderClassics(){
   var g=document.getElementById("classicsGrid");if(!g)return;
   var fb=document.getElementById("classicsFilter");
   if(fb&&!fb.children.length){
-    var types=["all"].concat([...new Set(BOOKS_DATA.map(function(b){return b.type;}))]).filter(function(t){return t&&t!=="undefined"&&t!=="null";});
-    if(types.indexOf("四书五经")===-1) types.splice(1,0,"四书五经");
-    fb.innerHTML=types.map(function(t){return "<button"+(t===_classicsFilter?" class=\"active\"":"")+" onclick=\"setClassicsFilter('"+t+"')\">"+(t==="all"?"全部":t)+"</button>";}).join("");
+    var rawTypes=[...new Set(BOOKS_DATA.map(function(b){return b.type;}))].filter(function(t){return t&&t!=="儒释道"&&t!=="儒家"&&t!=="佛家"&&t!=="道家";});
+    var types=["all","儒家","佛家","道家","四书五经"].concat(rawTypes);
+    types=[...new Set(types)];
+    fb.innerHTML=types.map(function(t){var act=t===_classicsFilter?' class="active"':'';return '<button class="'+act+'" onclick="setClassicsFilter(\''+t+'\')">'+(t==='all'?'全部':t)+'</button>';}).join('');
   }
-  var ru=[],shi=[],dao=[],all=[],sub=_classicsSubFilter||"";
-  if(_classicsFilter==="四书五经") all=BOOKS_DATA.filter(function(b){return SISHU_WUJING_BOOKS.indexOf(b.name["zh-CN"])>=0;});
-  else if(_classicsFilter==="儒释道"){
-    BOOKS_DATA.filter(function(b){return b.type==="儒释道"||getSchool(b);}).forEach(function(b){var s=getSchool(b);if(s==="儒")ru.push(b);else if(s==="佛")shi.push(b);else if(s==="道")dao.push(b);});
-    if(sub==="儒") all=ru; else if(sub==="释") all=shi; else if(sub==="道") all=dao; else all=ru.concat(shi).concat(dao);
-  }else if(_classicsFilter==="all") all=BOOKS_DATA.slice();
+  var all=[];
+  if(_classicsFilter==="儒家") all=BOOKS_DATA.filter(function(b){return getSchool(b)==="儒"||b.type==="儒家";});
+  else if(_classicsFilter==="佛家") all=BOOKS_DATA.filter(function(b){return getSchool(b)==="佛";});
+  else if(_classicsFilter==="道家") all=BOOKS_DATA.filter(function(b){return getSchool(b)==="道";});
+  else if(_classicsFilter==="四书五经") all=BOOKS_DATA.filter(function(b){return SISHU_WUJING_BOOKS.indexOf(b.name["zh-CN"])>=0;});
+  else if(_classicsFilter==="all") all=BOOKS_DATA.slice();
   else all=BOOKS_DATA.filter(function(b){return b.type===_classicsFilter;});
   if(_classicsSearch){var q=_classicsSearch.toLowerCase();all=all.filter(function(b){return(b.name[_lang]||b.name["zh-CN"]||"").toLowerCase().indexOf(q)>=0||(b.author[_lang]||b.author["zh-CN"]||"").toLowerCase().indexOf(q)>=0;});}
-  if(_classicsFilter==="儒释道"){
-    var h='<div style="display:flex;gap:0;border:1px solid #d4c9b8;border-radius:3px;overflow:hidden;margin-bottom:.5rem">';
-    [["",!sub?"active":""],["儒",sub==="儒"?"active":""],["释",sub==="释"?"active":""],["道",sub==="道"?"active":""]].forEach(function(t){h+='<span style="padding:.1rem .5rem;cursor:pointer;font-size:.78rem;border-right:1px solid #d4c9b8'+(!t[1]?"":";background:#8B0000;color:#f5e8d0")+'" onclick="_classicsSubFilter=\"'+t[0]+'\";renderClassics()">'+(t[0]||"全部")+"</span>";});
-    h+="</div>";
-    if(sub){h+=all.map(function(b){return makeBookCard(b);}).join("");}else{
-      if(ru.length) h+='<h4 style="font-size:.82rem;margin:.4rem 0 .2rem;color:#8B0000">儒家</h4><div class="book-grid">'+ru.map(function(b){return makeBookCard(b);}).join("")+"</div>";
-      if(shi.length) h+='<h4 style="font-size:.82rem;margin:.4rem 0 .2rem;color:#8B0000">佛家</h4><div class="book-grid">'+shi.map(function(b){return makeBookCard(b);}).join("")+"</div>";
-      if(dao.length) h+='<h4 style="font-size:.82rem;margin:.4rem 0 .2rem;color:#8B0000">道家</h4><div class="book-grid">'+dao.map(function(b){return makeBookCard(b);}).join("")+"</div>";
-    }
-    g.innerHTML=h||"";
-  }else{
-    g.innerHTML=all.map(function(b){return makeBookCard(b);}).join("");
-  }
+  g.innerHTML=all.map(function(b){return makeBookCard(b);}).join("");
 }
+
 function setClassicsFilter(t){_classicsFilter=t;_classicsSubFilter="";document.querySelectorAll("#classicsFilter button").forEach(function(b){b.classList.toggle("active",b.textContent===t||t==="all"&&b.textContent.indexOf("全部")>=0||t==="四书五经"&&b.textContent==="四书五经");});renderClassics();}
 function filterClassics(){_classicsSearch=(document.getElementById("classicsSearch")||{}).value||"";renderClassics();}
 
@@ -3029,123 +3085,134 @@ var SAGE_TEST=[
 {id:'kongzi',name:'孔子',title:'至圣先师',emoji:'📚',desc:'你崇尚仁义礼智、积极入世，以修身齐家治国平天下为己任，温良而坚韧。',quote:'己所不欲，勿施于人。'},
 {id:'zhuangzi',name:'庄子',title:'南华真人',emoji:'🦋',desc:'你逍遥自在、超然物外，不被功名利禄所累，追求精神的绝对自由。',quote:'天地与我并生，万物与我为一。'},
 {id:'mozi',name:'墨子',title:'墨家巨子',emoji:'🛠',desc:'你主张兼爱非攻、身体力行，重实践、讲实效，有强烈的侠义与担当。',quote:'摩顶放踵，利天下为之。'},
-{id:'shijia',name:'释迦牟尼',title:'佛陀',emoji:'🪷',desc:'你慈悲为怀、看破放下，内心宁静而有力量，追求智慧与觉悟。',quote:'一切有为法，如梦幻泡影。'},
+{id:'buddha',name:'释迦牟尼',title:'佛陀',emoji:'🪷',desc:'你慈悲为怀、看破放下，内心宁静而有力量，追求智慧与觉悟。',quote:'一切有为法，如梦幻泡影。'},
 {id:'huineng',name:'六祖慧能',title:'禅宗六祖',emoji:'🧘',desc:'你明心见性、直指本心，不被外物所扰，于平凡中见真如。',quote:'本来无一物，何处惹尘埃。'},
 {id:'wukong',name:'孙悟空',title:'斗战胜佛',emoji:'🐒',desc:'你桀骜不驯、敢作敢当，天不怕地不怕，骨子里有一股不服输的劲。',quote:'皇帝轮流做，明年到我家。'},
 {id:'simaqian',name:'司马迁',title:'太史公',emoji:'📜',desc:'你忍辱负重、求真务实，为了心中的理想可以承受常人难忍的苦难。',quote:'人固有一死，或重于泰山，或轻于鸿毛。'},
 {id:'caocao',name:'曹操',title:'魏武帝',emoji:'⚔️',desc:'你雄才大略、杀伐果断，善于审时度势，在复杂局面中总能找到破局之道。',quote:'宁教我负天下人，休教天下人负我。'},
 {id:'liubang',name:'刘邦',title:'汉高祖',emoji:'🐉',desc:'你知人善任、能屈能伸，看似平凡却有大智慧，懂得借众人之力成就大事。',quote:'夫运筹帷幄之中，决胜千里之外，吾不如子房。'},
 {id:'xiangyu',name:'项羽',title:'西楚霸王',emoji:'🐴',desc:'你力拔山兮、重情重义，宁折不弯，有盖世的英雄气概。',quote:'力拔山兮气盖世，时不利兮骓不逝。'},
-{id:'maozedong',name:'毛泽东',title:'人民领袖',emoji:'📕',desc:'你胸怀天下、豪情万丈，有改天换地的气魄与坚定如铁的意志。',quote:'数风流人物，还看今朝。'},
-{id:'hanwudi',name:'汉武帝',title:'汉武大帝',emoji:'🏹',desc:'你雄才大略、开疆拓土，敢于打破常规、建功立业。',quote:'犯强汉者，虽远必诛。'},
-{id:'qinshihuang',name:'秦始皇',title:'千古一帝',emoji:'🐲',desc:'你志在统一、功过千秋，有吞并八荒、建立不世功业的雄心。',quote:'朕为始皇帝，后世以计数，二世三世至于万世。'},
+{id:'mao',name:'毛泽东',title:'人民领袖',emoji:'📕',desc:'你胸怀天下、豪情万丈，有改天换地的气魄与坚定如铁的意志。',quote:'数风流人物，还看今朝。'},
+{id:'hanwu',name:'汉武帝',title:'汉武大帝',emoji:'🏹',desc:'你雄才大略、开疆拓土，敢于打破常规、建功立业。',quote:'犯强汉者，虽远必诛。'},
+{id:'qinshi',name:'秦始皇',title:'千古一帝',emoji:'🐲',desc:'你志在统一、功过千秋，有吞并八荒、建立不世功业的雄心。',quote:'朕为始皇帝，后世以计数，二世三世至于万世。'},
 {id:'wangyangming',name:'王阳明',title:'心学宗师',emoji:'🧠',desc:'你知行合一、致良知，既重内省又重实践，于困厄中悟道。',quote:'破山中贼易，破心中贼难。'},
 {id:'libai',name:'李白',title:'诗仙',emoji:'🍶',desc:'你豪放飘逸、潇洒不羁，才华横溢又不愿被世俗束缚。',quote:'天生我材必有用，千金散尽还复来。'},
 {id:'mazu',name:'妈祖',title:'海上女神',emoji:'⛵',desc:'你慈悲济世、守护众生，温柔而坚定，是他人心中的依靠。',quote:'护国庇民，慈航普度。'},
 {id:'zhugeliang',name:'诸葛亮',title:'卧龙先生',emoji:'🪶',desc:'你鞠躬尽瘁、智谋无双，思维缜密、谋定后动，凡事力求周全。',quote:'鞠躬尽瘁，死而后已。'},
-{id:'sushi',name:'苏轼',title:'东坡居士',emoji:'🎋',desc:'你旷达乐观、随遇而安，在逆境中依然能活得有滋有味。',quote:'一蓑烟雨任平生。'}
+{id:'sushi',name:'苏轼',title:'东坡居士',emoji:'🎋',desc:'你旷达乐观、随遇而安，在逆境中依然能活得有滋有味。',quote:'一蓑烟雨任平生。'},
+{id:'quyuan',name:'屈原',title:'楚辞之祖',emoji:'🪷',desc:'你理想高洁、忠贞不渝，宁可保持清白也不随波逐流，心中始终怀着一份对理想与故土的深沉眷恋。',quote:'路漫漫其修远兮，吾将上下而求索。'},
+{id:'dufu',name:'杜甫',title:'诗圣',emoji:'🏔️',desc:'你沉郁而深挚，心怀苍生疾苦，在现实的磨砺中依然保持一份悲悯与担当。',quote:'安得广厦千万间，大庇天下寒士俱欢颜。'},
+{id:'yuefei',name:'岳飞',title:'岳武穆',emoji:'🏇',desc:'你忠勇刚毅、精忠报国，为了心中的家国大义不惜肝脑涂地，气壮山河。',quote:'三十功名尘与土，八千里路云和月。'},
+{id:'wentianxiang',name:'文天祥',title:'文山先生',emoji:'🕯️',desc:'你一身正气、宁死不屈，在生死关头依然坚守气节，视死如归。',quote:'人生自古谁无死，留取丹心照汗青。'},
+{id:'zhenghe',name:'郑和',title:'航海家',emoji:'⛵',desc:'你胸怀广阔、敢闯敢为，志在远方，以海纳百川的气魄开拓前所未有的壮举。',quote:'云帆高张，昼夜星驰。'},
+{id:'lishizhen',name:'李时珍',title:'药圣',emoji:'🌿',desc:'你踏实勤勉、求真务实，为了济世救人甘愿数十年如一日地跋山涉水、亲尝百草。',quote:'格物穷理，知行合一。'},
+{id:'sunzi',name:'孙子',title:'兵圣',emoji:'⚔️',desc:'你深谋远虑、审时度势，讲究谋定而后动，善用智慧而非蛮力去赢得全局。',quote:'知己知彼，百战不殆。'},
+{id:'guiguzi',name:'鬼谷子',title:'鬼谷先生',emoji:'🧿',desc:'你洞悉人心、长于权变，深谙捭阖之道，能于无声处见先机，翻手为云覆手为雨。',quote:'口者，心之门户也。'},
+{id:'wangxizhi',name:'王羲之',title:'书圣',emoji:'🖌️',desc:'你风雅洒脱、精益求精，在艺术的世界里追求极致，将性情与才情融入笔墨之间。',quote:'仰观宇宙之大，俯察品类之盛。'},
+{id:'guanyu',name:'关羽',title:'关圣帝君',emoji:'🔴',desc:'你重情重义、义薄云天，武艺超群又忠肝义胆，把“忠义”二字看得比性命更重。',quote:'玉可碎而不可改其白，竹可焚而不可毁其节。'}
 ];
+
 var SAGE_QUESTIONS=[
 {q:'面对困难时，你的第一反应是？',o:[
- {t:'迎难而上，绝不退缩',v:['xiangyu','caocao','maozedong']},
+ {t:'迎难而上，绝不退缩',v:['xiangyu','caocao','mao','yuefei']},
  {t:'以柔克刚，绕道而行',v:['laozi','wangyangming','zhugeliang']},
- {t:'静观其变，等待时机',v:['zhuangzi','shijia','huineng']},
+ {t:'静观其变，等待时机',v:['zhuangzi','buddha','huineng']},
  {t:'借众人之力化解',v:['liubang','zhugeliang','mozi']}]},
 {q:'你更看重什么？',o:[
- {t:'仁义与道德',v:['kongzi','mozi','mazu']},
+ {t:'仁义与道德',v:['kongzi','mozi','mazu','guanyu','dufu']},
  {t:'自由与逍遥',v:['zhuangzi','libai','wukong']},
- {t:'功业与成就',v:['caocao','hanwudi','qinshihuang']},
- {t:'智慧与觉悟',v:['shijia','huineng','laozi']}]},
+ {t:'功业与成就',v:['caocao','hanwu','qinshi']},
+ {t:'智慧与觉悟',v:['buddha','huineng','laozi']}]},
 {q:'在团队中，你更愿意扮演什么角色？',o:[
- {t:'运筹帷幄的军师',v:['zhugeliang','simaqian','wangyangming']},
- {t:'冲锋陷阵的猛将',v:['xiangyu','wukong','caocao']},
- {t:'统筹全局的领袖',v:['liubang','maozedong','qinshihuang']},
- {t:'默默付出的守护者',v:['mazu','mozi','sushi']}]},
+ {t:'运筹帷幄的军师',v:['zhugeliang','simaqian','wangyangming','sunzi','guiguzi']},
+ {t:'冲锋陷阵的猛将',v:['xiangyu','wukong','caocao','guanyu']},
+ {t:'统筹全局的领袖',v:['liubang','mao','qinshi','zhenghe']},
+ {t:'默默付出的守护者',v:['mazu','mozi','sushi','lishizhen']}]},
 {q:'遇到不公平的事，你会？',o:[
  {t:'拍案而起，据理力争',v:['xiangyu','wukong','kongzi']},
- {t:'忍辱负重，徐图后计',v:['simaqian','liubang','wangyangming']},
- {t:'看淡放下，不为所动',v:['zhuangzi','shijia','huineng']},
+ {t:'忍辱负重，徐图后计',v:['simaqian','liubang','wangyangming','quyuan']},
+ {t:'看淡放下，不为所动',v:['zhuangzi','buddha','huineng']},
  {t:'以德报怨，感化对方',v:['mazu','mozi','sushi']}]},
 {q:'你理想中的生活是？',o:[
- {t:'建功立业，青史留名',v:['caocao','qinshihuang','maozedong']},
+ {t:'建功立业，青史留名',v:['caocao','qinshi','mao','zhenghe']},
  {t:'归隐田园，逍遥自在',v:['zhuangzi','sushi','laozi']},
  {t:'诗酒趁年华',v:['libai','sushi','wukong']},
- {t:'慈悲济世，普度众生',v:['shijia','mazu','mozi']}]},
+ {t:'慈悲济世，普度众生',v:['buddha','mazu','mozi','lishizhen']}]},
 {q:'做决定时，你更相信？',o:[
  {t:'内心的直觉',v:['huineng','laozi','libai']},
- {t:'周密的谋划',v:['zhugeliang','simaqian','hanwudi']},
+ {t:'周密的谋划',v:['zhugeliang','simaqian','hanwu','sunzi']},
  {t:'众人的意见',v:['liubang','mazu','mozi']},
- {t:'雷霆手段',v:['xiangyu','caocao','qinshihuang']}]},
+ {t:'雷霆手段',v:['xiangyu','caocao','qinshi']}]},
 {q:'你最不能忍受的是什么？',o:[
  {t:'束缚与不自由',v:['wukong','zhuangzi','libai']},
- {t:'不仁不义之事',v:['kongzi','mozi','mazu']},
- {t:'平庸与碌碌无为',v:['caocao','maozedong','hanwudi']},
- {t:'心为外物所累',v:['huineng','shijia','laozi']}]},
+ {t:'不仁不义之事',v:['kongzi','mozi','mazu','guanyu','wentianxiang']},
+ {t:'平庸与碌碌无为',v:['caocao','mao','hanwu']},
+ {t:'心为外物所累',v:['huineng','buddha','laozi']}]},
 {q:'朋友眼中的你更接近？',o:[
- {t:'豪爽仗义',v:['xiangyu','wukong','libai']},
+ {t:'豪爽仗义',v:['xiangyu','wukong','libai','guanyu']},
  {t:'沉稳可靠',v:['zhugeliang','simaqian','mazu']},
- {t:'才华横溢',v:['libai','sushi','kongzi']},
- {t:'深不可测',v:['caocao','liubang','qinshihuang']}]},
+ {t:'才华横溢',v:['libai','sushi','kongzi','wangxizhi']},
+ {t:'深不可测',v:['caocao','liubang','qinshi','guiguzi']}]},
 {q:'你如何对待失败？',o:[
- {t:'越挫越勇，卷土重来',v:['xiangyu','maozedong','hanwudi']},
+ {t:'越挫越勇，卷土重来',v:['xiangyu','mao','hanwu']},
  {t:'反思复盘，从头再来',v:['zhugeliang','simaqian','wangyangming']},
  {t:'一笑而过，云淡风轻',v:['sushi','zhuangzi','libai']},
- {t:'随缘放下，不强求',v:['shijia','huineng','laozi']}]},
+ {t:'随缘放下，不强求',v:['buddha','huineng','laozi']}]},
 {q:'你最大的优点是什么？',o:[
- {t:'坚忍不拔',v:['simaqian','maozedong','mazu']},
- {t:'智慧超群',v:['zhugeliang','wangyangming','laozi']},
- {t:'知人善任',v:['liubang','caocao','hanwudi']},
- {t:'真诚善良',v:['kongzi','mozi','mazu']}]},
+ {t:'坚忍不拔',v:['simaqian','mao','mazu']},
+ {t:'智慧超群',v:['zhugeliang','wangyangming','laozi','guiguzi','sunzi']},
+ {t:'知人善任',v:['liubang','caocao','hanwu']},
+ {t:'真诚善良',v:['kongzi','mozi','mazu','dufu']}]},
 {q:'遇到强敌时，你会？',o:[
- {t:'正面硬刚',v:['xiangyu','wukong','caocao']},
- {t:'避其锋芒，攻其不备',v:['zhugeliang','liubang','simaqian']},
+ {t:'正面硬刚',v:['xiangyu','wukong','caocao','guanyu']},
+ {t:'避其锋芒，攻其不备',v:['zhugeliang','liubang','simaqian','sunzi']},
  {t:'以德服人，化敌为友',v:['kongzi','mazu','mozi']},
  {t:'静待其变，以逸待劳',v:['laozi','zhuangzi','huineng']}]},
 {q:'你更倾向于哪种处世态度？',o:[
- {t:'积极入世，有所作为',v:['kongzi','maozedong','hanwudi']},
- {t:'超然出世，淡泊名利',v:['zhuangzi','shijia','huineng']},
+ {t:'积极入世，有所作为',v:['kongzi','mao','hanwu','yuefei','zhenghe']},
+ {t:'超然出世，淡泊名利',v:['zhuangzi','buddha','huineng']},
  {t:'豪放不羁，率性而为',v:['libai','wukong','xiangyu']},
- {t:'审时度势，顺势而为',v:['laozi','liubang','caocao']}]},
+ {t:'审时度势，顺势而为',v:['laozi','liubang','caocao','guiguzi']}]},
 {q:'你心中的英雄是？',o:[
- {t:'力挽狂澜的霸主',v:['xiangyu','caocao','qinshihuang']},
- {t:'鞠躬尽瘁的忠臣',v:['zhugeliang','simaqian','kongzi']},
- {t:'济世救人的圣者',v:['shijia','mazu','mozi']},
+ {t:'力挽狂澜的霸主',v:['xiangyu','caocao','qinshi']},
+ {t:'鞠躬尽瘁的忠臣',v:['zhugeliang','simaqian','kongzi','yuefei','wentianxiang']},
+ {t:'济世救人的圣者',v:['buddha','mazu','mozi','lishizhen']},
  {t:'笑傲江湖的侠客',v:['wukong','libai','sushi']}]},
 {q:'闲暇时，你喜欢？',o:[
- {t:'读书习字，修身养性',v:['kongzi','wangyangming','simaqian']},
+ {t:'读书习字，修身养性',v:['kongzi','wangyangming','simaqian','wangxizhi']},
  {t:'游山玩水，亲近自然',v:['zhuangzi','libai','sushi']},
- {t:'静坐冥想，观照内心',v:['huineng','shijia','laozi']},
- {t:'指点江山，激扬文字',v:['maozedong','caocao','hanwudi']}]},
+ {t:'静坐冥想，观照内心',v:['huineng','buddha','laozi']},
+ {t:'指点江山，激扬文字',v:['mao','caocao','hanwu']}]},
 {q:'你如何看待"规矩"？',o:[
  {t:'没有规矩不成方圆',v:['kongzi','zhugeliang','mozi']},
  {t:'规矩是死的，人是活的',v:['liubang','caocao','wukong']},
  {t:'大道无形，顺其自然',v:['laozi','zhuangzi','huineng']},
- {t:'我命由我不由天',v:['xiangyu','maozedong','libai']}]},
+ {t:'我命由我不由天',v:['xiangyu','mao','libai']}]},
 {q:'你最想拥有哪种能力？',o:[
- {t:'运筹帷幄的谋略',v:['zhugeliang','caocao','liubang']},
- {t:'万夫莫敌的勇武',v:['xiangyu','wukong','hanwudi']},
- {t:'洞察世事的智慧',v:['laozi','shijia','wangyangming']},
- {t:'妙笔生花的才华',v:['libai','sushi','simaqian']}]},
+ {t:'运筹帷幄的谋略',v:['zhugeliang','caocao','liubang','guiguzi','sunzi']},
+ {t:'万夫莫敌的勇武',v:['xiangyu','wukong','hanwu','guanyu']},
+ {t:'洞察世事的智慧',v:['laozi','buddha','wangyangming']},
+ {t:'妙笔生花的才华',v:['libai','sushi','simaqian','wangxizhi']}]},
 {q:'面对诱惑，你会？',o:[
- {t:'坚守原则，不为所动',v:['kongzi','mazu','mozi']},
+ {t:'坚守原则，不为所动',v:['kongzi','mazu','mozi','wentianxiang','quyuan']},
  {t:'权衡利弊，取之有道',v:['caocao','liubang','zhugeliang']},
  {t:'率性而为，及时行乐',v:['libai','wukong','xiangyu']},
- {t:'看破放下，无欲则刚',v:['shijia','huineng','zhuangzi']}]},
+ {t:'看破放下，无欲则刚',v:['buddha','huineng','zhuangzi']}]},
 {q:'你更认同哪种人生信条？',o:[
- {t:'天行健，君子以自强不息',v:['kongzi','maozedong','simaqian']},
- {t:'地势坤，君子以厚德载物',v:['mazu','mozi','sushi']},
- {t:'道法自然，无为而无不为',v:['laozi','zhuangzi','shijia']},
- {t:'知行合一，事上磨练',v:['wangyangming','zhugeliang','hanwudi']}]},
+ {t:'天行健，君子以自强不息',v:['kongzi','mao','simaqian','yuefei']},
+ {t:'地势坤，君子以厚德载物',v:['mazu','mozi','sushi','lishizhen']},
+ {t:'道法自然，无为而无不为',v:['laozi','zhuangzi','buddha']},
+ {t:'知行合一，事上磨练',v:['wangyangming','zhugeliang','hanwu']}]},
 {q:'临危受命时，你的状态是？',o:[
- {t:'临危不惧，稳住局面',v:['zhugeliang','caocao','mazu']},
- {t:'热血沸腾，舍我其谁',v:['xiangyu','maozedong','wukong']},
- {t:'沉着冷静，步步为营',v:['liubang','simaqian','hanwudi']},
- {t:'心如止水，以静制动',v:['laozi','huineng','shijia']}]},
+ {t:'临危不惧，稳住局面',v:['zhugeliang','caocao','mazu','yuefei']},
+ {t:'热血沸腾，舍我其谁',v:['xiangyu','mao','wukong','guanyu']},
+ {t:'沉着冷静，步步为营',v:['liubang','simaqian','hanwu']},
+ {t:'心如止水，以静制动',v:['laozi','huineng','buddha']}]},
 {q:'如果可以选择一个朝代生活，你会选？',o:[
- {t:'秦汉，建功立业',v:['qinshihuang','hanwudi','simaqian']},
- {t:'盛唐，诗酒风流',v:['libai','wukong','sushi']},
- {t:'春秋战国，百家争鸣',v:['kongzi','laozi','mozi']},
- {t:'魏晋，逍遥风流',v:['zhuangzi','sushi','libai']}]}
+ {t:'秦汉，建功立业',v:['qinshi','hanwu','simaqian']},
+ {t:'盛唐，诗酒风流',v:['libai','wukong','sushi','dufu']},
+ {t:'春秋战国，百家争鸣',v:['kongzi','laozi','mozi','quyuan','sunzi','guiguzi']},
+ {t:'魏晋，逍遥风流',v:['zhuangzi','sushi','libai','wangxizhi']}]}
 ];
 
 
@@ -3161,20 +3228,19 @@ window.renderForumList=function(s){_origForumList(s);var tb=document.querySelect
 
 // ===== 每日占卦 =====
 var BAGUA=[
-{n:'乾',sym:'☰',xiang:'天',luck:'大吉',dir:'西北',color:'金色',num:1,yi:'进取、开创、主动',ji:'犹豫、保守、懈怠'},
-{n:'兑',sym:'☱',xiang:'泽',luck:'吉',dir:'西',color:'白色',num:2,yi:'交流、合作、分享',ji:'孤行、闭塞、争执'},
-{n:'离',sym:'☲',xiang:'火',luck:'中吉',dir:'南',color:'红色',num:9,yi:'明辨、热情、表达',ji:'急躁、冲动、浮躁'},
-{n:'震',sym:'☳',xiang:'雷',luck:'吉',dir:'东',color:'青色',num:3,yi:'行动、革新、突破',ji:'犹豫、拖延、畏惧'},
-{n:'巽',sym:'☴',xiang:'风',luck:'中吉',dir:'东南',color:'绿色',num:4,yi:'顺势、柔韧、沟通',ji:'固执、强硬、对抗'},
-{n:'坎',sym:'☵',xiang:'水',luck:'中',dir:'北',color:'黑色',num:6,yi:'慎行、积累、深思',ji:'冒险、冲动、盲从'},
-{n:'艮',sym:'☶',xiang:'山',luck:'中',dir:'东北',color:'棕色',num:7,yi:'守成、沉淀、稳重',ji:'扩张、冒进、浮躁'},
-{n:'坤',sym:'☷',xiang:'地',luck:'吉',dir:'西南',color:'黄色',num:8,yi:'包容、厚德、承载',ji:'冒进、争强、急躁'}
+{n:'乾',sym:'☰',xiang:'天',luck:'大吉',dir:'西北',color:'金色',num:1,yi:'进取、开创、主动',ji:'犹豫、保守、懈怠',detail:'乾为天，刚健中正，自强不息。今日运势大吉，如龙腾九天，正是奋发有为之时。事业、学业皆宜进取，宜主动出击、把握机遇，忌裹足不前。'},
+{n:'兑',sym:'☱',xiang:'泽',luck:'吉',dir:'西',color:'白色',num:2,yi:'交流、合作、分享',ji:'孤行、闭塞、争执',detail:'兑为泽，喜悦和顺，润物无声。今日宜沟通交流、洽谈合作，人际关系顺遂，宜分享喜悦、广结善缘。忌闭门造车、与人争执。'},
+{n:'离',sym:'☲',xiang:'火',luck:'中吉',dir:'南',color:'红色',num:9,yi:'明辨、热情、表达',ji:'急躁、冲动、浮躁',detail:'离为火，光明美丽，附丽而明。今日宜明辨是非、热情投入，利于表达与创作。但须防急躁冒进，谨记欲速则不达。'},
+{n:'震',sym:'☳',xiang:'雷',luck:'吉',dir:'东',color:'青色',num:3,yi:'行动、革新、突破',ji:'犹豫、拖延、畏惧',detail:'震为雷，雷动万物，破旧立新。今日宜果断行动、勇于突破，一鸣惊人。唯须戒惧慎重，方能行稳致远。'},
+{n:'巽',sym:'☴',xiang:'风',luck:'中吉',dir:'东南',color:'绿色',num:4,yi:'顺势、柔韧、沟通',ji:'固执、强硬、对抗',detail:'巽为风，风行草偃，柔顺而进。今日宜顺势而为、以柔克刚，宜多沟通倾听。切忌刚愎自用、强硬对抗。'},
+{n:'坎',sym:'☵',xiang:'水',luck:'中',dir:'北',color:'黑色',num:6,yi:'慎行、积累、深思',ji:'冒险、冲动、盲从',detail:'坎为水，险陷重重，唯慎行可渡。今日宜谨慎行事、厚积薄发，遇险不惊，以静制动。忌冒险冲动、盲目跟风。'},
+{n:'艮',sym:'☶',xiang:'山',luck:'中',dir:'东北',color:'棕色',num:7,yi:'守成、沉淀、稳重',ji:'扩张、冒进、浮躁',detail:'艮为山，静止如山，当止则止。今日宜守成蓄势、静心沉淀，不宜冒进扩张。知止而后有定，静待时机方为上策。'},
+{n:'坤',sym:'☷',xiang:'地',luck:'吉',dir:'西南',color:'黄色',num:8,yi:'包容、厚德、承载',ji:'冒进、争强、急躁',detail:'坤为地，厚德载物，柔顺含容。今日宜包容谦和、厚德载物，以柔济刚。顺其自然则万事亨通，切忌争强好胜。'}
 ];
-function divinate(name,y,m,d){var seed=0;for(var i=0;i<name.length;i++)seed+=name.charCodeAt(i);seed+=y*10000+m*100+d;var t=new Date();seed+=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();return BAGUA[((seed%8)+8)%8];}
-window.openDivination=function(){if(!_user){showAuth("login");return;}var ov=document.getElementById("divOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("divForm");if(!f)return;f.innerHTML='<h3 class="div-title">'+t("divinationTitle")+'</h3><div class="form-group"><label>'+t("divName")+'</label><input type="text" id="divName" placeholder="'+t("divNamePh")+'" maxlength="20"></div><div class="form-group"><label>'+t("divBirth")+'</label><input type="date" id="divBirth"></div><button class="btn-primary btn-block" onclick="doDivination()">'+t("divGo")+'</button><p class="div-tip">'+t("divTip")+'</p>';};
+function divinate(name,y,m,d,blood,xz){var seed=0;for(var i=0;i<name.length;i++)seed+=name.charCodeAt(i);seed+=y*10000+m*100+d;var bm={A:1,B:2,AB:3,O:4};seed+=(bm[blood]||0)*7;var xm={白羊:1,金牛:2,双子:3,巨蟹:4,狮子:5,处女:6,天秤:7,天蝎:8,射手:9,摩羯:10,水瓶:11,双鱼:12};seed+=(xm[xz]||0)*5;var t=new Date();seed+=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();return BAGUA[((seed%8)+8)%8];}
+window.openDivination=function(){if(!_user){showAuth("login");return;}var ov=document.getElementById("divOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("divForm");if(!f)return;f.innerHTML='<h3 class="div-title">'+t("divinationTitle")+'</h3><div class="form-group"><label>'+t("divName")+'</label><input type="text" id="divName" placeholder="'+t("divNamePh")+'" maxlength="20"></div><div class="form-group"><label>'+t("divBirth")+'</label><input type="date" id="divBirth"></div><div class="form-row"><div class="form-group"><label>'+t("divBlood")+'</label><select id="divBlood"><option value="">'+t("divOpt")+'</option><option>A</option><option>B</option><option>AB</option><option>O</option></select></div><div class="form-group"><label>'+t("divZodiac")+'</label><select id="divZodiac"><option value="">'+t("divOpt")+'</option><option>白羊</option><option>金牛</option><option>双子</option><option>巨蟹</option><option>狮子</option><option>处女</option><option>天秤</option><option>天蝎</option><option>射手</option><option>摩羯</option><option>水瓶</option><option>双鱼</option></select></div></div><button class="btn-primary btn-block" onclick="doDivination()">'+t("divGo")+'</button><p class="div-tip">'+t("divTip")+'</p>';};
 window.closeDivination=function(){var ov=document.getElementById("divOverlay");if(ov)ov.classList.remove("active");};
-window.doDivination=function(){if(!_user){showAuth("login");return;}if((_user.credits||0)<1){showToast(t("divNoCredits"));return;}var name=document.getElementById("divName").value.trim();var birth=document.getElementById("divBirth").value;if(!name){showToast(t("divNeedName"));return;}if(!birth){showToast(t("divNeedBirth"));return;}_user.credits-=1;try{localStorage.setItem("ch_user",JSON.stringify(_user));var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}renderTopBar();var p=birth.split("-");var g=divinate(name,parseInt(p[0]||0,10),parseInt(p[1]||0,10),parseInt(p[2]||0,10));var f=document.getElementById("divForm");f.innerHTML='<div class="div-result"><div class="div-gua"><span class="div-sym">'+g.sym+'</span>'+g.n+' · '+g.xiang+'</div><div class="div-luck">'+t("divLuck")+'：'+g.luck+'</div><div class="div-grid"><div class="div-cell"><b>'+t("divDir")+'</b><span>'+g.dir+'</span></div><div class="div-cell"><b>'+t("divColor")+'</b><span>'+g.color+'</span></div><div class="div-cell"><b>'+t("divNum")+'</b><span>'+g.num+'</span></div></div><div class="div-yiji"><p class="div-yi">'+t("divYi")+'：'+g.yi+'</p><p class="div-ji">'+t("divJi")+'：'+g.ji+'</p></div><div class="div-name-tag">'+name+'</div><button class="btn-secondary btn-block" onclick="closeDivination()">'+t("divClose")+'</button></div>';};
-
+window.doDivination=function(){if(!_user){showAuth("login");return;}if((_user.credits||0)<1){showToast(t("divNoCredits"));return;}var name=document.getElementById("divName").value.trim();var birth=document.getElementById("divBirth").value;var blood=document.getElementById("divBlood").value;var xz=document.getElementById("divZodiac").value;if(!name){showToast(t("divNeedName"));return;}if(!birth){showToast(t("divNeedBirth"));return;}_user.credits-=1;try{localStorage.setItem("ch_user",JSON.stringify(_user));var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}renderTopBar();var p=birth.split("-");var g=divinate(name,parseInt(p[0]||0,10),parseInt(p[1]||0,10),parseInt(p[2]||0,10),blood,xz);var f=document.getElementById("divForm");var meta=(blood||xz)?('<div class="div-meta">'+(blood?('血型 '+blood+' 型'):'')+(blood&&xz?' · ':'')+(xz?('星座 '+xz+' 座'):'')+'</div>'):'';f.innerHTML='<div class="div-result"><div class="div-gua"><span class="div-sym">'+g.sym+'</span>'+g.n+' · '+g.xiang+'</div><div class="div-luck">'+t("divLuck")+'：'+g.luck+'</div>'+meta+'<div class="div-grid"><div class="div-cell"><b>'+t("divDir")+'</b><span>'+g.dir+'</span></div><div class="div-cell"><b>'+t("divColor")+'</b><span>'+g.color+'</span></div><div class="div-cell"><b>'+t("divNum")+'</b><span>'+g.num+'</span></div></div><div class="div-yiji"><p class="div-yi">'+t("divYi")+'：'+g.yi+'</p><p class="div-ji">'+t("divJi")+'：'+g.ji+'</p></div><div class="div-detail">'+g.detail+'</div><div class="div-name-tag">'+name+'</div><button class="btn-secondary btn-block" onclick="closeDivination()">'+t("divClose")+'</button></div>';};
 </script>
 
 <div class="modal-overlay" id="authOverlay">
@@ -3182,22 +3248,20 @@ window.doDivination=function(){if(!_user){showAuth("login");return;}if((_user.cr
     <button class="modal-close" onclick="closeAuth()">×</button>
     <div id="authForm"></div>
   </div>
+</div>
 
 <div class="modal-overlay" id="divOverlay">
   <div class="modal">
     <button class="modal-close" onclick="closeDivination()">×</button>
     <div id="divForm"></div>
   </div>
+</div>
 
 <div class="modal-overlay" id="sageOverlay">
   <div class="modal">
     <button class="modal-close" onclick="closeSageTest()">×</button>
     <div id="sageForm"></div>
   </div>
-</div>
-
-</div>
-
 </div>
 
 <script>
@@ -3424,6 +3488,17 @@ var SHENJIAO_CHARS=[
 {id:"mazu",emoji:"⛵",name:"妈祖",title:"海上女神 · 宋代",intro:"林默娘。护海佑民，慈悲济世，信仰遍及海内外。",chips:["为什么守护海上？","怎样保佑信众？","你的信仰从哪里来？","渔民怎么祭祀你？"],responses:[{k:["海","护航","平安"],a:"海上风波恶，吾愿化作慈航，护佑千帆过尽、万民平安。"},{k:["保佑","慈悲","护"],a:"慈悲为怀，济世为念。见难必救，闻苦必应。"},{k:["信众","祭","庙"],a:"湄洲之灵，广播海宇。东南沿海，凡有舟楫处，皆有香火。"},{k:["默娘","身世","缘"],a:"吾本莆田林氏女，自幼通灵，观天象、知海事。一念之善，感天动地。"}],fallback:["平安是福，顺遂为祥。","心中有善，处处是岸。","风波定后，方见慈航。"]},
 {id:"zhugeliang",emoji:"🪶",name:"诸葛亮",title:"卧龙先生 · 三国",intro:"鞠躬尽瘁，死而后已。隆中对定三分，空城一曲退雄兵。",chips:["隆中对讲了什么？","怎么用人？","为什么北伐？","怎样修身？"],responses:[{k:["隆中","对","三分"],a:"隆中对：跨有荆益，西和诸戎，南抚夷越，外结孙权，天下有变则两路北伐。"},{k:["用人","人才","将"],a:"亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。"},{k:["北伐","中原","汉室"],a:"北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。"},{k:["修身","淡泊","宁静"],a:"非淡泊无以明志，非宁静无以致远。静以修身，俭以养德。"},{k:["鞠躬","尽瘁","死"],a:"鞠躬尽瘁，死而后已。至于成败利钝，非臣之明所能逆睹也。"}],fallback:["谋事在人，成事在天。","志当存高远。","为将而不通天文，不识地利，不知奇门，不晓阴阳，不看阵图，不明兵势，是庸才也。"]},
 {id:"sushi",emoji:"🎋",name:"苏轼",title:"东坡居士 · 北宋",intro:"一蓑烟雨任平生。诗文书画皆绝，美食家，豁达之极。",chips:["怎么面对逆境？","你最爱的美食？","你的人生观？","怎么读书？"],responses:[{k:["逆境","挫折","贬","苦"],a:"莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。"},{k:["美食","吃","味"],a:"人间有味是清欢。东坡肉、羊蝎子、荔枝三百颗，人生之乐，岂止一端。"},{k:["人生","观","活"],a:"人生到处知何似，应似飞鸿踏雪泥。泥上偶然留指爪，鸿飞那复计东西。"},{k:["读书","学"],a:"旧书不厌百回读，熟读深思子自知。博观而约取，厚积而薄发。"},{k:["婵娟","明月","亲情"],a:"人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。"}],fallback:["不识庐山真面目，只缘身在此山中。","粗缯大布裹生涯，腹有诗书气自华。","归去，也无风雨也无晴。"]}
+,
+{id:"quyuan",emoji:"🪷",name:"屈原",title:"爱国诗人 · 战国",intro:"楚辞之祖，忧国忧民，怀石投汨罗。",chips:["什么是《离骚》？","为何投江？","香草美人何意？","如何理解他的爱国？"],responses:[{k:["离骚","楚辞"],a:"路漫漫其修远兮，吾将上下而求索。离骚者，离忧也，以忠言直谏而见疏，故发愤以抒情。"},{k:["投江","殉","爱国"],a:"亦余心之所善兮，虽九死其犹未悔。国破家亡，宁赴湘流，葬于江鱼之腹中。"},{k:["香草","美人","比兴"],a:"扈江离与辟芷兮，纫秋兰以为佩。以香草喻高洁，以美人喻君王，此比兴之祖也。"},{k:["端午","粽子","龙舟"],a:"端午竞渡、食粽，皆因追思屈子而来。民心所向，千古不衰。"}],fallback:["举世皆浊我独清，众人皆醉我独醒。","长太息以掩涕兮，哀民生之多艰。"]},
+{id:"dufu",emoji:"🏔️",name:"杜甫",title:"诗圣 · 盛唐",intro:"沉郁顿挫，诗史，心系苍生疾苦。",chips:["为何称诗圣？","最著名的诗？","如何忧国忧民？","与李白关系如何？"],responses:[{k:["诗圣","诗史"],a:"安得广厦千万间，大庇天下寒士俱欢颜。杜诗记事，世称诗史。"},{k:["忧国","苍生","民生"],a:"朱门酒肉臭，路有冻死骨。诗圣之圣，在胸怀天下、心系苍生。"},{k:["李白","友情"],a:"李白斗酒诗百篇，长安市上酒家眠。与太白为挚友，然诗风各异：一飘逸，一沉郁。"},{k:["春望","山河","乱"],a:"国破山河在，城春草木深。感时花溅泪，恨别鸟惊心。"}],fallback:["会当凌绝顶，一览众山小。","读书破万卷，下笔如有神。"]},
+{id:"yuefei",emoji:"🏇",name:"岳飞",title:"精忠报国 · 南宋",intro:"抗金名将，精忠报国，壮志未酬。",chips:["《满江红》讲了什么？","为何被冤杀？","如何精忠报国？","武艺如何？"],responses:[{k:["满江红","怒发","潇潇"],a:"怒发冲冠，凭栏处、潇潇雨歇。抬望眼，仰天长啸，壮怀激烈。三十功名尘与土，八千里路云和月。"},{k:["冤","秦桧","风波亭"],a:"莫须有三字，何以服天下？忠而被谤，千古奇冤。"},{k:["精忠","报国","刺字"],a:"岳母刺字精忠报国。文官不爱钱，武官不惜死，天下太平矣。"},{k:["武艺","枪","岳家军"],a:"岳家枪法，枪挑小梁王，勇冠三军。冻死不拆屋，饿死不掳掠，军纪严明。"}],fallback:["莫等闲，白了少年头，空悲切。","靖康耻，犹未雪；臣子恨，何时灭。"]},
+{id:"wentianxiang",emoji:"🕯️",name:"文天祥",title:"正气凛然 · 南宋",intro:"抗元英雄，宁死不屈，正气歌传千古。",chips:["《正气歌》是什么？","为何不降元？","人生自古谁无死何意？"],responses:[{k:["正气","正气歌"],a:"天地有正气，杂然赋流形。下则为河岳，上则为日星。于人曰浩然，沛乎塞苍冥。"},{k:["降","元","忠"],a:"人生自古谁无死，留取丹心照汗青。忠臣不事二主，宁死不降。"},{k:["绝笔","遗","成仁"],a:"孔曰成仁，孟曰取义。惟其义尽，所以仁至。读圣贤书，所学何事？而今而后，庶几无愧。"}],fallback:["人生自古谁无死，留取丹心照汗青。"]},
+{id:"zhenghe",emoji:"⛵",name:"郑和",title:"七下西洋 · 明代",intro:"航海家，七下西洋，扬威海外。",chips:["七下西洋去了哪？","航海有多壮举？","为何下西洋？"],responses:[{k:["西洋","航海"],a:"郑和率宝船船队七下西洋，远至东非，比哥伦布早八十余年，堪称世界航海壮举。"},{k:["目的","宝船"],a:"宣扬国威，怀柔远人。宝船九桅十二帆，长四十四丈，浩浩荡荡，昼夜星驰。"},{k:["意义","交流","丝路"],a:"海上丝绸之路，传播中华文化，互通有无，功在千秋。"}],fallback:["云帆高张，昼夜星驰。"]},
+{id:"lishizhen",emoji:"🌿",name:"李时珍",title:"药圣 · 明代",intro:"本草纲目，二十七年心血，医学巨匠。",chips:["《本草纲目》写了什么？","如何编书？","有哪些贡献？"],responses:[{k:["本草","纲目"],a:"本草纲目凡五十二卷，载药一千八百九十二种，附图千余幅，东方医药巨典。"},{k:["编","考察","27年"],a:"穷搜博采，芟烦补阙，历时二十七载，三易其稿而成。"},{k:["贡献","医药","格物"],a:"格物求真，亲采亲验，纠正前代本草诸多谬误，泽被后世。"}],fallback:["格物穷理，知行合一。"]},
+{id:"sunzi",emoji:"⚔️",name:"孙子",title:"兵圣 · 春秋",intro:"孙子兵法，兵学圣典，百世兵家之师。",chips:["《孙子兵法》讲了什么？","知己知彼何意？","如何用兵？"],responses:[{k:["兵法","计","兵者"],a:"兵者，国之大事，死生之地，存亡之道，不可不察也。"},{k:["知己","知彼"],a:"知己知彼，百战不殆；不知彼而知己，一胜一负；不知彼不知己，每战必殆。"},{k:["用兵","胜","伐谋"],a:"上兵伐谋，其次伐交，其次伐兵，其下攻城。不战而屈人之兵，善之善者也。"},{k:["奇正","虚实","势"],a:"凡战者，以正合，以奇胜。兵无常势，水无常形。善战者，致人而不致于人。"}],fallback:["兵者，诡道也。","攻其无备，出其不意。"]},
+{id:"guiguzi",emoji:"🧿",name:"鬼谷子",title:"纵横家鼻祖 · 战国",intro:"捭阖纵横之术，苏秦张仪之师。",chips:["捭阖是什么意思？","纵横家是什么？","如何说服人？"],responses:[{k:["捭阖","开合"],a:"捭阖者，天地之道。捭之者，开也，言也，阳也；阖之者，闭也，默也，阴也。"},{k:["纵横","苏秦","张仪"],a:"苏秦张仪，一纵一横，一言兴邦，一言丧邦，皆出鬼谷之门。"},{k:["说服","揣摩"],a:"揣情者，必以其甚喜之时，往而极其欲也。先揣其情，再摩其意，方能说动人心。"}],fallback:["口者，心之门户也。","智用于众人之所不能知，而能用于众人之所不能见。"]},
+{id:"wangxizhi",emoji:"🖌️",name:"王羲之",title:"书圣 · 东晋",intro:"兰亭集序，天下第一行书。",chips:["《兰亭集序》写了什么？","如何练书法？","为何称书圣？"],responses:[{k:["兰亭","序","会稽"],a:"永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。群贤毕至，少长咸集。"},{k:["书法","练","临池"],a:"池水尽墨，乃成大家。勤学苦练，方得笔法。"},{k:["书圣","行书"],a:"兰亭集序被誉为天下第一行书，笔势遒媚劲健，千古绝唱。"}],fallback:["仰观宇宙之大，俯察品类之盛。"]},
+{id:"guanyu",emoji:"🔴",name:"关羽",title:"武圣 · 三国",intro:"忠义无双，义薄云天。",chips:["为何称武圣？","温酒斩华雄？","千里走单骑？","忠义如何理解？"],responses:[{k:["武圣","关公"],a:"忠义仁勇，历代加封，清代封忠义神武关圣大帝，与孔子并称文武二圣。"},{k:["温酒","华雄"],a:"温酒斩华雄，酒尚温而华雄首级已献，威震诸侯。"},{k:["千里","单骑","义"],a:"挂印封金，千里走单骑，过五关斩六将，只为寻兄刘备。义薄云天。"},{k:["忠义","节","白"],a:"玉可碎而不可改其白，竹可焚而不可毁其节。"}],fallback:["玉可碎而不可改其白，竹可焚而不可毁其节。","身在曹营心在汉。"]}
 ];
 var _sjChar=null,_sjLog=[];
 function renderShenjiao(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var h="<div class=\"sj-test-entry\" onclick=\"startSageTest()\">🪞 "+t("sageTest")+" · "+t("sageTestHint")+"</div><div class=\"sj-intro\">"+t("shenjiaoSub")+"</div><div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+c.emoji+"</span><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div>";}).join("")+"</div><div class=\"sj-fav\" id=\"sjFav\"></div>";sec.innerHTML=h;renderFav();return;}var c=_sjChar;sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+c.emoji+"</span><div><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",c.name),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();}
@@ -3527,7 +3602,18 @@ wangyangming:{bg:"#3E5C76",skin:"#f0c8a0",top:'<path d="M40 18 L60 18 L58 32 L42
 libai:{bg:"#8B6914",skin:"#f0c8a0",top:'<path d="M30 32 L70 32 L66 42 L34 42 Z" fill="#1a1a1a"/>',beard:'<path d="M36 58 Q50 80 64 58 Q50 72 36 58 Z" fill="#1a1a1a"/>',acc:'<ellipse cx="79" cy="40" rx="6" ry="8" fill="#7a4a2b"/><rect x="77" y="31" width="4" height="4" fill="#5c3a20"/>'},
 mazu:{bg:"#D2691E",skin:"#f0c8a0",top:'<path d="M36 30 Q50 14 64 30 L60 42 L40 42 Z" fill="#8B0000"/><circle cx="50" cy="22" r="3" fill="#ffd700"/>',acc:'<path d="M30 74 Q50 82 70 74" stroke="#c9a84c" stroke-width="3.2" fill="none" stroke-linecap="round"/>'},
 zhugeliang:{bg:"#4A6B8A",skin:"#f0c8a0",top:'<path d="M32 34 L68 34 Q60 18 50 18 Q40 18 32 34 Z" fill="#2c4a6a"/>',beard:'<path d="M38 60 Q50 74 62 60 Q50 68 38 60 Z" fill="#2c1810"/>',acc:'<path d="M76 56 Q84 44 91 56 Q84 66 76 56 Z" fill="#e8e0d0"/>'},
-sushi:{bg:"#7A8450",skin:"#f0c8a0",top:'<path d="M34 26 L66 26 L66 44 L34 44 Z" fill="#3a4a3a"/><rect x="29" y="22" width="42" height="5" rx="2" fill="#3a4a3a"/>',beard:'<path d="M36 58 Q50 78 64 58 Q50 72 36 58 Z" fill="#2c1810"/>',acc:'<path d="M74 62 L84 62 L82 72 L76 72 Z" fill="#c9a84c"/>'}
+sushi:{bg:"#7A8450",skin:"#f0c8a0",top:'<path d="M34 26 L66 26 L66 44 L34 44 Z" fill="#3a4a3a"/><rect x="29" y="22" width="42" height="5" rx="2" fill="#3a4a3a"/>',beard:'<path d="M36 58 Q50 78 64 58 Q50 72 36 58 Z" fill="#2c1810"/>',acc:'<path d="M74 62 L84 62 L82 72 L76 72 Z" fill="#c9a84c"/>'} ,
+quyuan:{bg:"#5B7B4A",skin:"#f0c8a0",top:'<path d="M34 30 L66 30 L60 42 L40 42 Z" fill="#3a4a2e"/><rect x="44" y="14" width="12" height="16" rx="2" fill="#3a4a2e"/>',beard:'<path d="M38 60 Q50 78 62 60 Q50 70 38 60 Z" fill="#3a4a2e"/>',acc:'<path d="M76 42 Q84 38 84 46 Q80 48 76 42 Z" fill="#7a9b5a"/><path d="M76 42 L72 38" stroke="#7a9b5a" stroke-width="2"/>'},
+dufu:{bg:"#6B7B8A",skin:"#e8c8a0",top:'<path d="M30 28 Q50 10 70 28 Q50 22 30 28 Z" fill="#4a4a3a"/><rect x="36" y="42" width="28" height="4" fill="#4a4a3a"/>',beard:'<path d="M42 62 Q50 72 58 62 Q50 68 42 62 Z" fill="#3a3a30"/>',acc:'<rect x="73" y="60" width="15" height="10" rx="1" fill="#e8dcc0"/>'},
+yuefei:{bg:"#8B0000",skin:"#f0c8a0",top:'<path d="M32 32 L68 32 L64 44 L36 44 Z" fill="#3a3a3a"/><circle cx="50" cy="20" r="5" fill="#c0392b"/>',brow:'<path d="M37 42 Q42 39 46 42" stroke="#1a1a1a" stroke-width="3.2" fill="none"/><path d="M54 42 Q58 39 63 42" stroke="#1a1a1a" stroke-width="3.2" fill="none"/>',acc:'<rect x="77" y="42" width="4" height="26" rx="2" fill="#8B6914"/>'},
+wentianxiang:{bg:"#4A3A5E",skin:"#f0c8a0",top:'<rect x="32" y="28" width="36" height="8" rx="2" fill="#1a1a1a"/><path d="M32 28 L38 20 L44 28" fill="#1a1a1a"/><path d="M68 28 L62 20 L56 28" fill="#1a1a1a"/>',beard:'<path d="M36 60 Q50 80 64 60 Q50 72 36 60 Z" fill="#1a1a1a"/>',acc:'<rect x="74" y="62" width="14" height="10" rx="1" fill="#e8dcc0" stroke="#8B0000" stroke-width="1"/>'},
+zhenghe:{bg:"#2C6B8A",skin:"#e0b890",top:'<path d="M34 30 L66 30 L62 42 L38 42 Z" fill="#e8e0d0"/>',beard:'<path d="M44 62 Q50 70 56 62 Q50 66 44 62 Z" fill="#3a3a30"/>',acc:'<circle cx="80" cy="42" r="8" fill="none" stroke="#8B6914" stroke-width="2"/><line x1="80" y1="36" x2="80" y2="48" stroke="#8B6914" stroke-width="1.6"/><line x1="74" y1="42" x2="86" y2="42" stroke="#8B6914" stroke-width="1.6"/>'},
+lishizhen:{bg:"#4A6B4A",skin:"#e8c8a0",top:'<path d="M36 32 L64 32 L60 42 L40 42 Z" fill="#5c7a5c"/>',beard:'<path d="M42 62 Q50 72 58 62 Q50 68 42 62 Z" fill="#3a4a3a"/>',acc:'<path d="M78 40 Q86 36 84 46 Q80 48 78 40 Z" fill="#7a9b5a"/>'},
+sunzi:{bg:"#3E5C3E",skin:"#f0c8a0",top:'<path d="M34 32 L66 32 L62 42 L38 42 Z" fill="#3a4a3a"/><rect x="42" y="42" width="16" height="4" fill="#3a4a3a"/>',beard:'<path d="M38 60 Q50 78 62 60 Q50 72 38 60 Z" fill="#2c1810"/>',acc:'<rect x="73" y="58" width="16" height="11" rx="1" fill="#e8dcc0"/><line x1="76" y1="61" x2="86" y2="61" stroke="#8a7466" stroke-width="1.2"/><line x1="76" y1="65" x2="86" y2="65" stroke="#8a7466" stroke-width="1.2"/>'},
+guiguzi:{bg:"#4A4A5E",skin:"#e8c8a0",top:'<path d="M28 30 Q50 8 72 30 Q50 22 28 30 Z" fill="#3a3a4a"/>',beard:'<path d="M34 60 Q50 84 66 60 Q50 76 34 60 Z" fill="#e8e8e8"/>',acc:'<rect x="78" y="32" width="4" height="12" fill="#8B6914"/><path d="M80 44 Q88 52 82 60 Q78 52 80 44 Z" fill="#e8e8e8"/>'},
+wangxizhi:{bg:"#7A6B4A",skin:"#f0c8a0",top:'<rect x="34" y="28" width="32" height="8" rx="2" fill="#2c1810"/>',beard:'<path d="M38 60 Q50 78 62 60 Q50 72 38 60 Z" fill="#2c1810"/>',acc:'<rect x="77" y="40" width="4" height="24" rx="2" fill="#8B6914"/><path d="M79 38 L79 34 L77 30 L81 30 L79 34 Z" fill="#3a3a3a"/>'},
+guanyu:{bg:"#B03A2E",skin:"#d88868",top:'<path d="M34 30 L66 30 L62 42 L38 42 Z" fill="#3a6b3a"/>',brow:'<path d="M37 44 Q42 40 46 44" stroke="#1a1a1a" stroke-width="3.4" fill="none"/><path d="M54 44 Q58 40 63 44" stroke="#1a1a1a" stroke-width="3.4" fill="none"/>',beard:'<path d="M36 58 Q50 88 64 58 Q50 80 36 58 Z" fill="#1a1a1a"/>',acc:'<rect x="80" y="38" width="3.5" height="28" rx="1.5" fill="#8B6914"/><path d="M80 38 Q90 32 86 44 Q82 46 80 38 Z" fill="#c9a84c"/>'}
+
 };var cfg=A[id]||{bg:"#8B6B4A",skin:"#f0c8a0"};var h='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="'+cfg.bg+'"/>'+sjFace(cfg.skin)+(cfg.top||"")+(cfg.brow||"")+(cfg.beard||"")+(cfg.acc||"")+'</svg>';return h;}
 var SJ_EXTRA={
 laozi:[{k:["名","利","虚名"],a:"名与身孰亲？身与货孰多？得与亡孰病？去名去利，守中抱一。"},{k:["生死","自然","寿命"],a:"人法地，地法天，天法道，道法自然。生死顺其自然，何必强求。"},{k:["治国","天下","安民"],a:"治大国若烹小鲜。不扰民、不折腾，清净无为，天下自正。"}],
@@ -3565,7 +3651,7 @@ window.sjSay=function(txt,emoji){var log=document.getElementById("sjLog");if(!lo
 var SJ_HONOR={laozi:"道祖",kongzi:"至圣先师",zhuangzi:"南华真人",mozi:"墨家巨子",buddha:"佛陀",huineng:"六祖",wukong:"斗战胜佛",simaqian:"太史公",caocao:"魏武帝",liubang:"汉高祖",xiangyu:"西楚霸王",mao:"毛主席",hanwu:"汉武大帝",qinshi:"千古一帝",wangyangming:"阳明先生",libai:"诗仙",mazu:"天后娘娘",zhugeliang:"卧龙先生",sushi:"东坡居士"};
 function sjHonor(id){if(SJ_HONOR[id])return SJ_HONOR[id];for(var i=0;i<SHENJIAO_CHARS.length;i++){if(SHENJIAO_CHARS[i].id===id){var c=SHENJIAO_CHARS[i];if(c.title){var p=c.title.split("·");if(p.length>1)return p[0].trim();}return c.name;}}return "";}
 function sjEra(c){if(!c||!c.title)return "";var p=c.title.split("·");return p.length>1?p[1].trim():c.title.trim();}
-window.renderShenjiao=function(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var d=sjDailyData();var ds=sjSignState();var dsg=sjDailySage();var ach=sjAch();var h="<div class=\"sj-intro\">"+t("shenjiaoSub")+"</div>";
+window.renderShenjiao=function(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var d=sjDailyData();var ds=sjSignState();var dsg=sjDailySage();var ach=sjAch();var h="<div class=\"sj-intro\">"+t("shenjiaoSub")+"</div><div class=\"sj-test-entry\" onclick=\"startSageTest()\">🪞 "+t("sageTest")+" · "+t("sageTestHint")+"</div>";
 h+="<div class=\"sj-daily\"><div class=\"sj-daily-head\"><b>📜 "+t("sjDailyTitle")+"</b><button class=\"btn-primary btn-sm\" onclick=\"sjSign()\">"+(ds.last===sjToday()?t("sjSignedToday")+" ✓":t("sjSignBtn"))+"</button></div><div class=\"sj-daily-quote\">“"+d.quote.slice(0,70)+(d.quote.length>70?"…":"")+"”<span class=\"sj-daily-sage\">—— "+sjAvatar(d.sage.id)+" "+sjHonor(d.sage.id)+"</span></div><div class=\"sj-daily-streak\">"+t("sjStreak")+": "+(ds.streak||0)+" 天 · "+t("sjBest")+": "+(ds.best||0)+"</div></div>";
 h+="<div class=\"sj-quick-row\"><div class=\"sj-daily-sage-card\" onclick=\"openSage('"+dsg.id+"')\"><span class=\"q-avatar\">"+sjAvatar(dsg.id)+"</span><span class=\"q-txt\">🔮 "+t("sjDailySage")+"：<b>"+sjHonor(dsg.id)+"</b></span><span class=\"q-go\">→</span></div><div class=\"sj-quiz-btn\" onclick=\"sjQuiz()\">🧠 "+t("sjQuizTitle")+"<small>"+t("sjQuizSub")+"</small></div></div>";
 h+="<div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){var im=sjIntimacy(c.id);return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+sjAvatar(c.id)+"</span><b>"+sjHonor(c.id)+"</b><span class=\"sj-title\">"+c.name+" · "+sjEra(c)+"</span><span class=\"sj-inti\">"+t("sjIntimacy")+" "+im.p+" · "+sjLvlName(im.p)+"</span></div>";}).join("")+"</div>";
