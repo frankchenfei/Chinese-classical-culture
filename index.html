@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>华夏文脉</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%238B0000'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23f5e8d0' stroke-width='4'/%3E%3Cpath d='M50 22 A28 28 0 0 1 50 78 A14 14 0 0 1 50 50 A14 14 0 0 0 50 22 Z' fill='%23f5e8d0'/%3E%3Ccircle cx='50' cy='36' r='4' fill='%238B0000'/%3E%3Ccircle cx='50' cy='64' r='4' fill='%23f5e8d0'/%3E%3C/svg%3E">
 <style>
@@ -142,6 +142,39 @@ a:hover{color:#c9a84c}
 .modal-overlay.active{display:flex}
 .modal{background:#f5f0e8;border-radius:12px;padding:2rem;width:100%;max-width:420px;position:relative;animation:fadeIn .25s ease;max-height:90vh;overflow-y:auto}
 .modal-close{position:absolute;top:.8rem;right:1rem;background:0 0;border:0;font-size:1.3rem;color:#7a6a5a;cursor:pointer}
+.bagua-icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-0.18em;animation:baguaSpin 12s linear infinite;transform-origin:center}
+@keyframes baguaSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+#divinationBtn{display:inline-flex;align-items:center;gap:.35rem}
+.div-title{text-align:center;color:#8B0000;margin-bottom:1rem;letter-spacing:.1em}
+.div-tip{text-align:center;color:#7a6a5a;font-size:.75rem;margin-top:.6rem}
+.sage-pbar{height:8px;background:#e8ddd0;border-radius:4px;overflow:hidden;margin-bottom:.8rem}
+.sage-pfill{height:100%;background:linear-gradient(90deg,#c9a84c,#8B0000);border-radius:4px;transition:width .3s}
+.sage-qnum{text-align:center;color:#7a6a5a;font-size:.78rem;margin-bottom:.5rem}
+.sage-q{font-size:1.05rem;color:#2c1810;text-align:center;font-weight:600;margin-bottom:1rem;line-height:1.5}
+.sage-opt{display:block;width:100%;padding:.65rem .8rem;margin:.4rem 0;background:#fffefb;border:1px solid #d4c9b8;border-radius:8px;cursor:pointer;font-size:.9rem;color:#5c4a38;text-align:left;transition:all .15s;font-family:inherit}
+.sage-opt:hover{border-color:#8B0000;color:#8B0000;background:#fff8f5}
+.sage-r{text-align:center}
+.sage-r-emoji{font-size:3.4rem;margin-bottom:.3rem}
+.sage-r-name{font-size:1.5rem;color:#8B0000;font-weight:700;letter-spacing:.1em;margin-bottom:.5rem}
+.sage-r-desc{font-size:.9rem;color:#5c4a38;line-height:1.7;text-align:left;margin-bottom:.8rem}
+.sage-r-quote{font-size:.85rem;color:#8B0000;font-style:italic;margin-bottom:1rem}
+.sj-test-entry{max-width:760px;margin:.8rem auto 0;padding:.8rem 1.2rem;background:linear-gradient(135deg,rgba(139,0,0,.08),rgba(201,168,76,.14));border:1px dashed #c9a84c;border-radius:10px;text-align:center;cursor:pointer;font-size:.95rem;color:#8B0000;font-weight:600;letter-spacing:.05em;transition:all .2s}
+.sj-test-entry:hover{background:linear-gradient(135deg,rgba(139,0,0,.14),rgba(201,168,76,.2));border-color:#8B0000}
+
+.div-result{text-align:center}
+.div-gua{font-size:1.35rem;color:#2c1810;font-weight:700;margin-bottom:.3rem;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.div-sym{font-size:1.9rem;color:#8B0000}
+.div-luck{font-size:1rem;color:#8B0000;margin-bottom:.6rem}
+.div-grid{display:flex;gap:.5rem;justify-content:center;margin:.6rem 0}
+.div-cell{flex:1;background:#fffefb;border:1px solid #e0d5c8;border-radius:8px;padding:.5rem .3rem;display:flex;flex-direction:column;gap:.15rem}
+.div-cell b{font-size:.72rem;color:#7a6a5a;font-weight:600}
+.div-cell span{font-size:.9rem;color:#2c1810;font-weight:700}
+.div-yiji{text-align:left;background:#fffefb;border-radius:8px;padding:.6rem .8rem;margin:.5rem 0;font-size:.82rem;color:#5c4a38;line-height:1.7}
+.div-yi{color:#2c7a3b}
+.div-ji{color:#b03a2e}
+.div-name-tag{font-size:.7rem;color:#7a6a5a;margin-bottom:.5rem}
+.btn-block{width:100%}
+
 .modal h3{font-size:1.2rem;text-align:center;color:#2c1810;margin-bottom:1.2rem;letter-spacing:.1em}
 .form-group{margin-bottom:.8rem}
 .form-group label{display:block;font-size:.82rem;color:#5c4a38;margin-bottom:.25rem}
@@ -265,6 +298,13 @@ footer .footer-divider{width:36px;height:1px;background:#8B0000;margin:.5rem aut
 .timeline-page .tl-dot{left:10px;width:18px;height:18px}
 .timeline-page .tl-dot::after{width:6px;height:6px}
 .sticky-nav{overflow-x:auto}
+.forum-toolbar{flex-wrap:wrap;gap:.4rem}
+#divinationBtn,#checkinBtn{margin-left:0;min-height:40px}
+.bg-board canvas{max-width:100%;max-height:68vh;width:auto;height:auto}
+.hr-wrap canvas{max-width:min(82vw,380px)}
+.game-grid{grid-template-columns:repeat(2,1fr)}
+.div-grid{flex-wrap:wrap}
+
 .nav-inner{overflow-x:auto;-webkit-overflow-scrolling:touch;gap:.2rem;height:44px}
 .nav-link{font-size:.72rem;padding:.25rem .45rem;white-space:nowrap;flex-shrink:0}
 .hero{min-height:60vh;padding:2rem 1rem}
@@ -829,8 +869,8 @@ footer{padding:.8rem 1rem 1.2rem;font-size:.75rem}
 </g>
 <path d="M610,105 C570,210 660,300 620,420 C580,540 650,660 610,790" stroke="#7A9BB5" stroke-width="15" opacity=".35"/>
 <path d="M610,105 C570,210 660,300 620,420 C580,540 650,660 610,790" stroke="#8B6B4A" stroke-width="2" opacity=".5"/>
-<path d="M760,130 C740,260 810,380 780,520 C755,630 790,720 770,790" stroke="#7A9BB5" stroke-width="11" opacity=".3"/>
-<path d="M760,130 C740,260 810,380 780,520" stroke="#8B6B4A" stroke-width="1.5" opacity=".45"/>
+<path d="M820,110 C800,220 870,330 840,470 C825,560 860,650 840,790" stroke="#7A9BB5" stroke-width="9" opacity=".32"/><path d="M760,130 C740,260 810,380 780,520 C755,630 790,720 770,790" stroke="#7A9BB5" stroke-width="11" opacity=".3"/>
+<path d="M820,110 C800,220 870,330 840,470 C825,560 860,650 840,790" stroke="#7A9BB5" stroke-width="9" opacity=".32"/><path d="M760,130 C740,260 810,380 780,520" stroke="#8B6B4A" stroke-width="1.5" opacity=".45"/>
 <path d="M420,200 C430,300 400,400 420,500" stroke="#7A9BB5" stroke-width="6" opacity=".3"/>
 <path d="M300,420 C310,500 290,580 310,660" stroke="#7A9BB5" stroke-width="5" opacity=".28"/>
 <g stroke="#7A9BB5" stroke-width="2" opacity=".55">
@@ -1002,6 +1042,25 @@ checkin:{'zh-CN':'每日签到','zh-TW':'每日簽到','en':'Daily Check-in','es
 checkedIn:{'zh-CN':'已签到','zh-TW':'已簽到','en':'Checked in','es':'Registrado','pt':'Feito'},
 checkedInToday:{'zh-CN':'今日已签到，明天再来吧','zh-TW':'今日已簽到，明天再來吧','en':'Already checked in today, come back tomorrow','es':'Ya registrado hoy, vuelve mañana','pt':'Check-in de hoje feito, volte amanhã'},
 checkinOk:{'zh-CN':'签到成功，获得积分','zh-TW':'簽到成功，獲得積分','en':'Check-in success, +1 credit','es':'Registro exitoso, +1 crédito','pt':'Check-in feito, +1 crédito'},
+divination:{'zh-CN':'占一卦','zh-TW':'占一卦','en':'Divination','es':'Adivinación','pt':'Adivinhação'},
+divinationTitle:{'zh-CN':'每日占卦','zh-TW':'每日占卦','en':'Daily Divination','es':'Adivinación diaria','pt':'Adivinhação diária'},
+divName:{'zh-CN':'姓名','zh-TW':'姓名','en':'Name','es':'Nombre','pt':'Nome'},
+divNamePh:{'zh-CN':'请输入姓名','zh-TW':'請輸入姓名','en':'Enter your name','es':'Ingresa tu nombre','pt':'Digite seu nome'},
+divBirth:{'zh-CN':'出生年月日','zh-TW':'出生年月日','en':'Birthdate','es':'Fecha de nacimiento','pt':'Data de nascimento'},
+divGo:{'zh-CN':'开始占卦','zh-TW':'開始占卦','en':'Cast','es':'Echar','pt':'Lançar'},
+divTip:{'zh-CN':'占卦一次消耗 1 积分','zh-TW':'占卦一次消耗 1 積分','en':'Costs 1 credit per cast','es':'Cuesta 1 crédito','pt':'Custa 1 crédito'},
+divNoCredits:{'zh-CN':'积分不足，请先签到获取积分','zh-TW':'積分不足，請先簽到獲取積分','en':'Not enough credits, check in first','es':'Créditos insuficientes','pt':'Créditos insuficientes'},
+divNeedName:{'zh-CN':'请输入姓名','zh-TW':'請輸入姓名','en':'Please enter your name','es':'Ingresa tu nombre','pt':'Digite seu nome'},
+divNeedBirth:{'zh-CN':'请选择出生日期','zh-TW':'請選擇出生日期','en':'Please select your birthdate','es':'Selecciona tu fecha','pt':'Selecione sua data'},
+divLuck:{'zh-CN':'运势','zh-TW':'運勢','en':'Fortune','es':'Fortuna','pt':'Sorte'},
+divDir:{'zh-CN':'最佳方位','zh-TW':'最佳方位','en':'Best direction','es':'Mejor dirección','pt':'Melhor direção'},
+divColor:{'zh-CN':'最佳颜色','zh-TW':'最佳顏色','en':'Best color','es':'Mejor color','pt':'Melhor cor'},
+divNum:{'zh-CN':'幸运数字','zh-TW':'幸運數字','en':'Lucky number','es':'Número de la suerte','pt':'Número da sorte'},
+divYi:{'zh-CN':'宜','zh-TW':'宜','en':'Favorable','es':'Favorable','pt':'Favorável'},
+divJi:{'zh-CN':'忌','zh-TW':'忌','en':'Avoid','es':'Evitar','pt':'Evitar'},
+divClose:{'zh-CN':'关闭','zh-TW':'關閉','en':'Close','es':'Cerrar','pt':'Fechar'},
+sageTest:{'zh-CN':'圣贤映照','zh-TW':'聖賢映照','en':'Sage Mirror','es':'Espejo de Sabios','pt':'Espelho de Sábios'},
+sageTestHint:{'zh-CN':'测测你最像哪位圣贤','zh-TW':'測測你最像哪位聖賢','en':'Find your inner sage','es':'Descubre a tu sabio','pt':'Descubra seu sábio'},
 shopSearchPh:{'zh-CN':'搜索商品…','zh-TW':'搜索商品…','en':'Search products…','es':'Buscar productos…','pt':'Buscar produtos…'},
 noAccount:{'zh-CN':'还没有账号？','zh-TW':'還沒有帳號？','en':"Don't have an account?",'es':'¿No tienes cuenta?','pt':'Não tem conta?'},
 hasAccount:{'zh-CN':'已有账号？','zh-TW':'已有帳號？','en':'Already have an account?','es':'¿Ya tienes cuenta?','pt':'Já tem conta?'},
@@ -1510,7 +1569,115 @@ const BOOKS_DATA = [
   dynasty:{'zh-CN':'西汉','zh-TW':'西漢','en':'Western Han','es':'Han Occidental','pt':'Han Ocidental'},
   intro:{'zh-CN':'《史记》是中国第一部纪传体通史，记载了从黄帝到汉武帝约3000年的历史。司马迁所著，共130篇，包括12本纪、30世家、70列传、10表、8书。其文笔优美，叙事生动，被鲁迅誉为“史家之绝唱，无韵之离骚”。','zh-TW':'《史記》是中國第一部紀傳體通史，記載了從黃帝到漢武帝約3000年的歷史。司馬遷所著，共130篇，包括12本紀、30世家、70列傳、10表、8書。其文筆優美，敘事生動，被魯迅譽為「史家之絕唱，無韻之離騷」。','en':'The Records of the Grand Historian is the first comprehensive history of China, covering about 3000 years from the Yellow Emperor to Emperor Wu of Han. Written by Sima Qian in 130 chapters (12 imperial annals, 30 noble houses, 70 biographies, 10 tables, 8 treatises), its literary brilliance and vivid narratives earned it Lu Xun\'s praise as "the greatest masterpiece of historians, a Li Sao without rhyme."','es':'Los Registros del Gran Historiador es la primera historia integral de China, que cubre unos 3000 años desde el Emperador Amarillo hasta el Emperador Wu de Han. Escrito por Sima Qian en 130 capítulos, su brillantez literaria y narrativas vívidas le valieron el elogio de Lu Xun como "la obra maestra más grande de los historiadores, un Li Sao sin rima".','pt':'Os Registros do Grande Historiador é a primeira história abrangente da China, cobrindo cerca de 3000 anos do Imperador Amarelo ao Imperador Wu de Han. Escrito por Sima Qian em 130 capítulos, seu brilho literário e narrativas vívidas lhe renderam o elogio de Lu Xun como "a maior obra-prima dos historiadores, um Li Sao sem rima".'},
   totalChapters:0
+}
+,
+{ id:'daxue', type:'儒家',
+  name:{'zh-CN':'大学','zh-TW':'大學','en':'The Great Learning'},
+  author:{'zh-CN':'曾子（传）','en':'Zengzi (attributed)'},
+  dynasty:{'zh-CN':'战国','en':'Warring States'},
+  intro:{'zh-CN':'《大学》原为《礼记》第四十二篇，宋代理学家朱熹将其与《中庸》《论语》《孟子》合为"四书"。提出"三纲领"（明明德、亲民、止于至善）与"八条目"（格物、致知、诚意、正心、修身、齐家、治国、平天下），是儒家修身治学的纲领。','en':'The Great Learning, originally a chapter of the Book of Rites, expounds the "three principles" and "eight steps" of Confucian self-cultivation.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'经一章',c:'大学之道，在明明德，在亲民，在止于至善。知止而后有定，定而后能静，静而后能安，安而后能虑，虑而后能得。物有本末，事有终始，知所先后，则近道矣。\n古之欲明明德于天下者，先治其国；欲治其国者，先齐其家；欲齐其家者，先修其身；欲修其身者，先正其心；欲正其心者，先诚其意；欲诚其意者，先致其知；致知在格物。\n物格而后知至，知至而后意诚，意诚而后心正，心正而后身修，身修而后家齐，家齐而后国治，国治而后天下平。自天子以至于庶人，壹是皆以修身为本。'}
+  ]}
 },
+{ id:'zhongyong', type:'儒家',
+  name:{'zh-CN':'中庸','zh-TW':'中庸','en':'The Doctrine of the Mean'},
+  author:{'zh-CN':'子思','en':'Zisi'},
+  dynasty:{'zh-CN':'战国','en':'Warring States'},
+  intro:{'zh-CN':'《中庸》相传为孔子之孙子思所作，朱熹列为"四书"之一。以"中""和"为核心，主张"致中和，天地位焉，万物育焉"，是儒家心性修养与天人合一思想的重要经典。','en':'The Doctrine of the Mean, attributed to Zisi, grandson of Confucius, centers on the concepts of "centrality" and "harmony".'},
+  chapters:{'zh-CN':[
+    {n:1,t:'第一章',c:'天命之谓性，率性之谓道，修道之谓教。道也者，不可须臾离也，可离非道也。是故君子戒慎乎其所不睹，恐惧乎其所不闻。莫见乎隐，莫显乎微，故君子慎其独也。喜怒哀乐之未发，谓之中；发而皆中节，谓之和。中也者，天下之大本也；和也者，天下之达道也。致中和，天地位焉，万物育焉。'},
+    {n:2,t:'第二十二章',c:'唯天下至诚，为能尽其性；能尽其性，则能尽人之性；能尽人之性，则能尽物之性；能尽物之性，则可以赞天地之化育；可以赞天地之化育，则可以与天地参矣。'}
+  ]}
+},
+{ id:'mengzi', type:'儒家',
+  name:{'zh-CN':'孟子','zh-TW':'孟子','en':'Mencius'},
+  author:{'zh-CN':'孟子及其弟子','en':'Mencius and disciples'},
+  dynasty:{'zh-CN':'战国','en':'Warring States'},
+  intro:{'zh-CN':'《孟子》是儒家经典"四书"之一，记载孟子与诸侯、弟子的问答，主张性善论与仁政王道，提出"民为贵，社稷次之，君为轻"，是儒家思想的重要发展。','en':'Mencius is one of the Four Books, recording the dialogues of Mencius advocating the goodness of human nature and benevolent government.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'梁惠王上（节选）',c:'孟子见梁惠王。王曰："叟不远千里而来，亦将有以利吾国乎？"孟子对曰："王何必曰利？亦有仁义而已矣。"'},
+    {n:2,t:'公孙丑上（节选）',c:'"我知言，我善养吾浩然之气。"\n（公孙丑问曰：）"敢问何谓浩然之气？"（孟子）曰："难言也。其为气也，至大至刚，以直养而无害，则塞于天地之间。"'},
+    {n:3,t:'告子上（节选）',c:'鱼，我所欲也；熊掌，亦我所欲也。二者不可得兼，舍鱼而取熊掌者也。生，亦我所欲也；义，亦我所欲也。二者不可得兼，舍生而取义者也。'},
+    {n:4,t:'尽心下（节选）',c:'民为贵，社稷次之，君为轻。是故得乎丘民而为天子，得乎天子为诸侯，得乎诸侯为大夫。'}
+  ]}
+},
+{ id:'sanzijing', type:'蒙学',
+  name:{'zh-CN':'三字经','zh-TW':'三字經','en':'Three Character Classic'},
+  author:{'zh-CN':'王应麟（传）','en':'Wang Yinglin (attributed)'},
+  dynasty:{'zh-CN':'南宋','en':'Southern Song'},
+  intro:{'zh-CN':'《三字经》是中国传统蒙学三大读物之一，三字一句、两句一韵，朗朗上口。内容涵盖教育、伦理、历史、天文、地理等，是流传最广的启蒙经典。','en':'The Three Character Classic is a traditional Chinese primer in three-character verses, covering ethics, history, astronomy and more.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'上篇（节选）',c:'人之初，性本善。性相近，习相远。\n苟不教，性乃迁。教之道，贵以专。\n昔孟母，择邻处。子不学，断机杼。\n窦燕山，有义方。教五子，名俱扬。\n养不教，父之过。教不严，师之惰。\n子不学，非所宜。幼不学，老何为。\n玉不琢，不成器。人不学，不知义。'},
+    {n:2,t:'中篇（节选）',c:'首孝悌，次见闻。知某数，识某文。\n一而十，十而百。百而千，千而万。\n三才者，天地人。三光者，日月星。\n三纲者，君臣义。父子亲，夫妇顺。\n曰春夏，曰秋冬。此四时，运不穷。\n曰水火，木金土。此五行，本乎数。\n曰仁义，礼智信。此五常，不容紊。'}
+  ]}
+},
+{ id:'qianziwen', type:'蒙学',
+  name:{'zh-CN':'千字文','zh-TW':'千字文','en':'Thousand Character Classic'},
+  author:{'zh-CN':'周兴嗣','en':'Zhou Xingsi'},
+  dynasty:{'zh-CN':'南朝梁','en':'Liang Dynasty'},
+  intro:{'zh-CN':'《千字文》由南朝梁周兴嗣编撰，用一千个不重复的汉字组成四言韵文，对仗工整、条理清晰，涵盖自然、历史、修身、治国，是古代蒙学经典。','en':'The Thousand Character Classic is a poem of exactly one thousand non-repeating characters, a classic primer of nature, history and self-cultivation.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'开篇（节选）',c:'天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。\n寒来暑往，秋收冬藏。闰余成岁，律吕调阳。\n云腾致雨，露结为霜。金生丽水，玉出昆冈。\n剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。\n海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。'},
+    {n:2,t:'修身治世（节选）',c:'始制文字，乃服衣裳。推位让国，有虞陶唐。\n吊民伐罪，周发殷汤。坐朝问道，垂拱平章。\n爱育黎首，臣伏戎羌。遐迩一体，率宾归王。\n鸣凤在竹，白驹食场。化被草木，赖及万方。'}
+  ]}
+},
+{ id:'baijiaxing', type:'蒙学',
+  name:{'zh-CN':'百家姓','zh-TW':'百家姓','en':'Hundred Family Surnames'},
+  author:{'zh-CN':'佚名','en':'Anonymous'},
+  dynasty:{'zh-CN':'北宋','en':'Northern Song'},
+  intro:{'zh-CN':'《百家姓》是中国古代蒙学读物，按四字一句、押韵编排，收录约五百个常见姓氏。"赵钱孙李"居首，是因成书于北宋、赵为皇姓。','en':'The Hundred Family Surnames is a classic primer listing common Chinese surnames in rhymed four-character verses.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'百家姓（节选）',c:'赵钱孙李，周吴郑王。冯陈褚卫，蒋沈韩杨。\n朱秦尤许，何吕施张。孔曹严华，金魏陶姜。\n戚谢邹喻，柏水窦章。云苏潘葛，奚范彭郎。\n鲁韦昌马，苗凤花方。俞任袁柳，酆鲍史唐。\n费廉岑薛，雷贺倪汤。滕殷罗毕，郝邬安常。\n乐于时傅，皮卞齐康。伍余元卜，顾孟平黄。\n和穆萧尹，姚邵湛汪。祁毛禹狄，米贝明臧。\n计伏成戴，谈宋茅庞。熊纪舒屈，项祝董梁。'}
+  ]}
+},
+{ id:'zhouyi', type:'哲学',
+  name:{'zh-CN':'周易','zh-TW':'周易','en':'The Book of Changes (Zhouyi)'},
+  author:{'zh-CN':'伏羲、周文王、孔子等','en':'Fuxi, King Wen, Confucius, et al.'},
+  dynasty:{'zh-CN':'上古至西周','en':'Antiquity to Western Zhou'},
+  intro:{'zh-CN':'《周易》又称《易经》，是群经之首、大道之源，以阴阳八卦、六十四卦推演天地万物的变化规律，是中国哲学、占卜与数术的源头。','en':'The Book of Changes, foremost of the classics, expounds the laws of change through the eight trigrams and sixty-four hexagrams.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'乾卦',c:'乾：元，亨，利，贞。\n《象》曰：天行健，君子以自强不息。'},
+    {n:2,t:'坤卦',c:'坤：元，亨，利牝马之贞。\n《象》曰：地势坤，君子以厚德载物。'},
+    {n:3,t:'系辞上传（节选）',c:'一阴一阳之谓道，继之者善也，成之者性也。\n易有太极，是生两仪，两仪生四象，四象生八卦。'}
+  ]}
+},
+{ id:'sanshiliuji', type:'军事',
+  name:{'zh-CN':'三十六计','zh-TW':'三十六計','en':'Thirty-Six Stratagems'},
+  author:{'zh-CN':'佚名','en':'Anonymous'},
+  dynasty:{'zh-CN':'明清','en':'Ming-Qing'},
+  intro:{'zh-CN':'《三十六计》是以《易经》阴阳之理为据的古代兵书，按胜战、敌战、攻战、混战、并战、败战六套，每套六计，共三十六计，是谋略智慧的集大成。','en':'The Thirty-Six Stratagems is an ancient military treatise of stratagems, organized into six sets of six, based on the principles of the Book of Changes.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'第一套 胜战计',c:'第一计 瞒天过海：备周则意怠，常见则不疑。\n第二计 围魏救赵：共敌不如分敌，敌阳不如敌阴。\n第三计 借刀杀人：敌已明，友未定，引友杀敌，不自出力。\n第四计 以逸待劳：困敌之势，不以战，损刚益柔。\n第五计 趁火打劫：敌之害大，就势取利。\n第六计 声东击西：敌志乱萃，不虞。'},
+    {n:2,t:'第二套 敌战计',c:'第七计 无中生有：诳也，非诳也，实其所诳也。\n第八计 暗度陈仓：示之以动，利其静而有主。\n第九计 隔岸观火：阳乖序乱，阴以待逆。\n第十计 笑里藏刀：信而安之，阴以图之。\n第十一计 李代桃僵：势必有损，损阴以益阳。\n第十二计 顺手牵羊：微隙在所必乘，微利在所必得。'},
+    {n:3,t:'第三套 攻战计',c:'第十三计 打草惊蛇：疑以叩实，察而后动。\n第十四计 借尸还魂：有用者不可借，不能用者求借。\n第十五计 调虎离山：待天以困之，用人以诱之。\n第十六计 欲擒故纵：逼则反兵，走则减势。\n第十七计 抛砖引玉：类以诱之，击蒙也。\n第十八计 擒贼擒王：摧其坚，夺其魁，以解其体。'},
+    {n:4,t:'第四套 混战计',c:'第十九计 釜底抽薪：不敌其力，而消其势。\n第二十计 浑水摸鱼：乘其阴乱，利其弱而无主。\n第二十一计 金蝉脱壳：存其形，完其势，友不疑，敌不动。\n第二十二计 关门捉贼：小敌困之，剥，不利有攸往。\n第二十三计 远交近攻：形禁势格，利从近取，害以远隔。\n第二十四计 假道伐虢：两大之间，敌胁以从，我假以势。'},
+    {n:5,t:'第五套 并战计',c:'第二十五计 偷梁换柱：频更其阵，抽其劲旅，待其自败。\n第二十六计 指桑骂槐：大凌小者，警以诱之。\n第二十七计 假痴不癫：宁伪作不知不为，不伪作假知妄为。\n第二十八计 上屋抽梯：假之以便，唆之使前，断其援应。\n第二十九计 树上开花：借局布势，力小势大。\n第三十计 反客为主：乘隙插足，扼其主机。'},
+    {n:6,t:'第六套 败战计',c:'第三十一计 美人计：兵强者，攻其将；将智者，伐其情。\n第三十二计 空城计：虚者虚之，疑中生疑。\n第三十三计 反间计：疑中之疑，比之自内，不自失也。\n第三十四计 苦肉计：人不自害，受害必真。\n第三十五计 连环计：将多兵众，不可以敌，使其自累。\n第三十六计 走为上：全师避敌，左次无咎，未失常也。'}
+  ]}
+},
+{ id:'yanshijiaxun', type:'家训',
+  name:{'zh-CN':'颜氏家训','zh-TW':'顏氏家訓','en':'The Family Instructions of Master Yan'},
+  author:{'zh-CN':'颜之推','en':'Yan Zhitui'},
+  dynasty:{'zh-CN':'北齐','en':'Northern Qi'},
+  intro:{'zh-CN':'《颜氏家训》是"古今家训之祖"，颜之推历仕四朝，以自身经历告诫子孙读书、修身、齐家之道，内容平实恳切，影响深远。','en':'The Family Instructions of Master Yan is the earliest family precept classic, offering plain and earnest guidance on learning and self-cultivation.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'教子（节选）',c:'上智不教而成，下愚虽教无益，中庸之人，不教不知也。'},
+    {n:2,t:'勉学（节选）',c:'积财千万，不如薄技在身。\n夫所以读书学问，本欲开心明目，利于行耳。'},
+    {n:3,t:'慕贤（节选）',c:'与善人居，如入芝兰之室，久而自芳也；与恶人居，如入鲍鱼之肆，久而自臭也。'}
+  ]}
+},
+{ id:'daodejing-boshu', type:'哲学',
+  name:{'zh-CN':'道德经（帛书本）','zh-TW':'道德經（帛書本）','en':'Tao Te Ching (Silk Manuscript)'},
+  author:{'zh-CN':'老子（李耳）','en':'Laozi (Li Er)'},
+  dynasty:{'zh-CN':'战国','en':'Warring States'},
+  intro:{'zh-CN':'1973年长沙马王堆汉墓出土的帛书《老子》，分甲、乙两本，是现存最早的《道德经》抄本之一。与传世本最大的不同在于避汉文帝刘恒讳，"常"字作"恒"，句式亦略有差异，更接近原始文本。','en':'The silk manuscripts of Laozi unearthed at Mawangdui in 1973 are among the earliest extant copies, differing from the received text in wording.'},
+  chapters:{'zh-CN':[
+    {n:1,t:'道经·第一章（帛书甲本）',c:'道，可道也，非恒道也。名，可名也，非恒名也。无名，万物之始也；有名，万物之母也。故恒无欲也，以观其妙；恒有欲也，以观其所噭。两者同出，异名同谓。玄之又玄，众妙之门。'},
+    {n:2,t:'德经·开篇（帛书本）',c:'上德不德，是以有德；下德不失德，是以无德。上德无为而无以为也；上仁为之而无以为也；上义为之而有以为也。'}
+  ]}
+}
+,
 { id:'hongloumeng', type:'小说',
   name:{'zh-CN':'红楼梦','zh-TW':'紅樓夢','en':'Dream of the Red Chamber','es':'Sueño en el Pabellón Rojo','pt':'Sonho na Câmara Vermelha'},
   author:{'zh-CN':'曹雪芹','zh-TW':'曹雪芹','en':'Cao Xueqin','es':'Cao Xueqin','pt':'Cao Xueqin'},
@@ -2839,7 +3006,7 @@ function filterClassics(){_classicsSearch=(document.getElementById("classicsSear
 // ===== 阅读进度系统 + 商城搜索 + 每日签到 (2026-08-29) =====
 function loadProgress(){var p=null;try{p=JSON.parse(localStorage.getItem("ch_progress")||"{}")}catch(e){p={}}if(!p||typeof p!=="object"||Array.isArray(p))p={};return p;}
 function saveProgress(){try{localStorage.setItem("ch_progress",JSON.stringify(loadProgress()))}catch(e){}}
-function bookChapters(book){if(!book||!book.chapters)return [];return book.chapters[_lang]||book.chapters["zh-CN"]||[];}
+function bookChapters(book){if(!book||!book.chapters)return [];if(_lang!=="zh-CN"&&!book.chapters[_lang])return [];return book.chapters[_lang]||book.chapters["zh-CN"]||[];}
 function bookProgress(book){if(!book)return {pct:0,read:0,total:0};var chs=bookChapters(book);var total=chs.length||book.totalChapters||0;if(!total)return {pct:0,read:0,total:0};var p=loadProgress();var arr=(p[book.id]||[]).filter(function(n){return typeof n==="number"&&n>=1&&n<=total;});var read=[];arr.forEach(function(n){if(read.indexOf(n)<0)read.push(n);});return {pct:Math.round(read.length/total*100),read:read.length,total:total};}
 function markChapterRead(book,n){if(!book||!n)return;var chs=bookChapters(book);var total=chs.length||book.totalChapters||0;if(n<1||n>total)return;var p=loadProgress();var arr=p[book.id]||[];if(arr.indexOf(n)<0){arr.push(n);p[book.id]=arr;try{localStorage.setItem("ch_progress",JSON.stringify(p))}catch(e){}}refreshProgressUI(book);}
 function progressBarHTML(book){var pr=bookProgress(book);if(!pr.total)return "";return '<div class="bc-progress"><div class="bc-progress-bar"><div class="bc-progress-fill" style="width:'+pr.pct+'%"></div></div><span class="bc-progress-label">'+t("progressDone").replace("{p}",pr.pct)+'</span></div>';}
@@ -2856,8 +3023,158 @@ window.renderShop=function(){var g=document.getElementById("shopGrid");if(!g)ret
 window.doCheckin=function(){if(!_user){showAuth("login");return;}var st={};try{st=JSON.parse(localStorage.getItem("ch_checkin")||"{}")}catch(e){st={}}var today=new Date();var ts=today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate();if(st.last===ts){showToast(t("checkedInToday"));return;}st.last=ts;try{localStorage.setItem("ch_checkin",JSON.stringify(st))}catch(e){}_user.credits=(_user.credits||0)+1;try{localStorage.setItem("ch_user",JSON.stringify(_user))}catch(e){}try{var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}renderCheckinBtn();showToast(t("checkinOk")+" +1");renderTopBar();};
 function checkinState(){try{return JSON.parse(localStorage.getItem("ch_checkin")||"{}")}catch(e){return {}}}
 function renderCheckinBtn(){var el=document.getElementById("checkinBtn");if(!el)return;var d=new Date();var ts=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();var done=checkinState().last===ts;el.textContent=done?(t("checkedIn")+" ✓"):(t("checkin")+" +1");el.classList.toggle("done",done);el.disabled=done;}
+// ===== 圣贤映照 · 性格测试 (2026-08-30) =====
+var SAGE_TEST=[
+{id:'laozi',name:'老子',title:'道祖',emoji:'🌿',desc:'你随性自然、处柔守静，懂得"无为"的智慧。你不争不抢，却总能以柔克刚、后发制人。',quote:'上善若水，水善利万物而不争。'},
+{id:'kongzi',name:'孔子',title:'至圣先师',emoji:'📚',desc:'你崇尚仁义礼智、积极入世，以修身齐家治国平天下为己任，温良而坚韧。',quote:'己所不欲，勿施于人。'},
+{id:'zhuangzi',name:'庄子',title:'南华真人',emoji:'🦋',desc:'你逍遥自在、超然物外，不被功名利禄所累，追求精神的绝对自由。',quote:'天地与我并生，万物与我为一。'},
+{id:'mozi',name:'墨子',title:'墨家巨子',emoji:'🛠',desc:'你主张兼爱非攻、身体力行，重实践、讲实效，有强烈的侠义与担当。',quote:'摩顶放踵，利天下为之。'},
+{id:'shijia',name:'释迦牟尼',title:'佛陀',emoji:'🪷',desc:'你慈悲为怀、看破放下，内心宁静而有力量，追求智慧与觉悟。',quote:'一切有为法，如梦幻泡影。'},
+{id:'huineng',name:'六祖慧能',title:'禅宗六祖',emoji:'🧘',desc:'你明心见性、直指本心，不被外物所扰，于平凡中见真如。',quote:'本来无一物，何处惹尘埃。'},
+{id:'wukong',name:'孙悟空',title:'斗战胜佛',emoji:'🐒',desc:'你桀骜不驯、敢作敢当，天不怕地不怕，骨子里有一股不服输的劲。',quote:'皇帝轮流做，明年到我家。'},
+{id:'simaqian',name:'司马迁',title:'太史公',emoji:'📜',desc:'你忍辱负重、求真务实，为了心中的理想可以承受常人难忍的苦难。',quote:'人固有一死，或重于泰山，或轻于鸿毛。'},
+{id:'caocao',name:'曹操',title:'魏武帝',emoji:'⚔️',desc:'你雄才大略、杀伐果断，善于审时度势，在复杂局面中总能找到破局之道。',quote:'宁教我负天下人，休教天下人负我。'},
+{id:'liubang',name:'刘邦',title:'汉高祖',emoji:'🐉',desc:'你知人善任、能屈能伸，看似平凡却有大智慧，懂得借众人之力成就大事。',quote:'夫运筹帷幄之中，决胜千里之外，吾不如子房。'},
+{id:'xiangyu',name:'项羽',title:'西楚霸王',emoji:'🐴',desc:'你力拔山兮、重情重义，宁折不弯，有盖世的英雄气概。',quote:'力拔山兮气盖世，时不利兮骓不逝。'},
+{id:'maozedong',name:'毛泽东',title:'人民领袖',emoji:'📕',desc:'你胸怀天下、豪情万丈，有改天换地的气魄与坚定如铁的意志。',quote:'数风流人物，还看今朝。'},
+{id:'hanwudi',name:'汉武帝',title:'汉武大帝',emoji:'🏹',desc:'你雄才大略、开疆拓土，敢于打破常规、建功立业。',quote:'犯强汉者，虽远必诛。'},
+{id:'qinshihuang',name:'秦始皇',title:'千古一帝',emoji:'🐲',desc:'你志在统一、功过千秋，有吞并八荒、建立不世功业的雄心。',quote:'朕为始皇帝，后世以计数，二世三世至于万世。'},
+{id:'wangyangming',name:'王阳明',title:'心学宗师',emoji:'🧠',desc:'你知行合一、致良知，既重内省又重实践，于困厄中悟道。',quote:'破山中贼易，破心中贼难。'},
+{id:'libai',name:'李白',title:'诗仙',emoji:'🍶',desc:'你豪放飘逸、潇洒不羁，才华横溢又不愿被世俗束缚。',quote:'天生我材必有用，千金散尽还复来。'},
+{id:'mazu',name:'妈祖',title:'海上女神',emoji:'⛵',desc:'你慈悲济世、守护众生，温柔而坚定，是他人心中的依靠。',quote:'护国庇民，慈航普度。'},
+{id:'zhugeliang',name:'诸葛亮',title:'卧龙先生',emoji:'🪶',desc:'你鞠躬尽瘁、智谋无双，思维缜密、谋定后动，凡事力求周全。',quote:'鞠躬尽瘁，死而后已。'},
+{id:'sushi',name:'苏轼',title:'东坡居士',emoji:'🎋',desc:'你旷达乐观、随遇而安，在逆境中依然能活得有滋有味。',quote:'一蓑烟雨任平生。'}
+];
+var SAGE_QUESTIONS=[
+{q:'面对困难时，你的第一反应是？',o:[
+ {t:'迎难而上，绝不退缩',v:['xiangyu','caocao','maozedong']},
+ {t:'以柔克刚，绕道而行',v:['laozi','wangyangming','zhugeliang']},
+ {t:'静观其变，等待时机',v:['zhuangzi','shijia','huineng']},
+ {t:'借众人之力化解',v:['liubang','zhugeliang','mozi']}]},
+{q:'你更看重什么？',o:[
+ {t:'仁义与道德',v:['kongzi','mozi','mazu']},
+ {t:'自由与逍遥',v:['zhuangzi','libai','wukong']},
+ {t:'功业与成就',v:['caocao','hanwudi','qinshihuang']},
+ {t:'智慧与觉悟',v:['shijia','huineng','laozi']}]},
+{q:'在团队中，你更愿意扮演什么角色？',o:[
+ {t:'运筹帷幄的军师',v:['zhugeliang','simaqian','wangyangming']},
+ {t:'冲锋陷阵的猛将',v:['xiangyu','wukong','caocao']},
+ {t:'统筹全局的领袖',v:['liubang','maozedong','qinshihuang']},
+ {t:'默默付出的守护者',v:['mazu','mozi','sushi']}]},
+{q:'遇到不公平的事，你会？',o:[
+ {t:'拍案而起，据理力争',v:['xiangyu','wukong','kongzi']},
+ {t:'忍辱负重，徐图后计',v:['simaqian','liubang','wangyangming']},
+ {t:'看淡放下，不为所动',v:['zhuangzi','shijia','huineng']},
+ {t:'以德报怨，感化对方',v:['mazu','mozi','sushi']}]},
+{q:'你理想中的生活是？',o:[
+ {t:'建功立业，青史留名',v:['caocao','qinshihuang','maozedong']},
+ {t:'归隐田园，逍遥自在',v:['zhuangzi','sushi','laozi']},
+ {t:'诗酒趁年华',v:['libai','sushi','wukong']},
+ {t:'慈悲济世，普度众生',v:['shijia','mazu','mozi']}]},
+{q:'做决定时，你更相信？',o:[
+ {t:'内心的直觉',v:['huineng','laozi','libai']},
+ {t:'周密的谋划',v:['zhugeliang','simaqian','hanwudi']},
+ {t:'众人的意见',v:['liubang','mazu','mozi']},
+ {t:'雷霆手段',v:['xiangyu','caocao','qinshihuang']}]},
+{q:'你最不能忍受的是什么？',o:[
+ {t:'束缚与不自由',v:['wukong','zhuangzi','libai']},
+ {t:'不仁不义之事',v:['kongzi','mozi','mazu']},
+ {t:'平庸与碌碌无为',v:['caocao','maozedong','hanwudi']},
+ {t:'心为外物所累',v:['huineng','shijia','laozi']}]},
+{q:'朋友眼中的你更接近？',o:[
+ {t:'豪爽仗义',v:['xiangyu','wukong','libai']},
+ {t:'沉稳可靠',v:['zhugeliang','simaqian','mazu']},
+ {t:'才华横溢',v:['libai','sushi','kongzi']},
+ {t:'深不可测',v:['caocao','liubang','qinshihuang']}]},
+{q:'你如何对待失败？',o:[
+ {t:'越挫越勇，卷土重来',v:['xiangyu','maozedong','hanwudi']},
+ {t:'反思复盘，从头再来',v:['zhugeliang','simaqian','wangyangming']},
+ {t:'一笑而过，云淡风轻',v:['sushi','zhuangzi','libai']},
+ {t:'随缘放下，不强求',v:['shijia','huineng','laozi']}]},
+{q:'你最大的优点是什么？',o:[
+ {t:'坚忍不拔',v:['simaqian','maozedong','mazu']},
+ {t:'智慧超群',v:['zhugeliang','wangyangming','laozi']},
+ {t:'知人善任',v:['liubang','caocao','hanwudi']},
+ {t:'真诚善良',v:['kongzi','mozi','mazu']}]},
+{q:'遇到强敌时，你会？',o:[
+ {t:'正面硬刚',v:['xiangyu','wukong','caocao']},
+ {t:'避其锋芒，攻其不备',v:['zhugeliang','liubang','simaqian']},
+ {t:'以德服人，化敌为友',v:['kongzi','mazu','mozi']},
+ {t:'静待其变，以逸待劳',v:['laozi','zhuangzi','huineng']}]},
+{q:'你更倾向于哪种处世态度？',o:[
+ {t:'积极入世，有所作为',v:['kongzi','maozedong','hanwudi']},
+ {t:'超然出世，淡泊名利',v:['zhuangzi','shijia','huineng']},
+ {t:'豪放不羁，率性而为',v:['libai','wukong','xiangyu']},
+ {t:'审时度势，顺势而为',v:['laozi','liubang','caocao']}]},
+{q:'你心中的英雄是？',o:[
+ {t:'力挽狂澜的霸主',v:['xiangyu','caocao','qinshihuang']},
+ {t:'鞠躬尽瘁的忠臣',v:['zhugeliang','simaqian','kongzi']},
+ {t:'济世救人的圣者',v:['shijia','mazu','mozi']},
+ {t:'笑傲江湖的侠客',v:['wukong','libai','sushi']}]},
+{q:'闲暇时，你喜欢？',o:[
+ {t:'读书习字，修身养性',v:['kongzi','wangyangming','simaqian']},
+ {t:'游山玩水，亲近自然',v:['zhuangzi','libai','sushi']},
+ {t:'静坐冥想，观照内心',v:['huineng','shijia','laozi']},
+ {t:'指点江山，激扬文字',v:['maozedong','caocao','hanwudi']}]},
+{q:'你如何看待"规矩"？',o:[
+ {t:'没有规矩不成方圆',v:['kongzi','zhugeliang','mozi']},
+ {t:'规矩是死的，人是活的',v:['liubang','caocao','wukong']},
+ {t:'大道无形，顺其自然',v:['laozi','zhuangzi','huineng']},
+ {t:'我命由我不由天',v:['xiangyu','maozedong','libai']}]},
+{q:'你最想拥有哪种能力？',o:[
+ {t:'运筹帷幄的谋略',v:['zhugeliang','caocao','liubang']},
+ {t:'万夫莫敌的勇武',v:['xiangyu','wukong','hanwudi']},
+ {t:'洞察世事的智慧',v:['laozi','shijia','wangyangming']},
+ {t:'妙笔生花的才华',v:['libai','sushi','simaqian']}]},
+{q:'面对诱惑，你会？',o:[
+ {t:'坚守原则，不为所动',v:['kongzi','mazu','mozi']},
+ {t:'权衡利弊，取之有道',v:['caocao','liubang','zhugeliang']},
+ {t:'率性而为，及时行乐',v:['libai','wukong','xiangyu']},
+ {t:'看破放下，无欲则刚',v:['shijia','huineng','zhuangzi']}]},
+{q:'你更认同哪种人生信条？',o:[
+ {t:'天行健，君子以自强不息',v:['kongzi','maozedong','simaqian']},
+ {t:'地势坤，君子以厚德载物',v:['mazu','mozi','sushi']},
+ {t:'道法自然，无为而无不为',v:['laozi','zhuangzi','shijia']},
+ {t:'知行合一，事上磨练',v:['wangyangming','zhugeliang','hanwudi']}]},
+{q:'临危受命时，你的状态是？',o:[
+ {t:'临危不惧，稳住局面',v:['zhugeliang','caocao','mazu']},
+ {t:'热血沸腾，舍我其谁',v:['xiangyu','maozedong','wukong']},
+ {t:'沉着冷静，步步为营',v:['liubang','simaqian','hanwudi']},
+ {t:'心如止水，以静制动',v:['laozi','huineng','shijia']}]},
+{q:'如果可以选择一个朝代生活，你会选？',o:[
+ {t:'秦汉，建功立业',v:['qinshihuang','hanwudi','simaqian']},
+ {t:'盛唐，诗酒风流',v:['libai','wukong','sushi']},
+ {t:'春秋战国，百家争鸣',v:['kongzi','laozi','mozi']},
+ {t:'魏晋，逍遥风流',v:['zhuangzi','sushi','libai']}]}
+];
+
+
+var _sageT={idx:0,scores:{}};
+function startSageTest(){_sageT={idx:0,scores:{}};var ov=document.getElementById("sageOverlay");if(!ov)return;ov.classList.add("active");renderSageQ();}
+function renderSageQ(){var q=SAGE_QUESTIONS[_sageT.idx];var f=document.getElementById("sageForm");if(!f||!q)return;var pct=Math.round(_sageT.idx/SAGE_QUESTIONS.length*100);f.innerHTML="<div class=\"sage-pbar\"><div class=\"sage-pfill\" style=\"width:"+pct+"%\"></div></div><div class=\"sage-qnum\">第 "+(_sageT.idx+1)+" / "+SAGE_QUESTIONS.length+" 题</div><div class=\"sage-q\">"+q.q+"</div>"+q.o.map(function(o,i){return "<button class=\"sage-opt\" onclick=\"answerSage("+i+")\">"+o.t+"</button>";}).join("");}
+function answerSage(i){var q=SAGE_QUESTIONS[_sageT.idx];var vs=q.o[i].v;for(var k=0;k<vs.length;k++){_sageT.scores[vs[k]]=(_sageT.scores[vs[k]]||0)+1;}_sageT.idx++;if(_sageT.idx>=SAGE_QUESTIONS.length){renderSageR();}else{renderSageQ();}}
+function renderSageR(){var best=null,bs=-1;for(var id in _sageT.scores){if(_sageT.scores[id]>bs){bs=_sageT.scores[id];best=id;}}var s=null;for(var i=0;i<SAGE_TEST.length;i++){if(SAGE_TEST[i].id===best)s=SAGE_TEST[i];}var f=document.getElementById("sageForm");if(!f||!s)return;f.innerHTML="<div class=\"sage-r\"><div class=\"sage-r-emoji\">"+s.emoji+"</div><div class=\"sage-r-name\">"+s.name+" · "+s.title+"</div><div class=\"sage-r-desc\">"+s.desc+"</div><div class=\"sage-r-quote\">—— "+s.quote+"</div><button class=\"btn-primary btn-block\" onclick=\"closeSageTest();openSage('"+s.id+"')\">与 "+s.name+" 神交</button><button class=\"btn-secondary btn-block\" onclick=\"startSageTest()\">重新测试</button></div>";}
+function closeSageTest(){var ov=document.getElementById("sageOverlay");if(ov)ov.classList.remove("active");}
+
 var _origForumList=window.renderForumList||function(){};
-window.renderForumList=function(s){_origForumList(s);var tb=document.querySelector(".forum-toolbar");if(tb&&!document.getElementById("checkinBtn")){var b=document.createElement("button");b.id="checkinBtn";b.className="btn-secondary";b.style.marginLeft="auto";b.onclick=function(){window.doCheckin();};tb.appendChild(b);}renderCheckinBtn();};
+window.renderForumList=function(s){_origForumList(s);var tb=document.querySelector(".forum-toolbar");if(tb&&!document.getElementById("divinationBtn")){var db=document.createElement("button");db.id="divinationBtn";db.className="btn-secondary";db.innerHTML='<svg class="bagua-icon" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#f5f0e8" stroke="#8B0000" stroke-width="2"/><circle cx="20" cy="20" r="11" fill="#8B0000"/><path d="M20 9 A11 11 0 0 1 20 31 A5.5 5.5 0 0 1 20 20 A5.5 5.5 0 0 0 20 9 Z" fill="#f5f0e8"/><circle cx="20" cy="14.5" r="2.2" fill="#8B0000"/><circle cx="20" cy="25.5" r="2.2" fill="#f5f0e8"/><g stroke="#8B0000" stroke-width="1.6" stroke-linecap="round"><line x1="20" y1="2" x2="20" y2="7"/><line x1="20" y1="33" x2="20" y2="38"/><line x1="2" y1="20" x2="7" y2="20"/><line x1="33" y1="20" x2="38" y2="20"/><line x1="7" y1="7" x2="10" y2="10"/><line x1="30" y1="10" x2="33" y2="7"/><line x1="7" y1="33" x2="10" y2="30"/><line x1="30" y1="30" x2="33" y2="33"/></g></svg> '+t("divination");db.onclick=function(){window.openDivination();};tb.appendChild(db);}if(tb&&!document.getElementById("checkinBtn")){var b=document.createElement("button");b.id="checkinBtn";b.className="btn-secondary";b.style.marginLeft="auto";b.onclick=function(){window.doCheckin();};tb.appendChild(b);}renderCheckinBtn();};
+
+// ===== 每日占卦 =====
+var BAGUA=[
+{n:'乾',sym:'☰',xiang:'天',luck:'大吉',dir:'西北',color:'金色',num:1,yi:'进取、开创、主动',ji:'犹豫、保守、懈怠'},
+{n:'兑',sym:'☱',xiang:'泽',luck:'吉',dir:'西',color:'白色',num:2,yi:'交流、合作、分享',ji:'孤行、闭塞、争执'},
+{n:'离',sym:'☲',xiang:'火',luck:'中吉',dir:'南',color:'红色',num:9,yi:'明辨、热情、表达',ji:'急躁、冲动、浮躁'},
+{n:'震',sym:'☳',xiang:'雷',luck:'吉',dir:'东',color:'青色',num:3,yi:'行动、革新、突破',ji:'犹豫、拖延、畏惧'},
+{n:'巽',sym:'☴',xiang:'风',luck:'中吉',dir:'东南',color:'绿色',num:4,yi:'顺势、柔韧、沟通',ji:'固执、强硬、对抗'},
+{n:'坎',sym:'☵',xiang:'水',luck:'中',dir:'北',color:'黑色',num:6,yi:'慎行、积累、深思',ji:'冒险、冲动、盲从'},
+{n:'艮',sym:'☶',xiang:'山',luck:'中',dir:'东北',color:'棕色',num:7,yi:'守成、沉淀、稳重',ji:'扩张、冒进、浮躁'},
+{n:'坤',sym:'☷',xiang:'地',luck:'吉',dir:'西南',color:'黄色',num:8,yi:'包容、厚德、承载',ji:'冒进、争强、急躁'}
+];
+function divinate(name,y,m,d){var seed=0;for(var i=0;i<name.length;i++)seed+=name.charCodeAt(i);seed+=y*10000+m*100+d;var t=new Date();seed+=t.getFullYear()*372+(t.getMonth()+1)*31+t.getDate();return BAGUA[((seed%8)+8)%8];}
+window.openDivination=function(){if(!_user){showAuth("login");return;}var ov=document.getElementById("divOverlay");if(!ov)return;ov.classList.add("active");var f=document.getElementById("divForm");if(!f)return;f.innerHTML='<h3 class="div-title">'+t("divinationTitle")+'</h3><div class="form-group"><label>'+t("divName")+'</label><input type="text" id="divName" placeholder="'+t("divNamePh")+'" maxlength="20"></div><div class="form-group"><label>'+t("divBirth")+'</label><input type="date" id="divBirth"></div><button class="btn-primary btn-block" onclick="doDivination()">'+t("divGo")+'</button><p class="div-tip">'+t("divTip")+'</p>';};
+window.closeDivination=function(){var ov=document.getElementById("divOverlay");if(ov)ov.classList.remove("active");};
+window.doDivination=function(){if(!_user){showAuth("login");return;}if((_user.credits||0)<1){showToast(t("divNoCredits"));return;}var name=document.getElementById("divName").value.trim();var birth=document.getElementById("divBirth").value;if(!name){showToast(t("divNeedName"));return;}if(!birth){showToast(t("divNeedBirth"));return;}_user.credits-=1;try{localStorage.setItem("ch_user",JSON.stringify(_user));var users=JSON.parse(localStorage.getItem("ch_users")||"{}");if(_user.email&&users[_user.email]){users[_user.email].credits=_user.credits;localStorage.setItem("ch_users",JSON.stringify(users));}}catch(e){}renderTopBar();var p=birth.split("-");var g=divinate(name,parseInt(p[0]||0,10),parseInt(p[1]||0,10),parseInt(p[2]||0,10));var f=document.getElementById("divForm");f.innerHTML='<div class="div-result"><div class="div-gua"><span class="div-sym">'+g.sym+'</span>'+g.n+' · '+g.xiang+'</div><div class="div-luck">'+t("divLuck")+'：'+g.luck+'</div><div class="div-grid"><div class="div-cell"><b>'+t("divDir")+'</b><span>'+g.dir+'</span></div><div class="div-cell"><b>'+t("divColor")+'</b><span>'+g.color+'</span></div><div class="div-cell"><b>'+t("divNum")+'</b><span>'+g.num+'</span></div></div><div class="div-yiji"><p class="div-yi">'+t("divYi")+'：'+g.yi+'</p><p class="div-ji">'+t("divJi")+'：'+g.ji+'</p></div><div class="div-name-tag">'+name+'</div><button class="btn-secondary btn-block" onclick="closeDivination()">'+t("divClose")+'</button></div>';};
+
 </script>
 
 <div class="modal-overlay" id="authOverlay">
@@ -2865,6 +3182,22 @@ window.renderForumList=function(s){_origForumList(s);var tb=document.querySelect
     <button class="modal-close" onclick="closeAuth()">×</button>
     <div id="authForm"></div>
   </div>
+
+<div class="modal-overlay" id="divOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeDivination()">×</button>
+    <div id="divForm"></div>
+  </div>
+
+<div class="modal-overlay" id="sageOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeSageTest()">×</button>
+    <div id="sageForm"></div>
+  </div>
+</div>
+
+</div>
+
 </div>
 
 <script>
@@ -3093,7 +3426,7 @@ var SHENJIAO_CHARS=[
 {id:"sushi",emoji:"🎋",name:"苏轼",title:"东坡居士 · 北宋",intro:"一蓑烟雨任平生。诗文书画皆绝，美食家，豁达之极。",chips:["怎么面对逆境？","你最爱的美食？","你的人生观？","怎么读书？"],responses:[{k:["逆境","挫折","贬","苦"],a:"莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。"},{k:["美食","吃","味"],a:"人间有味是清欢。东坡肉、羊蝎子、荔枝三百颗，人生之乐，岂止一端。"},{k:["人生","观","活"],a:"人生到处知何似，应似飞鸿踏雪泥。泥上偶然留指爪，鸿飞那复计东西。"},{k:["读书","学"],a:"旧书不厌百回读，熟读深思子自知。博观而约取，厚积而薄发。"},{k:["婵娟","明月","亲情"],a:"人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。"}],fallback:["不识庐山真面目，只缘身在此山中。","粗缯大布裹生涯，腹有诗书气自华。","归去，也无风雨也无晴。"]}
 ];
 var _sjChar=null,_sjLog=[];
-function renderShenjiao(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var h="<div class=\"sj-intro\">"+t("shenjiaoSub")+"</div><div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+c.emoji+"</span><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div>";}).join("")+"</div><div class=\"sj-fav\" id=\"sjFav\"></div>";sec.innerHTML=h;renderFav();return;}var c=_sjChar;sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+c.emoji+"</span><div><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",c.name),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();}
+function renderShenjiao(){var sec=document.getElementById("shenjiao-page-content");if(!sec)return;if(!_sjChar){var h="<div class=\"sj-test-entry\" onclick=\"startSageTest()\">🪞 "+t("sageTest")+" · "+t("sageTestHint")+"</div><div class=\"sj-intro\">"+t("shenjiaoSub")+"</div><div class=\"sj-grid\">"+SHENJIAO_CHARS.map(function(c){return "<div class=\"sj-card\" onclick=\"openSage('"+c.id+"')\"><span class=\"sj-emoji\">"+c.emoji+"</span><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div>";}).join("")+"</div><div class=\"sj-fav\" id=\"sjFav\"></div>";sec.innerHTML=h;renderFav();return;}var c=_sjChar;sec.innerHTML="<div class=\"sj-chat\"><div class=\"sj-chat-head\"><button class=\"btn-secondary btn-sm\" onclick=\"_sjChar=null;renderShenjiao()\">↩ "+t("sjBack")+"</button><span class=\"sj-avatar\">"+c.emoji+"</span><div><b>"+c.name+"</b><span class=\"sj-title\">"+c.title+"</span></div></div><div class=\"sj-intro\">"+c.intro+"</div><div class=\"sj-log\" id=\"sjLog\"></div><div class=\"sj-chips\" id=\"sjChips\"></div><div class=\"sj-input-row\"><input id=\"sjInput\" class=\"game-input\" placeholder=\""+t("sjPlace")+"\" autocomplete=\"off\"><button class=\"btn-primary\" onclick=\"sjAsk()\">"+t("sjAsk")+"</button><button class=\"btn-secondary\" onclick=\"sjRandom()\">"+t("sjWisdom")+"</button></div><div class=\"sj-tip\">💡 "+t("sjTip")+"</div></div>";renderChips();sjSay(t("sjGreet").replace("{n}",c.name),c.emoji);var inp=document.getElementById("sjInput");if(inp)inp.focus();}
 function openSage(id){for(var i=0;i<SHENJIAO_CHARS.length;i++){if(SHENJIAO_CHARS[i].id===id){_sjChar=SHENJIAO_CHARS[i];break;}}renderShenjiao();}
 function sjSay(txt,emoji){var log=document.getElementById("sjLog");if(!log)return;var d=new Date();var hm=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");log.innerHTML+="<div class=\"sj-msg sj-sage\"><span class=\"sj-avatar-sm\">"+emoji+"</span><div class=\"sj-bubble\">"+txt+"<span class=\"sj-time\">"+hm+"</span><span class=\"sj-collect\" onclick=\"collectQuote(this)\">☆ "+t("sjCollect")+"</span></div></div>";log.scrollTop=log.scrollHeight;}
 function sjUser(txt){var log=document.getElementById("sjLog");if(!log)return;var d=new Date();var hm=d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");log.innerHTML+="<div class=\"sj-msg sj-me\"><div class=\"sj-bubble\">"+txt+"<span class=\"sj-time\">"+hm+"</span></div></div>";log.scrollTop=log.scrollHeight;}
@@ -3283,15 +3616,15 @@ function dzName(v){var r=v%10;return DZ_NAMES[r]||"";}
 function dzWater(r,c){return (r>=3&&r<=5)&&(c===1||c===2||c===5||c===6);}
 function dzTrap(r,c){return (r===0&&(c===2||c===4))||(r===8&&(c===2||c===4))||(r===1&&c===3)||(r===7&&c===3);}
 function dzLair(r,c){return (r===0&&c===3)||(r===8&&c===3);}
-function dzClick(cx,cy){if(_dz.over||_dz.turn!==1)return;var cv=document.getElementById("bgCanvas");var S=56,MX=44,MY=28;var c=Math.floor((cx-MX)/S),r=Math.floor((cy-MY)/S);if(c<0||c>=7||r<0||r>=9)return;if(!_dz.sel){if(_dz.b[r][c]>=10&&_dz.b[r][c]<20){_dz.sel={r:r,c:c};bgRender();}return;}var fr=_dz.sel.r,fc=_dz.sel.c;if(r===fr&&c===fc){_dz.sel=null;bgRender();return;}var v=_dz.b[fr][fc];var d=Math.abs(r-fr)+Math.abs(c-fc);var ok=false;if(d===1&&!dzWater(fr,fc)&&!dzWater(r,c))ok=true;if(dzWater(fr,fc)&&dzWater(r,c)&&dzName(v)==="鼠"&&d===1)ok=true;if(ok){dzMove(fr,fc,r,c,v);}_dz.sel=null;bgRender();}
-function dzMove(fr,fc,r,c,v){var t=_dz.b[r][c];if(t&&t>20){var tn=dzName(t);if(dzTrap(r,c)){dzCapture(fr,fc,r,c,v);return;}if(dzName(v)==="鼠"&&tn==="象"){dzCapture(fr,fc,r,c,v);return;}if(dzRank(dzName(v))>=dzRank(tn)){dzCapture(fr,fc,r,c,v);return;}dzRemove(fr,fc);dzAfter(_dz.turn===1?2:1);return;}if(t&&t>=10&&t<20){dzAfter(_dz.turn===1?2:1);return;}if(t&&t===0){_dz.b[r][c]=v;_dz.b[fr][fc]=0;sfx("place");if(dzLair(r,c)){dzEnd(1);return;}dzAfter(_dz.turn===1?2:1);}}
+function dzClick(cx,cy){if(_dz.over||_dz.turn!==1)return;var cv=document.getElementById("bgCanvas");var S=56,MX=44,MY=28;var c=Math.floor((cx-MX)/S),r=Math.floor((cy-MY)/S);if(c<0||c>=7||r<0||r>=9)return;if(!_dz.sel){if(_dz.b[r][c]>=10&&_dz.b[r][c]<20){_dz.sel={r:r,c:c};bgRender();}return;}var fr=_dz.sel.r,fc=_dz.sel.c;if(r===fr&&c===fc){_dz.sel=null;bgRender();return;}var v=_dz.b[fr][fc];var d=Math.abs(r-fr)+Math.abs(c-fc);var ok=false;if(d===1){var isRat=dzName(v)==="鼠";if(!dzWater(fr,fc)&&!dzWater(r,c))ok=true;else if(isRat)ok=true;}if(ok){dzMove(fr,fc,r,c,v);}_dz.sel=null;bgRender();}
+function dzMove(fr,fc,r,c,v){var t=_dz.b[r][c];if(t&&t>20){var tn=dzName(t);if(dzTrap(r,c)){dzCapture(fr,fc,r,c,v);return;}if(dzName(v)==="鼠"&&tn==="象"){dzCapture(fr,fc,r,c,v);return;}if(dzRank(dzName(v))>=dzRank(tn)){dzCapture(fr,fc,r,c,v);return;}dzRemove(fr,fc);dzAfter(_dz.turn===1?2:1);return;}if(t&&t>=10&&t<20){dzAfter(_dz.turn===1?2:1);return;}if(t===0){_dz.b[r][c]=v;_dz.b[fr][fc]=0;sfx("place");if(dzLair(r,c)){dzEnd(1);return;}dzAfter(_dz.turn===1?2:1);}}
 function dzCapture(fr,fc,r,c,v){sfx("capture");_dz.b[r][c]=v;_dz.b[fr][fc]=0;if(dzLair(r,c)){dzEnd(1);return;}dzAfter(_dz.turn===1?2:1);}
 function dzRemove(fr,fc){_dz.b[fr][fc]=0;}
 function dzRank(n){return DZKEY(n);}
-function dzAfter(t){if(_dz.b[8][3]===11){dzEnd(1);return;}if(_dz.b[0][3]===21){dzEnd(2);return;}if(!dzAlive(1)){dzEnd(2);return;}if(!dzAlive(2)){dzEnd(1);return;}_dz.turn=t;bgRender();dzInfo(t("bgDouzhu")+" · "+(_dz.turn===1?t("bgYou"):t("bgAI")));if(_dz.turn===2)setTimeout(dzAi,300);}
+function dzAfter(tn){if(_dz.b[8][3]===11){dzEnd(1);return;}if(_dz.b[0][3]===21){dzEnd(2);return;}if(!dzAlive(1)){dzEnd(2);return;}if(!dzAlive(2)){dzEnd(1);return;}_dz.turn=tn;bgRender();dzInfo(t("bgDouzhu")+" · "+(_dz.turn===1?t("bgYou"):t("bgAI")));if(_dz.turn===2)setTimeout(dzAi,300);}
 function dzAlive(p){var base=p===1?10:20;for(var r=0;r<9;r++)for(var c=0;c<7;c++){if(_dz.b[r][c]>base&&_dz.b[r][c]<base+10)return true;}return false;}
 function dzEnd(w){_dz.over=true;sfx("win");bgRender();dzInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
-function dzAi(){var cands=[];for(var r=0;r<9;r++)for(var c=0;c<7;c++){var v=_dz.b[r][c];if(v>20&&v<30){var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=9||nc<0||nc>=7)continue;if(dzWater(r,c)!==dzWater(nr,nc))continue;var t=_dz.b[nr][nc];var sc=0;if(t&&t>10&&t<20){var tn=dzName(t);if(dzTrap(nr,nc))sc=70;else if(dzName(v)==="鼠"&&tn==="象")sc=90;else if(dzRank(dzName(v))>=dzRank(tn))sc=50+dzRank(tn)*3;else sc=-60;}if(t===0)sc=8+(nr===0&&nc===3?200:0)+(dzTrap(nr,nc)?-10:0);cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}}
+function dzAi(){var cands=[];for(var r=0;r<9;r++)for(var c=0;c<7;c++){var v=_dz.b[r][c];if(v>20&&v<30){var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=9||nc<0||nc>=7)continue;if(!dzWater(r,c)&&!dzWater(nr,nc)){}else if(!(dzName(v)==="鼠"))continue;var t=_dz.b[nr][nc];var sc=0;if(t&&t>10&&t<20){var tn=dzName(t);if(dzTrap(nr,nc))sc=70;else if(dzName(v)==="鼠"&&tn==="象")sc=90;else if(dzRank(dzName(v))>=dzRank(tn))sc=50+dzRank(tn)*3;else sc=-60;}if(t===0)sc=8+(nr===0&&nc===3?200:0)+(dzTrap(nr,nc)?-10:0);cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}}
 if(!cands.length){dzAfter(1);return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}dzMove(best.fr,best.fc,best.r,best.c,_dz.b[best.fr][best.fc]);}
 function dzRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=56,MX=44,MY=28;cv.width=cv.width;ctx.fillStyle="#d9c9a8";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#8a6b4a";for(var r=0;r<=9;r++){ctx.beginPath();ctx.moveTo(MX,MY+r*S);ctx.lineTo(MX+7*S,MY+r*S);ctx.stroke();}for(var c=0;c<=7;c++){ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}for(var r2=0;r2<9;r2++)for(var c2=0;c2<7;c2++){if(dzWater(r2,c2)){ctx.fillStyle="#7fb3d5";ctx.fillRect(MX+c2*S+1,MY+r2*S+1,S-2,S-2);}if(dzTrap(r2,c2)){ctx.fillStyle="#e6b06a";ctx.fillRect(MX+c2*S+2,MY+r2*S+2,S-4,S-4);}if(dzLair(r2,c2)){ctx.fillStyle="#c9a84c";ctx.fillRect(MX+c2*S+3,MY+r2*S+3,S-6,S-6);}var v=_dz.b[r2][c2];if(v){var sel=_dz.sel&&_dz.sel.r===r2&&_dz.sel.c===c2;ctx.beginPath();ctx.arc(MX+c2*S+S/2,MY+r2*S+S/2,S*0.36,0,Math.PI*2);ctx.fillStyle=v>10&&v<20?"#c0392b":v>20?"#2c1810":"#777";ctx.fill();if(sel){ctx.strokeStyle="#ffd700";ctx.lineWidth=3;ctx.stroke();ctx.lineWidth=1;}ctx.fillStyle="#fff";ctx.font=S*0.4+"px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(dzName(v),MX+c2*S+S/2,MY+r2*S+S/2+1);}}}
 function dzInfo(t){var el=document.getElementById("bgStatus");if(el)el.textContent=t;}
@@ -3319,6 +3652,7 @@ function sfx(type){if(_muted)return;try{var AC=window.AudioContext||window.webki
 if(type==="place"){var o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.setValueAtTime(620,t);g.gain.setValueAtTime(0.1,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.08);o.start(t);o.stop(t+0.09);}
 else if(type==="capture"){var o2=a.createOscillator(),g2=a.createGain();o2.connect(g2);g2.connect(a.destination);o2.frequency.setValueAtTime(330,t);o2.frequency.setValueAtTime(220,t+0.06);g2.gain.setValueAtTime(0.11,t);g2.gain.exponentialRampToValueAtTime(0.001,t+0.14);o2.start(t);o2.stop(t+0.15);}
 else if(type==="win"){[523,659,784,1047].forEach(function(f,i){var o3=a.createOscillator(),g3=a.createGain();o3.connect(g3);g3.connect(a.destination);o3.frequency.setValueAtTime(f,t+i*0.12);g3.gain.setValueAtTime(0.09,t+i*0.12);g3.gain.exponentialRampToValueAtTime(0.001,t+i*0.12+0.3);o3.start(t+i*0.12);o3.stop(t+i*0.12+0.31);});}
+else if(type==="check"){var o5=a.createOscillator(),g5=a.createGain();o5.connect(g5);g5.connect(a.destination);o5.frequency.setValueAtTime(880,t);o5.frequency.setValueAtTime(660,t+0.1);g5.gain.setValueAtTime(0.09,t);g5.gain.exponentialRampToValueAtTime(0.001,t+0.22);o5.start(t);o5.stop(t+0.23);}
 else if(type==="error"){var o4=a.createOscillator(),g4=a.createGain();o4.connect(g4);g4.connect(a.destination);o4.frequency.setValueAtTime(180,t);g4.gain.setValueAtTime(0.05,t);g4.gain.exponentialRampToValueAtTime(0.001,t+0.1);o4.start(t);o4.stop(t+0.11);}
 }catch(e){}}
 window.sfxToggle=function(){_muted=!_muted;var b=document.getElementById("sfxBtn");if(b)b.textContent=(_muted?"🔇":"🔊")+" "+t("bgSound");return _muted;};
@@ -3335,16 +3669,13 @@ function jqIs(v,ch){return jqName(v)===ch;}
 function jqRank(v){if(jqIs(v,"炸"))return 99;if(jqIs(v,"旗"))return -1;return v%10;}
 function jqCamp(r,c){return (r===1&&(c===1||c===3))||(r===2&&c===2)||(r===3&&(c===1||c===3))||(r===8&&(c===1||c===3))||(r===9&&c===2)||(r===10&&(c===1||c===3));}
 function jqHQ(r,c){return (r===0&&(c===1||c===3))||(r===11&&(c===1||c===3));}
-function jqInit(){var b=bgInitBoard(12,5);
-b[11][0]=19;b[11][1]=101;b[11][2]=18;b[11][3]=17;b[11][4]=16;
-b[10][0]=15;b[10][2]=14;b[10][4]=13;
-b[9][0]=12;b[9][1]=11;b[9][3]=110;b[9][4]=10;
-b[8][0]=10;
-b[0][0]=29;b[0][1]=201;b[0][2]=28;b[0][3]=27;b[0][4]=26;
-b[1][0]=25;b[1][2]=24;b[1][4]=23;
-b[2][0]=22;b[2][1]=21;b[2][3]=210;b[2][4]=20;
-b[3][0]=20;
-_jq.b=b;_jq.turn=1;_jq.over=false;_jq.sel=null;bgRender();jqInfo(t("bgJunqi")+" · "+t("bgYou"));}
+var JQ_LAYOUTS=[
+[19,101,18,17,16,15,0,14,0,13,12,11,0,110,10,10,0,0,0,0],
+[18,17,19,101,16,15,0,14,0,13,12,110,0,11,10,10,0,0,0,0],
+[16,18,17,101,19,13,0,14,0,15,12,11,0,110,10,10,0,0,0,0],
+[19,101,16,17,18,15,0,13,0,14,12,110,0,11,10,10,0,0,0,0]
+];
+function jqInit(){var b=bgInitBoard(12,5);var L=JQ_LAYOUTS[Math.floor(Math.random()*JQ_LAYOUTS.length)];var mir=function(v){if(v===101)return 201;if(v===110)return 210;return v?v+10:0;};var p=0;for(var rr=11;rr>=8;rr--){for(var cc=0;cc<5;cc++){b[rr][cc]=L[p++];}}p=0;for(var rr2=0;rr2<=3;rr2++){for(var cc2=0;cc2<5;cc2++){b[rr2][cc2]=mir(L[p++]);}}_jq.b=b;_jq.turn=1;_jq.over=false;_jq.sel=null;bgRender();jqInfo(t("bgJunqi")+" · "+t("bgYou"));}
 function jqClick(cx,cy){if(_jq.over||_jq.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=50;var c=Math.round((cx-50)/S),r=Math.round((cy-25)/S);if(c<0||c>=5||r<0||r>=12)return;if(!_jq.sel){if(jqOwner(_jq.b[r][c])===1&&jqName(_jq.b[r][c])!=="地"&&jqName(_jq.b[r][c])!=="旗"){_jq.sel={r:r,c:c};bgRender();}return;}var fr=_jq.sel.r,fc=_jq.sel.c;if(r===fr&&c===fc){_jq.sel=null;bgRender();return;}if(Math.abs(r-fr)+Math.abs(c-fc)!==1){_jq.sel=null;bgRender();return;}jqMove(fr,fc,r,c);_jq.sel=null;}
 function jqMove(fr,fc,r,c){var v=_jq.b[fr][fc];var t=_jq.b[r][c];if(t&&jqOwner(t)===1)return;if(!t){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("place");jqAfter(_jq.turn===1?2:1);return;}var vn=jqName(v),tn=jqName(t);if(jqIs(t,"旗")){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqEnd(1);return;}if(jqIs(v,"炸")||jqIs(t,"炸")){_jq.b[r][c]=0;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(jqIs(v,"工")&&jqIs(t,"地")){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(jqIs(t,"地")){_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);return;}var vr=jqRank(v),tr=jqRank(t);if(vr>tr){_jq.b[r][c]=v;_jq.b[fr][fc]=0;sfx("capture");jqAfter(_jq.turn===1?2:1);return;}if(vr===tr){_jq.b[r][c]=0;_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);return;}_jq.b[fr][fc]=0;jqAfter(_jq.turn===1?2:1);}
 function jqAfter(tn){if(!jqAlive(1)){jqEnd(2);return;}if(!jqAlive(2)){jqEnd(1);return;}_jq.turn=tn;bgRender();jqInfo(t("bgJunqi")+" · "+(_jq.turn===1?t("bgYou"):t("bgAI")));if(_jq.turn===2)setTimeout(jqAi,300);}
@@ -3354,7 +3685,7 @@ function jqAi(){var cands=[];for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq
 function jqRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=50,MX=50,MY=25;cv.width=cv.width;ctx.fillStyle="#d8cfb8";ctx.fillRect(0,0,cv.width,cv.height);
 ctx.strokeStyle="#b59b78";ctx.lineWidth=1;for(var r=0;r<12;r++)for(var c=0;c<5;c++){var x=MX+c*S,y=MY+r*S;if(c<4){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+S,y);ctx.stroke();}if(r<11){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+S);ctx.stroke();}}
 ctx.strokeStyle="#5c4a38";ctx.lineWidth=3;for(var cc=0;cc<5;cc+=4){ctx.beginPath();ctx.moveTo(MX+cc*S,MY);ctx.lineTo(MX+cc*S,MY+11*S);ctx.stroke();}for(var rr=2;rr<=9;rr++){if(rr===5||rr===6)continue;ctx.beginPath();ctx.moveTo(MX,MY+rr*S);ctx.lineTo(MX+4*S,MY+rr*S);ctx.stroke();}
-ctx.beginPath();ctx.moveTo(MX,MY+S);ctx.lineTo(MX+S,MY+2*S);ctx.moveTo(MX+4*S,MY+S);ctx.lineTo(MX+3*S,MY+2*S);ctx.moveTo(MX,MY+10*S);ctx.lineTo(MX+S,MY+9*S);ctx.moveTo(MX+4*S,MY+10*S);ctx.lineTo(MX+3*S,MY+9*S);ctx.stroke();
+ctx.beginPath();ctx.moveTo(MX+S,MY);ctx.lineTo(MX,MY+S);ctx.moveTo(MX+S,MY);ctx.lineTo(MX+2*S,MY+S);ctx.moveTo(MX+3*S,MY);ctx.lineTo(MX+2*S,MY+S);ctx.moveTo(MX+3*S,MY);ctx.lineTo(MX+4*S,MY+S);ctx.moveTo(MX+S,MY+11*S);ctx.lineTo(MX,MY+10*S);ctx.moveTo(MX+S,MY+11*S);ctx.lineTo(MX+2*S,MY+10*S);ctx.moveTo(MX+3*S,MY+11*S);ctx.lineTo(MX+2*S,MY+10*S);ctx.moveTo(MX+3*S,MY+11*S);ctx.lineTo(MX+4*S,MY+10*S);ctx.stroke();
 ctx.lineWidth=1;for(var r2=0;r2<12;r2++)for(var c2=0;c2<5;c2++){if(jqCamp(r2,c2)){ctx.beginPath();ctx.arc(MX+c2*S,MY+r2*S,S*0.3,0,Math.PI*2);ctx.fillStyle="#c8b78f";ctx.fill();ctx.strokeStyle="#5c4a38";ctx.lineWidth=1.5;ctx.stroke();}if(jqHQ(r2,c2)){ctx.strokeStyle="#7a4a1f";ctx.lineWidth=2;ctx.strokeRect(MX+c2*S-S*0.36,MY+r2*S-S*0.36,S*0.72,S*0.72);}}
 ctx.fillStyle="#e8ddc2";ctx.fillRect(MX-S*0.4,MY+5*S-S*0.32,4*S+S*0.8,S*0.64);ctx.fillStyle="#7a4a1f";ctx.font=S*0.42+"px serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("山 界",MX+2*S,MY+5*S);
 for(var r4=0;r4<12;r4++)for(var c4=0;c4<5;c4++){var v=_jq.b[r4][c4];if(!v)continue;var x=MX+c4*S,y=MY+r4*S;var sel=_jq.sel&&_jq.sel.r===r4&&_jq.sel.c===c4;ctx.beginPath();ctx.arc(x,y,S*0.36,0,Math.PI*2);ctx.fillStyle=jqOwner(v)===1?"#b03a2e":"#2c3e50";ctx.fill();ctx.strokeStyle="#f5e8d0";ctx.lineWidth=2;ctx.stroke();ctx.lineWidth=1;if(sel){ctx.strokeStyle="#ffd700";ctx.lineWidth=3;ctx.stroke();ctx.lineWidth=1;}ctx.fillStyle="#fff";ctx.font=S*0.4+"px sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(jqName(v),x,y+1);}}
@@ -3384,12 +3715,14 @@ function xqMoves(b,r,c){var v=b[r][c];if(!v)return [];var o=xqOwner(v);var n=v%1
 function xqLegal(b,o){var k=xqFindKing(b,o);if(!k)return true;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=b[r][c];if(v&&xqOwner(v)===o)continue;if(v){var ms=xqMoves(b,r,c);for(var i=0;i<ms.length;i++){if(ms[i][0]===k[0]&&ms[i][1]===k[1])return false;}}}return true;}
 function xqTry(b,fr,fc,r,c){var nb=[];for(var i=0;i<10;i++)nb.push(b[i].slice());nb[r][c]=nb[fr][fc];nb[fr][fc]=0;return nb;}
 function xqInit(){var b=bgInitBoard(10,9);var redBack=["车","马","相","仕","帅","仕","相","马","车"];var blackBack=["车","马","象","士","将","士","象","马","车"];for(var c=0;c<9;c++){b[9][c]=10+xqCode(redBack[c]);b[0][c]=20+xqCode(blackBack[c]);}var p2=[0,"炮",0,0,0,0,0,"炮",0];for(var c2=0;c2<9;c2++){if(p2[c2]){b[7][c2]=10+xqCode(p2[c2]);b[2][c2]=20+xqCode(p2[c2]);}}for(var c3=0;c3<9;c3+=2){b[6][c3]=17;b[3][c3]=27;}_xq.b=b;_xq.turn=1;_xq.sel=null;_xq.over=false;bgRender();xqInfo(t("bgXiangqi")+" · "+t("bgYou"));}
-function xqClick(cx,cy){if(_xq.over||_xq.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=53,MX=28,MY=28;var c=Math.round((cx-MX)/S),r=Math.round((cy-MY)/S);if(c<0||c>=9||r<0||r>=10)return;if(!_xq.sel){if(_xq.b[r][c]&&xqOwner(_xq.b[r][c])===1){_xq.sel={r:r,c:c};bgRender();}return;}var fr=_xq.sel.r,fc=_xq.sel.c;if(r===fr&&c===fc){_xq.sel=null;bgRender();return;}var ok=false;var ms=xqMoves(_xq.b,fr,fc);for(var i=0;i<ms.length;i++){if(ms[i][0]===r&&ms[i][1]===c)ok=true;}if(ok){var nb=xqTry(_xq.b,fr,fc,r,c);if(xqLegal(nb,1)){sfx(_xq.b[r][c]?"capture":"place");_xq.b=nb;if((_xq.b[r][c]%10)===1&&xqOwner(_xq.b[r][c])===2){xqEnd(1);return;}xqAfter(2);}}_xq.sel=null;bgRender();}
+function xqClick(cx,cy){if(_xq.over||_xq.turn!==1)return;var cv=document.getElementById("bgCanvas");if(!cv)return;var S=53,MX=28,MY=28;var c=Math.round((cx-MX)/S),r=Math.round((cy-MY)/S);if(c<0||c>=9||r<0||r>=10)return;if(!_xq.sel){if(_xq.b[r][c]&&xqOwner(_xq.b[r][c])===1){_xq.sel={r:r,c:c};bgRender();}return;}var fr=_xq.sel.r,fc=_xq.sel.c;if(r===fr&&c===fc){_xq.sel=null;bgRender();return;}var ok=false;var ms=xqMoves(_xq.b,fr,fc);for(var i=0;i<ms.length;i++){if(ms[i][0]===r&&ms[i][1]===c)ok=true;}if(ok){var nb=xqTry(_xq.b,fr,fc,r,c);if(xqLegal(nb,1)){sfx(_xq.b[r][c]?"capture":"place");_xq.b=nb;if(!xqLegal(_xq.b,2))sfx("check");if((_xq.b[r][c]%10)===1&&xqOwner(_xq.b[r][c])===2){xqEnd(1);return;}xqAfter(2);}}_xq.sel=null;bgRender();}
 function xqAfter(tn){if(!xqAlive(2)){xqEnd(1);return;}_xq.turn=tn;bgRender();xqInfo(t("bgXiangqi")+" · "+(_xq.turn===1?t("bgYou"):t("bgAI")));if(_xq.turn===2)setTimeout(xqAi,300);}
 function xqAlive(o){return xqFindKing(_xq.b,o)!==null;}
 function xqEnd(w){_xq.over=true;sfx("win");bgRender();xqInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
 function xqVal(v){var n=v%10;var m=[0,1000,200,60,300,500,250,15];return m[n]||0;}
-function xqAi(){var best=null;var depth=_bgDiff>=4?2:1;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=_xq.b[r][c];if(!v||xqOwner(v)!==2)continue;var ms=xqMoves(_xq.b,r,c);for(var i=0;i<ms.length;i++){var nr=ms[i][0],nc=ms[i][1];var nb=xqTry(_xq.b,r,c,nr,nc);if(!xqLegal(nb,2))continue;var sc=xqVal(nb[nr][nc])-xqVal(v);if(depth===2){var sub=null;for(var r2=0;r2<10;r2++)for(var c2=0;c2<9;c2++){var v2=nb[r2][c2];if(!v2||xqOwner(v2)!==1)continue;var ms2=xqMoves(nb,r2,c2);for(var j=0;j<ms2.length;j++){var nb2=xqTry(nb,r2,c2,ms2[j][0],ms2[j][1]);if(xqLegal(nb2,1)){var sc2=xqVal(nb2[ms2[j][0]][ms2[j][1]])-xqVal(v2);if(sub===null||sc2>sub)sub=sc2;}}}sc-=sub||0;}if(_bgDiff<=2)sc+=Math.random()*2-1;if(!best||sc>best.sc)best={fr:r,fc:c,r:nr,c:nc,sc:sc}}}if(best){var nb2=xqTry(_xq.b,best.fr,best.fc,best.r,best.c);if(xqLegal(nb2,2)){_xq.b=nb2;if((_xq.b[best.r][best.c]%10)===1&&xqOwner(_xq.b[best.r][best.c])===1){xqEnd(2);return;}xqAfter(1);}}else{xqEnd(1);}}
+function xqEval(b){var s=0;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=b[r][c];if(!v)continue;var val=xqVal(v);if(xqOwner(v)===2)s+=val;else s-=val;if(v===27&&r<=4)s+=12;if(v===17&&r>=5)s-=12;}return s;}
+function xqSearch(b,depth,alpha,beta,side){if(depth<=0)return side*xqEval(b);var best=side===1?-999999:999999;var found=false;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=b[r][c];if(!v)continue;if(side===1&&xqOwner(v)!==2)continue;if(side===-1&&xqOwner(v)!==1)continue;var ms=xqMoves(b,r,c);for(var i=0;i<ms.length;i++){var nb=xqTry(b,r,c,ms[i][0],ms[i][1]);if(!xqLegal(nb,side===1?2:1))continue;found=true;var sc=xqSearch(nb,depth-1,alpha,beta,-side);if(side===1){if(sc>best)best=sc;if(best>alpha)alpha=best;}else{if(sc<best)best=sc;if(best<beta)beta=best;}if(alpha>=beta)break;}if(alpha>=beta)break;}if(!found)return side===1?-999999:999999;return best;}
+function xqAi(){var depth=_bgDiff>=4?4:3;var best=null,alpha=-999999;for(var r=0;r<10;r++)for(var c=0;c<9;c++){var v=_xq.b[r][c];if(!v||xqOwner(v)!==2)continue;var ms=xqMoves(_xq.b,r,c);for(var i=0;i<ms.length;i++){var nr=ms[i][0],nc=ms[i][1];var nb=xqTry(_xq.b,r,c,nr,nc);if(!xqLegal(nb,2))continue;var sc=xqSearch(nb,depth-1,-999999,999999,-1);if(_bgDiff<=2)sc+=Math.random()*30-15;if(_bgDiff<=1)sc+=Math.random()*60-30;if(sc>alpha){alpha=sc;best={fr:r,fc:c,r:nr,c:nc,sc:sc};}}}if(best){var nb2=xqTry(_xq.b,best.fr,best.fc,best.r,best.c);if(xqLegal(nb2,2)){_xq.b=nb2;if(!xqLegal(_xq.b,1))sfx("check");if((_xq.b[best.r][best.c]%10)===1&&xqOwner(_xq.b[best.r][best.c])===1){xqEnd(2);return;}xqAfter(1);}}else{xqEnd(1);}}
 function xqRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=53,MX=28,MY=28;cv.width=cv.width;ctx.fillStyle="#e8d9a8";ctx.fillRect(0,0,cv.width,cv.height);ctx.strokeStyle="#5c4a38";ctx.lineWidth=1;
 for(var r=0;r<10;r++){ctx.beginPath();ctx.moveTo(MX,MY+r*S);ctx.lineTo(MX+8*S,MY+r*S);ctx.stroke();}
 for(var c=0;c<9;c++){if(c===0||c===8){ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}else{ctx.beginPath();ctx.moveTo(MX+c*S,MY);ctx.lineTo(MX+c*S,MY+4*S);ctx.stroke();ctx.beginPath();ctx.moveTo(MX+c*S,MY+5*S);ctx.lineTo(MX+c*S,MY+9*S);ctx.stroke();}}
