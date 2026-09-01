@@ -3907,7 +3907,7 @@ function jqMove(fr,fc,r,c){var v=_jq.b[fr][fc];var t=_jq.b[r][c];if(t&&jqOwner(t
 function jqAfter(tn){if(!jqAlive(1)){jqEnd(2);return;}if(!jqAlive(2)){jqEnd(1);return;}_jq.turn=tn;bgRender();jqInfo(t("bgJunqi")+" · "+(_jq.turn===1?t("bgYou"):t("bgAI")));if(_jq.turn===2)setTimeout(jqAi,300);}
 function jqAlive(p){for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq.b[r][c];if(jqOwner(v)===p&&jqName(v)!=="地"&&jqName(v)!=="旗")return true;}return false;}
 function jqEnd(w){_jq.over=true;sfx("win");bgRender();jqInfo(w===1?t("bgYouWin"):t("bgAIWin"));}
-function jqAi(){var cands=[];for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq.b[r][c];if(jqOwner(v)!==2||jqName(v)==="地"||jqName(v)==="旗")continue;var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=12||nc<0||nc>=5)continue;var t=_jq.b[nr][nc];var sc=0;if(!t)sc=5;else if(jqOwner(t)===1){var tn=jqName(t);if(jqIs(t,"旗"))sc=400;else if(jqIs(v,"炸")&&!jqIs(t,"地"))sc=30;else if(jqIs(v,"工")&&jqIs(t,"地"))sc=60;else if(jqIs(t,"地"))sc=-50;else if(jqRank(v)>jqRank(t))sc=20+jqRank(t)*4;else if(jqRank(v)===jqRank(t))sc=5;else sc=-40;}cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}if(!cands.length){jqAfter(1);return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}jqMove(best.fr,best.fc,best.r,best.c);}
+function jqAi(){var cands=[];var frr=-1,fcc=-1;for(var rr0=0;rr0<12;rr0++)for(var cc0=0;cc0<5;cc0++){var vv=_jq.b[rr0][cc0];if(jqOwner(vv)===2&&jqIs(vv,"旗")){frr=rr0;fcc=cc0;}}for(var r=0;r<12;r++)for(var c=0;c<5;c++){var v=_jq.b[r][c];if(jqOwner(v)!==2||jqName(v)==="地"||jqName(v)==="旗")continue;var d=[[-1,0],[1,0],[0,-1],[0,1]];for(var q=0;q<4;q++){var nr=r+d[q][0],nc=c+d[q][1];if(nr<0||nr>=12||nc<0||nc>=5)continue;var t=_jq.b[nr][nc];var sc=0;var adv=(11-nr)*1.5;if(!t){sc=5+adv;if(frr>=0&&(Math.abs(r-frr)+Math.abs(c-fcc))<=1&&(Math.abs(nr-frr)+Math.abs(nc-fcc))>1)sc-=3;}else if(jqOwner(t)===1){var tn=jqName(t);if(jqIs(t,"旗"))sc=400;else if(jqIs(v,"炸")&&!jqIs(t,"地"))sc=30;else if(jqIs(v,"工")&&jqIs(t,"地"))sc=60;else if(jqIs(t,"地"))sc=-50;else if(jqRank(v)>jqRank(t))sc=20+jqRank(t)*4+adv;else if(jqRank(v)===jqRank(t))sc=5;else sc=-40;}cands.push({fr:r,fc:c,r:nr,c:nc,sc:sc});}}if(!cands.length){jqAfter(1);return;}var rnd=_bgDiff===1?0.7:(_bgDiff===2?0.4:(_bgDiff===3?0.15:0));var best;if(Math.random()<rnd){best=cands[Math.floor(Math.random()*cands.length)];}else{cands.sort(function(a,b){return b.sc-a.sc;});best=cands[0];}jqMove(best.fr,best.fc,best.r,best.c);}
 function jqRender(){var cv=document.getElementById("bgCanvas");if(!cv)return;var ctx=cv.getContext("2d");var S=50,MX=50,MY=25;cv.width=cv.width;ctx.fillStyle="#d8cfb8";ctx.fillRect(0,0,cv.width,cv.height);
 ctx.strokeStyle="#b59b78";ctx.lineWidth=1;for(var r=0;r<12;r++)for(var c=0;c<5;c++){var x=MX+c*S,y=MY+r*S;if(c<4){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+S,y);ctx.stroke();}if(r<11){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+S);ctx.stroke();}}
 ctx.strokeStyle="#5c4a38";ctx.lineWidth=3;for(var cc=0;cc<5;cc+=4){ctx.beginPath();ctx.moveTo(MX+cc*S,MY);ctx.lineTo(MX+cc*S,MY+11*S);ctx.stroke();}for(var rr=2;rr<=9;rr++){if(rr===5||rr===6)continue;ctx.beginPath();ctx.moveTo(MX,MY+rr*S);ctx.lineTo(MX+4*S,MY+rr*S);ctx.stroke();}
@@ -4215,6 +4215,126 @@ enrich("四十二章经",[
 enrich("地藏菩萨本愿经",[
 {n:1,t:"忉利天宫神通品",c:"地藏菩萨……以神通力，现声闻像。\n是时，十方无量世界，不可说不可说一切诸佛及大菩萨摩诃萨，皆来集会。"},
 {n:2,t:"利益存亡品",c:"若有男子女人，在生不修善因，多造众罪。命终之后，眷属小大，为造福利一切圣事，七分之中而乃获一，六分功德生者自利。\n是故未来现在善男女等，闻健自修，分分己获。"}
+]);
+
+})();
+</script>
+<script>
+// ===== 儒释道典籍补全二 (2026-08-31) =====
+(function(){
+if(typeof BOOKS_DATA==="undefined")return;
+function byName(n){for(var i=0;i<BOOKS_DATA.length;i++){if(BOOKS_DATA[i].name&&BOOKS_DATA[i].name["zh-CN"]===n)return BOOKS_DATA[i];}return null;}
+function enrich(n,chs){var b=byName(n);if(!b)return;b.chapters={"zh-CN":chs};b.totalChapters=chs.length;}
+
+// —— 佛家 ——
+enrich("药师经",[
+{n:1,t:"十二大愿（节选）",c:"第一大愿：愿我来世得阿耨多罗三藐三菩提时，自身光明炽然，照耀无量无数无边世界。\n第二大愿：愿我来世得菩提时，身如琉璃，内外明彻，净无瑕秽，光明广大。\n第七大愿：愿我来世得菩提时，若诸有情，众病逼切，无救无归，无医无药，我之名号一经其耳，众病悉除，身心安乐。"}
+]);
+enrich("无量寿经",[
+{n:1,t:"四十八愿（节选）",c:"设我得佛，国有地狱、饿鬼、畜生者，不取正觉。\n设我得佛，十方众生，至心信乐，欲生我国，乃至十念，若不生者，不取正觉。\n设我得佛，国中天人，寿命无能限量。除其本愿，修短自在，若不尔者，不取正觉。"}
+]);
+enrich("观无量寿经",[
+{n:1,t:"是心作佛",c:"诸佛如来是法界身，入一切众生心想中。是故汝等心想佛时，是心即是三十二相、八十随形好。是心作佛，是心是佛。"}
+]);
+enrich("维摩诘经",[
+{n:1,t:"不思议品",c:"以须弥之高广，内芥子中，无所增减。须弥山王本相如故，而四天王、忉利诸天，不觉不知己之所入。\n是时，维摩诘默然无言。文殊师利叹曰：善哉善哉，乃至无有文字语言，是真入不二法门。"}
+]);
+enrich("华严经",[
+{n:1,t:"入法界品",c:"善财童子五十三参，历事善知识。\n若人欲了知，三世一切佛，应观法界性，一切唯心造。"}
+]);
+enrich("楞伽经",[
+{n:1,t:"心性",c:"心生则种种法生，心灭则种种法灭。\n佛语心为宗，无门为法门。"}
+]);
+enrich("大乘起信论",[
+{n:1,t:"一心二门",c:"依一心法，有二种门。云何为二？一者心真如门，二者心生灭门。是二种门，皆各总摄一切法。\n一切众生，从本已来，自性清净。"}
+]);
+enrich("八大人觉经",[
+{n:1,t:"八大人觉",c:"第一觉悟：世间无常，国土危脆；四大苦空，五阴无我。\n第二觉知：多欲为苦；生死疲劳，从贪欲起。\n第八觉知：生死炽然，苦恼无量，发大乘心，普济一切。"}
+]);
+enrich("百喻经",[
+{n:1,t:"愚人食盐喻",c:"昔有愚人，至于他家。主人与食，嫌淡无味。主人闻已，更为益盐。既得盐美，便自念言：所以美者，缘有盐故。……愚人无智，便空食盐。食已口爽，返为其患。"}
+]);
+enrich("梵网经",[
+{n:1,t:"心地法门",c:"一切众生，皆有佛性。一切有心者，皆应摄佛戒。\n众生受佛戒，即入诸佛位。"}
+]);
+enrich("解深密经",[
+{n:1,t:"胜义谛",c:"阿陀那识甚深细，一切种子如瀑流。我于凡愚不开演，恐彼分别执为我。"}
+]);
+enrich("唯识三十论颂",[
+{n:1,t:"万法唯识",c:"由假说我法，有种种相转。彼依识所变，此能变唯三。\n是诸识转变，分别所分别，由此彼皆无，故一切唯识。"}
+]);
+
+// —— 道家 ——
+enrich("淮南子",[
+{n:1,t:"原道训",c:"道者，覆天载地，廓四方，柝八极，高不可际，深不可测。\n是故达于道者，反于清静；究于物者，终于无为。"},
+{n:2,t:"塞翁失马",c:"近塞上之人，有善术者，马无故亡而入胡。人皆吊之，其父曰：此何遽不为福乎？居数月，其马将胡骏马而归。……故福之为祸，祸之为福，化不可极，深不可测也。"}
+]);
+enrich("抱朴子",[
+{n:1,t:"论仙",c:"我命在我不在天，还丹成金亿万年。\n凡人之为仙者，皆志行修洁，务守恬淡。"},
+{n:2,t:"微旨",c:"欲求长生者，必欲积善立功，慈心于物。……行善不怠，必得吉报。"}
+]);
+enrich("坐忘论",[
+{n:1,t:"坐忘",c:"夫心者，一身之主，百神之帅。静则生慧，动则成昏。\n堕肢体，黜聪明，离形去知，同于大通，此谓坐忘。"}
+]);
+enrich("周易参同契",[
+{n:1,t:"丹道",c:"乾坤者，易之门户，众卦之父母。坎离匡廓，运毂正轴。\n天地设位，而易行乎其中矣。"}
+]);
+enrich("黄庭经",[
+{n:1,t:"内景",c:"上清紫霞虚皇前，太上大道玉晨君。\n琴心三叠舞胎仙，九气英明出霄间。"}
+]);
+enrich("悟真篇",[
+{n:1,t:"丹诀",c:"学仙须是学天仙，惟有金丹最的端。\n二物会时情性合，五行全处虎龙蟠。"}
+]);
+enrich("文子",[
+{n:1,t:"道原",c:"夫道者，德之元，天之根，福之门，万物待之而生，待之而成。\n故圣人以无为而治，静默恬淡。"}
+]);
+
+// —— 儒家 ——
+enrich("孔子家语",[
+{n:1,t:"观周",c:"孔子观乎明堂，睹四门墉，有尧舜之容、桀纣之象。\n孔子谓南宫敬叔曰：吾闻老聃博古知今，通礼乐之原，明道德之归，则吾师也，今将往矣。"},
+{n:2,t:"儒行解",c:"儒有可亲而不可劫也，可近而不可迫也，可杀而不可辱也。"}
+]);
+enrich("大学衍义",[
+{n:1,t:"格物致知",c:"《大学》之要，在格物致知，诚意正心。……物格而后知至，知至而后意诚，意诚而后心正，心正而后身修。"}
+]);
+enrich("近思录",[
+{n:1,t:"为学",c:"涵养须用敬，进学则在致知。\n为学大益，在自求变化气质。"}
+]);
+enrich("朱子语类",[
+{n:1,t:"读书法",c:"读书之法，在循序而渐进，熟读而精思。\n大抵观书，须先熟读，使其言皆若出于吾之口；继以精思，使其意皆若出于吾之心。"}
+]);
+enrich("张子正蒙",[
+{n:1,t:"太和",c:"太虚无形，气之本体；其聚其散，变化之客形尔。\n为天地立心，为生民立命，为往圣继绝学，为万世开太平。"}
+]);
+enrich("二程遗书",[
+{n:1,t:"天理",c:"天理与人欲相对。……存天理，灭人欲。\n父子君臣，天下之定理，无所逃于天地之间。"}
+]);
+enrich("阳明全书",[
+{n:1,t:"答顾东桥书",c:"夫学贵得之心。求之于心而非也，虽其言之出于孔子，不敢以为是也。\n心即理也，此心无私欲之蔽，即是天理。"}
+]);
+enrich("日知录",[
+{n:1,t:"天下兴亡",c:"有亡国，有亡天下。亡国与亡天下奚辨？曰：易姓改号，谓之亡国；仁义充塞，而至于率兽食人，人将相食，谓之亡天下。……保天下者，匹夫之贱，与有责焉耳矣。"}
+]);
+enrich("明夷待访录",[
+{n:1,t:"原君",c:"后之为人君者不然，以为天下利害之权皆出于我。……为天下之大害者，君而已矣。"}
+]);
+enrich("焚书",[
+{n:1,t:"童心说",c:"夫童心者，绝假纯真，最初一念之本心也。若失却童心，便失却真心；失却真心，便失却真人。"}
+]);
+enrich("中说",[
+{n:1,t:"王道",c:"文中子曰：学者，博诵云乎哉？必也贯乎道。文者，苟作云乎哉？必也济乎义。\n通其变，天下无弊法；执其方，天下无善教。"}
+]);
+enrich("法言",[
+{n:1,t:"学行",c:"学，行之，上也；言之，次也；教人，又其次也。\n学者，所以修性也。视、听、言、貌、思，性所有也。学则正，否则邪。"}
+]);
+enrich("盐铁论",[
+{n:1,t:"本议",c:"大夫曰：……故兴盐铁，设酒榷，置均输，蕃货长财，以佐助边费。\n文学曰：……国有沃野之饶而民不足于食者，工商盛而本业荒也。"}
+]);
+enrich("说苑",[
+{n:1,t:"善说",c:"子贡曰：出言陈辞，身之得失，国之安危也。\n故辞不可不修，而说不可不善。"}
+]);
+enrich("新序",[
+{n:1,t:"杂事",c:"叶公好龙，钩以写龙，凿以写龙，屋室雕文以写龙。于是天龙闻而下之，窥头于牖，施尾于堂。叶公见之，弃而还走。是叶公非好龙也，好夫似龙而非龙者也。"}
 ]);
 
 })();
