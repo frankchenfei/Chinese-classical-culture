@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="华夏文脉——国学典籍阅读、儒释道文化、圣贤神交对话、圣贤映照性格测试、姓氏家谱、文创商城与国学小游戏的综合传统文化平台。"><meta property="og:title" content="华夏文脉 · 国学文化体验"><meta property="og:description" content="读典籍、会圣贤、测性格、问签、寻根、下棋——一站式国学文化体验。"><meta property="og:type" content="website">
 <title>华夏文脉</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%238B0000'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23f5e8d0' stroke-width='4'/%3E%3Cpath d='M50 22 A28 28 0 0 1 50 78 A14 14 0 0 1 50 50 A14 14 0 0 0 50 22 Z' fill='%23f5e8d0'/%3E%3Ccircle cx='50' cy='36' r='4' fill='%238B0000'/%3E%3Ccircle cx='50' cy='64' r='4' fill='%23f5e8d0'/%3E%3C/svg%3E">
 <style>
@@ -1063,16 +1064,16 @@ checkin:{'zh-CN':'每日签到','zh-TW':'每日簽到','en':'Daily Check-in','es
 checkedIn:{'zh-CN':'已签到','zh-TW':'已簽到','en':'Checked in','es':'Registrado','pt':'Feito'},
 checkedInToday:{'zh-CN':'今日已签到，明天再来吧','zh-TW':'今日已簽到，明天再來吧','en':'Already checked in today, come back tomorrow','es':'Ya registrado hoy, vuelve mañana','pt':'Check-in de hoje feito, volte amanhã'},
 checkinOk:{'zh-CN':'签到成功，获得积分','zh-TW':'簽到成功，獲得積分','en':'Check-in success, +1 credit','es':'Registro exitoso, +1 crédito','pt':'Check-in feito, +1 crédito'},
-divination:{'zh-CN':'占一卦','zh-TW':'占一卦','en':'Divination','es':'Adivinación','pt':'Adivinhação'},
-divinationTitle:{'zh-CN':'每日占卦','zh-TW':'每日占卦','en':'Daily Divination','es':'Adivinación diaria','pt':'Adivinhação diária'},
+divination:{'zh-CN':'国学问签','zh-TW':'國學問簽','en':'Divination','es':'Adivinación','pt':'Adivinhação'},
+divinationTitle:{'zh-CN':'每日一签','zh-TW':'每日一簽','en':'Daily Divination','es':'Adivinación diaria','pt':'Adivinhação diária'},
 divName:{'zh-CN':'姓名','zh-TW':'姓名','en':'Name','es':'Nombre','pt':'Nome'},
 divNamePh:{'zh-CN':'请输入姓名','zh-TW':'請輸入姓名','en':'Enter your name','es':'Ingresa tu nombre','pt':'Digite seu nome'},
 divBirth:{'zh-CN':'出生年月日','zh-TW':'出生年月日','en':'Birthdate','es':'Fecha de nacimiento','pt':'Data de nascimento'},
 divBlood:{'zh-CN':'血型','zh-TW':'血型','en':'Blood Type','es':'Tipo de Sangre','pt':'Tipo Sanguíneo'},
 divZodiac:{'zh-CN':'星座','zh-TW':'星座','en':'Zodiac','es':'Zodiaco','pt':'Zodíaco'},
 divOpt:{'zh-CN':'请选择','zh-TW':'請選擇','en':'Select','es':'Elegir','pt':'Selecionar'},
-divGo:{'zh-CN':'开始占卦','zh-TW':'開始占卦','en':'Cast','es':'Echar','pt':'Lançar'},
-divTip:{'zh-CN':'占卦一次消耗 1 积分','zh-TW':'占卦一次消耗 1 積分','en':'Costs 1 credit per cast','es':'Cuesta 1 crédito','pt':'Custa 1 crédito'},
+divGo:{'zh-CN':'开始求签','zh-TW':'開始占卦','en':'Cast','es':'Echar','pt':'Lançar'},
+divTip:{'zh-CN':'求签一次消耗 1 积分 · 内容为传统文化体验，仅供参考','zh-TW':'占卦一次消耗 1 積分','en':'Costs 1 credit per cast','es':'Cuesta 1 crédito','pt':'Custa 1 crédito'},
 divNoCredits:{'zh-CN':'积分不足，请先签到获取积分','zh-TW':'積分不足，請先簽到獲取積分','en':'Not enough credits, check in first','es':'Créditos insuficientes','pt':'Créditos insuficientes'},
 divNeedName:{'zh-CN':'请输入姓名','zh-TW':'請輸入姓名','en':'Please enter your name','es':'Ingresa tu nombre','pt':'Digite seu nome'},
 divNeedBirth:{'zh-CN':'请选择出生日期','zh-TW':'請選擇出生日期','en':'Please select your birthdate','es':'Selecciona tu fecha','pt':'Selecione sua data'},
@@ -3361,7 +3362,7 @@ function renderSageIntro(){var f=document.getElementById("sageForm");if(!f)retur
 function startSageTest(){_sageT={idx:0,scores:{},qs:sagePickQuestions(20)};var ov=document.getElementById("sageOverlay");if(!ov)return;ov.classList.add("active");renderSageIntro();}
 function renderSageQ(){var q=_sageT.qs[_sageT.idx];var f=document.getElementById("sageForm");if(!f||!q)return;var pct=Math.round(_sageT.idx/_sageT.qs.length*100);f.innerHTML="<div class=\"sage-pbar\"><div class=\"sage-pfill\" style=\"width:"+pct+"%\"></div></div><div class=\"sage-qnum\">第 "+(_sageT.idx+1)+" / "+_sageT.qs.length+" 题</div><div class=\"sage-q\">"+q.q+"</div>"+q.o.map(function(o,i){return "<button class=\"sage-opt\" onclick=\"answerSage("+i+")\">"+o.t+"</button>";}).join("");}
 function answerSage(i){var q=_sageT.qs[_sageT.idx];var vs=q.o[i].v;for(var k=0;k<vs.length;k++){var w=(k===0?3:1);_sageT.scores[vs[k]]=(_sageT.scores[vs[k]]||0)+w;}_sageT.idx++;if(_sageT.idx>=_sageT.qs.length){renderSageR();}else{renderSageQ();}}
-function renderSageR(){var arr=[];for(var id in _sageT.scores){arr.push({id:id,sc:_sageT.scores[id]});}arr.sort(function(a,b){return b.sc-a.sc;});if(!arr.length)return;var maxSc=arr[0].sc||1;var s=null;for(var i=0;i<SAGE_TEST.length;i++){if(SAGE_TEST[i].id===arr[0].id)s=SAGE_TEST[i];}var f=document.getElementById("sageForm");if(!f||!s)return;var pct=Math.min(99,Math.round(maxSc/(2*_sageT.qs.length)*100));var tr=(s.traits||[]).map(function(t){return "<span class=\"sage-trait\">"+t+"</span>";}).join("");var rest="";for(var k=1;k<3&&k<arr.length;k++){var s2=null;for(var j=0;j<SAGE_TEST.length;j++){if(SAGE_TEST[j].id===arr[k].id)s2=SAGE_TEST[j];}if(s2){rest+="<div class=\"sage-alt\" onclick=\"closeSageTest();openSage('"+s2.id+"')\"><span class=\"sage-alt-emoji\">"+s2.emoji+"</span><span class=\"sage-alt-name\">"+s2.name+" · "+s2.title+"</span><span class=\"sage-alt-bar\"><i style=\"width:"+Math.round(arr[k].sc/maxSc*100)+"%\"></i></span><span class=\"sage-alt-pct\">"+Math.round(arr[k].sc/maxSc*100)+"%</span></div>";}}f.innerHTML="<div class=\"sage-r\"><div class=\"sage-r-emoji\">"+s.emoji+"</div><div class=\"sage-r-name\">"+s.name+" · "+s.title+"</div><div class=\"sage-r-match\">共鸣度 <b>"+pct+"%</b></div><div class=\"sage-r-traits\">"+tr+"</div><div class=\"sage-r-desc\">"+s.desc+"</div><div class=\"sage-r-quote\">—— "+s.quote+"</div><button class=\"btn-primary btn-block\" onclick=\"closeSageTest();openSage('"+s.id+"')\">与 "+s.name+" 神交</button>"+(rest?"<div class=\"sage-r-alt-title\">也很接近</div>"+rest:"")+"<button class=\"btn-secondary btn-block\" onclick=\"startSageTest()\">重新测试</button></div>";}
+function renderSageR(){var arr=[];for(var id in _sageT.scores){arr.push({id:id,sc:_sageT.scores[id]});}arr.sort(function(a,b){return b.sc-a.sc;});if(!arr.length)return;var maxSc=arr[0].sc||1;var s=null;for(var i=0;i<SAGE_TEST.length;i++){if(SAGE_TEST[i].id===arr[0].id)s=SAGE_TEST[i];}var f=document.getElementById("sageForm");if(!f||!s)return;var pct=Math.min(99,Math.round(maxSc/(2*_sageT.qs.length)*100));_sageResult={s:s,pct:pct};var tr=(s.traits||[]).map(function(t){return "<span class=\"sage-trait\">"+t+"</span>";}).join("");var rest="";for(var k=1;k<3&&k<arr.length;k++){var s2=null;for(var j=0;j<SAGE_TEST.length;j++){if(SAGE_TEST[j].id===arr[k].id)s2=SAGE_TEST[j];}if(s2){rest+="<div class=\"sage-alt\" onclick=\"closeSageTest();openSage('"+s2.id+"')\"><span class=\"sage-alt-emoji\">"+s2.emoji+"</span><span class=\"sage-alt-name\">"+s2.name+" · "+s2.title+"</span><span class=\"sage-alt-bar\"><i style=\"width:"+Math.round(arr[k].sc/maxSc*100)+"%\"></i></span><span class=\"sage-alt-pct\">"+Math.round(arr[k].sc/maxSc*100)+"%</span></div>";}}f.innerHTML="<div class=\"sage-r\"><div class=\"sage-r-emoji\">"+s.emoji+"</div><div class=\"sage-r-name\">"+s.name+" · "+s.title+"</div><div class=\"sage-r-match\">共鸣度 <b>"+pct+"%</b></div><div class=\"sage-r-traits\">"+tr+"</div><div class=\"sage-r-desc\">"+s.desc+"</div><div class=\"sage-r-quote\">—— "+s.quote+"</div><button class=\"btn-primary btn-block\" onclick=\"closeSageTest();openSage('"+s.id+"')\">与 "+s.name+" 神交</button><button class=\"btn-secondary btn-block\" onclick=\"genSagePoster()\">📜 生成海报分享</button>"+(rest?"<div class=\"sage-r-alt-title\">也很接近</div>"+rest:"")+"<button class=\"btn-secondary btn-block\" onclick=\"startSageTest()\">重新测试</button></div>";}
 function closeSageTest(){var ov=document.getElementById("sageOverlay");if(ov)ov.classList.remove("active");}
 
 var _origForumList=window.renderForumList||function(){};
@@ -4338,4 +4339,95 @@ enrich("新序",[
 ]);
 
 })();
+</script>
+<script>
+// ===== 圣贤映照 · 海报分享 (2026-09-01) =====
+var _sageResult=null;
+function wrapPosterText(ctx,txt,maxW){var chars=txt.split("");var lines=[];var cur="";for(var i=0;i<chars.length;i++){var t=cur+chars[i];if(ctx.measureText(t).width>maxW&&cur){lines.push(cur);cur=chars[i];}else{cur=t;}}if(cur)lines.push(cur);return lines;}
+window.genSagePoster=function(){var r=_sageResult;if(!r||!r.s)return;var s=r.s;var cv=document.createElement("canvas");cv.width=600;cv.height=900;var ctx=cv.getContext("2d");
+var g=ctx.createLinearGradient(0,0,0,900);g.addColorStop(0,"#2c1810");g.addColorStop(0.45,"#4a2c1a");g.addColorStop(0.75,"#5c3a28");g.addColorStop(1,"#2c1810");ctx.fillStyle=g;ctx.fillRect(0,0,600,900);
+ctx.strokeStyle="#c9a84c";ctx.lineWidth=4;ctx.strokeRect(26,26,548,848);
+ctx.strokeStyle="rgba(201,168,76,.35)";ctx.lineWidth=1.5;ctx.strokeRect(38,38,524,824);
+ctx.textAlign="center";ctx.fillStyle="#f5f0e8";ctx.font="bold 42px serif";ctx.fillText("华夏文脉",300,92);
+ctx.fillStyle="#c9a84c";ctx.font="17px serif";ctx.fillText("圣贤映照 · 以心为镜，照见本心",300,122);
+ctx.fillStyle="#c9a84c";ctx.fillRect(180,138,240,2);
+ctx.font="100px serif";ctx.fillText(s.emoji,300,258);
+ctx.fillStyle="#f5f0e8";ctx.font="bold 36px serif";ctx.fillText(s.name+" · "+s.title,300,318);
+ctx.fillStyle="#c9a84c";ctx.font="22px serif";ctx.fillText("与你共鸣度 "+r.pct+"%",300,362);
+var tr=(s.traits||[]).join(" · ");ctx.fillStyle="#e8ddd0";ctx.font="19px serif";ctx.fillText(tr,300,402);
+ctx.fillStyle="rgba(201,168,76,.4)";ctx.fillRect(120,426,360,1);
+ctx.fillStyle="#f5f0e8";ctx.font="20px serif";var ql=wrapPosterText(ctx,"“"+s.quote+"”",440);var y0=492;for(var i=0;i<ql.length;i++){ctx.fillText(ql[i],300,y0+i*32);}
+ctx.fillStyle="#c9a84c";ctx.font="bold 20px serif";ctx.fillText("测测你像哪位圣贤",300,790);
+ctx.fillStyle="#8a7466";ctx.font="15px serif";ctx.fillText("—— 华夏文脉 · 国学文化体验 ——",300,820);
+showSagePoster(cv);};
+function showSagePoster(cv){var ov=document.getElementById("posterOverlay");if(!ov){ov=document.createElement("div");ov.id="posterOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}var img=cv.toDataURL("image/png");ov._img=img;ov.innerHTML="<div class=\"modal\" style=\"max-width:380px\"><button class=\"modal-close\" onclick=\"closePoster()\">×</button><h3 style=\"text-align:center;margin-bottom:.6rem\">你的圣贤画像</h3><img src=\""+img+"\" style=\"width:100%;max-width:340px;border-radius:12px;display:block;margin:0 auto;box-shadow:0 6px 24px rgba(0,0,0,.3)\"/><div style=\"text-align:center;margin-top:.8rem\"><button class=\"btn-primary\" onclick=\"downloadPoster()\">⬇ 保存海报</button> <button class=\"btn-secondary\" onclick=\"copyPosterText()\">📋 复制文案</button></div><p style=\"text-align:center;font-size:.72rem;color:#9a8774;margin-top:.5rem\">长按海报也可直接保存</p></div>";ov.classList.add("active");}
+window.closePoster=function(){var ov=document.getElementById("posterOverlay");if(ov)ov.classList.remove("active");};
+window.downloadPoster=function(){var ov=document.getElementById("posterOverlay");if(!ov||!ov._img)return;var a=document.createElement("a");a.href=ov._img;a.download="华夏文脉-圣贤映照.png";document.body.appendChild(a);a.click();document.body.removeChild(a);showToast("海报已开始下载");};
+window.copyPosterText=function(){var r=_sageResult;if(!r||!r.s)return;var txt="【圣贤映照】我测出来最像 "+r.s.name+"（"+r.s.title+"），共鸣度 "+r.pct+"%！\n—— "+r.s.quote+"\n你也来测测，你像哪位圣贤？";if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){showToast("文案已复制，快去分享吧");},function(){showToast(txt);});}else{showToast("复制失败，请手动长按保存海报");}};
+</script>
+<style>
+body.dark{background:#171310;color:#e6d9c8}
+body.dark .top-bar{background:#0d0a08;color:#b8a58f}
+body.dark .sticky-nav{background:rgba(23,19,16,.96);border-bottom:1px solid #3a3027}
+body.dark .nav-link{color:#c9b8a4}
+body.dark .nav-link:hover{background:#30281f;color:#e6d9c8}
+body.dark .nav-brand{color:#e0b060}
+body.dark .page-title h2{color:#e6d9c8}
+body.dark .page-title p{color:#a8967f}
+body.dark .book-card,body.dark .shop-card,body.dark .sj-card,body.dark .game-card,body.dark .forum-post,body.dark .account-card,body.dark .credit-packages .cp{background:#241d16;border-color:#3a3027}
+body.dark .book-card h4,body.dark .shop-card h4,body.dark .sj-card b,body.dark .game-card b{color:#e6d9c8}
+body.dark .bc-meta,body.dark .sj-title,body.dark .forum-post-meta,body.dark .forum-post-excerpt{color:#a8967f}
+body.dark .modal{background:#241d16;color:#e6d9c8}
+body.dark .sage-opt,body.dark .game-input,body.dark .sj-chip,body.dark .lang-btn,body.dark .sj-bubble{background:#2c241b;color:#d8c8b2;border-color:#4a3d30}
+body.dark .reader-content,.reader-chapter-list .reader-chapter{background:#241d16;border-color:#3a3027;color:#e6d9c8}
+body.dark .chapter-text,body.dark .reader-chapter-list .reader-chapter{color:#d8c8b2}
+body.dark footer,body.dark .footer{background:#171310;color:#a8967f}
+body.dark .section-title,body.dark .hs-head h3{color:#e6d9c8}
+.top-tools{display:inline-flex;gap:.25rem;align-items:center;margin-left:auto}
+.tool-btn{background:0 0;border:1px solid #5c4a38;color:#c4b5a0;border-radius:5px;cursor:pointer;font-size:.72rem;padding:.25rem .45rem;min-height:30px;font-family:inherit}
+.tool-btn:hover{border-color:#c9a84c;color:#f5f0e8}
+.gs-group{margin-bottom:.5rem}.gs-gtitle{font-size:.78rem;color:#c9a84c;font-weight:700;margin:.3rem 0}
+.gs-item{padding:.45rem .6rem;background:#fffefb;border:1px solid #e0d5c8;border-radius:8px;margin:.25rem 0;cursor:pointer;font-size:.86rem;color:#5c4a38}
+.gs-item:hover{border-color:#8B0000;color:#8B0000}
+body.dark .gs-item{background:#2c241b;border-color:#4a3d30;color:#d8c8b2}
+</style>
+<script>
+// ===== 落地功能包：夜间模式 / 全局搜索 / 书架·收藏·历史 (2026-09-01) =====
+function initDark(){try{var on=localStorage.getItem("ch_dark")==="1";document.body.classList.toggle("dark",on);}catch(e){}}
+function toggleDark(){var on=document.body.classList.toggle("dark");try{localStorage.setItem("ch_dark",on?"1":"0")}catch(e){}var b=document.getElementById("darkBtn");if(b)b.textContent=on?"☀️":"🌙";}
+function injectTopTools(){var tb=document.querySelector(".top-bar-inner");if(!tb||document.getElementById("topTools"))return;var w=document.createElement("span");w.id="topTools";w.className="top-tools";w.innerHTML='<button class="tool-btn" id="searchBtn" onclick="openGlobalSearch()" title="全局搜索">🔍</button><button class="tool-btn" id="shelfBtn" onclick="openShelf()" title="书架与阅读记录">📚</button><button class="tool-btn" id="darkBtn" onclick="toggleDark()" title="夜间模式">🌙</button>';tb.insertBefore(w,tb.querySelector(".top-bar-user")||tb.lastChild);}
+function openGlobalSearch(){var ov=document.getElementById("gsOverlay");if(!ov){ov=document.createElement("div");ov.id="gsOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}ov.innerHTML='<div class="modal" style="max-width:560px"><button class="modal-close" onclick="closeGlobalSearch()">×</button><h3 style="margin-bottom:.6rem">🔍 全局搜索</h3><input id="gsInput" class="game-input" placeholder="搜典籍、圣贤、商品、姓氏…" style="width:100%;margin-bottom:.6rem" oninput="doGlobalSearch(this.value)"/><div id="gsResults" style="max-height:60vh;overflow-y:auto"></div></div>';ov.classList.add("active");setTimeout(function(){var i=document.getElementById("gsInput");if(i)i.focus();},50);}
+function closeGlobalSearch(){var ov=document.getElementById("gsOverlay");if(ov)ov.classList.remove("active");}
+function doGlobalSearch(q){var box=document.getElementById("gsResults");if(!box)return;q=(q||"").trim().toLowerCase();if(!q){box.innerHTML='<p style="color:#9a8774;text-align:center;padding:1rem">输入关键词开始搜索</p>';return;}var res=[];if(typeof BOOKS_DATA!=="undefined")BOOKS_DATA.forEach(function(b){var n=b.name["zh-CN"]||"";var a=(b.author&&b.author["zh-CN"])||"";if(n.toLowerCase().indexOf(q)>=0||a.toLowerCase().indexOf(q)>=0)res.push({g:"典籍",t:n+(a?" — "+a:""),act:"closeGlobalSearch();openReader('"+b.id+"')"});});if(typeof SHENJIAO_CHARS!=="undefined")SHENJIAO_CHARS.forEach(function(s){var n=s.name||"";var tt=s.title||"";if(n.indexOf(q)>=0||tt.indexOf(q)>=0)res.push({g:"圣贤",t:n+" · "+tt,act:"closeGlobalSearch();openSage('"+s.id+"')"});});if(typeof SHOP_PRODUCTS!=="undefined")SHOP_PRODUCTS.forEach(function(p){var n=(p.name&&p.name["zh-CN"])||p.name||"";if(String(n).toLowerCase().indexOf(q)>=0)res.push({g:"商城",t:String(n),act:"closeGlobalSearch();navTo('shop')"});});if(typeof SURNAME_DETAILS!=="undefined"&&SURNAME_DETAILS[q.toUpperCase()]){res.push({g:"姓氏",t:q.toUpperCase(),act:"closeGlobalSearch();navTo('surname')"});}if(!res.length){box.innerHTML='<p style="color:#9a8774;text-align:center;padding:1rem">未找到相关内容</p>';return;}var groups={};res.forEach(function(r){(groups[r.g]=groups[r.g]||[]).push(r);});box.innerHTML=Object.keys(groups).map(function(g){return '<div class="gs-group"><div class="gs-gtitle">'+g+'</div>'+groups[g].slice(0,8).map(function(r){return '<div class="gs-item" onclick="'+r.act+'">'+r.t+'</div>';}).join("")+'</div>';}).join("");}
+function loadShelf(){try{return JSON.parse(localStorage.getItem("ch_shelf")||"[]")}catch(e){return[]}}
+function loadHist(){try{return JSON.parse(localStorage.getItem("ch_history")||"[]")}catch(e){return[]}}
+function toggleCollectBook(id){var s=loadShelf();var i=s.indexOf(id);var b=BOOKS_DATA?BOOKS_DATA.find(function(x){return x.id===id;}):null;if(i>=0){s.splice(i,1);showToast("已从书架移除");}else{s.unshift(id);showToast("已加入书架");}try{localStorage.setItem("ch_shelf",JSON.stringify(s))}catch(e){}updateCollectBtn(id);}
+function updateCollectBtn(id){var b=document.getElementById("collectBtn");if(!b)return;var on=loadShelf().indexOf(id)>=0;b.textContent=on?"★ 已收藏":"☆ 收藏";}
+function openShelf(){var ov=document.getElementById("shelfOverlay");if(!ov){ov=document.createElement("div");ov.id="shelfOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}var s=loadShelf(),h=loadHist();function bookHtml(id,icon){var b=BOOKS_DATA?BOOKS_DATA.find(function(x){return x.id===id;}):null;return b?'<div class="gs-item" onclick="closeShelf();openReader(\''+id+'\')">'+icon+' '+b.name["zh-CN"]+'</div>':'';}var sh=s.map(function(id){return bookHtml(id,"📖")}).join("");var hh=h.slice(0,20).map(function(id){return bookHtml(id,"🕘")}).join("");ov.innerHTML='<div class="modal" style="max-width:520px"><button class="modal-close" onclick="closeShelf()">×</button><h3 style="margin-bottom:.6rem">📚 书架 · 阅读记录</h3><div class="gs-gtitle">我的收藏 ('+s.length+')</div>'+(sh||'<p style="color:#9a8774;padding:.4rem">暂无收藏，在典籍阅读页点“收藏”即可加入书架</p>')+'<div class="gs-gtitle" style="margin-top:.8rem">阅读历史</div>'+(hh||'<p style="color:#9a8774;padding:.4rem">暂无阅读记录</p>')+'</div>';ov.classList.add("active");}
+function closeShelf(){var ov=document.getElementById("shelfOverlay");if(ov)ov.classList.remove("active");}
+(function(){var _o=window.openReader;window.openReader=function(id){if(typeof BOOKS_DATA!=="undefined"){var h=loadHist();var i=h.indexOf(id);if(i>=0)h.splice(i,1);h.unshift(id);try{localStorage.setItem("ch_history",JSON.stringify(h.slice(0,50)))}catch(e){}}_o(id);setTimeout(function(){var sec=document.getElementById("reader-page");var hd=sec?sec.querySelector(".reader-header"):null;if(hd&&!document.getElementById("collectBtn")&&_currentBook){var b=document.createElement("button");b.id="collectBtn";b.className="btn-secondary btn-sm";b.onclick=function(){toggleCollectBook(_currentBook.id);};hd.insertBefore(b,hd.querySelector(".reader-total"));updateCollectBtn(_currentBook.id);}},60);};})();
+document.addEventListener("DOMContentLoaded",function(){initDark();injectTopTools();});
+</script>
+<script>
+// ===== 每日一签 · 日签海报分享 (2026-09-01) =====
+function genDailyPoster(){var d=(typeof sjDailyData==="function")?sjDailyData():null;if(!d||!d.quote)return;var cv=document.createElement("canvas");cv.width=600;cv.height=900;var ctx=cv.getContext("2d");
+var g=ctx.createLinearGradient(0,0,0,900);g.addColorStop(0,"#2c1810");g.addColorStop(0.5,"#4a2c1a");g.addColorStop(1,"#2c1810");ctx.fillStyle=g;ctx.fillRect(0,0,600,900);
+ctx.strokeStyle="#c9a84c";ctx.lineWidth=4;ctx.strokeRect(26,26,548,848);
+ctx.strokeStyle="rgba(201,168,76,.35)";ctx.lineWidth=1.5;ctx.strokeRect(38,38,524,824);
+ctx.textAlign="center";
+var now=new Date();var ds=now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日";
+ctx.fillStyle="#c9a84c";ctx.font="20px serif";ctx.fillText(ds,300,88);
+ctx.fillStyle="#f5f0e8";ctx.font="bold 42px serif";ctx.fillText("每 日 一 签",300,142);
+ctx.fillStyle="#c9a84c";ctx.fillRect(190,160,220,2);
+ctx.font="72px serif";ctx.fillText((d.sage&&d.sage.emoji)||"🪷",300,258);
+ctx.fillStyle="#f5f0e8";ctx.font="24px serif";var ql=wrapPosterText(ctx,"“"+d.quote+"”",440);var y0=340;for(var i=0;i<ql.length;i++){ctx.fillText(ql[i],300,y0+i*40);}
+var hn=(typeof sjHonor==="function"&&d.sage)?sjHonor(d.sage.id):"";
+ctx.fillStyle="#c9a84c";ctx.font="20px serif";ctx.fillText("—— "+hn,300,y0+ql.length*40+34);
+ctx.fillStyle="#8a7466";ctx.font="16px serif";ctx.fillText("华夏文脉 · 每日一签",300,828);
+var ov=document.getElementById("posterOverlay");if(!ov){ov=document.createElement("div");ov.id="posterOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}
+var img=cv.toDataURL("image/png");ov._img=img;
+ov.innerHTML="<div class=\"modal\" style=\"max-width:380px\"><button class=\"modal-close\" onclick=\"closePoster()\">×</button><h3 style=\"text-align:center;margin-bottom:.6rem\">今日一签</h3><img src=\""+img+"\" style=\"width:100%;max-width:340px;border-radius:12px;display:block;margin:0 auto;box-shadow:0 6px 24px rgba(0,0,0,.3)\"/><div style=\"text-align:center;margin-top:.8rem\"><button class=\"btn-primary\" onclick=\"downloadPoster()\">⬇ 保存日签</button> <button class=\"btn-secondary\" onclick=\"copyDailyText()\">📋 复制文案</button></div></div>";
+ov.classList.add("active");}
+function copyDailyText(){var d=(typeof sjDailyData==="function")?sjDailyData():null;if(!d)return;var hn=(typeof sjHonor==="function"&&d.sage)?sjHonor(d.sage.id):"";var txt="【每日一签】"+hn+"："+d.quote+" —— 华夏文脉";if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){showToast("文案已复制");},function(){showToast(txt);});}else{showToast(txt);}}
+(function(){var _o=window.renderShenjiao;window.renderShenjiao=function(){_o.apply(this,arguments);setTimeout(function(){var hd=document.querySelector(".sj-daily-head");if(hd&&!document.getElementById("dailyPosterBtn")){var b=document.createElement("button");b.id="dailyPosterBtn";b.className="btn-secondary btn-sm";b.style.marginLeft="auto";b.textContent="🖼 生成日签";b.onclick=function(){genDailyPoster();};hd.appendChild(b);}},40);};})();
 </script>
