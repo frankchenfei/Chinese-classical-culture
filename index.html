@@ -4431,3 +4431,93 @@ ov.classList.add("active");}
 function copyDailyText(){var d=(typeof sjDailyData==="function")?sjDailyData():null;if(!d)return;var hn=(typeof sjHonor==="function"&&d.sage)?sjHonor(d.sage.id):"";var txt="【每日一签】"+hn+"："+d.quote+" —— 华夏文脉";if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){showToast("文案已复制");},function(){showToast(txt);});}else{showToast(txt);}}
 (function(){var _o=window.renderShenjiao;window.renderShenjiao=function(){_o.apply(this,arguments);setTimeout(function(){var hd=document.querySelector(".sj-daily-head");if(hd&&!document.getElementById("dailyPosterBtn")){var b=document.createElement("button");b.id="dailyPosterBtn";b.className="btn-secondary btn-sm";b.style.marginLeft="auto";b.textContent="🖼 生成日签";b.onclick=function(){genDailyPoster();};hd.appendChild(b);}},40);};})();
 </script>
+<script>
+// ===== 蒙学典籍内容补全 + 多语言元信息 (2026-09-01) =====
+(function(){
+if(typeof BOOKS_DATA==="undefined")return;
+function byName(n){for(var i=0;i<BOOKS_DATA.length;i++){if(BOOKS_DATA[i].name&&BOOKS_DATA[i].name["zh-CN"]===n)return BOOKS_DATA[i];}return null;}
+function enrich(n,chs){var b=byName(n);if(!b)return;b.chapters={"zh-CN":chs};b.totalChapters=chs.length;}
+function meta(n,en,es,pt,enIntro){var b=byName(n);if(!b)return;if(b.name){b.name["en"]=en;b.name["es"]=es;b.name["pt"]=pt;}if(enIntro){var zh=b.intro?((typeof b.intro==="string")?b.intro:(b.intro["zh-CN"]||"")):"";b.intro={"zh-CN":zh,"en":enIntro};}}
+function enrichEn(n,chs){var b=byName(n);if(!b)return;if(!b.chapters)b.chapters={};b.chapters["en"]=chs;}
+
+// ============ 中文正文补全 ============
+enrich("笠翁对韵",[
+{n:1,t:"上卷·一东",c:"天对地，雨对风，大陆对长空。山花对海树，赤日对苍穹。\n雷隐隐，雾蒙蒙，日下对天中。风高秋月白，雨霁晚霞红。\n牛女二星河左右，参商两曜斗西东。十月塞边，飒飒寒霜惊戍旅；三冬江上，漫漫朔雪冷渔翁。"},
+{n:2,t:"上卷·二冬",c:"晨对午，夏对冬，下晌对高舂。青春对白昼，古柏对苍松。\n垂钓客，荷锄翁，仙鹤对神龙。凤冠珠闪烁，螭带玉玲珑。\n三元及第才千顷，一品当朝禄万钟。"}
+]);
+enrich("小儿语",[
+{n:1,t:"小儿语",c:"一切言动，都要安详；十差九错，只为慌张。\n沉静立身，从容说话；不要轻薄，惹人笑骂。\n先学耐烦，快休使气；性燥心粗，一生不济。\n能有几句，见人胡讲；洪钟无声，满瓶不响。"}
+]);
+enrich("续小儿语",[
+{n:1,t:"续小儿语",c:"心要慈悲，事要方便；残忍刻薄，惹人恨怨。\n手下无能，从容调理；他若有才，不服事你。\n遇事逢人，豁绰舒展；要看男儿，须先看胆。\n休将实用，费在无功；蝙蝠翅儿，一般有风。"}
+]);
+enrich("女诫",[
+{n:1,t:"卑弱 · 夫妇 · 敬慎",c:"古者生女三日，卧之床下，弄之瓦砖，而斋告焉。卧之床下，明其卑弱，主下人也。……夫妇之道，参配阴阳，通达神明，信天地之弘义，人伦之大节也。……敬顺之道，妇之大礼也。"},
+{n:2,t:"妇行 · 专心",c:"妇有四行：一曰妇德，二曰妇言，三曰妇容，四曰妇功。……《礼》：夫有再娶之义，妇无二适之文。故曰：夫者天也，天固不可逃，夫固不可离也。"},
+{n:3,t:"曲从 · 和叔妹",c:"舅姑之心，岂当可失哉？……求叔妹之心，固莫尚于谦顺矣。谦则德之柄，顺则妇之行。"}
+]);
+enrich("女论语",[
+{n:1,t:"立身 · 学作 · 学礼",c:"凡为女子，先学立身。立身之法，惟务清贞。清则身洁，贞则身荣。\n行莫回头，语莫掀唇。坐莫动膝，立莫摇裙。\n凡为女子，须学女工。勿麻缉苎，粗细不同。……凡为女子，当知礼数。女客相过，安排坐具。"}
+]);
+enrich("内训",[
+{n:1,t:"内训",c:"女德有常，不逾贞信；妇德有常，不逾孝敬。\n贞静幽闲，端庄诚一，女子之德性也。孝敬仁明，慈和柔顺，德性备矣。"}
+]);
+enrich("蒙求",[
+{n:1,t:"蒙求",c:"王戎简要，裴楷清通。孔明卧龙，吕望非熊。\n杨震关西，丁宽易东。谢安高洁，王导公忠。\n匡衡凿壁，孙敬闭户。郅都苍鹰，宁成乳虎。"}
+]);
+enrich("太公家教",[
+{n:1,t:"太公家教",c:"一日为师，终身为父。弟子事师，敬同于父。\n习其道也，学其言语。黄金白玉，不如师之教言。\n一日不读，便觉面目可憎。"}
+]);
+enrich("四方华语",[
+{n:1,t:"四方华语",c:"集四方谚语、俗语以教童蒙，劝学劝善，明白如话。\n千里之行，始于足下；不积跬步，无以至千里。\n良药苦口利于病，忠言逆耳利于行。"}
+]);
+enrich("小学诗礼",[
+{n:1,t:"小学诗礼",c:"诗言志，礼立身。童子入学，先习洒扫、应对、进退之节。\n不学诗，无以言；不学礼，无以立。\n蒙以养正，圣功也。"}
+]);
+enrich("增广贤文",[
+{n:1,t:"劝学明理",c:"昔时贤文，诲汝谆谆。集韵增广，多见多闻。\n观今宜鉴古，无古不成今。知己知彼，将心比心。\n酒逢知己饮，诗向会人吟。相识满天下，知心能几人。"},
+{n:2,t:"处世警句",c:"相逢好似初相识，到老终无怨恨心。\n近水知鱼性，近山识鸟音。易涨易退山溪水，易反易覆小人心。\n运去金成铁，时来铁似金。读书须用意，一字值千金。"}
+]);
+
+// ============ 多语言名称 + 英文简介 ============
+meta("三字经","Three Character Classic","Clásico de Tres Caracteres","Clássico de Três Caracteres","A classic Chinese primer, with verses of three characters each, teaching history, morality and learning.");
+meta("千字文","Thousand Character Classic","Clásico de los Mil Caracteres","Clássico dos Mil Caracteres","A rhymed primer of one thousand non-repeating Chinese characters.");
+meta("百家姓","Hundred Family Surnames","Los Cien Apellidos","Os Cem Sobrenomes","A rhymed compilation of Chinese surnames.");
+meta("弟子规","Standards for Students","Normas para Discípulos","Normas para Discípulos","A classic of elementary moral education based on the Analects.");
+meta("幼学琼林","Qionglin's Youth Learning","Aprendizaje Juvenil de Qionglin","Aprendizado Juvenil de Qionglin","An encyclopedic primer covering astronomy, geography, people and affairs.");
+meta("龙文鞭影","Dragon Patterns and Whip Shadows","Patrones de Dragón","Padrões do Dragão","A four-character primer of historical allusions to inspire diligence.");
+meta("声律启蒙","Rhyme Primer","Primer de Rima","Primer de Rima","A primer for learning tonal patterns and parallel couplets.");
+meta("笠翁对韵","Li Weng's Rhyme Couplets","Rimas de Li Weng","Rimas de Li Weng","Parallel couplets for learning poetic antithesis and rhythm.");
+meta("小儿语","Children's Sayings","Dichos Infantiles","Ditos Infantis","Moral sayings in four characters for children.");
+meta("续小儿语","Sequel to Children's Sayings","Secuela de Dichos Infantiles","Continuação dos Ditos Infantis","A sequel of moral sayings for children.");
+meta("女诫","Admonitions for Women","Amonestaciones para Mujeres","Admoestações para Mulheres","Classic instruction on women's conduct by Ban Zhao.");
+meta("女论语","Women's Analects","Analectas de Mujeres","Analectos Femininos","Rules of conduct for women modeled on the Analects.");
+meta("内训","Instructions for the Inner Chambers","Instrucciones Domésticas","Instruções Domésticas","Moral instruction for the imperial household by Empress Xu.");
+meta("蒙求","Youth Primer","Primer Juvenil","Primer Juvenil","A four-character primer of historical anecdotes and allusions.");
+meta("太公家教","Family Teachings of Taigong","Enseñanzas de Taigong","Ensinamentos de Taigong","Maxims of family education attributed to Taigong.");
+meta("四方华语","Sayings from Four Directions","Dichos de los Cuatro Rumbos","Ditos dos Quatro Rumos","A collection of proverbs and sayings for elementary learning.");
+meta("小学诗礼","Elementary Poetry and Rites","Poesía y Ritos Elementales","Poesia e Ritos Elementares","Elementary instruction in poetry and ritual conduct.");
+meta("增广贤文","Expanded Wise Sayings","Proverbios Ampliados","Provérbios Ampliados","An expanded collection of aphorisms on life and conduct.");
+
+// ============ 关键短篇的英文正文（供非中文语言阅读） ============
+enrichEn("弟子规",[
+{n:1,t:"General Principles",c:"The Standards for Students are the teachings of the sages: first filial piety and fraternal duty, then sincerity and trustworthiness; love all broadly, draw near to the humane; with energy to spare, study the classics."},
+{n:2,t:"Filial Piety at Home",c:"When parents call, answer promptly; when parents command, act without laziness; when parents teach, listen respectfully; when parents reprove, accept obediently."},
+{n:3,t:"Trust and Love",c:"Whatever you say, let trust come first; deceit and falsehood, how can they be tolerated? Speak the truth, not flattery; love all people as the same sky covers and the same earth bears."}
+]);
+enrichEn("三字经",[
+{n:1,t:"On Education",c:"Men at birth are naturally good; their natures are alike, their habits become different. If not educated, their nature changes; the way of education lies in devotion."},
+{n:2,t:"On Filial Duty",c:"As jade uncut will not form a vessel, so man without learning will not know the Way. Be filial to parents, respectful to elders; first learn courtesy and rightness."}
+]);
+enrichEn("增广贤文",[
+{n:1,t:"On Learning and Prudence",c:"The wise sayings of old teach earnestly: to judge today, examine the past; without the past there is no present. Know yourself and know others; compare hearts with hearts."}
+]);
+enrichEn("小儿语",[
+{n:1,t:"Children's Sayings",c:"In all your words and deeds, be composed; nine mistakes in ten come from haste. Stand and speak with composure; do not be frivolous and invite ridicule."}
+]);
+enrichEn("女诫",[
+{n:1,t:"On Humility and Respect",c:"A woman should be humble and gentle, respectful and compliant. The Way of husband and wife joins yin and yang, reaches the spirits, and is the great bond of human relations."}
+]);
+
+})();
+</script>
