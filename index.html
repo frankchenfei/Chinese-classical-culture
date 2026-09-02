@@ -1033,7 +1033,7 @@ hmTimeline:{'zh-CN':'时间轴','zh-TW':'時間軸','en':'Timeline','es':'Cronol
 hmTimelineSub:{'zh-CN':'五千年朝代长河','zh-TW':'五千年朝代長河','en':'5,000 Years of Dynasties','es':'5,000 Años de Dinastías','pt':'5.000 Anos de Dinastias'},
 hmClassics:{'zh-CN':'典籍库','zh-TW':'典籍庫','en':'Classics Library','es':'Biblioteca de Clásicos','pt':'Biblioteca de Clássicos'},
 hmClassicsSub:{'zh-CN':'250+ 部经典智慧','zh-TW':'250+ 部經典智慧','en':'250+ Classic Works','es':'Más de 250 Clásicos','pt':'Mais de 250 Clássicos'},
-hmSurname:{'zh-CN':'姓氏溯源','zh-TW':'姓氏溯源','en':'Surname Origins','es':'Origen de Apellidos','pt':'Origens dos Sobrenomes'},
+hmSurname:{'zh-CN':'寻根','zh-TW':'尋根','en':'Roots','es':'Raíces','pt':'Raízes'},
 hmSurnameSub:{'zh-CN':'寻根问祖百家姓','zh-TW':'尋根問祖百家姓','en':'Trace Your Family Roots','es':'Rastrea tus Raíces Familiares','pt':'Rastreie suas Raízes Familiares'},
 hmShop:{'zh-CN':'国学雅集','zh-TW':'國學雅集','en':'Cultural Shop','es':'Tienda Cultural','pt':'Loja Cultural'},
 hmShopSub:{'zh-CN':'文房四宝与雅物','zh-TW':'文房四寶與雅物','en':'Scholar Items & Artifacts','es':'Artículos de Erudito y Artefactos','pt':'Artigos do Erudito e Artefatos'},
@@ -1268,7 +1268,7 @@ navHome:{'zh-CN':'首页','zh-TW':'首頁','en':'Home','es':'Inicio','pt':'Iníc
 navTimeline:{'zh-CN':'时间轴','zh-TW':'時間軸','en':'Timeline','es':'Cronología','pt':'Linha do Tempo'},
 navClassics:{'zh-CN':'典籍','zh-TW':'典籍','en':'Classics','es':'Clásicos','pt':'Clássicos'},
 navRushiDao:{'zh-CN':'论道','zh-TW':'論道','en':'Forum','es':'Foro','pt':'Fórum'},
-navSurname:{'zh-CN':'姓氏','zh-TW':'姓氏','en':'Surnames','es':'Apellidos','pt':'Sobrenomes'},
+navSurname:{'zh-CN':'寻根','zh-TW':'尋根','en':'Roots','es':'Raíces','pt':'Raízes'},
 navShop:{'zh-CN':'商城','zh-TW':'商城','en':'Shop','es':'Tienda','pt':'Loja'},
 navAccount:{'zh-CN':'账户','zh-TW':'賬戶','en':'Account','es':'Cuenta','pt':'Conta'},
 navLogin:{'zh-CN':'登录','zh-TW':'登錄','en':'Login','es':'Iniciar Sesión','pt':'Entrar'},
@@ -3681,9 +3681,9 @@ function sjAnswer(input){var c=_sjChar;if(!c)return"";var q=(input||"").toLowerC
 window.sjAsk=function(){var inp=document.getElementById("sjInput");var v=inp?inp.value.trim():"";if(!v)return;if(inp)inp.value="";sjUser(v);_sjAsk(v);};
 window.sjRandom=function(){if(!_sjChar)return;var pool=_sjChar.fallback.concat(_sjChar.responses.map(function(r){return r.a;}));sjSay(pool[Math.floor(Math.random()*pool.length)],_sjChar.emoji);};
 window.sjChip=function(k){sjUser(k);_sjAsk(k);};
-var DEEPSEEK_CONFIG={endpoint:"/api/deepseek",apiKey:"",model:"deepseek-chat",enabled:true,maxHistory:16};
+var DEEPSEEK_CONFIG={endpoint:"/api/deepseek.php",apiKey:"",model:"deepseek-chat",enabled:true,maxHistory:16};
 try{var _ds=JSON.parse(localStorage.getItem("ch_ds")||"{}");if(_ds.key)DEEPSEEK_CONFIG.apiKey=_ds.key;if(_ds.ep)DEEPSEEK_CONFIG.endpoint=_ds.ep;}catch(e){}
-function openAiSettings(){var ov=document.getElementById("dsOverlay");if(!ov){ov=document.createElement("div");ov.id="dsOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}ov.innerHTML='<div class="modal" style="max-width:460px"><button class="modal-close" onclick="closeAiSettings()">×</button><h3 style="margin-bottom:.4rem">⚙️ AI 神交设置（DeepSeek）</h3><p style="color:#8a6f52;font-size:.82rem;line-height:1.6;margin-bottom:.8rem">在 platform.deepseek.com 注册并充值后，把 API Key 粘贴到下面即可开启真实 AI 对话。<b>Key 仅保存在你自己的浏览器里（用于个人测试）。</b></p><div class="form-group"><label>DeepSeek API Key</label><input type="text" id="dsKey" placeholder="sk-..." value="'+DEEPSEEK_CONFIG.apiKey+'"></div><div class="form-group"><label>接口地址（可选，默认 /api/deepseek）</label><input type="text" id="dsEp" placeholder="/api/deepseek" value="'+DEEPSEEK_CONFIG.endpoint+'"></div><button class="btn-primary btn-block" onclick="saveAiSettings()">保存</button><button class="btn-secondary btn-block" onclick="clearAiSettings()">清除 Key</button></div>';ov.classList.add("active");}
+function openAiSettings(){var ov=document.getElementById("dsOverlay");if(!ov){ov=document.createElement("div");ov.id="dsOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}ov.innerHTML='<div class="modal" style="max-width:460px"><button class="modal-close" onclick="closeAiSettings()">×</button><h3 style="margin-bottom:.4rem">⚙️ AI 神交设置（DeepSeek）</h3><p style="color:#8a6f52;font-size:.82rem;line-height:1.6;margin-bottom:.8rem">在 platform.deepseek.com 注册并充值后，把 API Key 粘贴到下面即可开启真实 AI 对话。<b>Key 仅保存在你自己的浏览器里（用于个人测试）。</b></p><div class="form-group"><label>DeepSeek API Key</label><input type="text" id="dsKey" placeholder="sk-..." value="'+DEEPSEEK_CONFIG.apiKey+'"></div><div class="form-group"><label>接口地址（可选，默认 /api/deepseek）</label><input type="text" id="dsEp" placeholder="/api/deepseek.php" value="'+DEEPSEEK_CONFIG.endpoint+'"></div><button class="btn-primary btn-block" onclick="saveAiSettings()">保存</button><button class="btn-secondary btn-block" onclick="clearAiSettings()">清除 Key</button></div>';ov.classList.add("active");}
 function closeAiSettings(){var ov=document.getElementById("dsOverlay");if(ov)ov.classList.remove("active");}
 function saveAiSettings(){var k=document.getElementById("dsKey"),e=document.getElementById("dsEp");var key=k?k.value.trim():"";var ep=e?e.value.trim():"";DEEPSEEK_CONFIG.apiKey=key;if(ep)DEEPSEEK_CONFIG.endpoint=ep;try{localStorage.setItem("ch_ds",JSON.stringify({key:key,ep:ep}));}catch(e){}closeAiSettings();if(typeof sjUpdateAiStatus==="function")sjUpdateAiStatus();showToast(key?"AI 设置已保存":"已保存");}
 function clearAiSettings(){DEEPSEEK_CONFIG.apiKey="";try{localStorage.removeItem("ch_ds");}catch(e){}closeAiSettings();if(typeof sjUpdateAiStatus==="function")sjUpdateAiStatus();showToast("已清除 Key");}
