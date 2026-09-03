@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="华夏文脉是一站式中国传统文化平台：四书五经、道德经、论语、周易等国学经典原文在线阅读，儒释道文化、姓氏寻根、二十四节气、圣贤对话、国学小游戏与文创商城。"><meta name="keywords" content="华夏文脉,国学,中国传统文化,四书五经,道德经,论语,周易,儒释道,儒家,道家,佛家,姓氏,百家姓,二十四节气,国学小游戏,象棋,围棋,华容道"><meta property="og:site_name" content="华夏文脉"><meta property="og:title" content="华夏文脉｜国学经典·儒释道·姓氏寻根·国学小游戏"><meta property="og:description" content="读典籍、会圣贤、测性格、问签、寻根、下棋——一站式国学文化体验。"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"华夏文脉","url":"https://hi-mercury.com/","description":"一站式中国传统文化平台：国学经典阅读、儒释道文化、姓氏寻根、国学小游戏与文创商城。","potentialAction":{"@type":"SearchAction","target":"https://hi-mercury.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<meta name="description" content="华夏文脉是一站式中国传统文化平台：四书五经、道德经、论语、周易等国学经典原文在线阅读，儒释道文化、姓氏寻根、二十四节气、圣贤对话、国学小游戏与文创商城。"><meta name="keywords" content="华夏文脉,国学,中国传统文化,AI神交,AI圣贤对话,DeepSeek,四书五经,道德经,论语,周易,儒释道,儒家,道家,佛家,寻根问祖,姓氏起源,百家姓,二十四节气,七十二候,国学小游戏,象棋,围棋,五子棋,华容道,静心呼吸,圣贤映照"><meta property="og:site_name" content="华夏文脉"><meta property="og:title" content="华夏文脉｜AI神交·国学经典·寻根问祖·国学小游戏"><meta property="og:description" content="读典籍、会圣贤、测性格、问签、寻根、下棋——一站式国学文化体验。"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta name="twitter:card" content="summary"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"华夏文脉","url":"https://hi-mercury.com/","description":"一站式中国传统文化平台：国学经典阅读、儒释道文化、姓氏寻根、国学小游戏与文创商城。","potentialAction":{"@type":"SearchAction","target":"https://hi-mercury.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <title>华夏文脉｜国学经典·儒释道·姓氏寻根·国学小游戏</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%238B0000'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23f5e8d0' stroke-width='4'/%3E%3Cpath d='M50 22 A28 28 0 0 1 50 78 A14 14 0 0 1 50 50 A14 14 0 0 0 50 22 Z' fill='%23f5e8d0'/%3E%3Ccircle cx='50' cy='36' r='4' fill='%238B0000'/%3E%3Ccircle cx='50' cy='64' r='4' fill='%23f5e8d0'/%3E%3C/svg%3E">
 <style>
@@ -859,18 +859,41 @@ a.nav-link{text-decoration:none}
 .sj-ai-dot.on{background:#2e8b57;box-shadow:0 0 6px #2e8b57}
 .sj-ai-tag{display:inline-block;margin-left:.4rem;padding:0 .4rem;border-radius:4px;background:#8B0000;color:#fff;font-size:.68rem;font-style:normal}
 .sj-ai-dot.chk{background:#c9a227;animation:sjBlink 1s infinite alternate}
+.tag-link{cursor:pointer;border-bottom:1px dashed #8B6B4A}
+.tag-link:hover{background:#8B0000;color:#f5f0e8}
+.tl-classic-link{cursor:pointer;border-left:3px solid #c9a84c;padding-left:.4rem}
+.tl-classic-link:hover{background:#f3eadb}
+.tl-classic-link em{color:#8B0000}
+.sj-ai-status{font-size:.8rem;color:#8a6f52;margin:.4rem 0 .6rem;display:flex;align-items:center;gap:.35rem;padding:.5rem .7rem;border-radius:8px;background:#f3eadb}
+.sj-ai-status.on{background:linear-gradient(90deg,#e8f5e9,#f1f8e9);color:#1b5e20;font-weight:600;border:1px solid #a5d6a7;box-shadow:0 0 10px rgba(76,175,80,.25)}
+.sj-ai-dot{width:9px;height:9px;border-radius:50%;background:#b9a890;display:inline-block;flex-shrink:0}
+.sj-ai-dot.on{background:#2e8b57;box-shadow:0 0 8px #2e8b57;animation:sjPulse 1.6s infinite}
+.sj-ai-dot.chk{background:#c9a227;animation:sjBlink 1s infinite alternate}
+@keyframes sjPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+.sj-ai-badge{background:linear-gradient(90deg,#1b5e20,#2e7d32);color:#e8f5e9;text-align:center;padding:.55rem 1rem;border-radius:10px;font-size:.85rem;font-weight:600;margin-bottom:.6rem;box-shadow:0 4px 14px rgba(27,94,32,.22)}
+.sj-ai-lbl{color:#1b5e20;font-weight:700}
+.sm-emperor{background:#fff4d6;border-color:#d9a520;color:#7a5a00;font-weight:600}
+.sa-log{max-height:300px;overflow-y:auto;margin:.6rem 0;text-align:left}
+.hm-card-ai{border:1px solid #c9a84c;background:linear-gradient(160deg,#fffdf5,#f5f0e0)}
+.hm-card-ai:hover{border-color:#8B0000}
+.hero-btn-ghost{background:0 0;border:1px solid #f5e8d0;color:#f5e8d0}
+.hero-btn-ghost:hover{background:#f5e8d0;color:#8B0000}
 </style>
 </head>
 <body>
 <div class="top-bar"><div class="top-bar-inner"><div class="lang-switch" id="langSwitch"></div><div class="top-bar-user" id="topBarUser"></div></div></div>
 <nav class="sticky-nav"><div class="nav-inner"><span class="nav-brand" onclick="navTo('home')">☯ <span data-t="siteTitle"></span></span><div id="mainNav"></div></div></nav>
 <div class="page active" id="home-page">
-<header class="hero"><div class="hero-content"><div class="hero-icon"><div class="taiji"><i class="tj-dot tj-dot-a"></i><i class="tj-dot tj-dot-b"></i></div></div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button></div></header>
+<header class="hero"><div class="hero-content"><div class="hero-icon"><div class="taiji"><i class="tj-dot tj-dot-a"></i><i class="tj-dot tj-dot-b"></i></div></div><h1 data-t="siteTitle"></h1><p class="hero-sub" data-t="siteSub"></p><button class="hero-btn hero-btn-primary" onclick="navTo('classics')" data-t="browseClassics"></button><button class="hero-btn hero-btn-ghost" onclick="navTo('shenjiao')" data-t="heroShenjiao"></button></div></header>
 <div class="home-modules">
-<div class="hm-card" onclick="navTo('timeline')"><span class="hm-icon">🏯</span><h4 data-t="hmTimeline"></h4><p data-t="hmTimelineSub"></p></div>
+<div class="hm-card hm-card-ai" onclick="navTo('shenjiao')"><span class="hm-icon">🤖</span><h4 data-t="hmShenjiao"></h4><p data-t="hmShenjiaoSub"></p></div>
 <div class="hm-card" onclick="navTo('classics')"><span class="hm-icon">📚</span><h4 data-t="hmClassics"></h4><p data-t="hmClassicsSub"></p></div>
+<div class="hm-card" onclick="navTo('timeline')"><span class="hm-icon">🏯</span><h4 data-t="hmTimeline"></h4><p data-t="hmTimelineSub"></p></div>
 <div class="hm-card" onclick="navTo('surname')"><span class="hm-icon">👪</span><h4 data-t="hmSurname"></h4><p data-t="hmSurnameSub"></p></div>
+<div class="hm-card" onclick="navTo('forum')"><span class="hm-icon">💬</span><h4 data-t="hmForum"></h4><p data-t="hmForumSub"></p></div>
+<div class="hm-card" onclick="navTo('game')"><span class="hm-icon">♟️</span><h4 data-t="hmGame"></h4><p data-t="hmGameSub"></p></div>
 <div class="hm-card" onclick="navTo('shop')"><span class="hm-icon">🏺</span><h4 data-t="hmShop"></h4><p data-t="hmShopSub"></p></div>
+<div class="hm-card" onclick="openCalm()"><span class="hm-icon">🧘</span><h4 data-t="hmCalm"></h4><p data-t="hmCalmSub"></p></div>
 </div>
 <section class="home-section"><div class="hs-head"><h3 data-t="homeFeatured"></h3><button class="hs-more" onclick="navTo('classics')" data-t="viewAll"></button></div><div class="home-books" id="homeBooks"></div></section>
 <section class="home-section"><div class="hs-head"><h3 data-t="homeLatest"></h3><button class="hs-more" onclick="navTo('forum')" data-t="goForum"></button></div><div class="home-posts" id="homeForum"></div></section>
@@ -889,7 +912,7 @@ a.nav-link{text-decoration:none}
 <div class="shop-grid" id="shopGrid"></div><div class="faq-block" data-faq="shop"></div>
 </div>
 <div class="page" id="cart-page"><div id="cart-page-content"></div></div>
-<div class="page" id="shenjiao-page"><div class="sj-head" id="shenjiao-page-content"></div><div class="faq-block" data-faq="shenjiao"></div></div>
+<div class="page" id="shenjiao-page"><div class="sj-ai-badge">✨ 已接入 DeepSeek AI 大模型 · 与圣贤真实对话</div><div class="sj-head" id="shenjiao-page-content"></div><div class="faq-block" data-faq="shenjiao"></div></div>
 <div class="page" id="game-page"><div id="game-page-content"></div><div class="faq-block" data-faq="game"></div></div>
 <div class="page timeline-page" id="timeline-page">
 <div class="tl-map" aria-hidden="true"><svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -1037,6 +1060,14 @@ hmSurname:{'zh-CN':'寻根','zh-TW':'尋根','en':'Roots','es':'Raíces','pt':'R
 hmSurnameSub:{'zh-CN':'寻根问祖百家姓','zh-TW':'尋根問祖百家姓','en':'Trace Your Family Roots','es':'Rastrea tus Raíces Familiares','pt':'Rastreie suas Raízes Familiares'},
 hmShop:{'zh-CN':'国学雅集','zh-TW':'國學雅集','en':'Cultural Shop','es':'Tienda Cultural','pt':'Loja Cultural'},
 hmShopSub:{'zh-CN':'文房四宝与雅物','zh-TW':'文房四寶與雅物','en':'Scholar Items & Artifacts','es':'Artículos de Erudito y Artefactos','pt':'Artigos do Erudito e Artefatos'},
+hmShenjiao:{'zh-CN':'AI 神交','zh-TW':'AI 神交','en':'AI Sage Chat','es':'Charla con Sabios IA','pt':'Conversa com Sábios IA'},
+hmShenjiaoSub:{'zh-CN':'与 29 位圣贤真实对话','zh-TW':'與 29 位聖賢真實對話','en':'Real Chat with 29 Sages','es':'Charla real con 29 sabios','pt':'Conversa real com 29 sábios'},
+hmForum:{'zh-CN':'论道','zh-TW':'論道','en':'Discourse','es':'Debate','pt':'Debate'},
+hmForumSub:{'zh-CN':'儒释道文化探讨','zh-TW':'儒釋道文化探討','en':'Confucianism · Buddhism · Taoism','es':'Confucianismo · Budismo · Taoísmo','pt':'Confucionismo · Budismo · Taoísmo'},
+hmGame:{'zh-CN':'小游戏','zh-TW':'小遊戲','en':'Mini Games','es':'Minijuegos','pt':'Minijogos'},
+hmGameSub:{'zh-CN':'象棋围棋华容道','zh-TW':'象棋圍棋華容道','en':'Xiangqi · Go · Klotski','es':'Xiangqi · Go · Klotski','pt':'Xiangqi · Go · Klotski'},
+hmCalm:{'zh-CN':'静心呼吸','zh-TW':'靜心呼吸','en':'Calm Breathing','es':'Respiración Calma','pt':'Respiração Calma'},
+hmCalmSub:{'zh-CN':'太极呼吸 · 圣贤导引','zh-TW':'太極呼吸 · 聖賢導引','en':'Taiji Breathing · Sage Guide','es':'Respiración Taiji · Guía de Sabios','pt':'Respiração Taiji · Guia de Sábios'},
 homeFeatured:{'zh-CN':'推荐典籍','zh-TW':'推薦典籍','en':'Featured Classics','es':'Clásicos Destacados','pt':'Clássicos em Destaque'},
 homeLatest:{'zh-CN':'最新讨论','zh-TW':'最新討論','en':'Latest Discussions','es':'Últimos Debates','pt':'Últimas Discussões'},
 viewAll:{'zh-CN':'查看全部 →','zh-TW':'查看全部 →','en':'View All →','es':'Ver Todo →','pt':'Ver Tudo →'},
@@ -1259,10 +1290,11 @@ sjShareTitle:{'zh-CN':'与{n}神交所感','zh-TW':'與{n}神交所感','en':'Wo
 sjQuoteMark:{'zh-CN':'“','zh-TW':'「','en':'"','es':'"','pt':'"'},
 sjShareFrom:{'zh-CN':'','zh-TW':'','en':'','es':'','pt':''},
 sjShareOk:{'zh-CN':'已生成帖子草稿，去论坛发布吧','zh-TW':'已生成帖子草稿，去論壇發布吧','en':'Post draft ready — go publish it','es':'Borrador listo — publícalo','pt':'Rascunho pronto — publique-o'},
-siteSub:{'zh-CN':'中华国学典籍网','zh-TW':'中華國學典籍網','en':'Portal of Chinese Classics','es':'Portal de Clásicos Chinos','pt':'Portal de Clássicos Chineses'},
+siteSub:{'zh-CN':'AI 神交 · 国学典籍 · 寻根问祖','zh-TW':'AI 神交 · 國學典籍 · 尋根問祖','en':'AI Sages · Classics · Ancestry','es':'Sabios IA · Clásicos · Ancestros','pt':'Sábios IA · Clássicos · Ancestrais'},
 siteDesc:{'zh-CN':'从山海经的上古传说，到历朝历代的经史子集，以朝代时间轴为线索，带您走进中华五千年文化的浩瀚星河。','zh-TW':'從山海經的上古傳說，到歷朝歷代的經史子集，以朝代時間軸為線索，帶您走進中華五千年文化的浩瀚星河。','en':'From the myths of the Classic of Mountains and Seas to the classics and histories of every dynasty, follow our dynastic timeline into the vast galaxy of five thousand years of Chinese culture.','es':'Desde los mitos del Clásico de las Montañas y los Mares hasta los clásicos de cada dinastía, siga nuestra línea de tiempo dinástica hacia la vasta galaxia de cinco mil años de cultura china.','pt':'Dos mitos do Clássico das Montanhas e Mares aos clássicos e histórias de cada dinastia, siga nossa linha do tempo dinástica na vasta galáxia de cinco mil anos de cultura chinesa.'},
 exploreTimeline:{'zh-CN':'探索时间轴','zh-TW':'探索時間軸','en':'Explore Timeline','es':'Explorar la Línea de Tiempo','pt':'Explorar a Linha do Tempo'},
 browseClassics:{'zh-CN':'浏览典籍','zh-TW':'瀏覽典籍','en':'Browse Classics','es':'Explorar Clásicos','pt':'Explorar Clássicos'},
+heroShenjiao:{'zh-CN':'与圣贤对话','zh-TW':'與聖賢對話','en':'Chat with Sages','es':'Hablar con Sabios','pt':'Conversar com Sábios'},
 scrollDown:{'zh-CN':'向下探索','zh-TW':'向下探索','en':'Scroll to Explore','es':'Desplázate para Explorar','pt':'Role para Explorar'},
 navHome:{'zh-CN':'首页','zh-TW':'首頁','en':'Home','es':'Inicio','pt':'Início'},
 navTimeline:{'zh-CN':'时间轴','zh-TW':'時間軸','en':'Timeline','es':'Cronología','pt':'Linha do Tempo'},
@@ -2390,6 +2422,12 @@ qing:[{n:'康熙帝',m:'平定三藩，统一台湾'},{n:'雍正帝',m:'整顿�
 minguo:[{n:'孙中山',m:'辛亥革命，创立民国'},{n:'蒋介石',m:'北伐统一'}],
 zhonghua:[{n:'毛泽东',m:'开国大典'},{n:'邓小平',m:'改革开放'},{n:'习近平',m:'中华民族伟大复兴'}]
 };
+var SAGE_BY_NAME={},BOOK_BY_NAME={},_sageMapBuilt=false,_bookMapBuilt=false;
+function buildSageMap(){if(_sageMapBuilt)return;_sageMapBuilt=true;if(typeof SHENJIAO_CHARS!=="undefined"){SHENJIAO_CHARS.forEach(function(s){SAGE_BY_NAME[s.name]=s.id;});}}
+function buildBookMap(){if(_bookMapBuilt)return;_bookMapBuilt=true;if(typeof BOOKS_DATA!=="undefined"){BOOKS_DATA.forEach(function(b){var n=(b.name&&b.name["zh-CN"])||"";n=n.replace(/《|》/g,"").trim();if(n)BOOK_BY_NAME[n]=b.id;});}}
+function tlFigureHtml(f){buildSageMap();var id=SAGE_BY_NAME[f];if(id)return '<span class="tag tag-link" onclick="event.stopPropagation();navTo(\'shenjiao\');openSage(\''+id+'\')" title="与'+f+'对话">'+f+'</span>';return '<span class="tag">'+f+'</span>';}
+function tlClassicHtml(b){buildBookMap();var n=(b.name||"").replace(/《|》/g,"").trim();var id=BOOK_BY_NAME[n];if(id)return '<div class="tl-classic tl-classic-link" onclick="event.stopPropagation();openReader(\''+id+'\')" title="阅读《'+n+'》"><b>'+b.name+'</b><span>'+b.desc+'</span><em>'+b.type+' · 点击阅读 →</em></div>';return '<div class="tl-classic"><b>'+b.name+'</b><span>'+b.desc+'</span><em>'+b.type+'</em></div>';}
+var TL_CULTURE={shanggu:["三皇五帝，文明滥觞","伏羲画八卦，神农尝百草","仓颉造字，大禹治水"],xia:["夏历：中国最早历法雏形","二里头遗址：青铜文化发端","家天下：世袭制之始"],shang:["甲骨文：中国最早成熟文字","青铜器鼎盛（司母戊鼎）","巫卜文化，敬天祭祖"],xizhou:["周公制礼作乐","宗法制与分封制","《诗经》早期篇章"],dongzhou:["百家争鸣兴起","孔子、老子、庄子诸子并起","《春秋》《左传》成书"],zhanguo:["百家争鸣高峰","屈原《离骚》","青铜剑与冶铁术进步"],qin:["书同文、车同轨、统一度量衡","修筑万里长城","兵马俑：地下军团"],xihan:["《史记》成书","蔡伦改进造纸术","张骞开通丝绸之路"],xin:["王莽托古改制","古文经学兴起"],donghan:["许慎《说文解字》","张衡地动仪","佛教传入中国"],sanguo:["建安文学：三曹七子","诸葛亮《出师表》","华佗麻沸散与外科"],xijin:["玄学兴起","书法艺术发展"],dongjin:["王羲之《兰亭序》","山水诗兴起","顾恺之绘画"],nanbeichao:["《文心雕龙》《昭明文选》","云冈、龙门石窟","祖冲之推算圆周率"],sui:["开凿大运河","创立科举制度","赵州桥"],tang:["唐诗鼎盛（李白、杜甫）","雕版印刷","禅宗兴盛"],wudai:["词的兴起","《韩熙载夜宴图》"],beisong:["毕昇活字印刷","《清明上河图》","程朱理学发端"],nanxun:["朱熹集理学大成","辛弃疾、李清照之词","指南针应用于航海"],yuan:["元曲四大家","郭守敬《授时历》","青花瓷成熟"],ming:["《永乐大典》","郑和七下西洋","《本草纲目》《天工开物》"],qing:["编纂《四库全书》","京剧形成","《红楼梦》"],minguo:["新文化运动","白话文运动","现代教育兴起"],zhonghua:["中华文明伟大复兴","五十六个民族共同家园"]};
 function renderTimeline(){var c=document.getElementById("timelineContainer");if(!c||typeof DYNASTIES==="undefined")return;
 var SEALS={shanggu:"古",xia:"夏",shang:"商",xizhou:"周",dongzhou:"春",zhanguo:"战",qin:"秦",xihan:"汉",xin:"新",donghan:"汉",sanguo:"三",xijin:"晋",dongjin:"晋",nanbeichao:"朝",sui:"隋",tang:"唐",wudai:"五",beisong:"宋",nanxun:"宋",yuan:"元",ming:"明",qing:"清",minguo:"民",zhonghua:"华"};
 var ERAS=[[0,6,"era1"],[7,9,"era2"],[10,13,"era3"],[14,16,"era4"],[17,19,"era5"],[20,21,"era6"],[22,23,"era7"]];
@@ -2400,9 +2438,9 @@ if(ss)ss.innerHTML='<div class="stat-item"><b>'+DYNASTIES.length+'</b><span>'+t(
 var html="";
 for(var ei=0;ei<ERAS.length;ei++){var e=ERAS[ei];html+='<div class="tl-era"><span>'+t(e[2])+'</span></div>';
 for(var i=e[0];i<=e[1];i++){var d=DYNASTIES[i];if(!d)continue;
-html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-seal">'+(SEALS[d.id]||d.name.charAt(0))+'</div><div class="tl-card"><div class="tl-head"><div class="tl-year">'+d.year+'</div><h3 class="tl-name">'+d.name+'</h3><div class="tl-sub">'+(d.subtitle||"")+'</div><div class="tl-capital"><em>'+t("tlCapital")+'</em>'+(CAPITALS[d.id]||'')+'</div></div><p class="tl-preview">'+(d.summary||"")+'</p><div class="tl-body"><div class="tl-block"><h4>'+t("tlTerritory")+'</h4><p>'+(TERRITORY[d.id]||'')+'</p></div>'+((EMPERORS[d.id]&&EMPERORS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEmperors")+'</h4><ul>'+EMPERORS[d.id].map(function(e){return'<li><b>'+e.n+'</b> · '+e.m+'</li>';}).join("")+'</ul></div>':"")+((EVENTS[d.id]&&EVENTS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEvents")+'</h4><ul>'+EVENTS[d.id].map(function(e){return'<li>'+e+'</li>';}).join("")+'</ul></div>':"")+
-((d.figures&&d.figures.length)?'<div class="tl-block"><h4>'+t("tlFigures")+'</h4><div class="tl-tags">'+d.figures.map(function(f){return'<span class="tag">'+f+'</span>';}).join("")+'</div></div>':"")+
-((d.classics&&d.classics.length)?'<div class="tl-block"><h4>'+t("tlClassics")+'</h4><div class="tl-classics">'+d.classics.map(function(b){return'<div class="tl-classic"><b>'+b.name+'</b><span>'+b.desc+'</span><em>'+b.type+'</em></div>';}).join("")+'</div></div>':"")+
+html+='<div class="tl-item" onclick="toggleTimeline('+i+')"><div class="tl-dot"></div><div class="tl-seal">'+(SEALS[d.id]||d.name.charAt(0))+'</div><div class="tl-card"><div class="tl-head"><div class="tl-year">'+d.year+'</div><h3 class="tl-name">'+d.name+'</h3><div class="tl-sub">'+(d.subtitle||"")+'</div><div class="tl-capital"><em>'+t("tlCapital")+'</em>'+(CAPITALS[d.id]||'')+'</div></div><p class="tl-preview">'+(d.summary||"")+'</p><div class="tl-body"><div class="tl-block"><h4>'+t("tlTerritory")+'</h4><p>'+(TERRITORY[d.id]||'')+'</p></div>'+((TL_CULTURE[d.id]&&TL_CULTURE[d.id].length)?'<div class="tl-block"><h4>文化掠影</h4><ul>'+TL_CULTURE[d.id].map(function(x){return'<li>'+x+'</li>';}).join("")+'</ul></div>':"")+((EMPERORS[d.id]&&EMPERORS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEmperors")+'</h4><ul>'+EMPERORS[d.id].map(function(e){return'<li><b>'+e.n+'</b> · '+e.m+'</li>';}).join("")+'</ul></div>':"")+((EVENTS[d.id]&&EVENTS[d.id].length)?'<div class="tl-block"><h4>'+t("tlEvents")+'</h4><ul>'+EVENTS[d.id].map(function(e){return'<li>'+e+'</li>';}).join("")+'</ul></div>':"")+
+((d.figures&&d.figures.length)?'<div class="tl-block"><h4>'+t("tlFigures")+'</h4><div class="tl-tags">'+d.figures.map(function(f){return tlFigureHtml(f);}).join("")+'</div></div>':"")+
+((d.classics&&d.classics.length)?'<div class="tl-block"><h4>'+t("tlClassics")+'</h4><div class="tl-classics">'+d.classics.map(function(b){return tlClassicHtml(b);}).join("")+'</div></div>':"")+
 '</div><div class="tl-arrow">▾</div></div></div>';
 }}
 c.innerHTML=html;}
@@ -2564,7 +2602,88 @@ const SURNAMES=[
   {n:"田",origin:"妫姓，陈完奔齐，改姓田氏。后田氏代齐。",famous:["田单","田横"]},
   {n:"姜",origin:"姜姓，炎帝神农氏生于姜水，以地为氏。",famous:["姜子牙（姜尚）","姜夔"]},
   {n:"范",origin:"祁姓，帝尧后裔。晋大夫士封于范，以邑为氏。",famous:["范仲淹","范成大","范蠡"]},
-  {n:"沈",origin:"姬姓，周文王第十子聃季载封于沈，以国为氏。",famous:["沈括","沈从文","沈约"]}
+  {n:"沈",origin:"姬姓，周文王第十子聃季载封于沈，以国为氏。",famous:["沈括","沈从文","沈约"]},
+  {n:"苗",origin:"芈姓，楚国公族苗贲皇之后，以封邑为氏。",famous:["苗训","苗可秀"]},
+  {n:"欧阳",origin:"姒姓，越王勾践之后，封于欧余山之阳，以地为氏。",famous:["欧阳询","欧阳修"]},
+  {n:"司马",origin:"周宣王时程伯休父为司马，以官为氏。",famous:["司马相如","司马迁","司马光"]},
+  {n:"诸葛",origin:"葛氏一支居诸城者称诸葛，后以之氏。",famous:["诸葛亮","诸葛瑾"]},
+  {n:"上官",origin:"芈姓，楚怀王少子兰为上官大夫，以官为氏。",famous:["上官仪","上官婉儿"]},
+  {n:"东方",origin:"伏羲之后，或以地为氏。",famous:["东方朔"]},
+  {n:"公孙",origin:"诸侯之孙称公孙，以身份为氏。",famous:["公孙弘","公孙龙"]},
+  {n:"令狐",origin:"姬姓，晋将魏颗封于令狐，以邑为氏。",famous:["令狐楚","令狐德棻"]},
+  {n:"轩辕",origin:"黄帝居轩辕之丘，因以为氏。",famous:["黄帝（轩辕）"]},
+  {n:"夏侯",origin:"姒姓，夏禹之后，周封杞国，后以国为氏。",famous:["夏侯婴","夏侯惇"]},
+  {n:"皇甫",origin:"子姓，宋戴公之子充石，字皇父，后改皇甫。",famous:["皇甫嵩","皇甫谧"]},
+  {n:"尉迟",origin:"北魏鲜卑尉迟部，以部落为氏。",famous:["尉迟恭"]},
+  {n:"长孙",origin:"北魏拓跋氏宗室之后。",famous:["长孙无忌","长孙皇后"]},
+  {n:"宇文",origin:"鲜卑宇文部，以部落为氏。",famous:["宇文泰","宇文化及"]},
+  {n:"慕容",origin:"鲜卑慕容部，以部落为氏。",famous:["慕容廆","慕容垂"]},
+  {n:"独孤",origin:"鲜卑独孤部，以部落为氏。",famous:["独孤信","独孤伽罗"]},
+  {n:"司徒",origin:"上古官名，以官为氏。",famous:["司徒美堂"]},
+  {n:"司空",origin:"上古官名，以官为氏。",famous:["司空图"]},
+  {n:"钟离",origin:"钟离国之后，以国为氏。",famous:["钟离权（汉钟离）","钟离眛"]},
+  {n:"西门",origin:"以居地为氏。",famous:["西门豹"]},
+  {n:"南宫",origin:"以居地为氏。",famous:["南宫适"]},
+  {n:"何",origin:"姬姓，韩氏之后，秦灭韩，子孙避祸改姓何。",famous:["何晏","何绍基"]},
+  {n:"于",origin:"姬姓，周武王第三子邘叔封于邘，去邑为于。",famous:["于谦","于右任"]},
+  {n:"董",origin:"己姓，飂叔安裔孙董父，以豢龙为职，赐姓董。",famous:["董仲舒","董其昌"]},
+  {n:"袁",origin:"妫姓，陈胡公后裔，以字为氏（辕→袁）。",famous:["袁绍","袁崇焕"]},
+  {n:"傅",origin:"姬姓，商相傅说之后，以地为氏。",famous:["傅说","傅山"]},
+  {n:"吕",origin:"姜姓，伯夷佐禹治水封于吕，以国为氏。",famous:["吕尚（姜子牙）","吕不韦"]},
+  {n:"卢",origin:"姜姓，齐桓公之后，封于卢邑，以邑为氏。",famous:["卢照邻","卢植"]},
+  {n:"蒋",origin:"姬姓，周公第三子伯龄封于蒋国，以国为氏。",famous:["蒋琬","蒋中正"]},
+  {n:"贾",origin:"姬姓，唐叔虞少子公明封于贾，以国为氏。",famous:["贾谊","贾岛"]},
+  {n:"丁",origin:"姜姓，齐太公之子丁公伋，以谥为氏。",famous:["丁汝昌","丁玲"]},
+  {n:"薛",origin:"任姓，黄帝裔孙奚仲封于薛，以国为氏。",famous:["薛仁贵","薛涛"]},
+  {n:"阎",origin:"姬姓，周武王封泰伯曾孙仲奕于阎乡，以地为氏。",famous:["阎立本","阎锡山"]},
+  {n:"余",origin:"秦穆公谋臣由余之后，以名为氏。",famous:["余靖","余秋雨"]},
+  {n:"戴",origin:"子姓，宋戴公之后，以谥为氏。",famous:["戴逵","戴震"]},
+  {n:"夏",origin:"姒姓，夏禹之后，以国为氏。",famous:["夏完淳","夏衍"]},
+  {n:"任",origin:"风姓，太昊之后，封于任国，以国为氏。",famous:["任昉","任伯年"]},
+  {n:"方",origin:"方雷氏之后，或周大夫方叔之后。",famous:["方孝孺","方以智"]},
+  {n:"石",origin:"姬姓，卫大夫石碏之后，以名为氏。",famous:["石碏","石达开"]},
+  {n:"姚",origin:"妫姓，虞舜生于姚墟，以地为姓。",famous:["姚崇","姚鼐"]},
+  {n:"谭",origin:"姒姓，谭国之后，以国为氏。",famous:["谭嗣同","谭鑫培"]},
+  {n:"廖",origin:"廖国之后，或以名为氏。",famous:["廖化","廖仲恺"]},
+  {n:"邹",origin:"曹姓，邾娄国之后，战国改称邹，以国为氏。",famous:["邹衍","邹容"]},
+  {n:"熊",origin:"芈姓，楚鬻熊之后，以名为氏。",famous:["熊廷弼","熊十力"]},
+  {n:"金",origin:"少昊金天氏之后，或以国为氏。",famous:["金圣叹","金岳霖"]},
+  {n:"陆",origin:"田氏之后，齐宣王少子通封于陆乡，以地为氏。",famous:["陆逊","陆游","陆九渊"]},
+  {n:"郝",origin:"商帝乙之子期封于郝乡，以地为氏。",famous:["郝懿行"]},
+  {n:"孔",origin:"子姓，宋微子之后，孔子父叔梁纥始以孔为氏。",famous:["孔子","孔融","孔尚任"]},
+  {n:"白",origin:"芈姓，楚平王太子建之子胜封白公，以邑为氏。",famous:["白起","白居易"]},
+  {n:"崔",origin:"姜姓，齐丁公嫡子季子让国，封于崔邑。",famous:["崔颢","崔护"]},
+  {n:"康",origin:"姬姓，卫康叔之后，以谥为氏。",famous:["康有为"]},
+  {n:"毛",origin:"姬姓，周文王第八子毛叔郑封于毛，以国为氏。",famous:["毛遂","毛泽东"]},
+  {n:"邱",origin:"姜姓，齐太公封营丘，以丘为氏，避孔讳加邑为邱。",famous:["丘处机"]},
+  {n:"秦",origin:"嬴姓，秦非子之后，以国为氏。",famous:["秦观","秦琼"]},
+  {n:"江",origin:"嬴姓，伯益之后，封于江国，以国为氏。",famous:["江淹","江万里"]},
+  {n:"史",origin:"史官之后，以官为氏。",famous:["史可法","史铁生"]},
+  {n:"顾",origin:"姒姓，越王勾践之后，封于顾邑。",famous:["顾恺之","顾炎武"]},
+  {n:"侯",origin:"姬姓，晋侯缗之后，以爵为氏。",famous:["侯方域"]},
+  {n:"邵",origin:"姬姓，召公奭之后，以邑为氏（召→邵）。",famous:["邵雍","邵飘萍"]},
+  {n:"孟",origin:"姬姓，鲁桓公之子庆父之后，以孟为氏。",famous:["孟子","孟浩然"]},
+  {n:"龙",origin:"上古龙师之后，或以名为氏。",famous:["龙且","龙云"]},
+  {n:"万",origin:"姬姓，毕万之后，以名为氏。",famous:["万章","万斯同"]},
+  {n:"段",origin:"姬姓，郑武公少子共叔段之后。",famous:["段干木","段玉裁"]},
+  {n:"钱",origin:"彭姓，彭祖之孙孚为周钱府上士，以官为氏。",famous:["钱镠","钱学森"]},
+  {n:"汤",origin:"子姓，商汤之后，以名为氏。",famous:["汤显祖","汤和"]},
+  {n:"尹",origin:"少昊之子殷为工正，封于尹城，以地为氏。",famous:["尹吉甫","尹焞"]},
+  {n:"黎",origin:"九黎之后，或以国为氏。",famous:["黎元洪"]},
+  {n:"易",origin:"齐桓公之臣易牙之后，或以地为氏。",famous:["易中天"]},
+  {n:"常",origin:"卫康叔之后，封于常邑。",famous:["常遇春"]},
+  {n:"武",origin:"姬姓，周平王少子，以谥为氏。",famous:["武则天","武训"]},
+  {n:"乔",origin:"桥氏之后，去木为乔。",famous:["乔吉","乔致庸"]},
+  {n:"贺",origin:"庆氏之后，避汉安帝父讳改贺。",famous:["贺知章","贺龙"]},
+  {n:"赖",origin:"赖国之后，以国为氏。",famous:["赖文光","赖声川"]},
+  {n:"龚",origin:"共工氏之后，以共为氏，加龙为龚。",famous:["龚自珍","龚贤"]},
+  {n:"文",origin:"周文王之后，以谥为氏。",famous:["文天祥","文徵明"]},
+  {n:"向",origin:"子姓，宋桓公之后。",famous:["向秀","向警予"]},
+  {n:"莫",origin:"鄚国之后，去邑为莫。",famous:["莫言"]},
+  {n:"雷",origin:"方雷氏之后，或以地为氏。",famous:["雷焕","雷锋"]},
+  {n:"蓝",origin:"嬴姓，蓝田之后。",famous:["蓝采和","蓝瑛"]},
+  {n:"严",origin:"庄姓避汉明帝讳改严。",famous:["严光","严复"]},
+  {n:"华",origin:"子姓，宋戴公之子考父食采于华。",famous:["华佗","华罗庚"]},
 ];
 function renderSurname(){const sec=document.getElementById("surname-page-content");if(!sec)return;
   let h="<div class=\"surname-search\"><input type=\"text\" id=\"surnameInput\" placeholder=\""+t("surnameSearch")+"...\" oninput=\"filterSurnames()\" autocomplete=\"off\"></div><div class=\"surname-list\" id=\"surnameList\">";
@@ -3687,8 +3806,9 @@ function openAiSettings(){var ov=document.getElementById("dsOverlay");if(!ov){ov
 function closeAiSettings(){var ov=document.getElementById("dsOverlay");if(ov)ov.classList.remove("active");}
 function saveAiSettings(){var k=document.getElementById("dsKey"),e=document.getElementById("dsEp");var key=k?k.value.trim():"";var ep=e?e.value.trim():"";DEEPSEEK_CONFIG.apiKey=key;if(ep)DEEPSEEK_CONFIG.endpoint=ep;try{localStorage.setItem("ch_ds",JSON.stringify({key:key,ep:ep}));}catch(e){}closeAiSettings();if(typeof sjUpdateAiStatus==="function")sjUpdateAiStatus();showToast(key?"AI 设置已保存":"已保存");}
 function clearAiSettings(){DEEPSEEK_CONFIG.apiKey="";try{localStorage.removeItem("ch_ds");}catch(e){}closeAiSettings();if(typeof sjUpdateAiStatus==="function")sjUpdateAiStatus();showToast("已清除 Key");}
-function sjStatusHtml(state){var lang=window._lang||"zh-CN";var t={checking:{"zh-CN":"正在检测 DeepSeek 连接…","zh-TW":"正在檢測 DeepSeek 連接…","en":"Checking DeepSeek connection…","es":"Comprobando conexión con DeepSeek…","pt":"Verificando conexão com o DeepSeek…"},on:{"zh-CN":"✨ AI 已连接","zh-TW":"✨ AI 已連接","en":"✨ AI connected","es":"✨ IA conectada","pt":"✨ IA conectada"},off:{"zh-CN":"离线语录模式 · 未检测到 DeepSeek（需配置后端）","zh-TW":"離線語錄模式 · 未檢測到 DeepSeek（需配置後端）","en":"Offline quote mode · DeepSeek not detected (backend required)","es":"Modo de citas sin conexión · DeepSeek no detectado (requiere backend)","pt":"Modo de citação offline · DeepSeek não detectado (requer backend)"}};var m=t[state]||t.off;var cls=state==="on"?" on":(state==="checking"?" chk":"");return '<span class="sj-ai-dot'+cls+'"></span> '+(m[lang]||m["zh-CN"]);}
-function sjUpdateAiStatus(){var el=document.querySelector(".sj-ai-status");if(!el)return;el.innerHTML=sjStatusHtml("checking");var done=function(on){if(el)el.innerHTML=sjStatusHtml(on?"on":"off");};var key=DEEPSEEK_CONFIG.apiKey,ep=DEEPSEEK_CONFIG.endpoint;if(key){done(true);return;}if(!ep){done(false);return;}try{fetch(ep,{method:"OPTIONS"}).then(function(r){done(r.ok||r.status===0||r.status===200||r.status===204);}).catch(function(){done(false);});}catch(e){done(false);}}
+var SAGE_AI_GREET={laozi:"道可道，非常道。你有何惑，吾以道答之。",kongzi:"有朋自远方来，不亦乐乎。但问无妨，吾知无不言。",zhuangzi:"天地与我并生。且放宽心，与你说说这逍遥之道。",mozi:"兼相爱，交相利。有何难事，吾以兼爱之理答你。",buddha:"一切有为法，如梦幻泡影。静心而问，吾为你开示。",huineng:"本来无一物。你且问来，当下即是。",wukong:"嘿嘿，俺老孙在此！有什么想不通的，尽管问俺！",simaqian:"究天人之际，通古今之变。但问史事，吾如实道来。",caocao:"对酒当歌。乱世之中，你有何惑，但说无妨。",liubang:"朕以布衣取天下。你想问什么，直言便是。",xiangyu:"力拔山兮气盖世！有何不服，尽管问来！",mao:"数风流人物，还看今朝。你有什么问题，我们一起探讨。",hanwu:"朕承先帝之业，开疆拓土。但问无妨。",qinshi:"朕扫六合，一统天下。你有何问，直言不讳。",wangyangming:"知行合一。心有所惑，吾与你格物致知。",libai:"天生我材必有用！把酒问青天，你有何愁，说来听听。",mazu:"海上风波，护你平安。有何心愿，但说无妨。",zhugeliang:"鞠躬尽瘁。你且问来，吾为你出谋划策。",sushi:"一蓑烟雨任平生。有何烦忧，且饮且谈。",quyuan:"路漫漫其修远兮。你问，吾以赤诚相答。",dufu:"安得广厦千万间。你有何忧，吾与天下人共之。",yuefei:"精忠报国。你问，吾以正气相答。",wentianxiang:"人生自古谁无死。你有何惑，吾以丹心相答。",zhenghe:"扬帆万里。你有何问，吾讲些海上见闻。",lishizhen:"医者仁心。你有何不适或疑问，但说无妨。",sunzi:"知己知彼。你有何谋略之问，吾以兵法相授。",guiguzi:"捭阖纵横。你有何难，吾教你察人谋事。",wangxizhi:"兰亭雅集，曲水流觞。你有何问，且慢慢道来。",guanyu:"义字当头。你有何惑，吾以忠义相答。"};
+function sjStatusHtml(state){var lang=window._lang||"zh-CN";var t={checking:{"zh-CN":"正在检测 DeepSeek 连接…","zh-TW":"正在檢測 DeepSeek 連接…","en":"Checking DeepSeek connection…","es":"Comprobando conexión con DeepSeek…","pt":"Verificando conexão com o DeepSeek…"},on:{"zh-CN":"✨ DeepSeek 大模型 · AI 已连接，可为你答疑解惑","zh-TW":"✨ DeepSeek 大模型 · AI 已連接，可為你答疑解惑","en":"✨ DeepSeek AI connected — ask me anything","es":"✨ IA DeepSeek conectada — pregúntame lo que quieras","pt":"✨ IA DeepSeek conectada — pergunte o que quiser"},off:{"zh-CN":"离线语录模式 · 未检测到 DeepSeek（需配置后端）","zh-TW":"離線語錄模式 · 未檢測到 DeepSeek（需配置後端）","en":"Offline quote mode · DeepSeek not detected (backend required)","es":"Modo de citas sin conexión · DeepSeek no detectado (requiere backend)","pt":"Modo de citação offline · DeepSeek não detectado (requer backend)"}};var m=t[state]||t.off;var cls=state==="on"?" on":(state==="checking"?" chk":"");if(state==="on"&&typeof _sjChar!=="undefined"&&_sjChar&&SAGE_AI_GREET[_sjChar.id]){return '<span class="sj-ai-dot on"></span> <span class="sj-ai-lbl">AI 大模型已接入</span> · '+SAGE_AI_GREET[_sjChar.id];}return '<span class="sj-ai-dot'+cls+'"></span> '+(m[lang]||m["zh-CN"]);}
+function sjUpdateAiStatus(){var el=document.querySelector(".sj-ai-status");if(!el)return;el.innerHTML=sjStatusHtml("checking");var done=function(on){if(el){el.innerHTML=sjStatusHtml(on?"on":"off");el.classList.toggle("on",!!on);}};var key=DEEPSEEK_CONFIG.apiKey,ep=DEEPSEEK_CONFIG.endpoint;if(key){done(true);return;}if(!ep){done(false);return;}try{fetch(ep,{method:"OPTIONS"}).then(function(r){done(r.ok||r.status===0||r.status===200||r.status===204);}).catch(function(){done(false);});}catch(e){done(false);}}
 var _sjHistory={};
 function sjThink(){var m={"zh-CN":"思考中…","zh-TW":"思考中…","en":"Thinking…","es":"Pensando…","pt":"Pensando…"};return m[window._lang]||m["zh-CN"];}
 function sjSystemPrompt(c){return "你是"+c.name+"（"+c.title+"）。"+c.intro+" 请以"+c.name+"的口吻、思想与性格，用中文回答用户的问题。回答要凝练、有哲理深度，可适当引用原典，一般不超过150字。不要自称AI或程序，不要跳出"+c.name+"的人设。";}
@@ -3980,6 +4100,42 @@ function faqT(v){var lang=window._lang||"zh-CN";if(lang==="zh-TW")return v.zh||"
 function renderFaqs(){document.querySelectorAll("[data-faq]").forEach(function(el){var k=el.getAttribute("data-faq");var f=FAQ_DATA[k];if(!f)return;var h='<h3 class="faq-title">'+faqT(f.title)+'</h3>';f.items.forEach(function(it){h+='<div class="faq-item"><h4 class="faq-q">'+faqT(it.q)+'</h4><p class="faq-a">'+faqT(it.a)+'</p></div>';});el.innerHTML=h;});}
 function renderFaqSchema(){var el=document.getElementById("faq-schema");var act=document.querySelector(".page.active");var page=act?act.id.replace("-page",""):"home";var f=FAQ_DATA[page];if(!f){if(el){el.remove();}return;}var items=[];f.items.forEach(function(it){items.push({"@type":"Question","name":faqT(it.q),"acceptedAnswer":{"@type":"Answer","text":faqT(it.a)}});});var obj={"@context":"https://schema.org","@type":"FAQPage","mainEntity":items};if(!el){el=document.createElement("script");el.type="application/ld+json";el.id="faq-schema";document.head.appendChild(el);}el.textContent=JSON.stringify(obj);}
 </script>
+<script>
+var _curSurname="";
+var EMPEROR_SET={"秦始皇":1,"汉高祖":1,"刘邦":1,"汉武帝":1,"刘彻":1,"光武帝":1,"刘备":1,"孙权":1,"曹操":1,"曹丕":1,"司马炎":1,"杨坚":1,"李渊":1,"李世民":1,"武则天":1,"赵匡胤":1,"成吉思汗":1,"忽必烈":1,"朱元璋":1,"康熙":1,"乾隆":1,"努尔哈赤":1,"皇太极":1,"陈霸先":1,"陈武帝":1,"王莽":1,"袁世凯":1,"黄帝":1,"尧":1,"舜":1,"禹":1};
+var SURNAME_EXTRA_FAMOUS={"李":["李斯","李时珍","李广"],"王":["王勃","王昌龄","王莽"],"张":["张载","张居正","张骞"],"刘":["刘备","刘彻"],"陈":["陈霸先","陈献章"],"杨":["杨坚","杨慎"],"赵":["赵匡胤","赵云"],"黄":["黄庭坚","黄宗羲"],"周":["周瑜","周恩来"],"吴":["吴道子","吴承恩"],"孙":["孙武","孙思邈"],"朱":["朱熹","朱元璋"],"胡":["胡雪岩"],"郭":["郭守敬"],"林":["林则徐"],"高":["高适"],"罗":["罗贯中"],"曹":["曹雪芹","曹操"],"谢":["谢灵运","谢安"],"宋":["宋应星"],"唐":["唐伯虎"],"韩":["韩愈","韩非子"],"冯":["冯梦龙"],"许":["许慎"],"萧":["萧何"],"程":["程颐","程颢"],"曾":["曾国藩"],"蔡":["蔡伦","蔡元培"],"魏":["魏源"],"苏":["苏秦","苏辙"],"叶":["叶圣陶"],"潘":["潘岳"],"杜":["杜牧"],"钟":["钟繇"],"汪":["汪曾祺"],"田":["田单","田忌"],"姜":["姜子牙"],"范":["范仲淹"],"沈":["沈括"],"何":["何进"],"于":["于成龙"],"董":["董存瑞"],"袁":["袁隆平","袁世凯"],"吕":["吕洞宾"],"孔":["孔融"],"白":["白起"],"毛":["毛泽东"],"秦":["秦琼"],"史":["史可法"],"孟":["孟子"],"武":["武则天"],"文":["文天祥"],"华":["华佗"]};
+function smFamous(n){var s=smFind(n);var a=(s&&s.famous||[]).concat(SURNAME_EXTRA_FAMOUS[n]||[]);var seen={},r=[];for(var i=0;i<a.length;i++){if(!seen[a[i]]){seen[a[i]]=1;r.push(a[i]);}}return r;}
+function smChip(f){var emp=EMPEROR_SET[f];return '<span class="sm-chip'+(emp?' sm-emperor':'')+'">'+(emp?'👑 ':'')+f+'</span>';}
+function smFind(n){if(typeof SURNAMES==="undefined")return null;for(var i=0;i<SURNAMES.length;i++){if(SURNAMES[i].n===n)return SURNAMES[i];}return null;}
+function openSurnameDetail(n){var s=smFind(n);if(!s)return;_curSurname=n;var fam=smFamous(n).join("、");var bless="你的血脉，可追溯至——"+s.origin+"与你同姓的先贤有："+fam+"。愿承先人之志，继往开来，光耀门楣。";var ov=document.getElementById("surnameOverlay");if(!ov){ov=document.createElement("div");ov.id="surnameOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}ov.innerHTML='<div class="modal surname-modal"><button class="modal-close" onclick="closeSurnameDetail()">×</button><div class="sm-head"><div class="sm-char">'+n+'</div><div><h3>'+n+'氏 · 寻根问祖</h3><p class="sm-origin">'+s.origin+'</p></div></div><div class="sm-block"><h4>🏮 寻根寄语</h4><p class="sm-bless">'+bless+'</p></div><div class="sm-block"><h4>🌟 同姓名人</h4><p class="sm-famous">'+smFamous(n).map(smChip).join("")+'</p></div><div class="sm-actions"><button class="btn-primary" onclick="copySurnameShare()">📋 复制寄语分享</button><button class="btn-secondary" onclick="openSurnameAi()">🤖 AI 解读我的姓氏</button></div></div>';ov.classList.add("active");}
+function closeSurnameDetail(){var ov=document.getElementById("surnameOverlay");if(ov)ov.classList.remove("active");}
+function copySurnameShare(){var n=_curSurname;var s=smFind(n);if(!s)return;var txt="我是"+n+"氏后人，我的祖先——"+(s.origin||"")+"。#华夏文脉 #寻根问祖";if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){showToast("已复制，去分享吧");});}else{showToast(txt);}}
+function openSurnameAi(){var n=_curSurname;var ov=document.getElementById("surnameAiOverlay");if(!ov){ov=document.createElement("div");ov.id="surnameAiOverlay";ov.className="modal-overlay";document.body.appendChild(ov);}ov.innerHTML='<div class="modal surname-modal"><button class="modal-close" onclick="closeSurnameAi()">×</button><h3>🤖 AI 解读 · '+n+'氏</h3><div class="sj-ai-status" id="saStatus"></div><div class="sj-log sa-log" id="saLog"></div><div class="sj-input-row"><input id="saInput" class="game-input" placeholder="问关于'+n+'氏的任何问题…" autocomplete="off"><button class="btn-primary" onclick="saAsk()">发送</button></div><p class="div-tip">基于 DeepSeek 大模型 · 未配置 Key 时返回本地解读</p></div>';ov.classList.add("active");saUpdateStatus();saSay("你好，我是国学姓氏研究员。你想了解"+n+"氏的起源、郡望、名人还是迁徙史？");}
+function closeSurnameAi(){var ov=document.getElementById("surnameAiOverlay");if(ov)ov.classList.remove("active");}
+function saUpdateStatus(){var el=document.getElementById("saStatus");if(!el)return;var lang=window._lang||"zh-CN";var off={"zh-CN":"未连接 DeepSeek · 当前为本地资料解读","zh-TW":"未連接 DeepSeek · 當前為本地資料解讀","en":"DeepSeek not connected · using local data","es":"DeepSeek no conectado · usando datos locales","pt":"DeepSeek não conectado · usando dados locais"}[lang]||"未连接 DeepSeek · 当前为本地资料解读";el.innerHTML=sjStatusHtml("checking");var done=function(on){if(el){el.innerHTML=on?sjStatusHtml("on"):off;el.classList.toggle("on",!!on);}};var key=DEEPSEEK_CONFIG.apiKey,ep=DEEPSEEK_CONFIG.endpoint;if(key){done(true);return;}if(!ep){done(false);return;}try{fetch(ep,{method:"OPTIONS"}).then(function(r){done(r.ok||r.status===0||r.status===200||r.status===204);}).catch(function(){done(false);});}catch(e){done(false);}}
+function saSay(t){var log=document.getElementById("saLog");if(!log)return;log.innerHTML+='<div class="sj-msg sj-sage"><div class="sj-bubble">'+t+'</div></div>';log.scrollTop=log.scrollHeight;}
+function saUser(t){var log=document.getElementById("saLog");if(!log)return;log.innerHTML+='<div class="sj-msg sj-me"><div class="sj-bubble">'+t+'</div></div>';log.scrollTop=log.scrollHeight;}
+function saAsk(){var inp=document.getElementById("saInput");var v=inp?inp.value.trim():"";if(!v)return;if(inp)inp.value="";saUser(v);var n=_curSurname;var sys="你是资深国学姓氏研究专家，熟悉中国姓氏的起源、郡望、堂号、名人与迁徙史。请用简洁、准确、庄重的语言回答用户关于"+n+"氏的问题，可引用史料，一般不超过200字。";_saCall(sys,v,function(r){saSay(r);},function(){saSay(saLocal(n));});}
+function _saCall(sys,user,ok,fail){var ep=DEEPSEEK_CONFIG.endpoint,key=DEEPSEEK_CONFIG.apiKey;var body={model:DEEPSEEK_CONFIG.model||"deepseek-chat",messages:[{role:"system",content:sys},{role:"user",content:user}],max_tokens:500,temperature:0.7};var url=key?"https://api.deepseek.com/chat/completions":ep;var headers={"Content-Type":"application/json"};if(key)headers["Authorization"]="Bearer "+key;try{fetch(url,{method:"POST",headers:headers,body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw new Error("http "+r.status);return r.json();}).then(function(d){var rep=(d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content)||"";if(rep)ok(rep);else fail();}).catch(function(){fail();});}catch(e){fail();}}
+function saLocal(n){var s=smFind(n);if(!s)return "未能找到该姓氏资料。";return n+"氏起源："+(s.origin||"")+"；同姓名人："+(smFamous(n).join("、"))+"。";}
+document.addEventListener("click",function(e){var t=e.target;var card=t&&t.closest?t.closest(".surname-card"):null;if(card){var ch=card.querySelector(".sc-char");if(ch)openSurnameDetail(ch.textContent.trim());}});
+</script>
+<style>
+.surname-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.7rem}
+.surname-card{cursor:pointer;transition:transform .2s,box-shadow .2s}
+.surname-card:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.08)}
+.surname-modal{max-width:460px}
+.sm-head{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.sm-char{width:64px;height:64px;border-radius:12px;background:#8B0000;color:#f5e8d0;font-size:2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(139,0,0,.3);flex-shrink:0}
+.sm-head h3{font-size:1.15rem;color:#2c1810}
+.sm-origin{font-size:.85rem;color:#8a6f52;margin-top:.2rem;line-height:1.6}
+.sm-block{margin-bottom:.9rem}
+.sm-block h4{font-size:.9rem;color:#8B0000;margin-bottom:.35rem}
+.sm-motto{font-size:1.02rem;color:#5c4a38;font-weight:600}
+.sm-bless{font-size:.9rem;color:#5c4a38;line-height:1.8}
+.sm-chip{display:inline-block;background:#f3eadb;border:1px solid #e0d3bd;border-radius:14px;padding:.15rem .6rem;margin:0 .3rem .3rem 0;font-size:.8rem;color:#6b5138}
+.sm-actions{display:flex;gap:.5rem;margin-top:1rem;flex-wrap:wrap}
+</style>
 </body>
 </html><script>
 // ===== 军棋 + 围棋 + 象棋 (2026-08-29 v2 棋盘重绘) =====
