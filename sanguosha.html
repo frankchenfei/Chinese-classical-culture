@@ -113,6 +113,18 @@ body{background:radial-gradient(1200px 700px at 50% -10%,#332417,#17100a 65%);co
 @media (max-width:760px){.fx-banner{font-size:22px;letter-spacing:4px}.fx-card{width:58px;height:78px}.fx-card .big{font-size:16px}.fx-card .nm{font-size:9px}.fx-card .ct{font-size:8px}}
 
 
+/* ============ 开局居中面板 ============ */
+#sgsStart{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:radial-gradient(1100px 640px at 50% 28%,rgba(74,50,28,.92),rgba(14,9,5,.97));font-family:"PingFang SC","Microsoft YaHei",serif;padding:16px}
+#sgsStart.on{display:flex}
+.sgs-start-card{width:min(460px,92vw);text-align:center;background:linear-gradient(180deg,#2b1d12,#1a1109);border:2px solid var(--gold);border-radius:18px;padding:30px 26px 26px;box-shadow:0 0 60px rgba(201,168,76,.28),0 24px 60px rgba(0,0,0,.6);animation:sgsStartIn .5s cubic-bezier(.2,.7,.3,1)}
+.sgs-start-card .seal{font-size:2.1rem;font-weight:900;color:var(--gold2);letter-spacing:6px;text-shadow:0 0 24px rgba(230,200,117,.5)}
+.sgs-start-card .sub{color:var(--dim);font-size:.9rem;margin:10px 0 4px;letter-spacing:2px}
+.sgs-start-card .roles{color:#c9b78e;font-size:.82rem;margin:2px 0 18px;letter-spacing:3px}
+.sgs-start-card .start-btn{display:block;width:100%;padding:14px 0;font-size:1.25rem;font-weight:900;letter-spacing:6px;color:#3a2600;background:linear-gradient(180deg,#f0d789,#c9a84c 55%,#a8842f);border:1px solid #8a6a2a;border-radius:12px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .12s,box-shadow .12s}
+.sgs-start-card .start-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.5),0 0 22px rgba(230,200,117,.55)}
+.sgs-start-card .tip{color:#a8956f;font-size:.72rem;margin-top:14px;line-height:1.7}
+@keyframes sgsStartIn{0%{opacity:0;transform:scale(.86) translateY(14px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+
 </style>
 </head>
 <body>
@@ -1027,6 +1039,40 @@ var SG={newGame:newGame,manual:manual,toggleSound:toggleSound,setLang:setLang,cl
     };
   })();
 })();
+
+/* ============ 开局居中「开始新游戏」 ============ */
+(function(){
+  var ov=null;
+  function ensure(){
+    if(ov)return ov;
+    ov=document.createElement('div'); ov.id='sgsStart';
+    ov.innerHTML='<div class="sgs-start-card">'+
+      '<div class="seal">三国杀</div>'+
+      '<div class="sub">华夏文脉 · 身份局</div>'+
+      '<div class="roles">主公 · 忠臣 · 反贼 · 内奸</div>'+
+      '<button class="start-btn" id="sgsStartBtn">▶ 开始新游戏</button>'+
+      '<div class="tip">消灭敌对阵营即可获胜 · 每回合 摸牌→出牌→弃牌<br>点击任意按钮将开启音效</div>'+
+      '</div>';
+    document.body.appendChild(ov);
+    ov.querySelector('#sgsStartBtn').onclick=function(){ try{ SG.newGame(); }catch(e){} };
+    return ov;
+  }
+  function show(){ var e=ensure(); e.className='on'; }
+  function hide(){ if(ov)ov.className=''; }
+  window.__sgsStartShow=show; window.__sgsStartHide=hide;
+  // 把 newGame 包一层：开局后自动收起居中面板（顶栏/结束弹窗按钮同样生效）
+  var _n=window.SG.newGame;
+  window.SG.newGame=function(){ var r=_n.apply(null,arguments); hide(); return r; };
+  window.newGame=window.SG.newGame;
+  // 语言切换时按钮文字跟随
+  var _s=window.SG.setLang;
+  window.SG.setLang=function(l){ var r=_s.apply(null,arguments); var b=document.getElementById('sgsStartBtn'); if(b)b.textContent=(LANG==='zh'||LANG==='tw')?'▶ 开始新游戏':'▶ '+T('newGame'); return r; };
+  window.setLang=window.SG.setLang;
+  // 初始：未开局则居中显示
+  function initUI(){ ensure(); var b=document.getElementById('sgsStartBtn'); if(b)b.textContent=(LANG==='zh'||LANG==='tw')?'▶ 开始新游戏':'▶ '+T('newGame'); if(typeof G==='undefined'||!G){ show(); } else { hide(); } }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',initUI); } else { initUI(); }
+})();
+
 
 </script>
 </body>
